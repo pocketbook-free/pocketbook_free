@@ -1,0 +1,196 @@
+
+S1D13521 Linux Device Driver (April 11, 2008)
+------------------------------------------------
+
+The S1D13521 Linux device driver provides the means for an application running in the
+user space to access to the S1D13521 chip.
+The driver itself has several configuration option, so it can be easily rebuilt
+depending on the target hardware platform. The driver has been tested on Linux kernels
+2.6.24 and Gumstix 2.6.20gum.
+
+Installing the Driver
+---------------------
+
+The following assumes the Linux kernel is 2.6.24 and the source files are located in the
+directory /usr/src/linux.2.6.24
+
+To install the driver:
+
+1. Copy the folder "epson" into the directory /usr/src/linux-2.6.24/drivers/video 
+
+2. Add the following line into the drivers/video/Kconfig file:
+        source "drivers/video/epson/Kconfig" 
+
+3. Add the following line to the drivers/video/Makefile:
+        obj-$(CONFIG_FB_EPSON_S1D13521)   += epson/ cfbfillrect.o cfbcopyarea.o cfbimgblt.o
+
+
+Configuring the Driver
+----------------------
+
+Once the driver sources are installed, the driver can be configured.
+In the directory /usr/src/linux-2.6.24 run the command 
+
+    make menuconfig
+
+Select 
+
+    Device Drivers --->                                  
+
+Select 
+
+    Graphics support --->
+
+Select
+
+    Epson S1D13521 Support --->
+
+The S1D13521 Specific menu allows selecting various options
+
+    < > S1D13521 Support                                      
+    (2)   Virtual Framebuffer update frequency (Hz)         
+    [ ]   EPSON PCI Support     
+    [ ]   Assume Gumstix + GPIO pins                               
+    [ ]   The host interface supports HRDY signal
+    [ ]   Use host interface command mode.              
+    [ ]   Create /proc device files                          
+    [ ]   Enable printk() debugging text.                       
+    [ ]   Display configuration settings while compiling        
+                       
+The driver can be built as a loadable module or built in the kernel. 
+
+Proc device files are usefull during the initial development stage. They
+provide the means to obtain various driver information and read/write registers
+directly from a Linux console, such as xterm. For example, 
+
+    cat /proc/s1d13521fb/info
+
+displays the following information:
+
+    S1D13521FB: $Revision: 0 $
+    Virtual Framebuffer Frequency: 16Hz
+
+    Syntax when writing to reg:  [index=hex] [val=hex]
+    To read a register, only set index=hex and then read from reg.
+    For example, to read register 0xAB:
+        echo index=AB > /proc/s1d13521fb/regio
+        cat /proc/s1d13521fb/regio
+
+The driver is built with a virtual frame buffer. Virtual frame buffer 
+allocates kernel memory and allows mapping it into the user space. A user
+space application can read/write this memory as if it were the display memory.
+The device driver periodically copies the virtual frame buffer into the real 
+display memory using the indirect interface.
+
+A more efficient image rendering by the user application can be achieved by 
+driver IOCTL calls. In this case, the application does not use the virtual 
+frame buffer at all, but issues various S1D13521 specific commands via the 
+driver. The driver must be configured to use the command mode and the hardware 
+configuration hardware lines must be configured accordingly (CNF1 = 1).
+
+There is one IOCTL code for each command (all codes and relevant structures for
+passing command parameters are defined in the file s1d13521ioctl.h):
+
+// System commands
+#define S1D13521_INIT_CMD_SET       (0x4500 | INIT_CMD_SET)
+#define S1D13521_INIT_PLL_STANDBY   (0x4500 | INIT_PLL_STANDBY)
+#define S1D13521_RUN_SYS            (0x4500 | RUN_SYS)
+#define S1D13521_STBY               (0x4500 | STBY)
+#define S1D13521_SLP                (0x4500 | SLP)
+#define S1D13521_INIT_SYS_RUN       (0x4500 | INIT_SYS_RUN)
+#define S1D13521_INIT_SYS_STBY      (0x4500 | INIT_SYS_STBY)
+#define S1D13521_INIT_SDRAM         (0x4500 | INIT_SDRAM)
+#define S1D13521_INIT_DSPE_CFG      (0x4500 | INIT_DSPE_CFG)
+#define S1D13521_INIT_DSPE_TMG      (0x4500 | INIT_DSPE_TMG)
+#define S1D13521_INIT_ROTMODE       (0x4500 | INIT_ROTMODE)
+
+// Register and memory access commands
+#define S1D13521_RD_REG             (0x4500 | RD_REG)
+#define S1D13521_WR_REG             (0x4500 | WR_REG)
+#define S1D13521_RD_SFM             (0x4500 | RD_SFM)
+#define S1D13521_WR_SFM             (0x4500 | WR_SFM)
+#define S1D13521_END_SFM            (0x4500 | END_SFM)
+
+// Burst access commands
+#define S1D13521_BST_RD_SDR         (0x4500 | BST_RD_SDR)
+#define S1D13521_BST_WR_SDR         (0x4500 | BST_WR_SDR)
+#define S1D13521_BST_END_SDR        (0x4500 | BST_END_SDR)
+
+// Image loading IOCTL commands
+#define S1D13521_LD_IMG             (0x4500 | LD_IMG)
+#define S1D13521_LD_IMG_AREA        (0x4500 | LD_IMG_AREA)
+#define S1D13521_LD_IMG_END         (0x4500 | LD_IMG_END)
+#define S1D13521_LD_IMG_WAIT        (0x4500 | LD_IMG_WAIT)
+#define S1D13521_LD_IMG_SETADR      (0x4500 | LD_IMG_SETADR)
+#define S1D13521_LD_IMG_DSPEADR     (0x4500 | LD_IMG_DSPEADR)
+
+// Polling commands
+#define S1D13521_WAIT_DSPE_TRG      (0x4500 | WAIT_DSPE_TRG)
+#define S1D13521_WAIT_DSPE_FREND    (0x4500 | WAIT_DSPE_FREND)
+#define S1D13521_WAIT_DSPE_LUTFREE  (0x4500 | WAIT_DSPE_LUTFREE)
+#define S1D13521_WAIT_DSPE_MLUTFREE (0x4500 | WAIT_DSPE_MLUTFREE)
+
+// Waveform update IOCTL commands
+#define S1D13521_RD_WFM_INFO        (0x4500 | RD_WFM_INFO)
+#define S1D13521_UPD_INIT           (0x4500 | UPD_INIT)
+#define S1D13521_UPD_FULL           (0x4500 | UPD_FULL)
+#define S1D13521_UPD_FULL_AREA      (0x4500 | UPD_FULL_AREA)
+#define S1D13521_UPD_PART           (0x4500 | UPD_PART)
+#define S1D13521_UPD_PART_AREA      (0x4500 | UPD_PART_AREA)
+#define S1D13521_UPD_GDRV_CLR       (0x4500 | UPD_GDRV_CLR)
+#define S1D13521_UPD_SET_IMGADR     (0x4500 | UPD_SET_IMGADR)
+
+The commands and command parameters are described in detail in the S1D13521
+Hardware Specification Manual.
+
+In addition to the above IOCTL codes, there are four more codes:
+
+#define S1D13521_REGREAD                0x4540
+#define S1D13521_REGWRITE               0x4541
+
+These two IOCTL codes allow reading/writing registers, supporting legacy source codes.
+
+#define S1D13521_MEMBURSTREAD           0x4546
+#define S1D13521_MEMBURSTWRITE          0x4547
+
+These two IOCTL codes allow burst reading/writing memory.
+
+
+Programming Examples
+--------------------
+
+Before issuing any commands, the application must open the driver and issue the
+commands with the opened driver handle:
+
+    if ((dhandle = open("/dev/fb0",O_RDWR)) == -1)
+    { 
+        ..handle error... 
+    }
+
+In the above example, we assumed the device driver had been installed as /dev/fb0.
+This, of course, depends on the actual Linux implementation.
+
+
+For example, to read a register, the application would use the IOCTL code S1D13521_REGREAD:
+
+    ioctl_hwc.addr = regaddress;
+    error = ioctl(dhandle,S1D13521_REGREAD,&ioctl_hwc);
+
+    if (error == 0) 
+        printf("Register Read: REG[%04Xh]=%04Xh", ioctl_hwc.addr, ioctl_hwc.value);
+    else
+        printf("IOCTL error: %d",error);
+
+To write to a register, the application would use the IOCTL code S1D13521_REGWRITE:
+
+    ioctl_hwc.addr = regaddress;
+    ioctl_hwc.value = val;
+    error = ioctl(dhandle,S1D13521_REGWRITE,&ioctl_hwc); 
+
+    if (error ==0)
+        printf("Register Write: REG[%X] <= %X", a, val);
+    else
+        printf("IOCTL error: %d",error);
+
+
+

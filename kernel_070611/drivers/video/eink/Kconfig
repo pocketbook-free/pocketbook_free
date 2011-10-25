@@ -1,0 +1,34 @@
+#
+# eInk configuration
+#
+
+config FB_EINK_LIBRARY
+    bool "eInk Built-in Library"
+    select FB_CFB_FILLRECT
+    select FB_CFB_COPYAREA
+    select FB_CFB_IMAGEBLIT
+#	select FB_SYS_FILLRECT
+#	select FB_SYS_COPYAREA
+#	select FB_SYS_IMAGEBLIT
+#	select FB_SYS_FOPS
+    select ZLIB_INFLATE
+    select ZLIB_DEFLATE
+    default y
+
+config FB_EINK
+    tristate "eInk Umbrella Config (HAL & Legacy Shim)"
+    depends on FB
+
+config FB_EINK_SHIM
+    tristate "eink Shim Driver (Legacy-to-HAL Bridge)"
+    depends on FB_EINK
+
+config FB_EINK_HAL
+    tristate "eink HAL Umbrella Config"
+    depends on FB_EINK
+
+config FB_EINK_HAL_BROADSHEET
+    tristate "eInk HAL Driver for the Broadsheet Controller"
+    depends on FB_EINK_HAL
+    # && ARCH_S3C6410
+    

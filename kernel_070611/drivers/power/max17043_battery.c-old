@@ -1,0 +1,563 @@
+/*
+ * BQ27x00 battery driver
+ *
+ * Copyright (C) 2008 Rodolfo Giometti <giometti@linux.it>
+ * Copyright (C) 2008 Eurotech S.p.A. <info@eurotech.it>
+ *
+ * Based on a previous work by Copyright (C) 2008 Texas Instruments, Inc.
+ *
+ * This package is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * THIS PACKAGE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+ * WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ */
+#include <linux/module.h>
+#include <linux/param.h>
+#include <linux/jiffies.h>
+#include <linux/workqueue.h>
+#include <linux/delay.h>
+#include <linux/platform_device.h>
+#include <linux/power_supply.h>
+#include <linux/idr.h>
+#include <linux/i2c.h>
+#include <asm/unaligned.h>
+#include <linux/init.h>
+#include <linux/interrupt.h>
+
+#define DRIVER_VERSION			"1.0.0"
+
+#define MAX17043_REG_VCELL		0x02
+#define MAX17043_REG_SOC		  0x04
+#define MAX17043_REG_MODE		  0x06 /* Relative State-of-Charge */
+#define MAX17043_REG_VERSION	0x08
+#define MAX17043_REG_CONFIG		0x0C
+#define MAX17043_REG_COMMAND	0xFE
+
+struct max17043_device_info;
+struct max17043_access_methods {
+	int (*read)(u8 reg, int *rt_value, int b_single,
+		struct max17043_device_info *di);
+	int (*write)(u8 reg,int bytes,void *src,
+		struct max17043_device_info *di);
+};
+
+struct max17043_device_info {
+	struct device 		*dev;
+	int			id;
+	int			voltage_uV;
+	int			current_uA;
+	int			temp_C;
+	int			charge_rsoc;
+	struct max17043_access_methods	*bus;
+	struct power_supply	bat;
+	struct work_struct irq_work;
+
+	struct i2c_client	*client;
+};
+
+static struct delayed_work detect_charge_timeout;
+int charge_full_flag ;
+
+/* If the system has several batteries we need a different name for each
+ * of them...
+ */
+
+extern int s3c_adc_get_adc_data(int channel);
+//extern int detect_usb_ac_charge();
+
+static DEFINE_IDR(battery_id);
+static DEFINE_MUTEX(battery_mutex);
+
+
+static enum power_supply_property max17043_props[] = {
+	POWER_SUPPLY_PROP_PRESENT,
+	POWER_SUPPLY_PROP_BATT_VOL,
+	POWER_SUPPLY_PROP_CURRENT_NOW,
+	POWER_SUPPLY_PROP_CAPACITY,
+	POWER_SUPPLY_PROP_BATT_TEMP,
+};
+
+
+static struct max17043_device_info *batt_info=NULL;
+
+/*
+ * Common code for max17043 devices read register
+ */
+
+static int max17043_battery_read(u8 reg, int *rt_value, int b_single,
+			struct max17043_device_info *di)
+{
+	int ret;
+
+	ret = di->bus->read(reg, rt_value, b_single, di);
+	*rt_value = be16_to_cpu(*rt_value);
+
+	return ret;
+}
+
+/*
+ * Common code for max17043 devices write register
+ */
+static int max17043_battery_write(u8 reg, void *rt_value,int num_regs,
+			struct max17043_device_info *di)
+{
+	int ret;
+	int bytes = num_regs * 2;
+
+	ret = di->bus->write(reg,bytes,rt_value,di);
+
+	return ret;
+}
+
+/*
+ * Return the battery temperature in Celcius degrees
+ * Or < 0 if something fails.
+ */
+static int max17043_battery_temperature(struct max17043_device_info *di)
+{
+	int ret;
+	int temp = 0;
+
+/*
+	ret = max17043_battery_read(BQ27x00_REG_TEMP, &temp, 0, di);
+	if (ret) {
+		dev_err(di->dev, "error reading temperature\n");
+		return ret;
+	}
+*/
+  temp = s3c_adc_get_adc_data(0);
+  printk("*******temp adc reg value = 0x%x**********\n",temp);
+	return (temp >> 2);
+}
+
+/*
+ * Return the battery Voltage in milivolts
+ * Or < 0 if something fails.
+ */
+static int max17043_battery_voltage(struct max17043_device_info *di)
+{
+	int ret;
+	int volt = 0;
+
+	ret = max17043_battery_read(MAX17043_REG_VCELL, &volt, 0, di);
+	if (ret) {
+		dev_err(di->dev, "error reading voltage\n");
+		return ret;
+	}
+
+	return volt;
+}
+EXPORT_SYMBOL(max17043_battery_voltage);
+/*
+ * Return the battery average current
+ * Note that current can be negative signed as well
+ * Or 0 if something fails.
+ */
+static int max17043_battery_current(struct max17043_device_info *di)
+{
+	int ret;
+	int curr = 0;
+	int flags = 0;
+
+/*
+	ret = max17043_battery_read(BQ27x00_REG_AI, &curr, 0, di);
+	if (ret) {
+		dev_err(di->dev, "error reading current\n");
+		return 0;
+	}
+	ret = bq27x00_read(BQ27x00_REG_FLAGS, &flags, 0, di);
+	if (ret < 0) {
+		dev_err(di->dev, "error reading flags\n");
+		return 0;
+	}
+	if ((flags & (1 << 7)) != 0) {
+		dev_dbg(di->dev, "negative current!\n");
+		return -curr;
+	}
+	*/
+	return curr;
+}
+
+
+/*
+ * Return the battery Relative State-of-Charge
+ * Or < 0 if something fails.
+ */
+int max17043_battery_rsoc(struct max17043_device_info *di)
+{
+	int ret;
+	int rsoc = 0;
+	float capacity;
+  //int capacity;
+	ret = max17043_battery_read(MAX17043_REG_SOC, &rsoc, 0, di);
+	if (ret) {
+		dev_err(di->dev, "error reading relative State-of-Charge\n");
+		return ret;
+	}
+	
+  capacity = 1.0*(rsoc &0xff) + 1.0*(rsoc >>8)/256;
+//	batt_capacity = (rsoc >> 8) + (rsoc & 0x0f)*1/256;
+//  printk("battery capacity = %f\n",capacity);
+  
+	rsoc = rsoc &0xff;
+	return rsoc;
+}
+
+int voltage_value_change(int reg_value)
+{
+	int value_high_bit;
+	int value_low_bit;
+	int value;
+	
+	
+	value_high_bit = (reg_value & 0xff)<<4;
+	value_low_bit = (reg_value & 0xff00)>>12;
+
+	value = (value_high_bit + value_low_bit);
+
+   value = value * 125;
+
+	return value;
+}
+
+int max17043_battery_get_property(enum power_supply_property psp,
+										union power_supply_propval *val)
+{
+	struct max17043_device_info *di;
+	int vol_reg_value;
+	if(batt_info==NULL)
+	{
+		printk(KERN_ALERT "ennic :%s ,batt_info==NULL!\n",__FUNCTION__);
+		return 0;
+	}
+		
+	di=batt_info;
+	
+	switch (psp) {
+	case POWER_SUPPLY_PROP_BATT_VOL:
+	case POWER_SUPPLY_PROP_PRESENT:
+		vol_reg_value = max17043_battery_voltage(di);
+   val->intval = voltage_value_change(vol_reg_value);
+		
+		if (psp == POWER_SUPPLY_PROP_PRESENT)
+			val->intval = val->intval <= 0 ? 0 : 1;
+		break;
+	case POWER_SUPPLY_PROP_CURRENT_NOW:
+		val->intval = max17043_battery_current(di);
+		break;
+	case POWER_SUPPLY_PROP_CAPACITY:
+		val->intval = max17043_battery_rsoc(di);
+		break;
+	case POWER_SUPPLY_PROP_BATT_TEMP:
+		val->intval = max17043_battery_temperature(di);
+		break;
+	case POWER_SUPPLY_PROP_TECHNOLOGY:
+		val->intval = POWER_SUPPLY_TECHNOLOGY_MCNAIR;
+		break;
+	
+	default:
+		return -EINVAL;
+	}
+
+	return 0;
+}
+
+EXPORT_SYMBOL(max17043_battery_get_property);
+
+/*
+ * max17043 specific code
+ */
+
+static int max17043_read(u8 reg, int *rt_value, int b_single,
+			struct max17043_device_info *di)
+{
+	struct i2c_client *client = di->client;
+	struct i2c_msg msg[1];
+	unsigned char data[2];
+	int err;
+
+	if (!client->adapter)
+		return -ENODEV;
+
+	msg->addr = client->addr;
+	msg->flags = 0;
+	msg->len = 1;
+	msg->buf = data;
+
+	data[0] = reg;
+	err = i2c_transfer(client->adapter, msg, 1);
+
+	if (err >= 0) {
+		if (!b_single)
+			msg->len = 2;
+		else
+			msg->len = 1;
+
+		msg->flags = I2C_M_RD;
+		err = i2c_transfer(client->adapter, msg, 1);
+		if (err >= 0) {
+			if (!b_single)
+				*rt_value = get_unaligned_be16(data);
+			else
+				*rt_value = data[0];
+
+			return 0;
+		}
+	}
+	return err;
+}
+
+static int max17043_write(u8 reg, int bytes,void *src,struct max17043_device_info *di)
+{
+	
+	struct i2c_client *client = di->client;
+	u8 msg[3];
+	int ret;
+
+	if (!client->adapter)
+		return -ENODEV;
+	
+	msg[0] = reg;
+	memcpy(&msg[1], src, bytes);
+	ret = i2c_master_send(client, msg, bytes + 1);
+	if (ret < 0)
+		return ret;
+	if (ret != bytes + 1)
+		return -EIO;
+	return 0;
+	
+}
+
+/*
+static irqreturn_t max17043_interrupt(int irq, void *data)
+{	
+	struct max17043_device_info *di = data;
+	disable_irq_nosync(irq);
+	schedule_work(&di->irq_work);
+	
+	return IRQ_HANDLED;
+}
+*/
+static void battery_capacity_detect_timeout(struct work_struct *work)
+{
+		int batt_capacity = 0;
+		int vol_value;
+		
+		batt_capacity = max17043_battery_rsoc(batt_info);
+		
+		vol_value = max17043_battery_voltage(batt_info);
+    vol_value = voltage_value_change(vol_value);
+		
+		if(batt_capacity >= 95)
+		  charge_full_flag = 1;
+
+	schedule_delayed_work(&detect_charge_timeout, HZ * 10);
+}
+
+/*
+static void max17043_irq_work(struct work_struct *work)
+{
+	printk("the battery voltage is low!\n");
+}
+
+int max17043_irq_init(struct max17043_device_info *info,int irq)
+{
+	int ret;
+	
+	ret = request_irq(irq, max17043_interrupt, 
+		IRQF_DISABLED | IRQF_TRIGGER_FALLING | IRQF_TRIGGER_RISING,
+		 "max17043_irq", NULL);
+	if (ret){
+		printk(KERN_ERR "max17043_irq request irq failed\n");
+		goto fail;
+	}
+	INIT_WORK(&info->irq_work, max17043_irq_work);
+	
+	fail:
+	free_irq(irq, info->client);
+}
+
+static irqreturn_t gpn4_irq(int irq, void *data)
+{	
+//	struct max17043_device_info *di = data;
+//	disable_irq_nosync(irq);
+	schedule_work(&batt_info->irq_work);
+	
+	return IRQ_HANDLED;
+}
+
+static void gpn4_irq_worker(struct work_struct *work)
+{
+	printk("usb power insert!\n");
+}
+*/
+static int max17043_battery_probe(struct i2c_client *client,
+				 const struct i2c_device_id *id)
+{
+	char *name;
+	struct max17043_device_info *di;
+	struct max17043_access_methods *bus;
+	int num;
+	int retval = 0;
+	int value;
+	int ret;
+	
+	printk(KERN_INFO "max17043 :%s start ....\n",__FUNCTION__);
+
+	/* Get new ID for the new battery device */
+	retval = idr_pre_get(&battery_id, GFP_KERNEL);
+	if (retval == 0)
+		return -ENOMEM;
+	mutex_lock(&battery_mutex);
+	retval = idr_get_new(&battery_id, client, &num);
+	mutex_unlock(&battery_mutex);
+	if (retval < 0)
+		return retval;
+
+//	name = kasprintf(GFP_KERNEL, "bq27200-%d", num);
+	name = kasprintf(GFP_KERNEL, "%s", "battery");
+	if (!name) {
+		dev_err(&client->dev, "failed to allocate device name\n");
+		retval = -ENOMEM;
+		goto batt_failed_1;
+	}
+
+	di = kzalloc(sizeof(*di), GFP_KERNEL);
+	if (!di) {
+		dev_err(&client->dev, "failed to allocate device info data\n");
+		retval = -ENOMEM;
+		goto batt_failed_2;
+	}
+	di->id = num;
+
+	bus = kzalloc(sizeof(*bus), GFP_KERNEL);
+	if (!bus) {
+		dev_err(&client->dev, "failed to allocate access method "
+					"data\n");
+		retval = -ENOMEM;
+		goto batt_failed_3;
+	}
+
+	i2c_set_clientdata(client, di);
+	di->dev = &client->dev;
+	di->bat.name = name;
+	bus->read = &max17043_read;
+	bus->write = &max17043_write;
+	di->bus = bus;
+	di->client = client;
+
+//	max17043_powersupply_init(di);
+
+//	retval = power_supply_register(&client->dev, &di->bat);
+	if (retval) {
+		dev_err(&client->dev, "failed to register battery\n");
+		goto batt_failed_4;
+	}
+	
+	batt_info=di;
+
+	dev_info(&client->dev, "support ver. %s enabled\n", DRIVER_VERSION);
+	
+	
+  max17043_battery_read(0x0c, &value,0, di);
+  printk("*********0x0c = 0x%x*******\n",value);
+  
+  value = (value & 0) |0x1697;
+  max17043_battery_write(0x0c,&value,1,di);
+	printk("*********write 0x0c = 0x%x*******\n",value);
+  
+  max17043_battery_read(0x0c,&value,0, di);
+  printk("*********0x0c = 0x%x*******\n",value);
+  
+   max17043_battery_read(0x02,&value,0, di);
+  printk("*********0x02 = 0x%x*******\n",value);
+  
+  charge_full_flag = 0;
+  
+  INIT_DELAYED_WORK(&detect_charge_timeout, battery_capacity_detect_timeout);
+  /*
+  init_timer(&detect_charge_timeout);
+	detect_charge_timeout.function = battery_capacity_detect_timeout;
+	detect_charge_timeout.data = (unsigned long)di;
+
+	mod_timer(&detect_charge_timeout, jiffies+10*HZ);
+		*/
+//		schedule_delayed_work(&detect_charge_timeout, HZ * 10);
+	return 0;
+	
+
+batt_failed_4:
+	kfree(bus);
+batt_failed_3:
+	kfree(di);
+batt_failed_2:
+	kfree(name);
+batt_failed_1:
+	mutex_lock(&battery_mutex);
+	idr_remove(&battery_id, num);
+	mutex_unlock(&battery_mutex);
+
+	return retval;
+}
+
+static int max17043_battery_remove(struct i2c_client *client)
+{
+	struct max17043_device_info *di = i2c_get_clientdata(client);
+
+	power_supply_unregister(&di->bat);
+
+	kfree(di->bat.name);
+
+	mutex_lock(&battery_mutex);
+	idr_remove(&battery_id, di->id);
+	mutex_unlock(&battery_mutex);
+	cancel_delayed_work_sync(&detect_charge_timeout);
+
+	kfree(di);
+
+	return 0;
+}
+
+/*
+ * Module stuff
+ */
+
+static const struct i2c_device_id max17043_id[] = {
+	{ "max17043", 0 },
+	{},
+};
+
+static struct i2c_driver max17043_battery_driver = {
+	.driver = {
+		.name = "max17043",
+	},
+	.probe = max17043_battery_probe,
+	.remove = max17043_battery_remove,
+	.id_table = max17043_id,
+};
+
+static int __init max17043_battery_init(void)
+{
+	int ret;
+
+	ret = i2c_add_driver(&max17043_battery_driver);
+	if (ret)
+		printk(KERN_ERR "Unable to register max17043 driver\n");
+
+	return ret;
+}
+module_init(max17043_battery_init);
+
+static void __exit max17043_battery_exit(void)
+{
+	i2c_del_driver(&max17043_battery_driver);
+}
+module_exit(max17043_battery_exit);
+
+MODULE_AUTHOR("Rodolfo Giometti <giometti@linux.it>");
+MODULE_DESCRIPTION("max17043 monitor driver");
+MODULE_LICENSE("GPL");

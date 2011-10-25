@@ -1,0 +1,9 @@
+#menu "Sensors Driver support"
+
+config SENSORS_HALL
+	bool "HALL Sensor support"
+	default n
+	help
+	  Say Y here if you have an applicable e-book and want to experience
+	  the awesome irq of hall sensor.  
+#endmenu

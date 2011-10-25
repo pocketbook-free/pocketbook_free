@@ -1,0 +1,85 @@
+#
+# Video configuration
+#
+
+menu "Epson S1D13521 Support (Netronix)"
+
+config FB_EPSON_S1D13521
+    tristate "S1D13521 Support"
+    depends on FB
+    select FB_CFB_FILLRECT
+    select FB_CFB_COPYAREA
+    select FB_CFB_IMAGEBLIT
+    ---help---
+      This enables support for Epson S1D13521 controller.
+
+#config FB_EPSON_VIRTUAL_FRAMEBUFFER
+#    bool "Support for virtual frame buffer"
+#    depends on FB && FB_EPSON_S1D13521
+#    select FB_CFB_FILLRECT
+#    select FB_CFB_COPYAREA
+#    select FB_CFB_IMAGEBLIT
+#    ---help---
+#      The frame buffer device provides an abstraction for the graphics
+
+config FB_EPSON_BLACK_AND_WHITE
+    bool "Black & White Virtual Framebuffer"
+    depends on FB_EPSON_S1D13521
+    ---help---
+      Select Yes for Black & White Virtual Framebuffer, No for 8 shades of gray
+
+config FB_EPSON_VIRTUAL_FRAMEBUFFER_FREQ
+    depends on FB_EPSON_S1D13521
+    int "Virtual Framebuffer update frequency (Hz)"
+    default 4
+    ---help---
+      The virtual frame buffer update frequency
+
+config FB_EPSON_PCI
+    bool "EPSON PCI Support"
+    depends on FB_EPSON_S1D13521 && PCI
+    ---help---
+      This enables support for Epson PCI evaluation boards
+
+config FB_EPSON_GPIO_GUMSTIX
+    bool "Assume Gumstix + GPIO pins"
+    depends on FB_EPSON_S1D13521 && (!FB_EPSON_PCI)
+    ---help---
+      Select Yes if porting for the Gumstix/Broadsheet Platform, otherwise select No.
+
+config FB_EPSON_NTX_EBOOK_2440
+    bool "Assume NETRONIX eBook Device with S3C2440 SOC"
+    depends on FB_EPSON_S1D13521 && (!FB_EPSON_PCI) && (!FB_EPSON_GPIO_GUMSTIX)
+    ---help---
+      Select Yes if porting for the Netronix eBook with S3C2440 SOC Platform, otherwise select No.
+
+config FB_EPSON_HRDY_OK
+    bool "The host interface supports HRDY signal"
+    depends on FB_EPSON_S1D13521
+    ---help---
+      Select Yes if the host interface supports HRDY signal, otherwise select No.
+      If the HRDY signal is not present, driver polls the register containing the
+      interface status bit when neccessary.
+
+config FB_EPSON_PROC
+    bool "Create /proc device files"
+    depends on FB_EPSON_S1D13521
+    ---help---
+      Enables registers i/o using procfs. Useful for debugging.
+
+config FB_EPSON_DEBUG_PRINTK
+    bool "Enable printk() debugging text."
+    depends on FB_EPSON_S1D13521
+    ---help---
+      This enables printk() function in video driver.
+      This function writes text to kernel log file when video driver
+      functions are called. Note that printk() functions which display
+      error messages are never disabled.
+
+config FB_EPSON_SHOW_SETTINGS
+    bool "Display configuration settings while compiling"
+    depends on FB_EPSON_S1D13521
+    ---help---
+      At compile time, this shows video configuration settings as warning messages.
+
+endmenu

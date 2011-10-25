@@ -1,0 +1,109 @@
+/* linux/drivers/input/keyboard/s3c-keypad.h 
+ *
+ * Driver header for Samsung SoC keypad.
+ *
+ * Kim Kyoungil, Copyright (c) 2006-2009 Samsung Electronics
+ *      http://www.samsungsemi.com/
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+
+#ifndef _S3C_KEYPAD_H_
+#define _S3C_KEYPAD_H_
+
+static void __iomem *key_base;
+
+#define KEYPAD_COLUMNS	4
+#define KEYPAD_ROWS	4
+#define MAX_KEYPAD_NR	16	/* 4*4 */
+#define MAX_KEYMASK_NR	32
+/*
+int keypad_keycode[] = {
+		11, KEY_9, KEY_5, KEY_1, 12, 6, KEY_6, KEY_2,
+		13, 10, KEY_7, KEY_3, 14, KEY_Z, KEY_8, KEY_4,
+		17, 18, KEY_3, KEY_E, KEY_D, KEY_X, 23, KEY_UP,
+		25, 26, KEY_4, KEY_R, KEY_F, KEY_C, 31, 32,
+		33, KEY_O, KEY_5, KEY_T, KEY_G, KEY_V, KEY_DOWN, KEY_BACKSPACE,
+		KEY_P, KEY_0, KEY_6, KEY_Y, KEY_H, KEY_SPACE, 47, 48,
+		KEY_M, KEY_L, KEY_7, KEY_U, KEY_J, KEY_N, 55, KEY_ENTER,
+		KEY_LEFTSHIFT, KEY_9, KEY_8, KEY_I, KEY_K, KEY_B, 63, KEY_COMMA
+	};
+*/
+
+#define JOY_LEFT KEY_LEFT
+#define JOY_RIGHT KEY_RIGHT
+#define JOY_UP    KEY_UP
+#define JOY_DOWN  KEY_DOWN
+#define JOY_OK    KEY_ENTER
+#define FONT_UP   KEY_SCROLLUP
+#define FONT_DOWN KEY_SCROLLDOWN
+  
+//&*&*&*HC1_20091225, modify key mapping for Font Size Up/Dn and Volume Up/Dn keys
+int keypad_keycode[] = {
+		KEY_VOLUMEUP, JOY_OK, JOY_LEFT, KEY_HOME, KEY_VOLUMEDOWN, 6, JOY_UP, KEY_MENU,
+		FONT_UP, 10, JOY_RIGHT, KEY_PAGEUP, FONT_DOWN, KEY_Z, JOY_DOWN, KEY_PAGEDOWN,
+		17, 18, KEY_3, KEY_E, KEY_D, KEY_X, 23, KEY_UP,
+		25, 26, KEY_4, KEY_R, KEY_F, KEY_C, 31, 32,
+		33, KEY_O, KEY_5, KEY_T, KEY_G, KEY_V, KEY_DOWN, KEY_BACKSPACE,
+		KEY_P, KEY_0, KEY_6, KEY_Y, KEY_H, KEY_SPACE, 47, 48,
+		KEY_M, KEY_L, KEY_7, KEY_U, KEY_J, KEY_N, 55, KEY_ENTER,
+		KEY_LEFTSHIFT, KEY_9, KEY_8, KEY_I, KEY_K, KEY_B, 63, KEY_COMMA
+	};
+//&*&*&*HC2_20091225, modify key mapping for Font Size Up/Dn and Volume Up/Dn keys
+
+#ifdef CONFIG_CPU_S3C6410
+#define KEYPAD_DELAY		(600)
+#elif CONFIG_CPU_S5PC100
+#define KEYPAD_DELAY		(600)
+#endif
+
+
+//&*&*&*HC1_20091208, add for suspend /resume function
+#define KEYPAD_ROW_GPIOCON      S3C64XX_GPKCON1
+#define KEYPAD_ROW_GPIOPUD      S3C64XX_GPKPUD
+#define KEYPAD_COL_GPIOCON      S3C64XX_GPLCON
+#define KEYPAD_COL_GPIOPUD      S3C64XX_GPLPUD
+//&*&*&*HC2_20091208, add for suspend /resume function
+
+#define	KEYIFCOL_CLEAR		(readl(key_base+S3C_KEYIFCOL) & ~0xffff)
+#define	KEYIFCON_CLEAR		(readl(key_base+S3C_KEYIFCON) & ~0x1f)
+#define KEYIFFC_DIV		(readl(key_base+S3C_KEYIFFC) | 0x1)
+
+//&*&*&*HC1_20091208, add PWR key detection
+struct s3c_keypad_gpio_key
+{
+        int eint;
+        int gpio;
+        int gpio_af;
+	 int keycode;
+	 int state_upset;
+};
+//&*&*&*HC2_20091208, add PWR key detection
+
+struct s3c_keypad {
+	struct input_dev *dev;
+	int nr_rows;	
+	int no_cols;
+	int total_keys; 
+	int keycodes[MAX_KEYPAD_NR];
+//&*&*&*HC1_20091208, add PWR key detection	
+	struct s3c_keypad_gpio_key	*gpio_key;	
+	int gpio_key_num;
+//&*&*&*HC2_20091208, add PWR key detection
+};
+
+//&*&*&*HC1_20091208, add PWR key detection
+struct s3c_keypad_gpio_key s3c_gpio_key[] = {
+	{IRQ_EINT(1),  S3C64XX_GPN(1), 2, KEY_END, 1},
+//+&*&*&*YT_100129,EX3: send keycode to android layer while system suspend/resume
+	{IRQ_EINT(12),  S3C64XX_GPN(12), 2, KEY_0, 1}
+//-&*&*&*YT_100129,EX3: send keycode to android layer while system suspend/resume
+};
+//&*&*&*HC2_20091208, add PWR key detection
+
+extern void s3c_setup_keypad_cfg_gpio(int rows, int columns);
+
+#endif				/* _S3C_KEYIF_H_ */

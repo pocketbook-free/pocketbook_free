@@ -1,0 +1,61 @@
+config SND_S3C64XX_SOC
+	tristate "Samsung SoC Audio"
+	depends on ARCH_S3C64XX
+	help
+	  Say Y or M if you want to add support for codecs attached to
+	  the S3C AC97, I2S or SSP interface. You will also need
+	  to select the audio interfaces to support below.
+
+config SND_S3C_I2S_V32
+	tristate
+
+config SND_S3C_I2S_V40
+	tristate
+
+config SND_S3C_I2S_V50
+	tristate
+
+config SND_S3C_AC97
+	tristate
+
+config SND_S3C6410_SOC_S3C_HEADSET
+	tristate "S3C6410 Headset function"
+	depends on SND_S3C64XX_SOC && (MACH_SMDK6410)	
+	help
+	  Say Y if you want to enable headset function on smdk6410
+
+choice
+	prompt "Select the codec driver"
+	depends on SND_S3C64XX_SOC
+
+config  SND_SMDK6410_WM8580
+	tristate "WM8580-I2S on SMDK6410"
+	depends on ARCH_S3C64XX
+	select SND_S3C_I2S_V40
+	select SND_SOC_WM8580
+
+config  SND_SMDK6410_S5M8751
+	tristate "S5M8751-I2S on SMDK6410"
+	depends on SND_S3C64XX_SOC
+	select SND_S3C_I2S_V32
+	select SND_SOC_S5M8751
+
+config  SND_SMDK6410_WM9713
+	tristate "WM9713-AC97 on SMDK6410"
+	depends on SND_S3C64XX_SOC
+	select SND_S3C_AC97
+	select SND_SOC_WM9713
+
+config  SND_SMDK6410_WM8350
+	tristate "WM8350-I2S on SMDK6410"
+	depends on SND_S3C64XX_SOC
+	select SND_S3C_I2S_V32
+	select SND_SOC_WM8350
+
+config  SND_SMDK6410_SSM2603
+	tristate "SSM2603-I2S on SMDK6410"
+	depends on SND_S3C64XX_SOC
+	select SND_S3C_I2S_V32
+	select SND_SOC_SSM2603
+
+endchoice

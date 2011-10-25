@@ -1,0 +1,200 @@
+/* linux/arch/arm/plat-s3c/dev-gpio_keys.c
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+*/
+
+#include <linux/kernel.h>
+#include <linux/platform_device.h>
+#include <linux/gpio_keys.h>
+#include <linux/input.h>
+
+#include <mach/map.h>
+#include <plat/devs.h>
+#include <plat/cpu.h>
+#include <asm/mach/irq.h>
+
+#include <mach/gpio.h>
+#include <plat/regs-gpio.h>
+#include <plat/gpio-cfg.h>
+
+static struct gpio_keys_button gpio_keys[] = {
+//change by Lucifer
+#if 0
+	[0] = {
+		.code	= KEY_MENU ,
+		.irq	= IRQ_EINT(1),
+		.gpio	= S3C64XX_GPN(1),
+		.desc	= "Key Menu",
+		.type	= EV_KEY,
+		.active_low = 1,
+		.debounce_interval	= 10,
+	},
+
+#else
+	[0]	= {
+        .code	= KEY_MENU ,
+        .irq    = IRQ_EINT(16),
+		.gpio	= S3C64XX_GPL(8),
+		.desc	= "Key Menu",
+		.type	= EV_KEY,
+		.active_low	= 1,
+		.debounce_interval	= 10,
+	},
+	
+	[1] = {
+        .code	= KEY_HOME,
+        .irq    = IRQ_EINT(17),
+		.gpio	= S3C64XX_GPL(9),
+		.desc	= "Key Home",
+		.type	= EV_KEY,
+		.active_low	= 1,
+		.debounce_interval	= 10,
+	},
+	
+	[2] = {
+        .code	= KEY_UP,
+        .irq    = IRQ_EINT(18),
+		.gpio	= S3C64XX_GPL(10),
+		.desc	= "Key Up",
+		.type	= EV_KEY,
+		.active_low	= 1,
+		.debounce_interval	= 10,
+	},
+	
+	[3]	= {
+		.code	= KEY_DOWN,
+        .irq    = IRQ_EINT(19),
+		.gpio	= S3C64XX_GPL(11),
+		.desc	= "Key Down",
+		.type	= EV_KEY,
+		.active_low	= 1,
+		.debounce_interval	= 10,
+	},
+	
+	[4] = {
+		.code	= KEY_BACK,
+        .irq    = IRQ_EINT(20),
+		.gpio	= S3C64XX_GPL(12),
+		.desc	= "Key Back",
+		.type	= EV_KEY,
+		.active_low	= 1,
+		.debounce_interval	= 10,
+	},
+	
+	[5] = {
+		.code	= KEY_SELECT,
+        .irq  = IRQ_EINT(12),
+		.gpio	= S3C64XX_GPN(12),
+		.desc	= "5 Way Key Select",
+		.type	= EV_KEY,//Lucifer, should not be EV_KEY, what should it be?
+		.active_low	= 1,
+		.debounce_interval	= 10,
+	},
+	
+	[6] = {
+		.code	= KEY_5,
+        .irq    = IRQ_EINT_GROUP(4, 0),
+		.gpio	= S3C64XX_GPF(0),
+		.desc	= "5 Way Key 0",
+		.type	= EV_KEY,
+		.active_low	= 1,
+		.debounce_interval	= 10,
+	},
+
+	[7] = {
+		.code	= KEY_6,
+		.irq	= IRQ_EINT_GROUP(4, 1),
+		.gpio	= S3C64XX_GPF(1),
+		.desc	= "5 Way Key 1",
+		.type	= EV_KEY,
+		.active_low = 1,
+		.debounce_interval	= 10,
+	},
+	
+	[8] = {
+		.code	= KEY_7,
+		.irq	= IRQ_EINT_GROUP(4, 2),
+		.gpio	= S3C64XX_GPF(2),
+		.desc	= "5 Way Key 2",
+		.type	= EV_KEY,
+		.active_low = 1,
+		.debounce_interval	= 10,
+	},
+			
+	[9] = {
+		.code	= KEY_8,
+		.irq	= IRQ_EINT_GROUP(4, 3),
+		.gpio	= S3C64XX_GPF(3),
+		.desc	= "5 Way Key 3",
+		.type	= EV_KEY,
+		.active_low = 1,
+		.debounce_interval	= 10,
+	},
+	
+	[10] = {
+		.code	= KEY_9,
+		.irq	= IRQ_EINT_GROUP(4, 4),
+		.gpio	= S3C64XX_GPF(4),
+		.desc	= "5 Way Key 4",
+		.type	= EV_KEY,
+		.active_low = 1,
+		.debounce_interval	= 10,
+	},
+	#endif
+};
+
+static struct gpio_keys_platform_data s3c_gpio_keys_platdata = {
+	.buttons	= gpio_keys,
+	.nbuttons	= ARRAY_SIZE(gpio_keys),
+};
+
+struct platform_device s3c_device_gpio_keys = {
+	.name		= "gpio-keys-lucifer",
+	.id			= 0,
+	.dev		= {
+		.platform_data		= &s3c_gpio_keys_platdata,
+	},
+};
+
+void s3c_gpio_keys_init(void)
+{
+#if 1
+	s3c_gpio_cfgpin(S3C64XX_GPF(0), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPF(1), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPF(2), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPF(3), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPF(4), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPN(12), S3C_GPIO_SFN(2));
+	s3c_gpio_cfgpin(S3C64XX_GPL(8), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPL(9), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPL(10), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPL(11), S3C_GPIO_SFN(3));
+	s3c_gpio_cfgpin(S3C64XX_GPL(12), S3C_GPIO_SFN(3));
+	
+	s3c_gpio_setpull(S3C64XX_GPF(0), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPF(1), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPF(2), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPF(3), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPF(4), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPN(12), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPL(8), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPL(9), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPL(10), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPL(11), S3C_GPIO_PULL_UP);
+	s3c_gpio_setpull(S3C64XX_GPL(12), S3C_GPIO_PULL_UP);
+	
+	set_irq_type(IRQ_EINT_GROUP(4, 0), IRQ_TYPE_EDGE_BOTH);//GPF0
+	set_irq_type(IRQ_EINT_GROUP(4, 1), IRQ_TYPE_EDGE_BOTH);//GPF1
+	set_irq_type(IRQ_EINT_GROUP(4, 2), IRQ_TYPE_EDGE_BOTH);//GPF2
+	set_irq_type(IRQ_EINT_GROUP(4, 3), IRQ_TYPE_EDGE_BOTH);//GPF3
+	set_irq_type(IRQ_EINT_GROUP(4, 4), IRQ_TYPE_EDGE_BOTH);//GPF4
+	set_irq_type(IRQ_EINT(12), IRQ_TYPE_EDGE_BOTH);//GPN12
+	set_irq_type(IRQ_EINT(16), IRQ_TYPE_EDGE_BOTH);//GPL8
+	set_irq_type(IRQ_EINT(17), IRQ_TYPE_EDGE_BOTH);//GPL9
+	set_irq_type(IRQ_EINT(18), IRQ_TYPE_EDGE_BOTH);//GPL10
+	set_irq_type(IRQ_EINT(19), IRQ_TYPE_EDGE_BOTH);//GPL11
+	set_irq_type(IRQ_EINT(20), IRQ_TYPE_EDGE_BOTH);//GPL12
+#endif
+}

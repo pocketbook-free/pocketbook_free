@@ -1,0 +1,19 @@
+menuconfig INPUT_SENSOR
+	bool "sensor driver as the input device"
+	default y
+	help
+	  Say Y here, and a list of supported sensor will be displayed.
+	  This option doesn't affect the kernel.
+
+	  If unsure, say Y.
+if INPUT_SENSOR
+config GSENSOR_ADXL345
+	 bool "ADXL345 Gsensor support"
+	default y
+	help 
+	  support the adxl345 gsensor 
+config GSENSOR_BMA020
+	bool "BMA020 Gsensor support"
+	help
+	   support the bma020 sensor
+endif

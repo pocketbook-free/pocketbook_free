@@ -1,0 +1,4 @@
+config GSENSOR 
+	 bool "Gsensor support"
+	default y
+

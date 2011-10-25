@@ -1,0 +1,11 @@
+#!/bin/sh
+# Check for svn and a svn repo.
+if rev=`svn info 2>/dev/null | grep '^Last Changed Rev'`; then
+	rev=`echo $rev | awk '{print $NF}'`
+	printf -- '%s' "$rev"
+elif rev=`svn info 2>/dev/null | grep '^最后修改的版本'`; then
+	rev=`echo $rev | awk '{print $NF}'`
+	printf -- '%s' "$rev"
+	# All done with svn
+	exit
+fi
