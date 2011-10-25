@@ -1,0 +1,447 @@
+<!-- Create for PocketBook -->
+
+<HTML>
+
+ <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<BODY>
+
+  <p>
+Цкавс
+  </p>
+
+  <p>
+Creating and Installing COM+ Events
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Creating a COM+ Event
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+To Create and install a COM+ Event first create a new ActiveX Library.
+  </p>
+
+  <p>
+Next create a COM+ Event object.
+  </p>
+
+  <p>
+Add to the COM+ Event Object interface the methods along with parameters that will be passed to the subscriber.
+  </p>
+
+  <p>
+Save the project and compile it.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<><I>NOTE: Do not implement the methods for the generated object.</I>
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Installing a COM+ Event
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Create a new COM+ Application in Component Services. You get to Component Services by going to Start, Settings, Control Panel, Administrative Tools, Component Services.
+  </p>
+
+  <p>
+To create the application, in the tree view on the left go to Computers, My Computer, COM+ Applications.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0001.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Right click on COM+ Applications choose New, Application. Click Next, and Create an empty application.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0002.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Give the application a name. I suggest using all the defaults.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0003.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Now that you have the COM+ application created add the event. Expand the application and select Components. Right click on Components and choose New, Component.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0004.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Click Next and Choose Install new event class(es). Browse for the DLL that contains your COM+ Event Object and click Next and Finish.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0005.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+The COM+ Event Object will now be visible in the Component Services.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0006.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Creating and Installing COM+ Subscriptions
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Creating a COM+ Subscription
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+To Create a COM+ Subscription, create a new ActiveX Library.
+  </p>
+
+  <p>
+Next create a COM+ Subscription Object and browse for the interface created for the COM+ Event.
+  </p>
+
+  <p>
+Implement the generated methods that this object will subscribe to.
+  </p>
+
+  <p>
+Save the project and compile it.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Subscribing to a COM+ Event
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Expand the application and select Components. Right click on Components and choose New, Component.
+  </p>
+
+  <p>
+Click Next and Choose Install new component(s).
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0007.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Browse for the DLL that contains your COM Subscription Object and click Next and Finish.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0008.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Click on Subscriptions under the COM Subscription Object and right click and choose New, Subscription.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0009.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+All COM+ Events will be shown in the dialog, choose the methods or entire object you want to subscribe to and click Next.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0010.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Now choose the COM+ Event object you are going to subscribe to and click Next.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0011.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Enter a Subscription name, click Enable this subscription immediately, and click Next.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0012.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+The COM+ Subscription will now be visible in the Component Services.
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+<img src=pic0013.png>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+Creating COM+ Publishers
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+To trigger the COM+ Event, in your application Choose Project, Import Type Library.
+  </p>
+
+  <p>
+Add the added file to your uses clause or includes.
+  </p>
+
+  <p>
+Create an instance of the COM+ Event Object’s interface and assign the object created by the constructor of the Co class to it, and to trigger the event call the method. COM+ will look up the subscriptions for you. So for example in C++ and Delphi:
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+void __fastcall TForm1::Button1Click(TObject *Sender)
+  </p>
+
+  <p>
+{
+  </p>
+
+  <p>
+  TCOMIClockEvent Event;
+  </p>
+
+  <p>
+  Event = CoClockEvent::Create();
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+  // Now call the COM+ event object as you normally
+  </p>
+
+  <p>
+  // would: Event.SomeMethod()
+  </p>
+
+  <p>
+}
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+procedure Tform1.Button1Click(Sender: TObject);
+  </p>
+
+  <p>
+var
+  </p>
+
+  <p>
+  Event: IClockEvent;
+  </p>
+
+  <p>
+  Hour, Minute, Second: Integer;
+  </p>
+
+  <p>
+begin
+  </p>
+
+  <p>
+  Event := CoClockEvent.Create;
+  </p>
+
+  <p>
+
+  </p>
+
+  <p>
+  // Now call the COM+ event object as you normally
+  </p>
+
+  <p>
+  // would: Event.SomeMethod
+  </p>
+
+  <p>
+end;
+  </p>
+
+ </BODY>
+
+</HTML>
