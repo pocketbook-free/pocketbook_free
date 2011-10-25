@@ -1,0 +1,1423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Accelerator Groups</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="prev" href="gtk-General.html" title="Main loop and Events">
+<link rel="next" href="gtk-Accelerator-Maps.html" title="Accelerator Maps">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk-General.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="gtkbase.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="gtk-Accelerator-Maps.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk-Keyboard-Accelerators.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#gtk-Keyboard-Accelerators.description" class="shortcut">Description</a>
+                 | 
+                <a href="#gtk-Keyboard-Accelerators.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#gtk-Keyboard-Accelerators.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#gtk-Keyboard-Accelerators.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="Accelerator Groups">
+<a name="gtk-Keyboard-Accelerators"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk-Keyboard-Accelerators.top_of_page"></a>Accelerator Groups</span></h2>
+<p>Accelerator Groups — Groups of global keyboard accelerators for an entire GtkWindow</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="gtk-Keyboard-Accelerators.synopsis"></a><h2>Synopsis</h2>
+<a name="GtkAccelGroup"></a><pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup-struct" title="GtkAccelGroup">GtkAccelGroup</a>;
+<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a>*      <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-new" title="gtk_accel_group_new ()">gtk_accel_group_new</a>                 (void);
+#define             <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-ref" title="gtk_accel_group_ref">gtk_accel_group_ref</a>
+#define             <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-unref" title="gtk_accel_group_unref">gtk_accel_group_unref</a>
+void                <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-connect" title="gtk_accel_group_connect ()">gtk_accel_group_connect</a>             (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkAccelFlags" title="enum GtkAccelFlags">GtkAccelFlags</a> accel_flags,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);
+void                <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-connect-by-path" title="gtk_accel_group_connect_by_path ()">gtk_accel_group_connect_by_path</a>     (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *accel_path,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroupActivate" title="GtkAccelGroupActivate ()">*GtkAccelGroupActivate</a>)            (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *acceleratable,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> keyval,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> modifier);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroupFindFunc" title="GtkAccelGroupFindFunc ()">*GtkAccelGroupFindFunc</a>)            (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelKey" title="GtkAccelKey">GtkAccelKey</a> *key,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-disconnect" title="gtk_accel_group_disconnect ()">gtk_accel_group_disconnect</a>          (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-disconnect-key" title="gtk_accel_group_disconnect_key ()">gtk_accel_group_disconnect_key</a>      (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods);
+GtkAccelGroupEntry* <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-query" title="gtk_accel_group_query ()">gtk_accel_group_query</a>               (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> *n_entries);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-activate" title="gtk_accel_group_activate ()">gtk_accel_group_activate</a>            (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"
+>GQuark</a> accel_quark,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *acceleratable,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods);
+void                <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-lock" title="gtk_accel_group_lock ()">gtk_accel_group_lock</a>                (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);
+void                <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-unlock" title="gtk_accel_group_unlock ()">gtk_accel_group_unlock</a>              (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-get-is-locked" title="gtk_accel_group_get_is_locked ()">gtk_accel_group_get_is_locked</a>       (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);
+<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a>*      <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-from-accel-closure" title="gtk_accel_group_from_accel_closure ()">gtk_accel_group_from_accel_closure</a>  (<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);
+<a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a>     <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-get-modifier-mask" title="gtk_accel_group_get_modifier_mask ()">gtk_accel_group_get_modifier_mask</a>   (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-groups-activate" title="gtk_accel_groups_activate ()">gtk_accel_groups_activate</a>           (<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a>*             <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-groups-from-object" title="gtk_accel_groups_from_object ()">gtk_accel_groups_from_object</a>        (<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object);
+<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelKey" title="GtkAccelKey">GtkAccelKey</a>*        <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-find" title="gtk_accel_group_find ()">gtk_accel_group_find</a>                (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroupFindFunc" title="GtkAccelGroupFindFunc ()">GtkAccelGroupFindFunc</a> find_func,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+                    <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelKey" title="GtkAccelKey">GtkAccelKey</a>;
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-valid" title="gtk_accelerator_valid ()">gtk_accelerator_valid</a>               (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> keyval,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> modifiers);
+void                <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-parse" title="gtk_accelerator_parse ()">gtk_accelerator_parse</a>               (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *accelerator,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> *accelerator_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> *accelerator_mods);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-name" title="gtk_accelerator_name ()">gtk_accelerator_name</a>                (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accelerator_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accelerator_mods);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-get-label" title="gtk_accelerator_get_label ()">gtk_accelerator_get_label</a>           (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accelerator_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accelerator_mods);
+void                <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-set-default-mod-mask" title="gtk_accelerator_set_default_mod_mask ()">gtk_accelerator_set_default_mod_mask</a>
+                                                        (<a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> default_mod_mask);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-get-default-mod-mask" title="gtk_accelerator_get_default_mod_mask ()">gtk_accelerator_get_default_mod_mask</a>
+                                                        (void);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="gtk-Keyboard-Accelerators.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----GtkAccelGroup
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="gtk-Keyboard-Accelerators.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup--is-locked" title='The "is-locked" property'>is-locked</a>"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read
+  "<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup--modifier-mask" title='The "modifier-mask" property'>modifier-mask</a>"            <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a>       : Read
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="gtk-Keyboard-Accelerators.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup-accel-activate" title='The "accel-activate" signal'>accel-activate</a>"                                 : Has Details
+  "<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup-accel-changed" title='The "accel-changed" signal'>accel-changed</a>"                                  : Run First / Has Details
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="gtk-Keyboard-Accelerators.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> represents a group of keyboard accelerators,
+typically attached to a toplevel <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> (with
+<a class="link" href="GtkWindow.html#gtk-window-add-accel-group" title="gtk_window_add_accel_group ()"><code class="function">gtk_window_add_accel_group()</code></a>). Usually you won't need to create a
+<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> directly; instead, when using <a class="link" href="GtkItemFactory.html" title="GtkItemFactory"><span class="type">GtkItemFactory</span></a>, GTK+
+automatically sets up the accelerators for your menus in the item
+factory's <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>.
+</p>
+<p>
+Note that <em class="firstterm">accelerators</em> are different from
+<em class="firstterm">mnemonics</em>. Accelerators are shortcuts for
+activating a menu item; they appear alongside the menu item they're a
+shortcut for. For example "Ctrl+Q" might appear alongside the "Quit"
+menu item. Mnemonics are shortcuts for GUI elements such as text
+entries or buttons; they appear as underlined characters. See
+<a class="link" href="GtkLabel.html#gtk-label-new-with-mnemonic" title="gtk_label_new_with_mnemonic ()"><code class="function">gtk_label_new_with_mnemonic()</code></a>. Menu items can have both accelerators
+and mnemonics, of course.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="gtk-Keyboard-Accelerators.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkAccelGroup">
+<a name="GtkAccelGroup-struct"></a><h3>GtkAccelGroup</h3>
+<pre class="programlisting">typedef struct _GtkAccelGroup GtkAccelGroup;</pre>
+<p>
+An object representing and maintaining a group of accelerators.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_new ()">
+<a name="gtk-accel-group-new"></a><h3>gtk_accel_group_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a>*      gtk_accel_group_new                 (void);</pre>
+<p>
+Creates a new <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> object
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_ref">
+<a name="gtk-accel-group-ref"></a><h3>gtk_accel_group_ref</h3>
+<pre class="programlisting">#define	gtk_accel_group_ref	g_object_ref
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_accel_group_ref</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Deprecated equivalent of <a
+href="/usr/share/gtk-doc/html/libmissioncontrol-server/libmissioncontrol-server-mcd-debug.html#g-object-ref"
+><code class="function">g_object_ref()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the accel group that was passed in
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_unref">
+<a name="gtk-accel-group-unref"></a><h3>gtk_accel_group_unref</h3>
+<pre class="programlisting">#define	gtk_accel_group_unref	g_object_unref
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_accel_group_unref</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Deprecated equivalent of <a
+href="/usr/share/gtk-doc/html/libmissioncontrol-server/libmissioncontrol-server-mcd-debug.html#g-object-unref"
+><code class="function">g_object_unref()</code></a>.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_connect ()">
+<a name="gtk-accel-group-connect"></a><h3>gtk_accel_group_connect ()</h3>
+<pre class="programlisting">void                gtk_accel_group_connect             (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkAccelFlags" title="enum GtkAccelFlags">GtkAccelFlags</a> accel_flags,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);</pre>
+<p>
+Installs an accelerator in this group. When <em class="parameter"><code>accel_group</code></em> is being activated
+in response to a call to <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-groups-activate" title="gtk_accel_groups_activate ()"><code class="function">gtk_accel_groups_activate()</code></a>, <em class="parameter"><code>closure</code></em> will be
+invoked if the <em class="parameter"><code>accel_key</code></em> and <em class="parameter"><code>accel_mods</code></em> from <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-groups-activate" title="gtk_accel_groups_activate ()"><code class="function">gtk_accel_groups_activate()</code></a>
+match those of this connection.
+</p>
+<p>
+The signature used for the <em class="parameter"><code>closure</code></em> is that of <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroupActivate" title="GtkAccelGroupActivate ()"><span class="type">GtkAccelGroupActivate</span></a>.
+</p>
+<p>
+Note that, due to implementation details, a single closure can only be
+connected to one accelerator group.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td>      the accelerator group to install an accelerator in
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_key</code></em> :</span></p></td>
+<td>        key value of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_mods</code></em> :</span></p></td>
+<td>       modifier combination of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_flags</code></em> :</span></p></td>
+<td>      a flag mask to configure this accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>          closure to be executed upon accelerator activation
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_connect_by_path ()">
+<a name="gtk-accel-group-connect-by-path"></a><h3>gtk_accel_group_connect_by_path ()</h3>
+<pre class="programlisting">void                gtk_accel_group_connect_by_path     (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *accel_path,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);</pre>
+<p>
+Installs an accelerator in this group, using an accelerator path to look
+up the appropriate key and modifiers (see <a class="link" href="gtk-Accelerator-Maps.html#gtk-accel-map-add-entry" title="gtk_accel_map_add_entry ()"><code class="function">gtk_accel_map_add_entry()</code></a>).
+When <em class="parameter"><code>accel_group</code></em> is being activated in response to a call to
+<a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-groups-activate" title="gtk_accel_groups_activate ()"><code class="function">gtk_accel_groups_activate()</code></a>, <em class="parameter"><code>closure</code></em> will be invoked if the <em class="parameter"><code>accel_key</code></em> and
+<em class="parameter"><code>accel_mods</code></em> from <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-groups-activate" title="gtk_accel_groups_activate ()"><code class="function">gtk_accel_groups_activate()</code></a> match the key and modifiers
+for the path.
+</p>
+<p>
+The signature used for the <em class="parameter"><code>closure</code></em> is that of <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroupActivate" title="GtkAccelGroupActivate ()"><span class="type">GtkAccelGroupActivate</span></a>.
+</p>
+<p>
+Note that <em class="parameter"><code>accel_path</code></em> string will be stored in a <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"
+><span class="type">GQuark</span></a>. Therefore, if you
+pass a static string, you can save some memory by interning it first with 
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#g-intern-static-string"
+><code class="function">g_intern_static_string()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td>      the accelerator group to install an accelerator in
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_path</code></em> :</span></p></td>
+<td>       path used for determining key and modifiers.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>          closure to be executed upon accelerator activation
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GtkAccelGroupActivate ()">
+<a name="GtkAccelGroupActivate"></a><h3>GtkAccelGroupActivate ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            (*GtkAccelGroupActivate)            (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *acceleratable,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> keyval,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> modifier);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>acceleratable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keyval</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>modifier</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GtkAccelGroupFindFunc ()">
+<a name="GtkAccelGroupFindFunc"></a><h3>GtkAccelGroupFindFunc ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            (*GtkAccelGroupFindFunc)            (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelKey" title="GtkAccelKey">GtkAccelKey</a> *key,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.2</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_disconnect ()">
+<a name="gtk-accel-group-disconnect"></a><h3>gtk_accel_group_disconnect ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_accel_group_disconnect          (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);</pre>
+<p>
+Removes an accelerator previously installed through
+<a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-connect" title="gtk_accel_group_connect ()"><code class="function">gtk_accel_group_connect()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td> the accelerator group to remove an accelerator from
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>     the closure to remove from this accelerator group
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>     <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the closure was found and got disconnected
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_disconnect_key ()">
+<a name="gtk-accel-group-disconnect-key"></a><h3>gtk_accel_group_disconnect_key ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_accel_group_disconnect_key      (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods);</pre>
+<p>
+Removes an accelerator previously installed through
+<a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-connect" title="gtk_accel_group_connect ()"><code class="function">gtk_accel_group_connect()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td>      the accelerator group to install an accelerator in
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_key</code></em> :</span></p></td>
+<td>        key value of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_mods</code></em> :</span></p></td>
+<td>       modifier combination of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>          <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if there was an accelerator which could be 
+                   removed, <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> otherwise
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_query ()">
+<a name="gtk-accel-group-query"></a><h3>gtk_accel_group_query ()</h3>
+<pre class="programlisting">GtkAccelGroupEntry* gtk_accel_group_query               (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> *n_entries);</pre>
+<p>
+Queries an accelerator group for all entries matching <em class="parameter"><code>accel_key</code></em> and 
+<em class="parameter"><code>accel_mods</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td>      the accelerator group to query
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_key</code></em> :</span></p></td>
+<td>        key value of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_mods</code></em> :</span></p></td>
+<td>       modifier combination of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_entries</code></em> :</span></p></td>
+<td>        location to return the number of entries found, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>          an array of <em class="parameter"><code>n_entries</code></em> <span class="type">GtkAccelGroupEntry</span> elements, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>. The array is owned by GTK+ and must not be freed. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_activate ()">
+<a name="gtk-accel-group-activate"></a><h3>gtk_accel_group_activate ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_accel_group_activate            (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"
+>GQuark</a> accel_quark,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *acceleratable,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods);</pre>
+<p>
+Finds the first accelerator in <em class="parameter"><code>accel_group</code></em> 
+that matches <em class="parameter"><code>accel_key</code></em> and <em class="parameter"><code>accel_mods</code></em>, and
+activates it.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td>   a <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_quark</code></em> :</span></p></td>
+<td>   the quark for the accelerator name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>acceleratable</code></em> :</span></p></td>
+<td> the <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a>, usually a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>, on which
+                to activate the accelerator.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_key</code></em> :</span></p></td>
+<td>     accelerator keyval from a key event
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_mods</code></em> :</span></p></td>
+<td>    keyboard state mask from a key event
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if an accelerator was activated and handled this keypress
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_lock ()">
+<a name="gtk-accel-group-lock"></a><h3>gtk_accel_group_lock ()</h3>
+<pre class="programlisting">void                gtk_accel_group_lock                (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);</pre>
+<p>
+Locks the given accelerator group.
+</p>
+<p>
+Locking an acelerator group prevents the accelerators contained
+within it to be changed during runtime. Refer to
+<a class="link" href="gtk-Accelerator-Maps.html#gtk-accel-map-change-entry" title="gtk_accel_map_change_entry ()"><code class="function">gtk_accel_map_change_entry()</code></a> about runtime accelerator changes.
+</p>
+<p>
+If called more than once, <em class="parameter"><code>accel_group</code></em> remains locked until
+<a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-unlock" title="gtk_accel_group_unlock ()"><code class="function">gtk_accel_group_unlock()</code></a> has been called an equivalent number
+of times.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td> a <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_unlock ()">
+<a name="gtk-accel-group-unlock"></a><h3>gtk_accel_group_unlock ()</h3>
+<pre class="programlisting">void                gtk_accel_group_unlock              (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);</pre>
+<p>
+Undoes the last call to <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-lock" title="gtk_accel_group_lock ()"><code class="function">gtk_accel_group_lock()</code></a> on this <em class="parameter"><code>accel_group</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td> a <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_get_is_locked ()">
+<a name="gtk-accel-group-get-is-locked"></a><h3>gtk_accel_group_get_is_locked ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_accel_group_get_is_locked       (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);</pre>
+<p>
+Locks are added and removed using <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-lock" title="gtk_accel_group_lock ()"><code class="function">gtk_accel_group_lock()</code></a> and
+<a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-unlock" title="gtk_accel_group_unlock ()"><code class="function">gtk_accel_group_unlock()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td> a <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if there are 1 or more locks on the <em class="parameter"><code>accel_group</code></em>,
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> otherwise.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_from_accel_closure ()">
+<a name="gtk-accel-group-from-accel-closure"></a><h3>gtk_accel_group_from_accel_closure ()</h3>
+<pre class="programlisting"><a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a>*      gtk_accel_group_from_accel_closure  (<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);</pre>
+<p>
+Finds the <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> to which <em class="parameter"><code>closure</code></em> is connected; 
+see <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accel-group-connect" title="gtk_accel_group_connect ()"><code class="function">gtk_accel_group_connect()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+><span class="type">GClosure</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> to which <em class="parameter"><code>closure</code></em> is connected, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_get_modifier_mask ()">
+<a name="gtk-accel-group-get-modifier-mask"></a><h3>gtk_accel_group_get_modifier_mask ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a>     gtk_accel_group_get_modifier_mask   (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);</pre>
+<p>
+Gets a <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+><span class="type">GdkModifierType</span></a> representing the mask for this
+<em class="parameter"><code>accel_group</code></em>. For example, <span class="type">GDK_CONTROL_MASK</span>, <span class="type">GDK_SHIFT_MASK</span>, etc.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td> a <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the modifier mask for this accel group.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_groups_activate ()">
+<a name="gtk-accel-groups-activate"></a><h3>gtk_accel_groups_activate ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_accel_groups_activate           (<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accel_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accel_mods);</pre>
+<p>
+Finds the first accelerator in any <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> attached
+to <em class="parameter"><code>object</code></em> that matches <em class="parameter"><code>accel_key</code></em> and <em class="parameter"><code>accel_mods</code></em>, and
+activates that accelerator.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>        the <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a>, usually a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>, on which
+                to activate the accelerator.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_key</code></em> :</span></p></td>
+<td>     accelerator keyval from a key event
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_mods</code></em> :</span></p></td>
+<td>    keyboard state mask from a key event
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if an accelerator was activated and handled this keypress
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_groups_from_object ()">
+<a name="gtk-accel-groups-from-object"></a><h3>gtk_accel_groups_from_object ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a>*             gtk_accel_groups_from_object        (<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object);</pre>
+<p>
+Gets a list of all accel groups which are attached to <em class="parameter"><code>object</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>        a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a>, usually a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a list of all accel groups which are attached to <em class="parameter"><code>object</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accel_group_find ()">
+<a name="gtk-accel-group-find"></a><h3>gtk_accel_group_find ()</h3>
+<pre class="programlisting"><a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelKey" title="GtkAccelKey">GtkAccelKey</a>*        gtk_accel_group_find                (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group,
+                                                         <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroupFindFunc" title="GtkAccelGroupFindFunc ()">GtkAccelGroupFindFunc</a> find_func,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Finds the first entry in an accelerator group for which 
+<em class="parameter"><code>find_func</code></em> returns <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> and returns its <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelKey" title="GtkAccelKey"><span class="type">GtkAccelKey</span></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td> a <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>find_func</code></em> :</span></p></td>
+<td> a function to filter the entries of <em class="parameter"><code>accel_group</code></em> with
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> data to pass to <em class="parameter"><code>find_func</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the key of the first entry passing <em class="parameter"><code>find_func</code></em>. The key is 
+owned by GTK+ and must not be freed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GtkAccelKey">
+<a name="GtkAccelKey"></a><h3>GtkAccelKey</h3>
+<pre class="programlisting">typedef struct {
+  guint           accel_key;
+  GdkModifierType accel_mods;
+  guint           accel_flags : 16;
+} GtkAccelKey;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accelerator_valid ()">
+<a name="gtk-accelerator-valid"></a><h3>gtk_accelerator_valid ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_accelerator_valid               (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> keyval,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> modifiers);</pre>
+<p>
+Determines whether a given keyval and modifier mask constitute
+a valid keyboard accelerator. For example, the <span class="type">GDK_a</span> keyval
+plus <span class="type">GDK_CONTROL_MASK</span> is valid - this is a "Ctrl+a" accelerator.
+But, you can't, for instance, use the <span class="type">GDK_Control_L</span> keyval
+as an accelerator.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keyval</code></em> :</span></p></td>
+<td>    a GDK keyval
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>modifiers</code></em> :</span></p></td>
+<td> modifier mask
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the accelerator is valid
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accelerator_parse ()">
+<a name="gtk-accelerator-parse"></a><h3>gtk_accelerator_parse ()</h3>
+<pre class="programlisting">void                gtk_accelerator_parse               (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *accelerator,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> *accelerator_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> *accelerator_mods);</pre>
+<p>
+Parses a string representing an accelerator. The
+format looks like "&lt;Control&gt;a" or "&lt;Shift&gt;&lt;Alt&gt;F1" or
+"&lt;Release&gt;z" (the last one is for key release).
+The parser is fairly liberal and allows lower or upper case,
+and also abbreviations such as "&lt;Ctl&gt;" and "&lt;Ctrl&gt;".
+</p>
+<p>
+If the parse fails, <em class="parameter"><code>accelerator_key</code></em> and <em class="parameter"><code>accelerator_mods</code></em> will
+be set to 0 (zero).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accelerator</code></em> :</span></p></td>
+<td>      string representing an accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accelerator_key</code></em> :</span></p></td>
+<td>  return location for accelerator keyval
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accelerator_mods</code></em> :</span></p></td>
+<td> return location for accelerator modifier mask
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accelerator_name ()">
+<a name="gtk-accelerator-name"></a><h3>gtk_accelerator_name ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*              gtk_accelerator_name                (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accelerator_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accelerator_mods);</pre>
+<p>
+Converts an accelerator keyval and modifier mask
+into a string parseable by <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-parse" title="gtk_accelerator_parse ()"><code class="function">gtk_accelerator_parse()</code></a>.
+For example, if you pass in <span class="type">GDK_q</span> and <span class="type">GDK_CONTROL_MASK</span>,
+this function returns "&lt;Control&gt;q". 
+</p>
+<p>
+If you need to display accelerators in the user interface,
+see <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-get-label" title="gtk_accelerator_get_label ()"><code class="function">gtk_accelerator_get_label()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accelerator_key</code></em> :</span></p></td>
+<td>  accelerator keyval
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accelerator_mods</code></em> :</span></p></td>
+<td> accelerator modifier mask
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly-allocated accelerator name
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accelerator_get_label ()">
+<a name="gtk-accelerator-get-label"></a><h3>gtk_accelerator_get_label ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*              gtk_accelerator_get_label           (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> accelerator_key,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> accelerator_mods);</pre>
+<p>
+Converts an accelerator keyval and modifier mask into a string 
+which can be used to represent the accelerator to the user.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accelerator_key</code></em> :</span></p></td>
+<td>  accelerator keyval
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accelerator_mods</code></em> :</span></p></td>
+<td> accelerator modifier mask
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly-allocated string representing the accelerator.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.6</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accelerator_set_default_mod_mask ()">
+<a name="gtk-accelerator-set-default-mod-mask"></a><h3>gtk_accelerator_set_default_mod_mask ()</h3>
+<pre class="programlisting">void                gtk_accelerator_set_default_mod_mask
+                                                        (<a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> default_mod_mask);</pre>
+<p>
+Sets the modifiers that will be considered significant for keyboard
+accelerators. The default mod mask is <span class="type">GDK_CONTROL_MASK</span> |
+<span class="type">GDK_SHIFT_MASK</span> | <span class="type">GDK_MOD1_MASK</span> | <span class="type">GDK_SUPER_MASK</span> | 
+<span class="type">GDK_HYPER_MASK</span> | <span class="type">GDK_META_MASK</span>, that is, Control, Shift, Alt, 
+Super, Hyper and Meta. Other modifiers will by default be ignored 
+by <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a>.
+You must include at least the three modifiers Control, Shift
+and Alt in any value you pass to this function.
+</p>
+<p>
+The default mod mask should be changed on application startup,
+before using any accelerator groups.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>default_mod_mask</code></em> :</span></p></td>
+<td> accelerator modifier mask
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_accelerator_get_default_mod_mask ()">
+<a name="gtk-accelerator-get-default-mod-mask"></a><h3>gtk_accelerator_get_default_mod_mask ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               gtk_accelerator_get_default_mod_mask
+                                                        (void);</pre>
+<p>
+Gets the value set by <a class="link" href="gtk-Keyboard-Accelerators.html#gtk-accelerator-set-default-mod-mask" title="gtk_accelerator_set_default_mod_mask ()"><code class="function">gtk_accelerator_set_default_mod_mask()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the default accelerator modifier mask
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="gtk-Keyboard-Accelerators.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "is-locked" property'>
+<a name="GtkAccelGroup--is-locked"></a><h3>The <code class="literal">"is-locked"</code> property</h3>
+<pre class="programlisting">  "is-locked"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read</pre>
+<p>Is the accel group locked.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "modifier-mask" property'>
+<a name="GtkAccelGroup--modifier-mask"></a><h3>The <code class="literal">"modifier-mask"</code> property</h3>
+<pre class="programlisting">  "modifier-mask"            <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a>       : Read</pre>
+<p>Modifier Mask.</p>
+<p>Default value: GDK_SHIFT_MASK|GDK_CONTROL_MASK|GDK_MOD1_MASK|GDK_SUPER_MASK|GDK_HYPER_MASK|GDK_META_MASK</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="gtk-Keyboard-Accelerators.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "accel-activate" signal'>
+<a name="GtkAccelGroup-accel-activate"></a><h3>The <code class="literal">"accel-activate"</code> signal</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a>  *accel_group,
+                                                        <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>        *acceleratable,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>           keyval,
+                                                        <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> modifier,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>        user_data)          : Has Details</pre>
+<p>
+The accel-activate signal is an implementation detail of
+<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> and not meant to be used by applications.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td> the <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> which received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>acceleratable</code></em> :</span></p></td>
+<td> the object on which the accelerator was activated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keyval</code></em> :</span></p></td>
+<td> the accelerator keyval
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>modifier</code></em> :</span></p></td>
+<td> the modifier combination of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the accelerator was activated
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "accel-changed" signal'>
+<a name="GtkAccelGroup-accel-changed"></a><h3>The <code class="literal">"accel-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a>  *accel_group,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>           keyval,
+                                                        <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkModifierType"
+>GdkModifierType</a> modifier,
+                                                        <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a>       *accel_closure,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>        user_data)          : Run First / Has Details</pre>
+<p>
+The accel-changed signal is emitted when a <span class="type">GtkAccelGroupEntry</span>
+is added to or removed from the accel group.
+</p>
+<p>
+Widgets like <a class="link" href="GtkAccelLabel.html" title="GtkAccelLabel"><span class="type">GtkAccelLabel</span></a> which display an associated 
+accelerator should connect to this signal, and rebuild 
+their visual representation if the <em class="parameter"><code>accel_closure</code></em> is theirs.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_group</code></em> :</span></p></td>
+<td> the <a class="link" href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> which received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keyval</code></em> :</span></p></td>
+<td> the accelerator keyval
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>modifier</code></em> :</span></p></td>
+<td> the modifier combination of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accel_closure</code></em> :</span></p></td>
+<td> the <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+><span class="type">GClosure</span></a> of the accelerator
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="gtk-Keyboard-Accelerators.see-also"></a><h2>See Also</h2>
+<p>
+<a class="link" href="GtkWindow.html#gtk-window-add-accel-group" title="gtk_window_add_accel_group ()"><code class="function">gtk_window_add_accel_group()</code></a>, <a class="link" href="gtk-Accelerator-Maps.html#gtk-accel-map-change-entry" title="gtk_accel_map_change_entry ()"><code class="function">gtk_accel_map_change_entry()</code></a>,
+<a class="link" href="GtkItemFactory.html#gtk-item-factory-new" title="gtk_item_factory_new ()"><code class="function">gtk_item_factory_new()</code></a>, <a class="link" href="GtkLabel.html#gtk-label-new-with-mnemonic" title="gtk_label_new_with_mnemonic ()"><code class="function">gtk_label_new_with_mnemonic()</code></a>
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

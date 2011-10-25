@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using GTK+ on the X Window System</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="prev" href="gtk-running.html" title="Running GTK+ Applications">
+<link rel="next" href="gtk-windows.html" title="Using GTK+ on Windows">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gtk-running.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="gtk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="gtk-windows.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" title="Using GTK+ on the X Window System">
+<a name="gtk-x11"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Using GTK+ on the X Window System</span></h2>
+<p>Using GTK+ on the X Window System — 
+X11 aspects of using GTK+
+</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1" title="GTK+ for the X Window System">
+<a name="id602671"></a><h2>GTK+ for the X Window System</h2>
+<p>
+On UNIX, the X backend is the default build for GTK+. So 
+you don't need to do anything special when compiling it,
+and everything should "just work."
+</p>
+<p>
+To mix low-level Xlib routines into a GTK program, 
+see <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-X-Window-System-Interaction.html"
+>GDK X Window
+System interaction</a> in the GDK manual.
+</p>
+<div class="refsect2" title="X11-specific commandline options">
+<a name="x11-cmdline"></a><h3>X11-specific commandline options</h3>
+<p>
+The X backend understands some additional command line 
+arguments.
+</p>
+<p title="--display display"><b><code class="systemitem">--display <em class="replaceable"><code>display</code></em></code>. </b>
+The name of the X display to open instead of the one specified
+in the <code class="envar">DISPLAY</code> environment variable. 
+</p>
+<p title="--screen screen_number"><b><code class="systemitem">--screen <em class="replaceable"><code>screen_number</code></em></code>. </b>
+  The number of the screen within the default display. This overrides
+  any screen number specified in the display name specified by
+  by he <code class="systemitem">--display</code> command line option or
+  the <code class="envar">DISPLAY</code> environment variable. If this screen
+  cannot be opened, then GTK+ will fall back to the screen
+  specified in the display name. This option is not useful
+  interactively; the intended purposes is that when a program
+  registers its command line with a <em class="firstterm">session
+  manager</em> for later restarting, it can save the
+  screen it is on, without having to worry if it might be
+  restarted on a different display.
+</p>
+<p title="--sync"><b><code class="systemitem">--sync</code>. </b>
+Makes all X requests synchronously. This is a useful option for 
+debugging, but it will slow down the performance considerably.
+</p>
+<p title="--gxid-host host"><b><code class="systemitem">--gxid-host <em class="replaceable"><code>host</code></em></code>. </b>
+The host to contact the <span class="application">gxid</span> daemon on; overrides 
+the <a class="link" href="gtk-x11.html#GXID" title="GXID_HOST, GXID_PORT"><code class="envar">GXID_HOST</code></a> environment variable.
+</p>
+<p title="--gxid-port port"><b><code class="systemitem">--gxid-port <em class="replaceable"><code>port</code></em></code>. </b>
+The port for the connection to <span class="application">gxid</span>; overrides 
+the <a class="link" href="gtk-x11.html#GXID" title="GXID_HOST, GXID_PORT"><code class="envar">GXID_PORT</code></a> environment variable.
+This option is only available if GTK+ has been configured with
+<code class="option">--gdk-target=x11</code>.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="X11-specific environment variables">
+<a name="x11-envar"></a><h3>X11-specific environment variables</h3>
+<p>
+The X backend can be influenced with some
+additional environment variables.
+</p>
+<p title="GXID_HOST, GXID_PORT"><a name="GXID"></a><b><code class="envar">GXID_HOST</code>, <code class="envar">GXID_PORT</code>. </b>
+    The host and port to contact the <span class="application">gxid</span> daemon 
+    on. <span class="application">gxid</span> is only necessary on X servers which 
+    don't support using the pointer and extension devices at once, and is
+    only built if GTK+ is configured with <code class="option">--with-xinput=gxi</code>. 
+    The <span class="application">XFree86</span> and <span class="application">Xorg</span>
+    X servers don't have this 
+    restriction.
+  </p>
+<p title="GDK_USE_XFT"><b><code class="envar">GDK_USE_XFT</code>. </b>
+    If this variable is set to 1, GTK+ will use the Pango Xft backend instead
+    of the X backend when possible (i.e. when the X server supports the XRender
+    extension and Pango has been built with Xft support). 
+  </p>
+</div>
+</div>
+<div class="refsect1" title="Understanding the X11 architecture">
+<a name="gtk-X11-arch"></a><h2>Understanding the X11 architecture</h2>
+<p>
+People coming from a Windows or MacOS background often find certain
+aspects of the X Window System surprising. This section introduces
+some basic X concepts at a high level. For more details, the book most
+people use is called the <em class="citetitle">Xlib Programming
+Manual</em> by Adrian Nye; this book is volume one in the
+O'Reilly X Window System series.
+</p>
+<p>
+Standards are another important resource if you're poking in low-level
+X11 details, in particular the ICCCM and the Extended Window Manager
+Hints specifications. <a class="ulink" href="http://www.freedesktop.org/standards/" target="_top">freedesktop.org</a>
+has links to many relevant specifications.
+</p>
+<p>
+The GDK manual covers <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-X-Window-System-Interaction.html"
+>using Xlib in a GTK
+program</a>.
+</p>
+<div class="refsect2" title="Server, client, window manager">
+<a name="id599235"></a><h3>Server, client, window manager</h3>
+<p>
+Other window systems typically put all their functionality in the
+application itself. With X, each application involves three different
+programs: the <em class="firstterm">X server</em>, the application (called
+a <em class="firstterm">client</em> because it's a client of the X
+server), and a special client called the <em class="firstterm">window
+manager</em>.
+</p>
+<p>
+The X server is in charge of managing resources, processing drawing
+requests, and dispatching events such as keyboard and mouse events to
+interested applications. So client applications can ask the X server
+to create a window, draw a circle, or move windows around.
+</p>
+<p>
+The window manager is in charge of rendering the frame or borders
+around windows; it also has final say on the size of each window,
+and window states such as minimized, maximized, and so forth.
+On Windows and MacOS the application handles most of this.
+On X11, if you wish to modify the window's state, or 
+change its frame, you must ask the window manager to do so on your
+behalf, using an established  <a class="ulink" href="http://www.freedesktop.org/standards/" target="_top">convention</a>.
+</p>
+<p>
+GTK+ has functions for asking the window manager to do various things;
+see for example <a class="link" href="GtkWindow.html#gtk-window-iconify" title="gtk_window_iconify ()">gtk_window_iconify()</a> or <a class="link" href="GtkWindow.html#gtk-window-maximize" title="gtk_window_maximize ()">gtk_window_maximize()</a> or <a class="link" href="GtkWindow.html#gtk-window-set-decorated" title="gtk_window_set_decorated ()">gtk_window_set_decorated()</a>.
+Keep in mind that <a class="link" href="GtkWindow.html#gtk-window-move" title="gtk_window_move ()">gtk_window_move()</a> and window sizing
+are ultimately controlled by the window manager as well and most
+window managers <span class="emphasis"><em>will</em></span> ignore certain requests from
+time to time, in the interests of good user interface.
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

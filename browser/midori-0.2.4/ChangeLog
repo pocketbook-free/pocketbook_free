@@ -1,0 +1,490 @@
+This file is licensed under the terms of the expat license, see the file EXPAT.
+
+v0.2.4
+ + Prevent completion from overlapping
+ + Fix tab order when restoring session
+ + Ignore accidentally middle click search
+ + Implement bookmark export to XBEL
+ + Provide scroll hotkeys, default to Vim
+ + Store and complete search in location
+ + Fix opening externally with multiple windows
+ + Only use icons in panel buttons
+ + Fix build with different GTK+ versions
+ + Omit micro version and arch from ident string
+
+v0.2.3
+ + Improve relocatability for Win32
+ + Implement 'Close other tabs' menu item
+ + Use new GTK+ accessors where available
+ + Allow searching freely in History panel
+ + Re-implement completion based on sqlite
+ + Re-implement completion suggestion popup
+ + Simplify sqlite use towards efficient calls
+ + Move panel icons to the bottom
+ + Merge Netscape Plugins and Extensions panels
+ + Implement 'about:version' special page
+ + Implement 'Preferred languages' preference
+ + Improve window raising behaviour
+ + Allow Ctrl+Right-click to suppress javascript menu
+ + Add 'Open link as web app' in context menu
+ + Add 'Block image' menu item to Adblock
+ + Location progress and compat code refactored
+ + Implement 'Paste and proceed' in location
+ + Move DNS prefetching into the core
+ + Allow selecting and deleting multiple cookies
+ + Support attaching/ detaching web inspector
+ + Always enable web inspector
+ + --diagnostic-dialog command line switch
+ + Faster file existence checks
+ + Simplified, faster adblock implementation
+
+v0.2.2
+ + Turn libnotify into a proper build-time dependency
+ + Use Ctrl + Return to open tabs from the location entry
+ + Support right-click on bookmark menu items
+ + Support -e in midori -a and with multiple commands
+ + Make Middle click open selection search if needed
+ + Make Ctrl+C work as expected again
+ + Fix order of History, Trash and Recently opened pages
+ + Revise Shortcuts dialogue to fix oddities
+ + Perform Form history completion case insensitive
+ + Add 'Web Cache' to Delete Private data dialogue
+ + Load accels from /etc/xdg if present
+ + Improve XBEL format compatibility and performance
+ + Fix inline find by correcting key handling
+ + Add option to open panels in separate windows
+ + Support Portrait orientation in Fremantle
+ + Support Hildon MIME and URI handling
+ + Check status before caching in Web Cache
+ + Show popup menu on news feed icon if needed
+ + Support Colourful Tabs with Tab Panel
+ + Tweak sqlite and dbus handling for Win32
+ + 'Run as web app' and 'Show in toolbar' for bookmarks
+ + Add 'Small icons' toolbar style
+ + Fix build with Glib < 2.20 and GTK+ < 2.12
+ + Add Import bookmarks for XBEL, Opera and RDF
+ + Add Open Link in Foreground/ Background Tab menu
+ + Allow closing all tabs
+ + Hildon file chooser support
+
+v0.2.1
+ + Fix Mouse Gestures to work after activation
+ + Explicitly link to X11 to support gold
+ + Implement various Hildon specific features
+ + Hide the navigationbar in fullscreen
+ + Implement permanent storage of form history
+ + Support keyboard shortcuts like Ctrl+Tab or "a"
+ + Handle SIGHUP, SIGINT, SIGTERM and SIGQUIT
+ + Make creation of new windows fast
+ + Introduce the Tab History List extension
+ + Load icons laziy at startup to speed up startup
+ + Introduce a Web Cache extension
+ + Refactor and tweak the Preferences dialogue
+ + Implement combos to choose external applications
+
+v0.2.0
+ + (Kinetic) drag scrolling on touchscreen devices
+ + Workaround a speed dial crasher
+ + Faster Adblock with element blocking, for all WebKitGTK+ versions
+ + Stripped menu, toolbar and tap on hold on Maemo, and 5.0 menu support
+ + Add a DNS prefetching extension
+ + Better IDN handling
+ + Add a form history extension
+ + Restore scrolling positions from the session
+ + Keep typed address when switching tabs
+ + Avoid storing duplicate history items per day
+ + Fix multiple duplicate HTTP authentication dialogs
+ + Pass mailto: links to the email client
+ + Improve context menu with WebKitGTK+ 1.1.15
+ + Checkbox "Remember password" in HTTP authentication
+ + Fix a crasher when modifying bookmarks
+ + Support page icons other than favicon.ico
+ + iPhone identity in Network preferences
+
+v0.1.10:
+ + Fix freezing when opening multiple windows
+ + Revamp Adblock with WebKitGTK+ 1.1.14 API
+ + Greatly improve the address completion
+ + Always show news feed icon
+ + Better handling of feeds in the feed panel
+ + Add Gtk+ and WebKit version to the About dialog
+ + Improve tab panel and support minimized tabs
+ + Implement disabling of extensions in crahs dialog
+ + Don't make the web inspector transient
+ + Tidy up the Preferences a bit
+ + Load default bookmarks and config from /etc
+ + Do not use xprop at runtime
+ + Use GNOME proxy server if libsoup-gnome is installed
+ + Integrate Save As with transfers
+ + Save HTTP logins in a text file
+ + Support Undo and Redo with WebKitGTK+ 1.1.14
+
+v0.1.9:
+ + Preserve navigation history with new tabs
+ + Implement clearing private data when quitting
+ + Ellipsize and show close icons in the tab panel
+ + Allow hiding panel operating controls
+ + Integrate Tools with the compact menu
+ + Fix User scripts, User styles and Plugins panel
+ + Remove the bookmarkbar popup
+ + Add New Tab to the tab context menu
+ + Implement minimizing tabs
+
+v0.1.8:
+ + Initial support for extension unit tests
+ + Set a "browser" role on browser windows
+ + Support typing search tokens to open websites
+ + Fix focus loss when switching search engines
+ + Rewrite Netscape Plugins panel backed by javascript
+ + Implement a compact menu if menubar is hidden
+ + Provide a context menu for tab labels
+ + Implement Tab Panel as a tabbar replacement
+ + Remember the last active tab
+ + Read and write XBEL metadata internally
+ + Implement -e, --execute to perform commands
+ + Support socket based single instance
+ + Move Go button inside the location entry
+ + Fix the ident string after Midori updates
+ + Bind Alt + n to switching to the n-th tab
+ + Revisit conflicting mnemonics
+ + Add a Toolbar Editor extension
+ + Add a Shortcut Editor extension
+ + Implement context menu in the Transfers panel
+ + Simplified Extensions and Addons panels with tick marks
+ + Fix Mouse Gestures often ignoreing gestures
+ + Use one cookie manager model in all windows
+ + Support building Midori for Win32
+ + Add an entry to specify Fixed-Width font size
+ + Implement Save As in the download dialog
+ + Use one history model in all windows
+
+v0.1.7:
+ + Save the activation status of extensions
+ + Catch and ignore mouse buttons meant for horizontal scrolling
+ + Improve panel detaching and how panels handle it
+ + Add a Feed Panel extension
+ + Add a Fixed-width Font Family preference
+ + Support spell checking
+ + Implement (optional) Speed dial feature
+ + Support nicer error pages with WebKitGTK+ 1.1.6
+ + Implement middle click to open menu items in tabs
+ + Implement -s, --snapshot command line switch
+ + Use libnotify (runtime dependency) for finished transfers
+ + Add a Go button to the address entry
+ + Always append tabs opened via middle/ double click on the tab bar
+ + Implement Open new pages in: New window preference
+ + Implement inline find with direct '.' and '/' hotkeys
+ + Add basic support for @-moz-document in user styles
+
+v0.1.6:
+ + Add Delete All to transferbar
+ + Show search in context menu
+ + Implement 'Default' search engine
+ + Show only icons in Statusbar Features
+ + Implement Clear private data
+ + Support News Feed icon and external aggregator
+ + Fix reloading of Not found pages
+ + Fixup spaces when middle click opening
+ + Fix possibly wrong identificaton string
+ + Optionally search engines in completion
+ + Optionally Gtk 2.16 entry progress and icon
+ + Experimental panel detaching
+ + Support external download manager again
+ + Implement '-a', '--app' argument
+ + Implement '-c', '--config' argument
+ + Fix a bookmark saving issue
+ + Support data: URIs in the address entry
+ + Several performance and memory leak fixes
+ + Load cookies idle to accelerate startup
+ + Support mailto: links
+ + Save tab reordering in the session
+ + Add a Cookie Manager extension
+ + Fix crashers in Colourful Tabs
+
+v0.1.5:
+ + Add a Colorful Tabs extension
+ + Support downloading with WebKitGTK+ 1.1.3
+ + Load and save settings of extensions
+ + Drop internal source view
+ + Require WebKitGTK+ 1.1.1, Glib 2.16 and libsoup 2.25.2
+
+v0.1.4:
+ + Automatic inline find can be disabled
+ + Implement an Encoding menu
+ + Add Open all in Tabs for bookmarks and history
+ + Bookmarks can be moved to other folders
+ + Fix blank page 'loading' and HTTP authentication
+ + Display history dates in the local format
+ + Allow editing of completion items
+
+v0.1.3:
+ + Sidepanel can be aligned on the right
+ + Bookmarks can be organized in folders
+ + Support find as you type
+ + Support international domain names
+ + Tweak location completion
+ + Provide default search engines
+ + Integrate with Maemo if available
+ + Implement Mouse Gestures extension
+ + Implement a Plugins panel
+ + Editing the toolbar via a context menu
+ + Introduce Zoom Text and Images preference
+
+v0.1.2:
+ + Open new tabs by clicking on the tabbar
+ + Refactor and speed up location completion
+ + Show a Crash dialog after crashes
+ + Dynamically save files when needed
+ + Support Back/ Forward mouse buttons
+ + Support javascript: bookmarklets
+ + Implement Proxy and Identification string
+ + Implement cookie storage on disk
+ + Remove autotooled build system
+ + Add a new Extensions panel
+ + Implement opening of new windows
+ + Display tooltips in Preferences
+
+v0.1.1:
+ + Reimplement page holder as an extension
+ + Introduce a C extension interface
+ + Introduce unit tests for automated testing
+ + Implement history based location completion
+ + Support the Web Inspector in new WebKit versions
+ + Bookmarkbar properly reflects changes
+ + Improve overall OS X integration
+ + Add a Text Editor Preference
+ + Add a Compat sidebar Preference
+ + Add an Open external pages in Preference
+ + Implement source view and cached favicons with libsoup
+
+v0.1.0:
+ + Allow for hiding the menubar
+ + Make the navigationbar customizable
+ + Implement a History panel
+ + Remove the HTTP Proxy hack
+ + Add an Always Show Tabbar Preference
+ + Implement 404 error pages
+ + Remove the Primary Clipboard hack
+ + Provide user documentation
+ + Display Not found errors when possible
+ + Remove Stylesheet and Zoom Stepping preferences
+ + Make dialogs more compact
+ + Ellipsize extremely long menu items
+ + Save the trash again when quitting
+ + Implement enabling/ disabling addons
+
+v0.0.21:
+ + Update some translations
+ + Show progress in location when statusbar is hidden
+ + Alt + Enter in location should issue a new tab
+ + Warn at configure time if GVfs is not installed
+ + Remove GVfs code that could caused huge problems
+ + Update wad to 1.4.4 to fix building on some systems
+
+v0.0.20:
+ + Single instance support using Unique
+ + Make it clear that WAF is preferred
+ + Provide an 'extension' icon
+ + Load user styles from ~/.local/share/midori/styles
+ + Use Ctrl+Shift+T for Undo Close Tab
+ + Add "open-tabs-next-to-current" preference
+ + Use rsvg-convert instead of imagemagick's convert
+ + @name in the meta data of userscripts is recognized
+ + Remove "small-toolbar" preference
+
+v0.0.19:
+ + Improved Greasemonkey compatibility
+ + Improve multiple window support
+ + Use WAF buildscripts, still keeping autotools
+ + Install and use Midori logo
+ + Support zooming and printing
+ + Enhance Gjs functionality
+ + Refactor in some places, particularly Web Search
+ + Implement favicons and source view with GIO
+ + Introduce new fancy location entry
+ + Detect and show news feeds on web sites
+ + Save the session as needed, not only on quit
+ + Reintroduce Download Manager preference
+
+v0.0.18:
+ + First attempt at userscripts and extensions.
+ + Show hidden location/ web search temporarily when needed.
+ + Turn prefs into MidoriPreferences
+ + Fix background tabs, strings and new tab focus.
+ + Switch configuration to MidoriWebSettings.
+ + Remove 'External programs' logic
+ + Append the closed tabs items as a proper submenu.
+ + The location is empty and focused by default
+ + Implement proper menu positioning.
+ + Implement the Console panel for script messages.
+ + Implement localization via Gettext.
+ + Initial refactoring work, regressions expected
+ + Build fix: Webkit's header and pkgconfig name have changed.
+ + Implement Fullscreen mode
+
+v0.0.17:
+ + Add a preference to choose a user stylesheet.
+ + Implement a few preferences with new settings API in WebKit
+ + Implement Add Bookmark and a small panel toolbar
+ + Escape search engine name and description.
+ + Cleanup and WebKit API update
+ + Make sure selection actions have a widget.
+ + Allow Find Next and Find Previous when the findbox is hidden.
+ + Fixed the header of the KatzeThrobber
+ + Move XBEL implementation to katze.
+ + Implement a throbber widget.
+ + Always enable Select All if an editable widget is focussed.
+ + Previous/ next tab menu items should be disabled when not needed.
+ + Handle the context menu on button press, not release.
+ + Open the default page only if there is no session and no uri on the cli.
+
+v0.0.16:
+ + Implement editing menu items for the web view.
+ + Implement the bookmarks panel with editing capabilities.
+ + Prevent repeated checks for the desktop environment.
+ + Fix coding style in sokoke.c/ sokoke.h, particularly variable names.
+ + Don't update the remembered window size when maximized.
+ + Don't remember the window position but the size only.
+ + Command line uris should replace the default page.
+ + More effective status updates and less entry flickering
+ + Enable inline find for websites
+ + Make the progressbar work properly again
+ + Build fix: Adapt WebKit api changes
+ + Add Tab Size to preferences dialog
+
+v0.0.15:
+ + Build fix: Remove search api
+
+v0.0.14:
+ + FIX Reopening a tab from the trash causes a crash
+ + FIX An untitled website keeps the previous title
+ + FIX When switching tabs the location/ title isn't updated correctly
+ + FIX Issues with the preferences dialog
+ + Disable location completion for now
+ + Save tabtrash to file
+ + Restructure some code
+ + Remove color picker and throbber
+ + Change the license to LGPL
+
+v0.0.13:
+ + Adapt WebKit api change, remove engine wrappers, remove dialog hack
+ + Improve XBEL loading and saving
+ + Show dialog and backup files on startup errors
+ + Rearranged and removed some menus
+
+v0.0.12:
+ + FIX Improve flawed window creation
+ + Build with and eliminate all compiler warnings
+ + Implement clipboard handling menus
+ + Allow editing of search engines
+ + Update search engines properly
+ + Implement bookmarks saving
+ + Implement session saving and loading
+ + Cleaned up and revised most code
+ + Remove legacy webi code
+
+v0.0.11:
+ + FIX Back/ forward and initial check menu item states
+ + Remove rather useless debugging helpers
+ + Improvements on the preferences
+ + First attempt at websearch
+ + Preserve typed uri on tab switch
+ + First attempt at bookmarks, readonly for now
+ + Add an animated throbber
+
+v0.0.10:
+ + FIX Can crash on context menu or new protocol
+ + FIX Location isn't updated on tab switch
+ + Remember last window position and size
+ + Implement Open menu item
+ + Allow using location and web search if hidden
+
+v0.0.9:
+ + FIX Close tab not insensitive for only one tab
+ + FIX Debug output is broken
+ + Display uri when hovering a link
+ + Implement link uri related part of context menu
+ + Implement alt/ middle/ shift click link
+ + First attempt at external protocol handlers
+ + Initial download manager integration
+ + Adapt WebKit api prefix change
+ + More code reorganization and cleanup
+
+v0.0.8:
+ + FIX Crash when invoking document context menu via keyboard
+ + FIX Can't build with debug = yes on GTK+2.12
+ + Changes related to icons in the gui
+ + Reorganize code by splitting into several files
+ + Switch from WebkitGdk to WebkitGtk
+
+v0.0.7:
+ + FIX Make settings finally work flawlessly
+ + FIX Can crash when settings are opened
+ + Handle all panels in a general way
+ + Install xdg compliant desktop file
+ + Implement location and web search menu items
+ + Display a loading icon on tabs again
+ + Changed the settings dialog again
+
+v0.0.6:
+ + FIX Closing an individual tab doesn't work correctly.
+ + FIX Doesn't build with gtkwebcore.
+ + Reimplement menus and and navibar with GtkUIManager.
+ + Improve document handling in general.
+ + Finished tab trash menu.
+ + Implement searchbox default text.
+ + Remove some gtkwebcore code.
+ + Use Xfce style dialog in Xfce.
+ + Implement a few settings.
+ + Change the panel's look.
+ + Implement a 'pageholder' panel.
+
+v0.0.5:
+ + Implement a few more signals for WebkitGdk.
+ + Add tooltips to navigation toolbar buttons.
+ + First attempt on a settings dialog.
+ + Reimplemented color picker.
+ + Autocompletion for location and searchbox.
+ + Changed menu items and incremental findbar.
+ + Implement tab switching via keyboard.
+
+v0.0.4:
+ + FIX Midori segfaults when quitting.
+ + FIX Config loading and saving is broken.
+ + Switch WebkitGdk to gtk api and make it the build default.
+ + Register custom stock icons instead of icon theme magic.
+ + Implement dynamic window menu.
+ + First attempt on resizable panels.
+ + Add about dialog.
+
+v0.0.3:
+ + FIX Refresh via menu or shortcut crashes the browser.
+ + FIX Assertions with and visibility of the progressbar.
+ + FIX Tabs are not reorderable.
+ + Package versions in ./configure result and --version output.
+ + Improve view menu and add tools menu.
+ + Replace deprecated functions and macros.
+ + Implement settings saving and loading.
+ + Fill the common context menu with items
+ + Allow multiple homepages, seperated by '|'.
+ + Make code typesafe and C++ friendly.
+ + Initially support WebkitGdk directly.
+ + Urlify location inputs automatically.
+
+v0.0.2:
+ + Dynamic tab trash menu.
+ + Update UI when page is changed.
+ + Enhanced WebkitGtk support.
+ + New function sokoke_dialog_run_modeless.
+ + Finished on_document_request_script_prompt.
+ + One name and version, visible in the user agent.
+ + Changed some accelerators and menu items.
+ + Create and destroy color picker properly.
+ + Ctrl + Wheel resets the zoom level.
+ + Escape in the location entry resets the uri.
+ + Use gtk-webcore prefix instead of osb now.
+ + Save keybindings on quit.
+ + Fancy autotools build setup.
+
+v0.0.1:
+ + Initial release

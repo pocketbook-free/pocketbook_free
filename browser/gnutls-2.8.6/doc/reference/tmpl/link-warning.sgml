@@ -1,0 +1,60 @@
+<!-- ##### SECTION Title ##### -->
+link-warning
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO GL_LINK_WARNING ##### -->
+<para>
+
+</para>
+
+@message: 
+
+
+<!-- ##### MACRO GL_LINK_WARNING1 ##### -->
+<para>
+
+</para>
+
+@file: 
+@line: 
+@message: 
+
+
+<!-- ##### MACRO GL_LINK_WARNING2 ##### -->
+<para>
+
+</para>
+
+@file: 
+@line: 
+@message: 
+
+
+<!-- ##### MACRO GL_LINK_WARNING3 ##### -->
+<para>
+
+</para>
+
+@message: 
+
+

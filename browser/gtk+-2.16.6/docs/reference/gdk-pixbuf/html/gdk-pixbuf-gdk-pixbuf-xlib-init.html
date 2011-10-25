@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gdk-pixbuf Xlib initialization</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GDK-PixBuf Reference Manual">
+<link rel="up" href="rn01.html" title="API Reference">
+<link rel="prev" href="gdk-pixbuf-Module-Interface.html" title="Module Interface">
+<link rel="next" href="gdk-pixbuf-gdk-pixbuf-xlib-rendering.html" title="Xlib Rendering">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="rn01.html" title="API Reference">
+<link rel="reference" href="rn02.html" title="Tools Reference">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="appendix" href="apa.html" title="Appendix A. Porting applications from Imlib to gdk-pixbuf">
+<link rel="appendix" href="license.html" title="Appendix B. License">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gdk-pixbuf-Module-Interface.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK-PixBuf Reference Manual</th>
+<td><a accesskey="n" href="gdk-pixbuf-gdk-pixbuf-xlib-rendering.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gdk-pixbuf-gdk-pixbuf-xlib-init.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#gdk-pixbuf-gdk-pixbuf-xlib-init.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="gdk-pixbuf Xlib initialization">
+<a name="gdk-pixbuf-gdk-pixbuf-xlib-init"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gdk-pixbuf-gdk-pixbuf-xlib-init.top_of_page"></a><span class="application">gdk-pixbuf</span> Xlib initialization</span></h2>
+<p><span class="application">gdk-pixbuf</span> Xlib initialization — Initializing the <span class="application">gdk-pixbuf</span> Xlib library.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="gdk-pixbuf-gdk-pixbuf-xlib-init.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gdk-pixbuf/gdk-pixbuf.h&gt;
+
+void                <a class="link" href="gdk-pixbuf-gdk-pixbuf-xlib-init.html#gdk-pixbuf-xlib-init" title="gdk_pixbuf_xlib_init ()">gdk_pixbuf_xlib_init</a>                (Display *display,
+                                                         int screen_num);
+void                <a class="link" href="gdk-pixbuf-gdk-pixbuf-xlib-init.html#gdk-pixbuf-xlib-init-with-depth" title="gdk_pixbuf_xlib_init_with_depth ()">gdk_pixbuf_xlib_init_with_depth</a>     (Display *display,
+                                                         int screen_num,
+                                                         int prefDepth);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="gdk-pixbuf-gdk-pixbuf-xlib-init.description"></a><h2>Description</h2>
+<p>
+    In addition to the normal Gdk-specific functions, the <span class="application">gdk-pixbuf</span>
+    package provides a small library that lets Xlib-only applications
+    use <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> structures and render them to X drawables.  The
+    functions in this section are used to initialize the <span class="application">gdk-pixbuf</span>
+    Xlib library.  This library must be initialized near the beginning
+    of the program or before calling any of the other <span class="application">gdk-pixbuf</span>
+    Xlib functions.
+  </p>
+</div>
+<div class="refsect1" title="Details">
+<a name="gdk-pixbuf-gdk-pixbuf-xlib-init.details"></a><h2>Details</h2>
+<div class="refsect2" title="gdk_pixbuf_xlib_init ()">
+<a name="gdk-pixbuf-xlib-init"></a><h3>gdk_pixbuf_xlib_init ()</h3>
+<pre class="programlisting">void                gdk_pixbuf_xlib_init                (Display *display,
+                                                         int screen_num);</pre>
+<p>
+Initializes the gdk-pixbuf Xlib machinery by calling <a class="link" href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-init" title="xlib_rgb_init ()"><code class="function">xlib_rgb_init()</code></a>.  This
+function should be called near the beginning of your program, or before using
+any of the gdk-pixbuf-xlib functions.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
+<td> X display to use.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen_num</code></em> :</span></p></td>
+<td> Screen number.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gdk_pixbuf_xlib_init_with_depth ()">
+<a name="gdk-pixbuf-xlib-init-with-depth"></a><h3>gdk_pixbuf_xlib_init_with_depth ()</h3>
+<pre class="programlisting">void                gdk_pixbuf_xlib_init_with_depth     (Display *display,
+                                                         int screen_num,
+                                                         int prefDepth);</pre>
+<p>
+Similar to <a class="link" href="gdk-pixbuf-gdk-pixbuf-xlib-init.html#gdk-pixbuf-xlib-init" title="gdk_pixbuf_xlib_init ()"><code class="function">gdk_pixbuf_xlib_init()</code></a>, but also lets you specify the preferred
+depth for XlibRGB if you do not want it to use the default depth it picks.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
+<td> X display to use.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen_num</code></em> :</span></p></td>
+<td> Screen number.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefDepth</code></em> :</span></p></td>
+<td> Preferred depth for XlibRGB.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="gdk-pixbuf-gdk-pixbuf-xlib-init.see-also"></a><h2>See Also</h2>
+<p>
+    XlibRGB
+  </p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

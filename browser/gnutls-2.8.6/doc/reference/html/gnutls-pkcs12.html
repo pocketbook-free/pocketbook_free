@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>pkcs12</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GNU TLS API Reference Manual">
+<link rel="up" href="ch01.html" title="GNU TLS API Reference Manual">
+<link rel="prev" href="gnutls-x509.html" title="x509">
+<link rel="next" href="gnutls-openpgp.html" title="openpgp">
+<meta name="generator" content="GTK-Doc V1.14 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gnutls-x509.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GNU TLS API Reference Manual</th>
+<td><a accesskey="n" href="gnutls-openpgp.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gnutls-pkcs12.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gnutls-pkcs12.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="pkcs12">
+<a name="gnutls-pkcs12"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gnutls-pkcs12.top_of_page"></a>pkcs12</span></h2>
+<p>pkcs12</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="gnutls-pkcs12.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-int" title="struct gnutls_pkcs12_int">gnutls_pkcs12_int</a>;
+typedef             <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t">gnutls_pkcs12_t</a>;
+struct              <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-int" title="struct gnutls_pkcs12_bag_int">gnutls_pkcs12_bag_int</a>;
+typedef             <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t">gnutls_pkcs12_bag_t</a>;
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-init" title="gnutls_pkcs12_init ()">gnutls_pkcs12_init</a>                  (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> *pkcs12</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-deinit" title="gnutls_pkcs12_deinit ()">gnutls_pkcs12_deinit</a>                (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-import" title="gnutls_pkcs12_import ()">gnutls_pkcs12_import</a>                (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *data</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-fmt-t" title="enum gnutls_x509_crt_fmt_t"><span class="type">gnutls_x509_crt_fmt_t</span></a> format</code></em>,
+                                                         <em class="parameter"><code>unsigned <a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> flags</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-export" title="gnutls_pkcs12_export ()">gnutls_pkcs12_export</a>                (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-fmt-t" title="enum gnutls_x509_crt_fmt_t"><span class="type">gnutls_x509_crt_fmt_t</span></a> format</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *output_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *output_data_size</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-get-bag" title="gnutls_pkcs12_get_bag ()">gnutls_pkcs12_get_bag</a>               (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-set-bag" title="gnutls_pkcs12_set_bag ()">gnutls_pkcs12_set_bag</a>               (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-generate-mac" title="gnutls_pkcs12_generate_mac ()">gnutls_pkcs12_generate_mac</a>          (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pass</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-verify-mac" title="gnutls_pkcs12_verify_mac ()">gnutls_pkcs12_verify_mac</a>            (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pass</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-decrypt" title="gnutls_pkcs12_bag_decrypt ()">gnutls_pkcs12_bag_decrypt</a>           (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pass</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-encrypt" title="gnutls_pkcs12_bag_encrypt ()">gnutls_pkcs12_bag_encrypt</a>           (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pass</code></em>,
+                                                         <em class="parameter"><code>unsigned <a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> flags</code></em>);
+enum                <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-type-t" title="enum gnutls_pkcs12_bag_type_t">gnutls_pkcs12_bag_type_t</a>;
+<a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-type-t" title="enum gnutls_pkcs12_bag_type_t"><span class="returnvalue">gnutls_pkcs12_bag_type_t</span></a>  <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-get-type" title="gnutls_pkcs12_bag_get_type ()">gnutls_pkcs12_bag_get_type</a>    (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-get-data" title="gnutls_pkcs12_bag_get_data ()">gnutls_pkcs12_bag_get_data</a>          (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_datum_t</span> *data</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-set-data" title="gnutls_pkcs12_bag_set_data ()">gnutls_pkcs12_bag_set_data</a>          (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-type-t" title="enum gnutls_pkcs12_bag_type_t"><span class="type">gnutls_pkcs12_bag_type_t</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *data</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-set-crl" title="gnutls_pkcs12_bag_set_crl ()">gnutls_pkcs12_bag_set_crl</a>           (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crl-t" title="gnutls_x509_crl_t"><span class="type">gnutls_x509_crl_t</span></a> crl</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-set-crt" title="gnutls_pkcs12_bag_set_crt ()">gnutls_pkcs12_bag_set_crt</a>           (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> crt</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-init" title="gnutls_pkcs12_bag_init ()">gnutls_pkcs12_bag_init</a>              (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> *bag</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-deinit" title="gnutls_pkcs12_bag_deinit ()">gnutls_pkcs12_bag_deinit</a>            (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-get-count" title="gnutls_pkcs12_bag_get_count ()">gnutls_pkcs12_bag_get_count</a>         (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-get-key-id" title="gnutls_pkcs12_bag_get_key_id ()">gnutls_pkcs12_bag_get_key_id</a>        (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_datum_t</span> *id</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-set-key-id" title="gnutls_pkcs12_bag_set_key_id ()">gnutls_pkcs12_bag_set_key_id</a>        (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *id</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-get-friendly-name" title="gnutls_pkcs12_bag_get_friendly_name ()">gnutls_pkcs12_bag_get_friendly_name</a> (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **name</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-set-friendly-name" title="gnutls_pkcs12_bag_set_friendly_name ()">gnutls_pkcs12_bag_set_friendly_name</a> (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="gnutls-pkcs12.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="gnutls-pkcs12.details"></a><h2>Details</h2>
+<div class="refsect2" title="struct gnutls_pkcs12_int">
+<a name="gnutls-pkcs12-int"></a><h3>struct gnutls_pkcs12_int</h3>
+<pre class="programlisting">struct gnutls_pkcs12_int;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_t">
+<a name="gnutls-pkcs12-t"></a><h3>gnutls_pkcs12_t</h3>
+<pre class="programlisting">  typedef struct gnutls_pkcs12_int *gnutls_pkcs12_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="struct gnutls_pkcs12_bag_int">
+<a name="gnutls-pkcs12-bag-int"></a><h3>struct gnutls_pkcs12_bag_int</h3>
+<pre class="programlisting">struct gnutls_pkcs12_bag_int;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_t">
+<a name="gnutls-pkcs12-bag-t"></a><h3>gnutls_pkcs12_bag_t</h3>
+<pre class="programlisting">  typedef struct gnutls_pkcs12_bag_int *gnutls_pkcs12_bag_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_init ()">
+<a name="gnutls-pkcs12-init"></a><h3>gnutls_pkcs12_init ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_init                  (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> *pkcs12</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkcs12</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_deinit ()">
+<a name="gnutls-pkcs12-deinit"></a><h3>gnutls_pkcs12_deinit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gnutls_pkcs12_deinit                (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pkcs12</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_import ()">
+<a name="gnutls-pkcs12-import"></a><h3>gnutls_pkcs12_import ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_import                (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *data</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-fmt-t" title="enum gnutls_x509_crt_fmt_t"><span class="type">gnutls_x509_crt_fmt_t</span></a> format</code></em>,
+                                                         <em class="parameter"><code>unsigned <a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> flags</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkcs12</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_export ()">
+<a name="gnutls-pkcs12-export"></a><h3>gnutls_pkcs12_export ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_export                (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-fmt-t" title="enum gnutls_x509_crt_fmt_t"><span class="type">gnutls_x509_crt_fmt_t</span></a> format</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *output_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *output_data_size</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkcs12</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output_data_size</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_get_bag ()">
+<a name="gnutls-pkcs12-get-bag"></a><h3>gnutls_pkcs12_get_bag ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_get_bag               (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkcs12</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_set_bag ()">
+<a name="gnutls-pkcs12-set-bag"></a><h3>gnutls_pkcs12_set_bag ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_set_bag               (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkcs12</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_generate_mac ()">
+<a name="gnutls-pkcs12-generate-mac"></a><h3>gnutls_pkcs12_generate_mac ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_generate_mac          (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pass</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkcs12</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pass</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_verify_mac ()">
+<a name="gnutls-pkcs12-verify-mac"></a><h3>gnutls_pkcs12_verify_mac ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_verify_mac            (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-t" title="gnutls_pkcs12_t"><span class="type">gnutls_pkcs12_t</span></a> pkcs12</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pass</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkcs12</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pass</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_decrypt ()">
+<a name="gnutls-pkcs12-bag-decrypt"></a><h3>gnutls_pkcs12_bag_decrypt ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_decrypt           (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pass</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pass</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_encrypt ()">
+<a name="gnutls-pkcs12-bag-encrypt"></a><h3>gnutls_pkcs12_bag_encrypt ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_encrypt           (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pass</code></em>,
+                                                         <em class="parameter"><code>unsigned <a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> flags</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pass</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="enum gnutls_pkcs12_bag_type_t">
+<a name="gnutls-pkcs12-bag-type-t"></a><h3>enum gnutls_pkcs12_bag_type_t</h3>
+<pre class="programlisting">  typedef enum gnutls_pkcs12_bag_type_t
+  {
+    GNUTLS_BAG_EMPTY = 0,
+
+    GNUTLS_BAG_PKCS8_ENCRYPTED_KEY = 1,
+    GNUTLS_BAG_PKCS8_KEY,
+    GNUTLS_BAG_CERTIFICATE,
+    GNUTLS_BAG_CRL,
+    GNUTLS_BAG_ENCRYPTED = 10,
+    GNUTLS_BAG_UNKNOWN = 20
+  } gnutls_pkcs12_bag_type_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_get_type ()">
+<a name="gnutls-pkcs12-bag-get-type"></a><h3>gnutls_pkcs12_bag_get_type ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-type-t" title="enum gnutls_pkcs12_bag_type_t"><span class="returnvalue">gnutls_pkcs12_bag_type_t</span></a>  gnutls_pkcs12_bag_get_type    (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_get_data ()">
+<a name="gnutls-pkcs12-bag-get-data"></a><h3>gnutls_pkcs12_bag_get_data ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_get_data          (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_datum_t</span> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_set_data ()">
+<a name="gnutls-pkcs12-bag-set-data"></a><h3>gnutls_pkcs12_bag_set_data ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_set_data          (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-type-t" title="enum gnutls_pkcs12_bag_type_t"><span class="type">gnutls_pkcs12_bag_type_t</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_set_crl ()">
+<a name="gnutls-pkcs12-bag-set-crl"></a><h3>gnutls_pkcs12_bag_set_crl ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_set_crl           (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crl-t" title="gnutls_x509_crl_t"><span class="type">gnutls_x509_crl_t</span></a> crl</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crl</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_set_crt ()">
+<a name="gnutls-pkcs12-bag-set-crt"></a><h3>gnutls_pkcs12_bag_set_crt ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_set_crt           (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> crt</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_init ()">
+<a name="gnutls-pkcs12-bag-init"></a><h3>gnutls_pkcs12_bag_init ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_init              (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> *bag</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_deinit ()">
+<a name="gnutls-pkcs12-bag-deinit"></a><h3>gnutls_pkcs12_bag_deinit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gnutls_pkcs12_bag_deinit            (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_get_count ()">
+<a name="gnutls-pkcs12-bag-get-count"></a><h3>gnutls_pkcs12_bag_get_count ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_get_count         (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_get_key_id ()">
+<a name="gnutls-pkcs12-bag-get-key-id"></a><h3>gnutls_pkcs12_bag_get_key_id ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_get_key_id        (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_datum_t</span> *id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_set_key_id ()">
+<a name="gnutls-pkcs12-bag-set-key-id"></a><h3>gnutls_pkcs12_bag_set_key_id ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_set_key_id        (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_get_friendly_name ()">
+<a name="gnutls-pkcs12-bag-get-friendly-name"></a><h3>gnutls_pkcs12_bag_get_friendly_name ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_get_friendly_name (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pkcs12_bag_set_friendly_name ()">
+<a name="gnutls-pkcs12-bag-set-friendly-name"></a><h3>gnutls_pkcs12_bag_set_friendly_name ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_pkcs12_bag_set_friendly_name (<em class="parameter"><code><a class="link" href="gnutls-pkcs12.html#gnutls-pkcs12-bag-t" title="gnutls_pkcs12_bag_t"><span class="type">gnutls_pkcs12_bag_t</span></a> bag</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> indx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.14</div>
+</body>
+</html>

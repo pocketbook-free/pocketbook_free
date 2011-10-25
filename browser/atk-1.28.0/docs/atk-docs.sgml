@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+          "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+  <!ENTITY atk-AtkAction SYSTEM "xml/atkaction.xml">
+  <!ENTITY atk-AtkComponent SYSTEM "xml/atkcomponent.xml">
+  <!ENTITY atk-AtkDocument SYSTEM "xml/atkdocument.xml">
+  <!ENTITY atk-AtkEditabletext SYSTEM "xml/atkeditabletext.xml">
+  <!ENTITY atk-AtkGObjectAccessible SYSTEM "xml/atkgobjectaccessible.xml">
+  <!ENTITY atk-AtkHyperlink SYSTEM "xml/atkhyperlink.xml">
+  <!ENTITY atk-AtkHyperlinkImpl SYSTEM "xml/atkhyperlinkimpl.xml">
+  <!ENTITY atk-AtkHypertext SYSTEM "xml/atkhypertext.xml">
+  <!ENTITY atk-AtkImage SYSTEM "xml/atkimage.xml">
+  <!ENTITY atk-AtkNoOpObject SYSTEM "xml/atknoopobject.xml">
+  <!ENTITY atk-AtkNoOpObjectFactory SYSTEM "xml/atknoopobjectfactory.xml">
+  <!ENTITY atk-AtkObject SYSTEM "xml/atkobject.xml">
+  <!ENTITY atk-AtkObjectFactory SYSTEM "xml/atkobjectfactory.xml">
+  <!ENTITY atk-AtkRegistry SYSTEM "xml/atkregistry.xml">
+  <!ENTITY atk-AtkRelation SYSTEM "xml/atkrelation.xml">
+  <!ENTITY atk-AtkRelationSet SYSTEM "xml/atkrelationset.xml">
+  <!ENTITY atk-AtkSelection SYSTEM "xml/atkselection.xml">
+  <!ENTITY atk-AtkState SYSTEM "xml/atkstate.xml">
+  <!ENTITY atk-AtkStateSet SYSTEM "xml/atkstateset.xml">
+  <!ENTITY atk-AtkStreamableContent SYSTEM "xml/atkstreamablecontent.xml">
+  <!ENTITY atk-AtkTable SYSTEM "xml/atktable.xml">
+  <!ENTITY atk-AtkText SYSTEM "xml/atktext.xml">
+  <!ENTITY atk-AtkUtil SYSTEM "xml/atkutil.xml">
+  <!ENTITY atk-AtkValue SYSTEM "xml/atkvalue.xml">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+
+<book>
+  <bookinfo>
+    <title>ATK - Accessibility Toolkit</title>
+    <releaseinfo>for ATK &version;</releaseinfo>
+  </bookinfo>
+
+  <chapter id="atk">
+    <title>ATK Library</title>
+
+    &atk-AtkAction;
+    &atk-AtkComponent;
+    &atk-AtkDocument;
+    &atk-AtkEditabletext;
+    &atk-AtkGObjectAccessible;
+    &atk-AtkHyperlink;
+    &atk-AtkHyperlinkImpl;
+    &atk-AtkHypertext;
+    &atk-AtkImage;
+    &atk-AtkNoOpObject;
+    &atk-AtkNoOpObjectFactory;
+    &atk-AtkObject;
+    &atk-AtkObjectFactory;
+    &atk-AtkRegistry;
+    &atk-AtkRelation;
+    &atk-AtkRelationSet;
+    &atk-AtkSelection;
+    &atk-AtkState;
+    &atk-AtkStateSet;
+    &atk-AtkStreamableContent;
+    &atk-AtkTable;
+    &atk-AtkText;
+    &atk-AtkUtil;
+    &atk-AtkValue;
+  </chapter>
+
+  <index>
+    <title>Index</title>
+  </index>
+  <index role="deprecated">
+    <title>Index of deprecated symbols</title>
+  </index>
+  <index role="ATK 1.3">
+    <title>Index of new symbols in ATK 1.3</title>
+  </index>  
+  <index role="ATK 1.4">
+    <title>Index of new symbols in ATK 1.4</title>
+  </index>  
+  <index role="ATK 1.6">
+    <title>Index of new symbols in ATK 1.6</title>
+  </index>  
+  <index role="ATK 1.9">
+    <title>Index of new symbols in ATK 1.9</title>
+  </index>  
+  <index role="ATK 1.12">
+    <title>Index of new symbols in ATK 1.12</title>
+  </index>  
+
+</book>
+

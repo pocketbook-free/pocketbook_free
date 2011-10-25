@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkCellEditable</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="prev" href="GtkCellRenderer.html" title="GtkCellRenderer">
+<link rel="next" href="GtkCellRendererAccel.html" title="GtkCellRendererAccel">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GtkCellRenderer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="TreeWidgetObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="GtkCellRendererAccel.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkCellEditable.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkCellEditable.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkCellEditable.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkCellEditable.prerequisites" class="shortcut">Prerequisites</a>
+                 | 
+                <a href="#GtkCellEditable.implementations" class="shortcut">Known Implementations</a>
+                 | 
+                <a href="#GtkCellEditable.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GtkCellEditable">
+<a name="GtkCellEditable"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkCellEditable.top_of_page"></a>GtkCellEditable</span></h2>
+<p>GtkCellEditable — Interface for widgets which can are used for editing cells</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GtkCellEditable.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="GtkCellEditable.html#GtkCellEditable-struct" title="GtkCellEditable">GtkCellEditable</a>;
+                    <a class="link" href="GtkCellEditable.html#GtkCellEditableIface" title="GtkCellEditableIface">GtkCellEditableIface</a>;
+void                <a class="link" href="GtkCellEditable.html#gtk-cell-editable-start-editing" title="gtk_cell_editable_start_editing ()">gtk_cell_editable_start_editing</a>     (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> *cell_editable,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"
+>GdkEvent</a> *event);
+void                <a class="link" href="GtkCellEditable.html#gtk-cell-editable-editing-done" title="gtk_cell_editable_editing_done ()">gtk_cell_editable_editing_done</a>      (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> *cell_editable);
+void                <a class="link" href="GtkCellEditable.html#gtk-cell-editable-remove-widget" title="gtk_cell_editable_remove_widget ()">gtk_cell_editable_remove_widget</a>     (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> *cell_editable);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GtkCellEditable.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----GtkCellEditable
+</pre>
+</div>
+<div class="refsect1" title="Prerequisites">
+<a name="GtkCellEditable.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+GtkCellEditable requires
+ <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>.</p>
+</div>
+<div class="refsect1" title="Known Implementations">
+<a name="GtkCellEditable.implementations"></a><h2>Known Implementations</h2>
+<p>
+GtkCellEditable is implemented by
+ <a class="link" href="GtkEntry.html" title="GtkEntry">GtkEntry</a>,  <a class="link" href="GtkComboBox.html" title="GtkComboBox">GtkComboBox</a>,  <a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> and  <a class="link" href="GtkComboBoxEntry.html" title="GtkComboBoxEntry">GtkComboBoxEntry</a>.</p>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GtkCellEditable.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkCellEditable.html#GtkCellEditable-editing-done" title='The "editing-done" signal'>editing-done</a>"                                   : Run Last
+  "<a class="link" href="GtkCellEditable.html#GtkCellEditable-remove-widget" title='The "remove-widget" signal'>remove-widget</a>"                                  : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GtkCellEditable.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> interface must be implemented for widgets
+to be usable when editing the contents of a <a class="link" href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a> cell.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GtkCellEditable.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkCellEditable">
+<a name="GtkCellEditable-struct"></a><h3>GtkCellEditable</h3>
+<pre class="programlisting">typedef struct _GtkCellEditable GtkCellEditable;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GtkCellEditableIface">
+<a name="GtkCellEditableIface"></a><h3>GtkCellEditableIface</h3>
+<pre class="programlisting">typedef struct {
+  GTypeInterface g_iface;
+
+  /* signals */
+  void (* editing_done)  (GtkCellEditable *cell_editable);
+  void (* remove_widget) (GtkCellEditable *cell_editable);
+
+  /* virtual table */
+  void (* start_editing) (GtkCellEditable *cell_editable,
+			  GdkEvent        *event);
+} GtkCellEditableIface;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_cell_editable_start_editing ()">
+<a name="gtk-cell-editable-start-editing"></a><h3>gtk_cell_editable_start_editing ()</h3>
+<pre class="programlisting">void                gtk_cell_editable_start_editing     (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> *cell_editable,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"
+>GdkEvent</a> *event);</pre>
+<p>
+Begins editing on a <em class="parameter"><code>cell_editable</code></em>. <em class="parameter"><code>event</code></em> is the <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"
+><span class="type">GdkEvent</span></a> that began 
+the editing process. It may be <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, in the instance that editing was 
+initiated through programatic means.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cell_editable</code></em> :</span></p></td>
+<td> A <a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> A <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"
+><span class="type">GdkEvent</span></a>, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_cell_editable_editing_done ()">
+<a name="gtk-cell-editable-editing-done"></a><h3>gtk_cell_editable_editing_done ()</h3>
+<pre class="programlisting">void                gtk_cell_editable_editing_done      (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> *cell_editable);</pre>
+<p>
+Emits the <a class="link" href="GtkCellEditable.html#GtkCellEditable-editing-done" title='The "editing-done" signal'><span class="type">"editing-done"</span></a> signal.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>cell_editable</code></em> :</span></p></td>
+<td> A <span class="type">GtkTreeEditable</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_cell_editable_remove_widget ()">
+<a name="gtk-cell-editable-remove-widget"></a><h3>gtk_cell_editable_remove_widget ()</h3>
+<pre class="programlisting">void                gtk_cell_editable_remove_widget     (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> *cell_editable);</pre>
+<p>
+Emits the <a class="link" href="GtkCellEditable.html#GtkCellEditable-remove-widget" title='The "remove-widget" signal'><span class="type">"remove-widget"</span></a> signal.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>cell_editable</code></em> :</span></p></td>
+<td> A <span class="type">GtkTreeEditable</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GtkCellEditable.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "editing-done" signal'>
+<a name="GtkCellEditable-editing-done"></a><h3>The <code class="literal">"editing-done"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> *cell_editable,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>         user_data)          : Run Last</pre>
+<p>
+This signal is a sign for the cell renderer to update its
+value from the <em class="parameter"><code>cell_editable</code></em>. 
+</p>
+<p>
+Implementations of <a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> are responsible for 
+emitting this signal when they are done editing, e.g. 
+<a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> is emitting it when the user presses Enter.
+</p>
+<p>
+<a class="link" href="GtkCellEditable.html#gtk-cell-editable-editing-done" title="gtk_cell_editable_editing_done ()"><code class="function">gtk_cell_editable_editing_done()</code></a> is a convenience method
+for emitting ::editing-done.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cell_editable</code></em> :</span></p></td>
+<td> the object on which the signal was emitted
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "remove-widget" signal'>
+<a name="GtkCellEditable-remove-widget"></a><h3>The <code class="literal">"remove-widget"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> *cell_editable,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>         user_data)          : Run Last</pre>
+<p>
+This signal is meant to indicate that the cell is finished 
+editing, and the widget may now be destroyed. 
+</p>
+<p>
+Implementations of <a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> are responsible for 
+emitting this signal when they are done editing. It must
+be emitted after the <a class="link" href="GtkCellEditable.html#GtkCellEditable-editing-done" title='The "editing-done" signal'><span class="type">"editing-done"</span></a> signal, 
+to give the cell renderer a chance to update the cell's value 
+before the widget is removed. 
+</p>
+<p>
+<a class="link" href="GtkCellEditable.html#gtk-cell-editable-remove-widget" title="gtk_cell_editable_remove_widget ()"><code class="function">gtk_cell_editable_remove_widget()</code></a> is a convenience method
+for emitting ::remove-widget.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cell_editable</code></em> :</span></p></td>
+<td> the object on which the signal was emitted
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

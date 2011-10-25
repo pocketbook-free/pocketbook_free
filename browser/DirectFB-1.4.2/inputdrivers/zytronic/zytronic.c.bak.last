@@ -1,0 +1,770 @@
+/*
+   (c) Copyright 2001-2009  The world wide DirectFB Open Source Community (directfb.org)
+   (c) Copyright 2000-2004  Convergence (integrated media) GmbH
+
+   All rights reserved.
+
+   Written by Denis Oliver Kropp <dok@directfb.org>,
+              Andreas Hundt <andi@fischlustig.de>,
+              Sven Neumann <neo@directfb.org>,
+              Ville Syrjälä <syrjala@sci.fi> and
+              Claudio Ciccani <klan@users.sf.net>.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with this library; if not, write to the
+   Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+   Boston, MA 02111-1307, USA.
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <errno.h>
+
+#include <fcntl.h>
+#include <sys/ioctl.h>
+
+
+#include <systems/fbdev/fbdev.h>
+//#include <linux/h3600_ts.h>
+
+#include <directfb.h>
+
+#include <core/coredefs.h>
+#include <core/coretypes.h>
+
+#include <core/input.h>
+
+#include <misc/conf.h>
+
+#include <direct/debug.h>
+#include <direct/mem.h>
+#include <direct/messages.h>
+#include <direct/thread.h>
+
+#include <core/input_driver.h>
+
+#include <core/windows.h>
+
+#include <core/system.h>
+
+#include <inkview.h>
+#include <inkinternal.h>
+
+
+DFB_INPUT_DRIVER( zytronic )
+
+typedef struct
+{
+    CoreInputDevice  *device;
+    DirectThread *thread;
+
+    int           fd;
+} H3600TSData;
+
+struct tsdata
+{
+    int x;
+    int y;
+};
+
+struct timespec ts =
+{
+    0, 50000
+};
+
+
+#define H(x) (unsigned char)((x)>>8)
+#define L(x) (unsigned char)((x)&0xff)
+
+typedef struct eink_dfb_cmd_s
+{
+    int owner;
+    int command;
+    int nwrite;
+    int nread;
+    unsigned char data[2*1600*1600];
+    unsigned char empty[4096];
+} eink_dfb_cmd;
+
+static eink_dfb_cmd cmd_refresh = {0};
+
+/* crc_tab[] -- this crcTable is being build by chksum_crc32GenTab().
+ *		so make sure, you call it before using the other
+ *		functions!
+ */
+u_int32_t crc_tab[256];
+
+FBDev *dfb_fbdev = NULL;
+
+/* chksum_crc() -- to a given block, this one calculates the
+ *				crc32-checksum until the length is
+ *				reached. the crc32-checksum will be
+ *				the result.
+ */
+u_int32_t chksum_crc32 (unsigned char *block, unsigned int length)
+{
+    register unsigned long crc;
+    unsigned long i;
+
+    crc = 0xFFFFFFFF;
+    for (i = 0; i < length; i++)
+    {
+        crc = ((crc >> 8) & 0x00FFFFFF) ^ crc_tab[(crc ^ *block++) & 0xFF];
+    }
+    return (crc ^ 0xFFFFFFFF);
+}
+
+/* chksum_crc32gentab() --      to a global crc_tab[256], this one will
+ *				calculate the crcTable for crc32-checksums.
+ *				it is generated to the polynom [..]
+ */
+
+void chksum_crc32gentab ()
+{
+    unsigned long crc, poly;
+    int i, j;
+
+    poly = 0xEDB88320L;
+    for (i = 0; i < 256; i++)
+    {
+        crc = i;
+        for (j = 8; j > 0; j--)
+        {
+            if (crc & 1)
+            {
+                crc = (crc >> 1) ^ poly;
+            }
+            else
+            {
+                crc >>= 1;
+            }
+        }
+        crc_tab[i] = crc;
+    }
+}
+
+
+static void update_screen()
+{
+    static uint32_t oldHash = 0;
+    uint32_t currentHash;
+    if ( !(ivstate.uiflags & IN_KEYBOARD) &&
+            (NULL != dfb_fbdev) &&
+            (dfb_fbdev->fd > 0))
+    {
+        currentHash = chksum_crc32(dfb_fbdev->framebuffer_base, 2 * dfb_fbdev->shared->current_mode.xres * dfb_fbdev->shared->current_mode.yres);
+        if (oldHash != currentHash)
+        {
+            unsigned char* buffer_ptr = NULL;
+            unsigned char* display_buffer_ptr = NULL;
+            long i = 0;
+            long j = 0;
+
+            oldHash = currentHash;
+            cmd_refresh.owner = 0;
+            cmd_refresh.command = 0;
+            cmd_refresh.nwrite = 0;
+            cmd_refresh.nread = 0;
+
+            //set fast refresh
+            //ioctl( dfb_fbdev->fd, 901, (unsigned long)1 );
+
+            cmd_refresh.data[0] = H(0);
+            cmd_refresh.data[1] = L(0);
+            cmd_refresh.data[2] = H(0);
+            cmd_refresh.data[3] = L(0);
+            /*cmd_refresh.data[4] = H(600-1);
+            cmd_refresh.data[5] = L(600-1);
+            cmd_refresh.data[6] = H(800-1);
+            cmd_refresh.data[7] = L(800-1);
+            cmd_refresh.command = 0xb0;
+            cmd_refresh.nwrite = (600*800)/2 + 8;
+            buffer_ptr = dfb_fbdev->framebuffer_base;
+            display_buffer_ptr = cmd_refresh.data + 8;
+            //memcpy(display_buffer_ptr, buffer_ptr, cmd_refresh->nwrite - 8);
+            for( i = 0; i < (cmd_refresh.nwrite - 8); i++)
+            {
+                unsigned int firstPix = ((*buffer_ptr & 0x3)*11 + ((*buffer_ptr >> 2) & 0x7)*59 + ((*buffer_ptr >> 5) & 0x7)*30 + 4)/44;
+                unsigned int secondPix = ((*(buffer_ptr+1) & 0x3)*11 + ((*(buffer_ptr+1) >> 2) & 0x7)*59 + ((*(buffer_ptr+1) >> 5) & 0x7)*30 + 4)/44;
+                *display_buffer_ptr = ((firstPix & 0x0f) << 4) | (secondPix & 0x0f);
+                buffer_ptr += 2;
+                display_buffer_ptr ++;
+            }*/
+            cmd_refresh.data[4] = H(dfb_fbdev->shared->current_mode.xres-1);
+            cmd_refresh.data[5] = L(dfb_fbdev->shared->current_mode.xres-1);
+            cmd_refresh.data[6] = H(dfb_fbdev->shared->current_mode.yres-1);
+            cmd_refresh.data[7] = L(dfb_fbdev->shared->current_mode.yres-1);
+            cmd_refresh.command = 0xb0;
+            cmd_refresh.nwrite = (dfb_fbdev->shared->current_mode.xres*dfb_fbdev->shared->current_mode.yres)/2 + 8;
+
+            for (i = 0; i < dfb_fbdev->shared->current_mode.yres; i++)
+            {
+                display_buffer_ptr = cmd_refresh.data + 8 + (dfb_fbdev->shared->current_mode.xres * i)/2;
+                buffer_ptr = dfb_fbdev->framebuffer_base + dfb_fbdev->shared->current_mode.xres * i;
+                for (j = 0; j < dfb_fbdev->shared->current_mode.xres; j+=2)
+                {
+                    unsigned char firstSrc = *(buffer_ptr+j);
+                    unsigned char secondSrc = *(buffer_ptr+j+1);
+                    unsigned int firstPix = ((firstSrc & 0x3)*11 + ((firstSrc >> 2) & 0x7)*59 + ((firstSrc >> 5) & 0x7)*30 + 4)/44;
+                    unsigned int secondPix = ((secondSrc & 0x3)*11 + ((secondSrc >> 2) & 0x7)*59 + ((secondSrc >> 5) & 0x7)*30 + 4)/44;
+                    *display_buffer_ptr = ((firstPix & 0x0f) << 4) | (secondPix & 0x0f);
+                    display_buffer_ptr++;
+                }
+            }
+            ioctl( dfb_fbdev->fd, 1, &cmd_refresh );
+            cmd_refresh.nwrite = 0;
+
+            cmd_refresh.command = 0xa1;
+            ioctl( dfb_fbdev->fd, 1, &cmd_refresh );
+
+            cmd_refresh.command = 0xb2;
+            ioctl( dfb_fbdev->fd, 1, &cmd_refresh );
+        }
+    }
+}
+
+static int checkKeyBoardEvent(int *lastState, time_t *timeWait, int *keyState, int *keyCode, int *keyRepeatCount)
+{
+    int result = 0;
+    int evt_key_type = 0;
+    int evt_key_par1 = 0;
+    int evt_key_par2 = 0;
+    time_t currentTime = time(NULL);
+
+    if (hw_nextevent_key(&evt_key_type, &evt_key_par1, &evt_key_par2))
+    {
+        if (evt_key_type == EVT_KEYDOWN)
+        {
+            *lastState = evt_key_par1;
+            *keyCode = evt_key_par1;
+            *keyState = EVT_KEYDOWN;
+            *timeWait = currentTime;
+            *keyRepeatCount = 0;
+            result = 1;
+        }
+        else if (evt_key_type == EVT_KEYUP)
+        {
+            *keyCode = evt_key_par1;
+            *keyState = EVT_KEYUP;
+            *lastState = 0;
+            result = 1;
+        }
+    }
+    else if (*lastState != 0)
+    {
+        if (currentTime - *timeWait > 0)
+        {
+            *timeWait = currentTime;
+            *keyState = EVT_KEYREPEAT;
+            *keyCode = *lastState;
+            *keyRepeatCount = *keyRepeatCount + 1;
+            result = 1;
+        }
+    }
+    return result;
+}
+
+void ResetAccelerate(int *accelerate)
+{
+    *accelerate = 0;
+}
+
+int GetAccelerate(int *accelerate)
+{
+    if (*accelerate < 24)
+    {
+        *accelerate = *accelerate + 3;
+    }
+    else *accelerate = 24;
+    return *accelerate;
+}
+
+void directfb_sendevent(H3600TSData *data, DFBInputEvent *event)
+{
+	DFBInputEvent evt;
+	if (event)
+	{
+		memcpy(&evt, event, sizeof(DFBInputEvent));
+		dfb_input_dispatch( data->device, &evt );
+	}
+}
+
+static void *
+h3600tsEventThread( DirectThread *thread, void *driver_data )
+{
+    H3600TSData *data = (H3600TSData*) driver_data;
+ 
+    DFBInputEvent evt;
+    struct tsdata ts_event;
+    int readlen;
+    int isTouchUsed;
+    unsigned short old_pressure = 0;
+    int old_x;
+    int old_y;
+    int lastState = 0;
+    time_t timeWait;
+    int mouse_button = 0;
+    int evt_key_type = 0;
+    int evt_key_par1 = 0;
+    int evt_key_par2 = 0;
+    int repeatCounter = 0;
+    int cursor_step;
+    int accelerate;
+    unsigned long ticker = 0;
+
+    chksum_crc32gentab();
+    dfb_fbdev = dfb_system_data();
+
+    OpenScreen();
+
+    //disable refresh();
+    cmd_refresh.command = 0xfa;
+    ioctl( dfb_fbdev->fd, 1, &cmd_refresh );
+
+    //set depth
+    cmd_refresh.command = 0xf3;
+    cmd_refresh.nwrite = 1;
+    cmd_refresh.data[0] = 0x04;
+    ioctl( dfb_fbdev->fd, 1, &cmd_refresh );
+    cmd_refresh.nwrite = 0;
+
+    //set orientation
+    SetOrientation(0);
+/*
+    cmd_refresh.command = 0xf5;
+    cmd_refresh.nwrite = 1;
+    cmd_refresh.data[0] = 0x02;
+    ioctl( dfb_fbdev->fd, 1, &cmd_refresh );
+    cmd_refresh.nwrite = 0;
+*/
+    isTouchUsed = hw_touchpanel_ready();
+    if (!isTouchUsed)
+    {
+        old_x = dfb_fbdev->shared->current_mode.xres >> 1;
+        old_y = dfb_fbdev->shared->current_mode.yres >> 1;
+    }
+    while (true)
+    {
+        direct_thread_testcancel( thread );
+
+	memset(&evt, 0, sizeof(DFBInputEvent));
+        if (isTouchUsed && hw_nextevent_ts(&evt_key_type, &evt_key_par1, &evt_key_par2) && (evt_key_type != EVT_POINTERUP))
+        {
+            ts_event.x = ivstate.tsc.a / 10000 + (evt_key_par1 * ivstate.tsc.b) / 10000 + (evt_key_par2 * ivstate.tsc.c) / 10000;
+            ts_event.y = ivstate.tsc.d / 10000 + (evt_key_par1 * ivstate.tsc.e) / 10000 + (evt_key_par2 * ivstate.tsc.f) / 10000;
+
+            if ( !(ivstate.uiflags & IN_KEYBOARD) )
+            {
+                evt.type    = DIET_AXISMOTION;
+                evt.flags   = DIEF_AXISABS;
+                evt.axis    = DIAI_X;
+                evt.axisabs = ts_event.x;
+
+                directfb_sendevent(data, &evt);
+
+                evt.type    = DIET_AXISMOTION;
+                evt.flags   = DIEF_AXISABS;
+                evt.axis    = DIAI_Y;
+                evt.axisabs = ts_event.y;
+
+                directfb_sendevent(data, &evt);
+
+                if (0 == old_pressure)
+                {
+		    memset(&evt, 0, sizeof(DFBInputEvent));
+                    evt.type   = DIET_BUTTONPRESS;
+                    evt.flags  = DIEF_NONE;
+                    evt.button = DIBI_LEFT;
+
+                    directfb_sendevent(data, &evt);
+                    nanosleep(&ts, NULL);
+                    old_pressure = 1;
+                }
+            }
+            else
+            {
+                if (0 == old_pressure)
+                {
+                    iv_handler handler = GetEventHandler();
+                    if (handler)
+                    {
+                        old_x = ts_event.x;
+                        old_y = ts_event.y;
+                        (*handler)(EVT_POINTERDOWN, ts_event.x, ts_event.y);
+                    }
+                    old_pressure = 1;
+                }
+            }
+        }
+        else
+        {
+            if (1 == old_pressure)
+            {
+                if ( !(ivstate.uiflags & IN_KEYBOARD) )
+                {
+                    evt.type   = DIET_BUTTONRELEASE;
+                    evt.flags  = DIEF_NONE;
+                    evt.button = DIBI_LEFT;
+
+                    directfb_sendevent(data, &evt);
+                    nanosleep(&ts, NULL);
+                }
+                else
+                {
+                    iv_handler handler = GetEventHandler();
+                    if (handler)
+                    {
+                        (*handler)(EVT_POINTERUP, old_x, old_y);
+                    }
+                }
+                old_pressure = 0;
+            }
+        }
+
+
+        // keyboard events
+        if (checkKeyBoardEvent(&lastState, &timeWait, &evt_key_type, &evt_key_par1, &repeatCounter))
+        {
+            if (ivstate.uiflags & IN_KEYBOARD)
+            {
+                iv_handler handler = GetEventHandler();
+		// don't send KEYREPEAT, because text enter would be unstable
+                if (handler && evt_key_type != EVT_KEYREPEAT)
+                {
+                    //(*handler)(evt_key_type, evt_key_par1, repeatCounter);
+		    (*handler)(evt_key_type, evt_key_par1, 0);
+                }
+            }
+            else
+            {
+		memset(&evt, 0, sizeof(DFBInputEvent));
+
+                if (evt_key_par1 == KEY_OK ||
+                        evt_key_par1 == KEY_BACK ||
+			evt_key_par1 == KEY_HOME ||
+			evt_key_par1 == KEY_NEXT ||
+			evt_key_par1 == KEY_PREV ||
+                        isTouchUsed != 0)
+                {
+                    // handle key back and ok button
+                    if (evt_key_type == EVT_KEYDOWN)
+                    {
+                        evt.type = DIET_KEYPRESS;
+                    }
+                    else if (evt_key_type == EVT_KEYUP)
+                    {
+                        evt.type = DIET_KEYRELEASE;
+                    }
+                    if (evt.type != 0)
+                    {
+                        evt.flags = DIEF_KEYID;
+			evt.key_id = 0;
+			mouse_button = 0;
+                        switch (evt_key_par1)
+                        {
+                        case KEY_UP:
+                            evt.key_id = DIKI_PAGE_UP;
+                            break;
+                        case KEY_DOWN:
+                            evt.key_id = DIKI_PAGE_DOWN;
+                            break;
+                        case KEY_LEFT:
+                            evt.key_id = DIKI_LEFT;
+                            break;
+			case KEY_NEXT:
+		            evt.key_id = DIKI_TAB;
+			    break;
+			case KEY_PREV:
+                            if ( evt.type == DIET_KEYPRESS )
+                            {
+                                evt.key_id = DIKI_SHIFT_L;
+                                directfb_sendevent(data, &evt);
+                                evt.key_id = DIKI_TAB;
+                            }
+                            else //evt.type == DIET_KEYRELEASE;
+                            {
+                                evt.key_id = DIKI_TAB;
+                                directfb_sendevent(data, &evt);
+                                evt.key_id = DIKI_SHIFT_L;
+                            }
+			    break;
+                        case KEY_RIGHT:
+                            evt.key_id = DIKI_RIGHT;
+                            break;
+			case KEY_MENU:
+                            break;
+			case KEY_HOME:
+                            if ( evt.type == DIET_KEYPRESS )
+                            {
+                                evt.key_id = DIKI_CONTROL_L;
+                                directfb_sendevent(data, &evt);
+                                evt.key_id = DIKI_HOME;
+                            }
+                            else //evt.type == DIET_KEYRELEASE;
+                            {
+                                evt.key_id = DIKI_HOME;
+                                directfb_sendevent(data, &evt);
+                                evt.key_id = DIKI_CONTROL_L;
+                            }
+			    break;
+                        case KEY_OK:
+                            evt.flags  = DIEF_NONE;
+                            evt.button = DIBI_LEFT;
+                            if ( evt.type == DIET_KEYPRESS )
+                            {
+                                evt.type   = DIET_BUTTONPRESS;
+                            }
+                            else //evt.type == DIET_KEYRELEASE;
+                            {
+                                evt.type   = DIET_BUTTONRELEASE;
+                            }
+			    mouse_button = 1;
+                            break;
+                        case KEY_BACK:
+                            if ( evt.type == DIET_KEYPRESS )
+                            {
+                                evt.key_id = DIKI_CONTROL_L;
+                                directfb_sendevent(data, &evt);
+                                evt.key_id = DIKI_Q;
+                            }
+                            else //evt.type == DIET_KEYRELEASE;
+                            {
+                                evt.key_id = DIKI_Q;
+                                directfb_sendevent(data, &evt);
+                                evt.key_id = DIKI_CONTROL_L;
+                            }
+                            break;
+                        default:
+                            break;
+                        }
+                        if (evt.key_id != 0 ||
+                            mouse_button != 0)
+                        {
+			    nanosleep(&ts, NULL);
+                            directfb_sendevent(data, &evt);
+                        }
+                    }
+                }
+                else
+                {
+                    // cursor navigation support if no touchpanel
+                    switch (evt_key_type)
+                    {
+                    case EVT_KEYDOWN:
+                        ResetAccelerate(&accelerate);
+                    case EVT_KEYREPEAT:
+
+                        evt.type = DIET_KEYPRESS;
+                        evt.flags = DIEF_KEYID;
+                        evt.key_id = 0;
+
+                        cursor_step = GetAccelerate(&accelerate) * 5;
+                        switch (evt_key_par1)
+                        {
+                        case KEY_UP:
+                            if (old_y > 0)
+			    {
+				if (old_y < cursor_step) old_y = 0;
+				else old_y -= cursor_step;
+		 	    }
+                            else
+                            {
+                                evt.key_id = DIKI_PAGE_UP;
+                            }
+                            break;
+                        case KEY_DOWN:
+                            if (old_y < dfb_fbdev->shared->current_mode.yres)
+			    {
+				if (dfb_fbdev->shared->current_mode.yres - old_y < cursor_step) old_y = dfb_fbdev->shared->current_mode.yres;
+				else old_y += cursor_step;
+			    }
+                            else
+                            {
+                                evt.key_id = DIKI_PAGE_DOWN;
+                            }
+                            break;
+                        case KEY_LEFT:
+                            if (old_x > 0)
+			    {
+				if (old_x < cursor_step) old_x = 0;
+				else old_x -= cursor_step;
+			    }                            
+			    else
+                            {
+                                evt.key_id = DIKI_LEFT;
+                            }
+                            break;
+                        case KEY_RIGHT:
+                            if (old_x < dfb_fbdev->shared->current_mode.xres)
+			    {
+				if (dfb_fbdev->shared->current_mode.xres - old_x < cursor_step) old_x = dfb_fbdev->shared->current_mode.xres;
+				else old_x += cursor_step;
+			    }
+                            else
+                            {
+                                evt.key_id = DIKI_RIGHT;
+                            }
+                            break;
+                        default:
+                            break;
+                        }
+
+                        if (evt.key_id != 0)
+                        {
+                            directfb_sendevent(data, &evt);
+			    nanosleep(&ts, NULL);
+			    evt.key_symbol = 0;
+			    evt.key_code = 0;
+                            evt.type = DIET_KEYRELEASE;
+                            directfb_sendevent(data, &evt);
+                        }
+                        else
+                        {
+                            evt.type    = DIET_AXISMOTION;
+                            evt.flags   = DIEF_AXISABS;
+                            evt.axis    = DIAI_X;
+                            evt.axisabs = old_x;
+
+                            directfb_sendevent(data, &evt);
+
+			    nanosleep(&ts, NULL);
+                            evt.type    = DIET_AXISMOTION;
+                            evt.flags   = DIEF_AXISABS;
+                            evt.axis    = DIAI_Y;
+                            evt.axisabs = old_y;
+
+                            directfb_sendevent(data, &evt);
+                        }
+                        break;
+                    case EVT_KEYUP:
+                    default:
+                        break;
+                    }
+                }
+            }
+        }
+
+        if ( ticker > 10 )
+        {
+            update_screen();
+            ticker = 0;
+        }
+        ticker++;
+
+        nanosleep(&ts, NULL);
+    }
+
+    if (readlen <= 0)
+        D_PERROR ("H3600 Touchscreen thread died\n");
+
+    return NULL;
+}
+
+
+/* exported symbols */
+
+static int driver_get_available( void )
+{
+    int fd;
+    return 1;
+}
+
+static void
+driver_get_info( InputDriverInfo *info )
+{
+    /* fill driver info structure */
+    snprintf( info->name,
+              DFB_INPUT_DRIVER_INFO_NAME_LENGTH, "H3600 Touchscreen Driver" );
+
+    snprintf( info->vendor,
+              DFB_INPUT_DRIVER_INFO_VENDOR_LENGTH, "directfb.org" );
+
+    info->version.major = 0;
+    info->version.minor = 2;
+}
+
+static DFBResult
+driver_open_device( CoreInputDevice      *device,
+                    unsigned int      number,
+                    InputDeviceInfo  *info,
+                    void            **driver_data )
+{
+    int          fd;
+    H3600TSData *data;
+
+    /* fill device info structure */
+    snprintf( info->desc.name,
+              DFB_INPUT_DEVICE_DESC_NAME_LENGTH, "H3600 Touchscreen" );
+
+    snprintf( info->desc.vendor,
+              DFB_INPUT_DEVICE_DESC_VENDOR_LENGTH, "Unknown" );
+
+    //info->prefered_id     = DIDID_ANY; //DIDID_MOUSE;
+    info->prefered_id     = DIDID_KEYBOARD;
+
+    info->desc.type       = DIDTF_MOUSE | DIDTF_REMOTE | DIDTF_KEYBOARD;
+    info->desc.caps       = DICAPS_AXES | DICAPS_BUTTONS | DICAPS_KEYS;
+    info->desc.max_axis   = DIAI_Y;
+    info->desc.max_button = DIBI_LEFT;
+
+    /* allocate and fill private data */
+    data = D_CALLOC( 1, sizeof(H3600TSData) );
+    if (!data)
+    {
+        close( fd );
+        return D_OOM();
+    }
+
+    data->fd     = fd;
+    data->device = device;
+
+    /* start input thread */
+    data->thread = direct_thread_create( DTT_INPUT, h3600tsEventThread, data, "H3600 TS Input" );
+
+    /* set private data pointer */
+    *driver_data = data;
+
+    return DFB_OK;
+}
+
+/*
+ * Fetch one entry from the device's keymap if supported.
+ */
+static DFBResult
+driver_get_keymap_entry( CoreInputDevice               *device,
+                         void                      *driver_data,
+                         DFBInputDeviceKeymapEntry *entry )
+{
+    return DFB_UNSUPPORTED;
+}
+
+static void
+driver_close_device( void *driver_data )
+{
+    H3600TSData *data = (H3600TSData*) driver_data;
+
+    /* stop input thread */
+    direct_thread_cancel( data->thread );
+    direct_thread_join( data->thread );
+    direct_thread_destroy( data->thread );
+
+    /* close device */
+    if (close( data->fd ) < 0)
+        D_PERROR( "DirectFB/H3600: Error closing `%s'!\n", dfb_config->h3600_device ? : "/dev/ts" );
+
+    /* free private data */
+    D_FREE( data );
+}
+

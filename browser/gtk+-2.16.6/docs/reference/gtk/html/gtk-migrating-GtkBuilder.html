@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Migrating from libglade to GtkBuilder</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="prev" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="next" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gtk-migrating-GtkLinkButton.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="migrating.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="gtk-migrating-tooltips.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter" title="Migrating from libglade to GtkBuilder">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="gtk-migrating-GtkBuilder"></a>Migrating from libglade to GtkBuilder</h2></div></div></div>
+<p>
+    Since version 2.12, GTK+ provides <a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> to construct
+    user interfaces from XML descriptions, similar to the functionality
+    provided by <a
+href="/usr/share/gtk-doc/html/libglade/GladeXML.html"
+><span class="type">GladeXML</span></a> in the libglade library.
+  </p>
+<p>
+    A good way to start a migration from libglade to GtkBuilder is
+    to run the <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-builder-convert.html"
+>gtk-builder-convert</a>
+    utility on your glade file, and inspect the resulting output.
+    If your code uses the <em class="parameter"><code>root</code></em> parameter of <a
+href="/usr/share/gtk-doc/html/libglade/GladeXML.html#glade-xml-new"
+><code class="function">glade_xml_new()</code></a>, you
+    may want to split your glade file into multiple GtkBuilder files
+    by using the <code class="option">--root</code> option of
+    <span class="application">gtk-builder-convert</span>. Alternatively, you
+    can use <a class="link" href="GtkBuilder.html#gtk-builder-add-objects-from-file" title="gtk_builder_add_objects_from_file ()"><code class="function">gtk_builder_add_objects_from_file()</code></a> to construct only certain
+    objects from a GtkBuilder file.
+  </p>
+<p>
+    Alternatively, you can open the glade file with
+    <span class="application">glade3</span> and then save it in GtkBuilder
+    format. This is supported by glade3 since version 3.6.
+  </p>
+<div class="table">
+<a name="id1434527"></a><p class="title"><b>Table 1. Step-by-step instructions for porting code from libglade to GtkBuilder</b></p>
+<div class="table-contents"><table summary="Step-by-step instructions for porting code from libglade to GtkBuilder" width="100%" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>libglade</th>
+<th>GtkBuilder</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>#include &lt;glade/glade.h&gt;</td>
+<td>not needed</td>
+</tr>
+<tr>
+<td><pre class="screen">GladeXML*</pre></td>
+<td><pre class="screen">GtkBuilder*</pre></td>
+</tr>
+<tr>
+<td><pre class="screen">glade_xml_new (FILE, "first_widget", NULL)</pre></td>
+<td>
+<pre class="screen">
+GError* error = NULL;
+GtkBuilder* builder = gtk_builder_new ();
+if (!gtk_builder_add_from_file (builder, FILE, &amp;error))
+  {
+    g_warning ("Couldn't load builder file: <code class="literal">s</code>", error-&gt;message);
+    g_error_free (error);
+  }
+</pre>
+          </td>
+</tr>
+<tr>
+<td><pre class="screen">glade_xml_get_widget (gxml, “widget_name”)</pre></td>
+<td><pre class="screen">GTK_WIDGET (gtk_builder_get_object (builder, “widget_name”))</pre></td>
+</tr>
+<tr>
+<td><pre class="screen">glade_get_widget_name (widget)</pre></td>
+<td><pre class="screen">gtk_widget_get_name (widget)</pre></td>
+</tr>
+<tr>
+<td><pre class="screen">glade_xml_get_widget_prefix (gxml, “prefix”)</pre></td>
+<td>can be emulated by <code class="literal">gtk_builder_get_objects (builder)</code> together with manual filtering. It returns a GSList* instead of a GList* though.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+    While GtkBuilder strives to be a complete replacement for
+    libglade, there are a number of areas where it is currently
+    still behind libglade:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+        GtkBuilder supports context information in translatable
+        properties in a slightly different way than libglade.
+        Intltool does not yet support this; see
+        <a class="ulink" href="http://bugzilla.gnome.org/show_bug.cgi?id=454894" target="_top">bug
+        454894</a> for the current status of intltool support for
+        GtkBuilder files. Thankfully, context in translations is a
+        rarely used feature, and if you are not using it, intltools
+        glade format support works just fine for GtkBuilder files.
+      </p></li>
+<li class="listitem"><p>
+        While libglade can often tolerate multiple widgets having the
+        same id in a glade file, GtkBuilder will not accept duplicate
+        object ids. Both <span class="application">gtk-builder-convert</span>
+        and the GtkBuilder parser emit warnings when they see
+        duplicate ids.
+      </p></li>
+</ul></div>
+<p>
+  </p>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

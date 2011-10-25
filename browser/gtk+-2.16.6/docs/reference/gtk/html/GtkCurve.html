@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkCurve</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="prev" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="next" href="GtkGammaCurve.html" title="GtkGammaCurve">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="SpecialObjects.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="SpecialObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="GtkGammaCurve.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkCurve.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkCurve.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkCurve.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkCurve.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#GtkCurve.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#GtkCurve.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GtkCurve">
+<a name="GtkCurve"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkCurve.top_of_page"></a>GtkCurve</span></h2>
+<p>GtkCurve — Allows direct editing of a curve</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GtkCurve.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="GtkCurve.html#GtkCurve-struct" title="GtkCurve">GtkCurve</a>;
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkCurve.html#gtk-curve-new" title="gtk_curve_new ()">gtk_curve_new</a>                       (void);
+void                <a class="link" href="GtkCurve.html#gtk-curve-reset" title="gtk_curve_reset ()">gtk_curve_reset</a>                     (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve);
+void                <a class="link" href="GtkCurve.html#gtk-curve-set-gamma" title="gtk_curve_set_gamma ()">gtk_curve_set_gamma</a>                 (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> gamma_);
+void                <a class="link" href="GtkCurve.html#gtk-curve-set-range" title="gtk_curve_set_range ()">gtk_curve_set_range</a>                 (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> min_x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> max_x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> min_y,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> max_y);
+void                <a class="link" href="GtkCurve.html#gtk-curve-get-vector" title="gtk_curve_get_vector ()">gtk_curve_get_vector</a>                (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         int veclen,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> vector[]);
+void                <a class="link" href="GtkCurve.html#gtk-curve-set-vector" title="gtk_curve_set_vector ()">gtk_curve_set_vector</a>                (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         int veclen,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> vector[]);
+void                <a class="link" href="GtkCurve.html#gtk-curve-set-curve-type" title="gtk_curve_set_curve_type ()">gtk_curve_set_curve_type</a>            (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkCurveType" title="enum GtkCurveType">GtkCurveType</a> type);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GtkCurve.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="GtkObject.html" title="GtkObject">GtkObject</a>
+               +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
+                     +----<a class="link" href="GtkDrawingArea.html" title="GtkDrawingArea">GtkDrawingArea</a>
+                           +----GtkCurve
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GtkCurve.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GtkCurve implements
+ AtkImplementorIface and  <a class="link" href="gtk-gtkbuildable.html#GtkBuildable">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GtkCurve.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkCurve.html#GtkCurve--curve-type" title='The "curve-type" property'>curve-type</a>"               <a class="link" href="gtk-Standard-Enumerations.html#GtkCurveType" title="enum GtkCurveType">GtkCurveType</a>          : Read / Write
+  "<a class="link" href="GtkCurve.html#GtkCurve--max-x" title='The "max-x" property'>max-x</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write
+  "<a class="link" href="GtkCurve.html#GtkCurve--max-y" title='The "max-y" property'>max-y</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write
+  "<a class="link" href="GtkCurve.html#GtkCurve--min-x" title='The "min-x" property'>min-x</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write
+  "<a class="link" href="GtkCurve.html#GtkCurve--min-y" title='The "min-y" property'>min-y</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GtkCurve.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkCurve.html#GtkCurve-curve-type-changed" title='The "curve-type-changed" signal'>curve-type-changed</a>"                             : Run First
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GtkCurve.description"></a><h2>Description</h2>
+<div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+ This widget is considered too specialized/little-used for
+ GTK+, and will in the future be moved to some other package.  If
+ your application needs this widget, feel free to use it, as the
+ widget does work and is useful in some applications; it's just not
+ of general interest. However, we are not accepting new features for
+ the widget, and it will eventually move out of the GTK+
+ distribution.
+</p>
+</div>
+<p>
+The <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a> widget allows the user to edit a curve covering a range of
+values. It is typically used to fine-tune color balances in graphics
+applications like the Gimp.
+</p>
+<p>
+The <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a> widget has 3 modes of operation - spline, linear and free.
+In spline mode the user places points on the curve which are automatically
+connected together into a smooth curve. In linear mode the user places points
+on the curve which are connected by straight lines. In free mode the user can
+draw the points of the curve freely, and they are not connected at all.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GtkCurve.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkCurve">
+<a name="GtkCurve-struct"></a><h3>GtkCurve</h3>
+<pre class="programlisting">typedef struct _GtkCurve GtkCurve;</pre>
+<p>
+The <a class="link" href="GtkCurve.html#GtkCurve-struct" title="GtkCurve"><span class="type">GtkCurve</span></a> struct contains private data only, and
+should be accessed using the functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_curve_new ()">
+<a name="gtk-curve-new"></a><h3>gtk_curve_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_curve_new                       (void);</pre>
+<p>
+Creates a new <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_curve_reset ()">
+<a name="gtk-curve-reset"></a><h3>gtk_curve_reset ()</h3>
+<pre class="programlisting">void                gtk_curve_reset                     (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve);</pre>
+<p>
+Resets the curve to a straight line from the minimum x and y values to the
+maximum x and y values (i.e. from the bottom-left to the top-right corners).
+The curve type is not changed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_curve_set_gamma ()">
+<a name="gtk-curve-set-gamma"></a><h3>gtk_curve_set_gamma ()</h3>
+<pre class="programlisting">void                gtk_curve_set_gamma                 (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> gamma_);</pre>
+<p>
+Recomputes the entire curve using the given gamma value.
+A gamma value of 1 results in a straight line. Values greater than 1 result
+in a curve above the straight line. Values less than 1 result in a curve
+below the straight line. The curve type is changed to <code class="literal">GTK_CURVE_TYPE_FREE</code>.
+FIXME: Needs a more precise definition of gamma.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gamma_</code></em> :</span></p></td>
+<td>the gamma value.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_curve_set_range ()">
+<a name="gtk-curve-set-range"></a><h3>gtk_curve_set_range ()</h3>
+<pre class="programlisting">void                gtk_curve_set_range                 (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> min_x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> max_x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> min_y,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> max_y);</pre>
+<p>
+Sets the minimum and maximum x and y values of the curve.
+The curve is also reset with a call to <a class="link" href="GtkCurve.html#gtk-curve-reset" title="gtk_curve_reset ()"><code class="function">gtk_curve_reset()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min_x</code></em> :</span></p></td>
+<td>the minimum x value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_x</code></em> :</span></p></td>
+<td>the maximum x value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min_y</code></em> :</span></p></td>
+<td>the minimum y value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_y</code></em> :</span></p></td>
+<td>the maximum y value.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_curve_get_vector ()">
+<a name="gtk-curve-get-vector"></a><h3>gtk_curve_get_vector ()</h3>
+<pre class="programlisting">void                gtk_curve_get_vector                (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         int veclen,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> vector[]);</pre>
+<p>
+Returns a vector of points representing the curve.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>veclen</code></em> :</span></p></td>
+<td>the number of points to calculate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vector</code></em> :</span></p></td>
+<td>returns the points.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_curve_set_vector ()">
+<a name="gtk-curve-set-vector"></a><h3>gtk_curve_set_vector ()</h3>
+<pre class="programlisting">void                gtk_curve_set_vector                (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         int veclen,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> vector[]);</pre>
+<p>
+Sets the vector of points on the curve.
+The curve type is set to <code class="literal">GTK_CURVE_TYPE_FREE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>veclen</code></em> :</span></p></td>
+<td>the number of points.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vector</code></em> :</span></p></td>
+<td>the points on the curve.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_curve_set_curve_type ()">
+<a name="gtk-curve-set-curve-type"></a><h3>gtk_curve_set_curve_type ()</h3>
+<pre class="programlisting">void                gtk_curve_set_curve_type            (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkCurveType" title="enum GtkCurveType">GtkCurveType</a> type);</pre>
+<p>
+Sets the type of the curve. The curve will remain unchanged except when
+changing from a free curve to a linear or spline curve, in which case the
+curve will be changed as little as possible.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkCurve.html" title="GtkCurve"><span class="type">GtkCurve</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>the type of the curve.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GtkCurve.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "curve-type" property'>
+<a name="GtkCurve--curve-type"></a><h3>The <code class="literal">"curve-type"</code> property</h3>
+<pre class="programlisting">  "curve-type"               <a class="link" href="gtk-Standard-Enumerations.html#GtkCurveType" title="enum GtkCurveType">GtkCurveType</a>          : Read / Write</pre>
+<p>Is this curve linear, spline interpolated, or free-form.</p>
+<p>Default value: GTK_CURVE_TYPE_SPLINE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "max-x" property'>
+<a name="GtkCurve--max-x"></a><h3>The <code class="literal">"max-x"</code> property</h3>
+<pre class="programlisting">  "max-x"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write</pre>
+<p>Maximum possible X value.</p>
+<p>Default value: 1</p>
+</div>
+<hr>
+<div class="refsect2" title='The "max-y" property'>
+<a name="GtkCurve--max-y"></a><h3>The <code class="literal">"max-y"</code> property</h3>
+<pre class="programlisting">  "max-y"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write</pre>
+<p>Maximum possible value for Y.</p>
+<p>Default value: 1</p>
+</div>
+<hr>
+<div class="refsect2" title='The "min-x" property'>
+<a name="GtkCurve--min-x"></a><h3>The <code class="literal">"min-x"</code> property</h3>
+<pre class="programlisting">  "min-x"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write</pre>
+<p>Minimum possible value for X.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "min-y" property'>
+<a name="GtkCurve--min-y"></a><h3>The <code class="literal">"min-y"</code> property</h3>
+<pre class="programlisting">  "min-y"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write</pre>
+<p>Minimum possible value for Y.</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GtkCurve.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "curve-type-changed" signal'>
+<a name="GtkCurve-curve-type-changed"></a><h3>The <code class="literal">"curve-type-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkCurve.html" title="GtkCurve">GtkCurve</a> *curve,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>  user_data)      : Run First</pre>
+<p>
+Emitted when the curve type has been changed.
+The curve type can be changed explicitly with a call to
+<a class="link" href="GtkCurve.html#gtk-curve-set-curve-type" title="gtk_curve_set_curve_type ()"><code class="function">gtk_curve_set_curve_type()</code></a>. It is also changed as a side-effect of
+calling <a class="link" href="GtkCurve.html#gtk-curve-reset" title="gtk_curve_reset ()"><code class="function">gtk_curve_reset()</code></a> or <a class="link" href="GtkCurve.html#gtk-curve-set-gamma" title="gtk_curve_set_gamma ()"><code class="function">gtk_curve_set_gamma()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="GtkCurve.see-also"></a><h2>See Also</h2>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><a class="link" href="GtkGammaCurve.html" title="GtkGammaCurve"><span class="type">GtkGammaCurve</span></a></span></p></td>
+<td><p>a subclass for editing gamma curves.</p></td>
+</tr></tbody>
+</table></div>
+<p>
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

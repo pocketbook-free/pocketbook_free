@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AtkDocument</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.69.1">
+<link rel="start" href="index.html" title="ATK - Accessibility Toolkit">
+<link rel="up" href="atk.html" title="ATK Library">
+<link rel="prev" href="AtkComponent.html" title="AtkComponent">
+<link rel="next" href="AtkEditableText.html" title="AtkEditableText">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="atk.html" title="ATK Library">
+<link rel="index" href="ix01.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+<link rel="index" href="ix03.html" title="Index of new symbols in ATK 1.3">
+<link rel="index" href="ix04.html" title="Index of new symbols in ATK 1.4">
+<link rel="index" href="ix05.html" title="Index of new symbols in ATK 1.6">
+<link rel="index" href="ix06.html" title="Index of new symbols in ATK 1.9">
+<link rel="index" href="ix07.html" title="Index of new symbols in ATK 1.12">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AtkComponent.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">ATK - Accessibility Toolkit</th>
+<td><a accesskey="n" href="AtkEditableText.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AtkDocument.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AtkDocument.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AtkDocument.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AtkDocument.implementations" class="shortcut">Known Implementations</a>
+                 | 
+                <a href="#AtkDocument.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="AtkDocument"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AtkDocument.top_of_page"></a>AtkDocument</span></h2>
+<p>AtkDocument — The ATK interface which represents the toplevel container for document content.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="AtkDocument.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a href="AtkDocument.html#AtkDocument-struct" title="AtkDocument">AtkDocument</a>;
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a href="AtkDocument.html#atk-document-get-document-type" title="atk_document_get_document_type ()">atk_document_get_document_type</a>      (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>            <a href="AtkDocument.html#atk-document-get-document" title="atk_document_get_document ()">atk_document_get_document</a>           (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a href="AtkDocument.html#atk-document-get-attribute-value" title="atk_document_get_attribute_value ()">atk_document_get_attribute_value</a>    (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a href="AtkDocument.html#atk-document-set-attribute-value" title="atk_document_set_attribute_value ()">atk_document_set_attribute_value</a>    (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_value);
+<a href="AtkText.html#AtkAttributeSet" title="AtkAttributeSet">AtkAttributeSet</a>*    <a href="AtkDocument.html#atk-document-get-attributes" title="atk_document_get_attributes ()">atk_document_get_attributes</a>         (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a href="AtkDocument.html#atk-document-get-locale" title="atk_document_get_locale ()">atk_document_get_locale</a>             (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkDocument.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----AtkDocument
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkDocument.implementations"></a><h2>Known Implementations</h2>
+<p>
+AtkDocument is implemented by
+ <a href="AtkNoOpObject.html" title="AtkNoOpObject">AtkNoOpObject</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkDocument.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a href="AtkDocument.html#AtkDocument-load-complete" title='The "load-complete" signal'>load-complete</a>"                                  : Run Last
+  "<a href="AtkDocument.html#AtkDocument-load-stopped" title='The "load-stopped" signal'>load-stopped</a>"                                   : Run Last
+  "<a href="AtkDocument.html#AtkDocument-reload" title='The "reload" signal'>reload</a>"                                         : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkDocument.description"></a><h2>Description</h2>
+<p>
+The AtkDocument interface should be supported by any object whose content is a
+representation or view of a document.  The AtkDocument interface should appear
+on the toplevel container for the document content; however AtkDocument
+instances may be nested (i.e. an AtkDocument may be a descendant of another
+AtkDocument) in those cases where one document contains "embedded content"
+which can reasonably be considered a document in its own right.
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkDocument.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AtkDocument-struct"></a><h3>AtkDocument</h3>
+<pre class="programlisting">typedef struct _AtkDocument AtkDocument;</pre>
+<p>
+The AtkDocument structure does not contain any fields.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-document-get-document-type"></a><h3>atk_document_get_document_type ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        atk_document_get_document_type      (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document);</pre>
+<p>
+Gets a string indicating the document type.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em> :</span></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a> instance that implements AtkDocumentIface
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a string indicating the document type
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-document-get-document"></a><h3>atk_document_get_document ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>            atk_document_get_document           (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document);</pre>
+<p>
+Gets a <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+><code class="literal">gpointer</code></a> that points to an instance of the DOM.  It is
+up to the caller to check atk_document_get_type to determine
+how to cast this pointer.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em> :</span></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a> instance that implements AtkDocumentIface
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+><code class="literal">gpointer</code></a> that points to an instance of the DOM.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-document-get-attribute-value"></a><h3>atk_document_get_attribute_value ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        atk_document_get_attribute_value    (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em> :</span></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a> instance that implements AtkDocumentIface
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>attribute_name</code></em> :</span></td>
+<td> a character string representing the name of the attribute
+           whose value is being queried.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a string value associated with the named attribute for this
+   document, or NULL if a value for <span class="type">attribute_name</span> has not been specified
+   for this document.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.12</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-document-set-attribute-value"></a><h3>atk_document_set_attribute_value ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            atk_document_set_attribute_value    (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_value);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em> :</span></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a> instance that implements AtkDocumentIface
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>attribute_name</code></em> :</span></td>
+<td> a character string representing the name of the attribute
+           whose value is being set.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>attribute_value</code></em> :</span></td>
+<td> a string value to be associated with <span class="type">attribute_name</span>.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> TRUE if <span class="type">value</span> is successfully associated with <span class="type">attribute_name</span>
+         for this document, FALSE otherwise (e.g. if the document does not
+         allow the attribute to be modified).
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.12</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-document-get-attributes"></a><h3>atk_document_get_attributes ()</h3>
+<pre class="programlisting"><a href="AtkText.html#AtkAttributeSet" title="AtkAttributeSet">AtkAttributeSet</a>*    atk_document_get_attributes         (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document);</pre>
+<p>
+Gets an AtkAttributeSet which describes document-wide
+         attributes as name-value pairs.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em> :</span></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a> instance that implements AtkDocumentIface
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> An AtkAttributeSet containing the explicitly
+         set name-value-pair attributes associated with this document
+         as a whole.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.12</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-document-get-locale"></a><h3>atk_document_get_locale ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        atk_document_get_locale             (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *document);</pre>
+<p>
+Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
+         of the content of this document instance.  Individual
+         text substrings or images within this document may have
+         a different locale, see atk_text_get_attributes and
+         atk_image_get_image_locale.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>document</code></em> :</span></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a> instance that implements AtkDocumentIface
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a UTF-8 string indicating the POSIX-style LC_MESSAGES
+         locale of the document content as a whole, or NULL if
+         the document content does not specify a locale.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkDocument.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="AtkDocument-load-complete"></a><h3>The <code class="literal">"load-complete"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *atkdocument,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>     user_data)        : Run Last</pre>
+<p>
+The 'load-complete' signal is emitted when a pending load of a static
+document has completed.  This signal is to be expected by ATK clients
+if and when AtkDocument implementors expose ATK_STATE_BUSY.  If the state
+of an AtkObject which implements AtkDocument does not include ATK_STATE_BUSY,
+it should be safe for clients to assume that the AtkDocument's static contents
+are fully loaded into the container.  (Dynamic document contents should
+be exposed via other signals.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>atkdocument</code></em> :</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em> :</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AtkDocument-load-stopped"></a><h3>The <code class="literal">"load-stopped"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *atkdocument,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>     user_data)        : Run Last</pre>
+<p>
+The 'load-stopped' signal is emitted when a pending load of document contents
+is cancelled, paused, or otherwise interrupted by the user or application
+logic.  It should not however be
+emitted while waiting for a resource (for instance while blocking on a file or
+network read) unless a user-significant timeout has occurred.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>atkdocument</code></em> :</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em> :</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="AtkDocument-reload"></a><h3>The <code class="literal">"reload"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a href="AtkDocument.html" title="AtkDocument">AtkDocument</a> *atkdocument,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>     user_data)        : Run Last</pre>
+<p>
+The 'reload' signal is emitted when the contents of a document is refreshed
+from its source.  Once 'reload' has been emitted, a matching 'load-complete'
+or 'load-stopped' signal should follow, which clients may await before
+interrogating ATK for the latest document content.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>atkdocument</code></em> :</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em> :</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

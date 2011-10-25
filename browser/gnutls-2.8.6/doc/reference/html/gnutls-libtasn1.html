@@ -1,0 +1,1792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>libtasn1</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GNU TLS API Reference Manual">
+<link rel="up" href="ch01.html" title="GNU TLS API Reference Manual">
+<link rel="prev" href="gnutls-openssl.html" title="openssl">
+<link rel="next" href="ix01.html" title="Index">
+<meta name="generator" content="GTK-Doc V1.14 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gnutls-openssl.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GNU TLS API Reference Manual</th>
+<td><a accesskey="n" href="ix01.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gnutls-libtasn1.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gnutls-libtasn1.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="libtasn1">
+<a name="gnutls-libtasn1"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gnutls-libtasn1.top_of_page"></a>libtasn1</span></h2>
+<p>libtasn1</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="gnutls-libtasn1.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="gnutls-libtasn1.html#ASN1-API:CAPS" title="ASN1_API">ASN1_API</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-VERSION:CAPS" title="ASN1_VERSION">ASN1_VERSION</a>
+typedef             <a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode">asn1_retCode</a>;
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-SUCCESS:CAPS" title="ASN1_SUCCESS">ASN1_SUCCESS</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-FILE-NOT-FOUND:CAPS" title="ASN1_FILE_NOT_FOUND">ASN1_FILE_NOT_FOUND</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-ELEMENT-NOT-FOUND:CAPS" title="ASN1_ELEMENT_NOT_FOUND">ASN1_ELEMENT_NOT_FOUND</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-IDENTIFIER-NOT-FOUND:CAPS" title="ASN1_IDENTIFIER_NOT_FOUND">ASN1_IDENTIFIER_NOT_FOUND</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-DER-ERROR:CAPS" title="ASN1_DER_ERROR">ASN1_DER_ERROR</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-VALUE-NOT-FOUND:CAPS" title="ASN1_VALUE_NOT_FOUND">ASN1_VALUE_NOT_FOUND</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-GENERIC-ERROR:CAPS" title="ASN1_GENERIC_ERROR">ASN1_GENERIC_ERROR</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-VALUE-NOT-VALID:CAPS" title="ASN1_VALUE_NOT_VALID">ASN1_VALUE_NOT_VALID</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-ERROR:CAPS" title="ASN1_TAG_ERROR">ASN1_TAG_ERROR</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-IMPLICIT:CAPS" title="ASN1_TAG_IMPLICIT">ASN1_TAG_IMPLICIT</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-ERROR-TYPE-ANY:CAPS" title="ASN1_ERROR_TYPE_ANY">ASN1_ERROR_TYPE_ANY</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-SYNTAX-ERROR:CAPS" title="ASN1_SYNTAX_ERROR">ASN1_SYNTAX_ERROR</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-MEM-ERROR:CAPS" title="ASN1_MEM_ERROR">ASN1_MEM_ERROR</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-MEM-ALLOC-ERROR:CAPS" title="ASN1_MEM_ALLOC_ERROR">ASN1_MEM_ALLOC_ERROR</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-DER-OVERFLOW:CAPS" title="ASN1_DER_OVERFLOW">ASN1_DER_OVERFLOW</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-NAME-TOO-LONG:CAPS" title="ASN1_NAME_TOO_LONG">ASN1_NAME_TOO_LONG</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-ARRAY-ERROR:CAPS" title="ASN1_ARRAY_ERROR">ASN1_ARRAY_ERROR</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-ELEMENT-NOT-EMPTY:CAPS" title="ASN1_ELEMENT_NOT_EMPTY">ASN1_ELEMENT_NOT_EMPTY</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-PRINT-NAME:CAPS" title="ASN1_PRINT_NAME">ASN1_PRINT_NAME</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-PRINT-NAME-TYPE:CAPS" title="ASN1_PRINT_NAME_TYPE">ASN1_PRINT_NAME_TYPE</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-PRINT-NAME-TYPE-VALUE:CAPS" title="ASN1_PRINT_NAME_TYPE_VALUE">ASN1_PRINT_NAME_TYPE_VALUE</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-PRINT-ALL:CAPS" title="ASN1_PRINT_ALL">ASN1_PRINT_ALL</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-CLASS-UNIVERSAL:CAPS" title="ASN1_CLASS_UNIVERSAL">ASN1_CLASS_UNIVERSAL</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-CLASS-APPLICATION:CAPS" title="ASN1_CLASS_APPLICATION">ASN1_CLASS_APPLICATION</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-CLASS-CONTEXT-SPECIFIC:CAPS" title="ASN1_CLASS_CONTEXT_SPECIFIC">ASN1_CLASS_CONTEXT_SPECIFIC</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-CLASS-PRIVATE:CAPS" title="ASN1_CLASS_PRIVATE">ASN1_CLASS_PRIVATE</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-CLASS-STRUCTURED:CAPS" title="ASN1_CLASS_STRUCTURED">ASN1_CLASS_STRUCTURED</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-BOOLEAN:CAPS" title="ASN1_TAG_BOOLEAN">ASN1_TAG_BOOLEAN</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-INTEGER:CAPS" title="ASN1_TAG_INTEGER">ASN1_TAG_INTEGER</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-SEQUENCE:CAPS" title="ASN1_TAG_SEQUENCE">ASN1_TAG_SEQUENCE</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-SET:CAPS" title="ASN1_TAG_SET">ASN1_TAG_SET</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-OCTET-STRING:CAPS" title="ASN1_TAG_OCTET_STRING">ASN1_TAG_OCTET_STRING</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-BIT-STRING:CAPS" title="ASN1_TAG_BIT_STRING">ASN1_TAG_BIT_STRING</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-UTCTime" title="ASN1_TAG_UTCTime">ASN1_TAG_UTCTime</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-GENERALIZEDTime" title="ASN1_TAG_GENERALIZEDTime">ASN1_TAG_GENERALIZEDTime</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-OBJECT-ID:CAPS" title="ASN1_TAG_OBJECT_ID">ASN1_TAG_OBJECT_ID</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-ENUMERATED:CAPS" title="ASN1_TAG_ENUMERATED">ASN1_TAG_ENUMERATED</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-NULL:CAPS" title="ASN1_TAG_NULL">ASN1_TAG_NULL</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TAG-GENERALSTRING:CAPS" title="ASN1_TAG_GENERALSTRING">ASN1_TAG_GENERALSTRING</a>
+typedef             <a class="link" href="gnutls-libtasn1.html#node-asn" title="node_asn">node_asn</a>;
+typedef             <a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE">ASN1_TYPE</a>;
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-TYPE-EMPTY:CAPS" title="ASN1_TYPE_EMPTY">ASN1_TYPE_EMPTY</a>
+typedef             <a class="link" href="gnutls-libtasn1.html#ASN1-ARRAY-TYPE:CAPS" title="ASN1_ARRAY_TYPE">ASN1_ARRAY_TYPE</a>;
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-MAX-NAME-SIZE:CAPS" title="ASN1_MAX_NAME_SIZE">ASN1_MAX_NAME_SIZE</a>
+#define             <a class="link" href="gnutls-libtasn1.html#ASN1-MAX-ERROR-DESCRIPTION-SIZE:CAPS" title="ASN1_MAX_ERROR_DESCRIPTION_SIZE">ASN1_MAX_ERROR_DESCRIPTION_SIZE</a>
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-parser2tree" title="asn1_parser2tree ()">asn1_parser2tree</a>                    (<em class="parameter"><code>const <span class="type">char</span> *file_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *definitions</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-parser2array" title="asn1_parser2array ()">asn1_parser2array</a>                   (<em class="parameter"><code>const <span class="type">char</span> *inputFileName</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *outputFileName</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *vectorName</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-array2tree" title="asn1_array2tree ()">asn1_array2tree</a>                     (<em class="parameter"><code>const <a class="link" href="gnutls-libtasn1.html#ASN1-ARRAY-TYPE:CAPS" title="ASN1_ARRAY_TYPE"><span class="type">ASN1_ARRAY_TYPE</span></a> *array</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *definitions</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-libtasn1.html#asn1-print-structure" title="asn1_print_structure ()">asn1_print_structure</a>                (<em class="parameter"><code><span class="type">FILE</span> *out</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> structure</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> mode</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-create-element" title="asn1_create_element ()">asn1_create_element</a>                 (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> definitions</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *source_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *element</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-delete-structure" title="asn1_delete_structure ()">asn1_delete_structure</a>               (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *structure</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-delete-element" title="asn1_delete_element ()">asn1_delete_element</a>                 (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> structure</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *element_name</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-write-value" title="asn1_write_value ()">asn1_write_value</a>                    (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> node_root</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *ivalue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-read-value" title="asn1_read_value ()">asn1_read_value</a>                     (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> root</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *ivalue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-number-of-elements" title="asn1_number_of_elements ()">asn1_number_of_elements</a>             (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *num</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-der-coding" title="asn1_der_coding ()">asn1_der_coding</a>                     (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *ider</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *ErrorDescription</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-der-decoding" title="asn1_der_decoding ()">asn1_der_decoding</a>                   (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *ider</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-der-decoding-element" title="asn1_der_decoding_element ()">asn1_der_decoding_element</a>           (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *structure</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *elementName</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *ider</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-der-decoding-startEnd" title="asn1_der_decoding_startEnd ()">asn1_der_decoding_startEnd</a>          (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *ider</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name_element</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *start</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *end</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-expand-any-defined-by" title="asn1_expand_any_defined_by ()">asn1_expand_any_defined_by</a>          (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> definitions</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *element</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-expand-octet-string" title="asn1_expand_octet_string ()">asn1_expand_octet_string</a>            (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> definitions</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *octetName</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *objectName</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-read-tag" title="asn1_read_tag ()">asn1_read_tag</a>                       (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> root</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *tagValue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *classValue</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="gnutls-libtasn1.html#asn1-find-structure-from-oid" title="asn1_find_structure_from_oid ()">asn1_find_structure_from_oid</a>        (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> definitions</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *oidValue</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="gnutls-libtasn1.html#asn1-check-version" title="asn1_check_version ()">asn1_check_version</a>                  (<em class="parameter"><code>const <span class="type">char</span> *req_version</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="gnutls-libtasn1.html#asn1-strerror" title="asn1_strerror ()">asn1_strerror</a>                       (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="type">asn1_retCode</span></a> error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-libtasn1.html#asn1-perror" title="asn1_perror ()">asn1_perror</a>                         (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="type">asn1_retCode</span></a> error</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-libtasn1.html#asn1-get-tag-der" title="asn1_get_tag_der ()">asn1_get_tag_der</a>                    (<em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> der_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *cls</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">long</span> *tag</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-libtasn1.html#asn1-octet-der" title="asn1_octet_der ()">asn1_octet_der</a>                      (<em class="parameter"><code>unsigned <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> str_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *der_len</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-get-octet-der" title="asn1_get_octet_der ()">asn1_get_octet_der</a>                  (<em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> der_len</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *ret_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> str_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *str_len</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-libtasn1.html#asn1-bit-der" title="asn1_bit_der ()">asn1_bit_der</a>                        (<em class="parameter"><code>unsigned <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> bit_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *der_len</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-get-bit-der" title="asn1_get_bit_der ()">asn1_get_bit_der</a>                    (<em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> der_len</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *ret_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> str_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *bit_len</code></em>);
+signed <span class="returnvalue">long</span>         <a class="link" href="gnutls-libtasn1.html#asn1-get-length-der" title="asn1_get_length_der ()">asn1_get_length_der</a>                 (<em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> der_len</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>);
+signed <span class="returnvalue">long</span>         <a class="link" href="gnutls-libtasn1.html#asn1-get-length-ber" title="asn1_get_length_ber ()">asn1_get_length_ber</a>                 (<em class="parameter"><code>unsigned <span class="type">char</span> *ber</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> ber_len</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-libtasn1.html#asn1-length-der" title="asn1_length_der ()">asn1_length_der</a>                     (<em class="parameter"><code>unsigned long <a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *ans</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *ans_len</code></em>);
+<a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="returnvalue">ASN1_TYPE</span></a>           <a class="link" href="gnutls-libtasn1.html#asn1-find-node" title="asn1_find_node ()">asn1_find_node</a>                      (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> pointer</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+<a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        <a class="link" href="gnutls-libtasn1.html#asn1-copy-node" title="asn1_copy_node ()">asn1_copy_node</a>                      (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> dst</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dst_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> src</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *src_name</code></em>);
+#define             <a class="link" href="gnutls-libtasn1.html#LIBTASN1-VERSION:CAPS" title="LIBTASN1_VERSION">LIBTASN1_VERSION</a>
+#define             <a class="link" href="gnutls-libtasn1.html#MAX-NAME-SIZE:CAPS" title="MAX_NAME_SIZE">MAX_NAME_SIZE</a>
+#define             <a class="link" href="gnutls-libtasn1.html#MAX-ERROR-DESCRIPTION-SIZE:CAPS" title="MAX_ERROR_DESCRIPTION_SIZE">MAX_ERROR_DESCRIPTION_SIZE</a>
+const <span class="returnvalue">char</span> *        <a class="link" href="gnutls-libtasn1.html#libtasn1-strerror" title="libtasn1_strerror ()">libtasn1_strerror</a>                   (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="type">asn1_retCode</span></a> error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-libtasn1.html#libtasn1-perror" title="libtasn1_perror ()">libtasn1_perror</a>                     (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="type">asn1_retCode</span></a> error</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="gnutls-libtasn1.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="gnutls-libtasn1.details"></a><h2>Details</h2>
+<div class="refsect2" title="ASN1_API">
+<a name="ASN1-API:CAPS"></a><h3>ASN1_API</h3>
+<pre class="programlisting">#define             ASN1_API</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_VERSION">
+<a name="ASN1-VERSION:CAPS"></a><h3>ASN1_VERSION</h3>
+<pre class="programlisting">#define ASN1_VERSION "2.3"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="asn1_retCode">
+<a name="asn1-retCode"></a><h3>asn1_retCode</h3>
+<pre class="programlisting">  typedef int asn1_retCode; /* type returned by libtasn1 functions */
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_SUCCESS">
+<a name="ASN1-SUCCESS:CAPS"></a><h3>ASN1_SUCCESS</h3>
+<pre class="programlisting">#define ASN1_SUCCESS			0
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_FILE_NOT_FOUND">
+<a name="ASN1-FILE-NOT-FOUND:CAPS"></a><h3>ASN1_FILE_NOT_FOUND</h3>
+<pre class="programlisting">#define ASN1_FILE_NOT_FOUND		1
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_ELEMENT_NOT_FOUND">
+<a name="ASN1-ELEMENT-NOT-FOUND:CAPS"></a><h3>ASN1_ELEMENT_NOT_FOUND</h3>
+<pre class="programlisting">#define ASN1_ELEMENT_NOT_FOUND		2
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_IDENTIFIER_NOT_FOUND">
+<a name="ASN1-IDENTIFIER-NOT-FOUND:CAPS"></a><h3>ASN1_IDENTIFIER_NOT_FOUND</h3>
+<pre class="programlisting">#define ASN1_IDENTIFIER_NOT_FOUND 3
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_DER_ERROR">
+<a name="ASN1-DER-ERROR:CAPS"></a><h3>ASN1_DER_ERROR</h3>
+<pre class="programlisting">#define ASN1_DER_ERROR			4
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_VALUE_NOT_FOUND">
+<a name="ASN1-VALUE-NOT-FOUND:CAPS"></a><h3>ASN1_VALUE_NOT_FOUND</h3>
+<pre class="programlisting">#define ASN1_VALUE_NOT_FOUND		5
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_GENERIC_ERROR">
+<a name="ASN1-GENERIC-ERROR:CAPS"></a><h3>ASN1_GENERIC_ERROR</h3>
+<pre class="programlisting">#define ASN1_GENERIC_ERROR		6
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_VALUE_NOT_VALID">
+<a name="ASN1-VALUE-NOT-VALID:CAPS"></a><h3>ASN1_VALUE_NOT_VALID</h3>
+<pre class="programlisting">#define ASN1_VALUE_NOT_VALID		7
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_ERROR">
+<a name="ASN1-TAG-ERROR:CAPS"></a><h3>ASN1_TAG_ERROR</h3>
+<pre class="programlisting">#define ASN1_TAG_ERROR			8
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_IMPLICIT">
+<a name="ASN1-TAG-IMPLICIT:CAPS"></a><h3>ASN1_TAG_IMPLICIT</h3>
+<pre class="programlisting">#define ASN1_TAG_IMPLICIT		9
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_ERROR_TYPE_ANY">
+<a name="ASN1-ERROR-TYPE-ANY:CAPS"></a><h3>ASN1_ERROR_TYPE_ANY</h3>
+<pre class="programlisting">#define ASN1_ERROR_TYPE_ANY		10
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_SYNTAX_ERROR">
+<a name="ASN1-SYNTAX-ERROR:CAPS"></a><h3>ASN1_SYNTAX_ERROR</h3>
+<pre class="programlisting">#define ASN1_SYNTAX_ERROR		11
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_MEM_ERROR">
+<a name="ASN1-MEM-ERROR:CAPS"></a><h3>ASN1_MEM_ERROR</h3>
+<pre class="programlisting">#define ASN1_MEM_ERROR			12
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_MEM_ALLOC_ERROR">
+<a name="ASN1-MEM-ALLOC-ERROR:CAPS"></a><h3>ASN1_MEM_ALLOC_ERROR</h3>
+<pre class="programlisting">#define ASN1_MEM_ALLOC_ERROR		13
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_DER_OVERFLOW">
+<a name="ASN1-DER-OVERFLOW:CAPS"></a><h3>ASN1_DER_OVERFLOW</h3>
+<pre class="programlisting">#define ASN1_DER_OVERFLOW		14
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_NAME_TOO_LONG">
+<a name="ASN1-NAME-TOO-LONG:CAPS"></a><h3>ASN1_NAME_TOO_LONG</h3>
+<pre class="programlisting">#define ASN1_NAME_TOO_LONG		15
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_ARRAY_ERROR">
+<a name="ASN1-ARRAY-ERROR:CAPS"></a><h3>ASN1_ARRAY_ERROR</h3>
+<pre class="programlisting">#define ASN1_ARRAY_ERROR		16
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_ELEMENT_NOT_EMPTY">
+<a name="ASN1-ELEMENT-NOT-EMPTY:CAPS"></a><h3>ASN1_ELEMENT_NOT_EMPTY</h3>
+<pre class="programlisting">#define ASN1_ELEMENT_NOT_EMPTY		17
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_PRINT_NAME">
+<a name="ASN1-PRINT-NAME:CAPS"></a><h3>ASN1_PRINT_NAME</h3>
+<pre class="programlisting">#define ASN1_PRINT_NAME			1
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_PRINT_NAME_TYPE">
+<a name="ASN1-PRINT-NAME-TYPE:CAPS"></a><h3>ASN1_PRINT_NAME_TYPE</h3>
+<pre class="programlisting">#define ASN1_PRINT_NAME_TYPE		2
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_PRINT_NAME_TYPE_VALUE">
+<a name="ASN1-PRINT-NAME-TYPE-VALUE:CAPS"></a><h3>ASN1_PRINT_NAME_TYPE_VALUE</h3>
+<pre class="programlisting">#define ASN1_PRINT_NAME_TYPE_VALUE 3
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_PRINT_ALL">
+<a name="ASN1-PRINT-ALL:CAPS"></a><h3>ASN1_PRINT_ALL</h3>
+<pre class="programlisting">#define ASN1_PRINT_ALL			4
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_CLASS_UNIVERSAL">
+<a name="ASN1-CLASS-UNIVERSAL:CAPS"></a><h3>ASN1_CLASS_UNIVERSAL</h3>
+<pre class="programlisting">#define ASN1_CLASS_UNIVERSAL		0x00 /* old: 1 */
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_CLASS_APPLICATION">
+<a name="ASN1-CLASS-APPLICATION:CAPS"></a><h3>ASN1_CLASS_APPLICATION</h3>
+<pre class="programlisting">#define ASN1_CLASS_APPLICATION		0x40 /* old: 2 */
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_CLASS_CONTEXT_SPECIFIC">
+<a name="ASN1-CLASS-CONTEXT-SPECIFIC:CAPS"></a><h3>ASN1_CLASS_CONTEXT_SPECIFIC</h3>
+<pre class="programlisting">#define ASN1_CLASS_CONTEXT_SPECIFIC 0x80 /* old: 3 */
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_CLASS_PRIVATE">
+<a name="ASN1-CLASS-PRIVATE:CAPS"></a><h3>ASN1_CLASS_PRIVATE</h3>
+<pre class="programlisting">#define ASN1_CLASS_PRIVATE		0xC0 /* old: 4 */
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_CLASS_STRUCTURED">
+<a name="ASN1-CLASS-STRUCTURED:CAPS"></a><h3>ASN1_CLASS_STRUCTURED</h3>
+<pre class="programlisting">#define ASN1_CLASS_STRUCTURED		0x20
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_BOOLEAN">
+<a name="ASN1-TAG-BOOLEAN:CAPS"></a><h3>ASN1_TAG_BOOLEAN</h3>
+<pre class="programlisting">#define ASN1_TAG_BOOLEAN		0x01
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_INTEGER">
+<a name="ASN1-TAG-INTEGER:CAPS"></a><h3>ASN1_TAG_INTEGER</h3>
+<pre class="programlisting">#define ASN1_TAG_INTEGER		0x02
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_SEQUENCE">
+<a name="ASN1-TAG-SEQUENCE:CAPS"></a><h3>ASN1_TAG_SEQUENCE</h3>
+<pre class="programlisting">#define ASN1_TAG_SEQUENCE		0x10
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_SET">
+<a name="ASN1-TAG-SET:CAPS"></a><h3>ASN1_TAG_SET</h3>
+<pre class="programlisting">#define ASN1_TAG_SET			0x11
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_OCTET_STRING">
+<a name="ASN1-TAG-OCTET-STRING:CAPS"></a><h3>ASN1_TAG_OCTET_STRING</h3>
+<pre class="programlisting">#define ASN1_TAG_OCTET_STRING		0x04
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_BIT_STRING">
+<a name="ASN1-TAG-BIT-STRING:CAPS"></a><h3>ASN1_TAG_BIT_STRING</h3>
+<pre class="programlisting">#define ASN1_TAG_BIT_STRING		0x03
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_UTCTime">
+<a name="ASN1-TAG-UTCTime"></a><h3>ASN1_TAG_UTCTime</h3>
+<pre class="programlisting">#define ASN1_TAG_UTCTime		0x17
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_GENERALIZEDTime">
+<a name="ASN1-TAG-GENERALIZEDTime"></a><h3>ASN1_TAG_GENERALIZEDTime</h3>
+<pre class="programlisting">#define ASN1_TAG_GENERALIZEDTime 0x18
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_OBJECT_ID">
+<a name="ASN1-TAG-OBJECT-ID:CAPS"></a><h3>ASN1_TAG_OBJECT_ID</h3>
+<pre class="programlisting">#define ASN1_TAG_OBJECT_ID		0x06
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_ENUMERATED">
+<a name="ASN1-TAG-ENUMERATED:CAPS"></a><h3>ASN1_TAG_ENUMERATED</h3>
+<pre class="programlisting">#define ASN1_TAG_ENUMERATED		0x0A
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_NULL">
+<a name="ASN1-TAG-NULL:CAPS"></a><h3>ASN1_TAG_NULL</h3>
+<pre class="programlisting">#define ASN1_TAG_NULL			0x05
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TAG_GENERALSTRING">
+<a name="ASN1-TAG-GENERALSTRING:CAPS"></a><h3>ASN1_TAG_GENERALSTRING</h3>
+<pre class="programlisting">#define ASN1_TAG_GENERALSTRING		0x1B
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="node_asn">
+<a name="node-asn"></a><h3>node_asn</h3>
+<pre class="programlisting">  typedef struct node_asn_struct node_asn;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TYPE">
+<a name="ASN1-TYPE:CAPS"></a><h3>ASN1_TYPE</h3>
+<pre class="programlisting">  typedef node_asn *ASN1_TYPE;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_TYPE_EMPTY">
+<a name="ASN1-TYPE-EMPTY:CAPS"></a><h3>ASN1_TYPE_EMPTY</h3>
+<pre class="programlisting">#define ASN1_TYPE_EMPTY  NULL
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_ARRAY_TYPE">
+<a name="ASN1-ARRAY-TYPE:CAPS"></a><h3>ASN1_ARRAY_TYPE</h3>
+<pre class="programlisting">  typedef struct static_struct_asn ASN1_ARRAY_TYPE;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_MAX_NAME_SIZE">
+<a name="ASN1-MAX-NAME-SIZE:CAPS"></a><h3>ASN1_MAX_NAME_SIZE</h3>
+<pre class="programlisting">#define             ASN1_MAX_NAME_SIZE</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ASN1_MAX_ERROR_DESCRIPTION_SIZE">
+<a name="ASN1-MAX-ERROR-DESCRIPTION-SIZE:CAPS"></a><h3>ASN1_MAX_ERROR_DESCRIPTION_SIZE</h3>
+<pre class="programlisting">#define             ASN1_MAX_ERROR_DESCRIPTION_SIZE</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="asn1_parser2tree ()">
+<a name="asn1-parser2tree"></a><h3>asn1_parser2tree ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_parser2tree                    (<em class="parameter"><code>const <span class="type">char</span> *file_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *definitions</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>definitions</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errorDescription</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_parser2array ()">
+<a name="asn1-parser2array"></a><h3>asn1_parser2array ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_parser2array                   (<em class="parameter"><code>const <span class="type">char</span> *inputFileName</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *outputFileName</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *vectorName</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>inputFileName</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>outputFileName</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vectorName</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errorDescription</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_array2tree ()">
+<a name="asn1-array2tree"></a><h3>asn1_array2tree ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_array2tree                     (<em class="parameter"><code>const <a class="link" href="gnutls-libtasn1.html#ASN1-ARRAY-TYPE:CAPS" title="ASN1_ARRAY_TYPE"><span class="type">ASN1_ARRAY_TYPE</span></a> *array</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *definitions</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>definitions</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errorDescription</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_print_structure ()">
+<a name="asn1-print-structure"></a><h3>asn1_print_structure ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                asn1_print_structure                (<em class="parameter"><code><span class="type">FILE</span> *out</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> structure</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> mode</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>structure</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_create_element ()">
+<a name="asn1-create-element"></a><h3>asn1_create_element ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_create_element                 (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> definitions</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *source_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *element</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>definitions</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_delete_structure ()">
+<a name="asn1-delete-structure"></a><h3>asn1_delete_structure ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_delete_structure               (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *structure</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>structure</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_delete_element ()">
+<a name="asn1-delete-element"></a><h3>asn1_delete_element ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_delete_element                 (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> structure</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *element_name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>structure</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_write_value ()">
+<a name="asn1-write-value"></a><h3>asn1_write_value ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_write_value                    (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> node_root</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *ivalue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node_root</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ivalue</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_read_value ()">
+<a name="asn1-read-value"></a><h3>asn1_read_value ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_read_value                     (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> root</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *ivalue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ivalue</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_number_of_elements ()">
+<a name="asn1-number-of-elements"></a><h3>asn1_number_of_elements ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_number_of_elements             (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *num</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>num</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_der_coding ()">
+<a name="asn1-der-coding"></a><h3>asn1_der_coding ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_der_coding                     (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *ider</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *ErrorDescription</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ider</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ErrorDescription</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_der_decoding ()">
+<a name="asn1-der-decoding"></a><h3>asn1_der_decoding ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_der_decoding                   (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *ider</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ider</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errorDescription</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_der_decoding_element ()">
+<a name="asn1-der-decoding-element"></a><h3>asn1_der_decoding_element ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_der_decoding_element           (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *structure</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *elementName</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *ider</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errorDescription</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>structure</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>elementName</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ider</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errorDescription</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_der_decoding_startEnd ()">
+<a name="asn1-der-decoding-startEnd"></a><h3>asn1_der_decoding_startEnd ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_der_decoding_startEnd          (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *ider</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name_element</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *start</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *end</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ider</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name_element</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_expand_any_defined_by ()">
+<a name="asn1-expand-any-defined-by"></a><h3>asn1_expand_any_defined_by ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_expand_any_defined_by          (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> definitions</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *element</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>definitions</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_expand_octet_string ()">
+<a name="asn1-expand-octet-string"></a><h3>asn1_expand_octet_string ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_expand_octet_string            (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> definitions</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> *element</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *octetName</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *objectName</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>definitions</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>element</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>octetName</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>objectName</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_read_tag ()">
+<a name="asn1-read-tag"></a><h3>asn1_read_tag ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_read_tag                       (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> root</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *tagValue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *classValue</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tagValue</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>classValue</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_find_structure_from_oid ()">
+<a name="asn1-find-structure-from-oid"></a><h3>asn1_find_structure_from_oid ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        asn1_find_structure_from_oid        (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> definitions</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *oidValue</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>definitions</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oidValue</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_check_version ()">
+<a name="asn1-check-version"></a><h3>asn1_check_version ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        asn1_check_version                  (<em class="parameter"><code>const <span class="type">char</span> *req_version</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>req_version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_strerror ()">
+<a name="asn1-strerror"></a><h3>asn1_strerror ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        asn1_strerror                       (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="type">asn1_retCode</span></a> error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_perror ()">
+<a name="asn1-perror"></a><h3>asn1_perror ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                asn1_perror                         (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="type">asn1_retCode</span></a> error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_get_tag_der ()">
+<a name="asn1-get-tag-der"></a><h3>asn1_get_tag_der ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 asn1_get_tag_der                    (<em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> der_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *cls</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">long</span> *tag</code></em>);</pre>
+<p>
+Decode the class and TAG from DER code.</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der</code></em> :</span></p></td>
+<td>DER data to decode.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der_len</code></em> :</span></p></td>
+<td>Length of DER data to decode.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cls</code></em> :</span></p></td>
+<td>Output variable containing decoded class.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>Output variable containing the length of the DER TAG data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tag</code></em> :</span></p></td>
+<td>Output variable containing the decoded tag.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Returns ASN1_SUCCESS on success, or an error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_octet_der ()">
+<a name="asn1-octet-der"></a><h3>asn1_octet_der ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                asn1_octet_der                      (<em class="parameter"><code>unsigned <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> str_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *der_len</code></em>);</pre>
+<p>
+Creates the DER coding for an OCTET type (length included).</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>OCTET string.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str_len</code></em> :</span></p></td>
+<td>STR length (str[0]..str[str_len-1]).
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der</code></em> :</span></p></td>
+<td>string returned.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der_len</code></em> :</span></p></td>
+<td>number of meaningful bytes of DER (der[0]..der[ans_len-1]).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_get_octet_der ()">
+<a name="asn1-get-octet-der"></a><h3>asn1_get_octet_der ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_get_octet_der                  (<em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> der_len</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *ret_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> str_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *str_len</code></em>);</pre>
+<p>
+Extract an OCTET SEQUENCE from DER data.</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der</code></em> :</span></p></td>
+<td>DER data to decode containing the OCTET SEQUENCE.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der_len</code></em> :</span></p></td>
+<td>Length of DER data to decode.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_len</code></em> :</span></p></td>
+<td>Output variable containing the length of the DER data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>Pre-allocated output buffer to put decoded OCTET SEQUENCE in.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str_size</code></em> :</span></p></td>
+<td>Length of pre-allocated output buffer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str_len</code></em> :</span></p></td>
+<td>Output variable containing the length of the OCTET SEQUENCE.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Returns ASN1_SUCCESS on success, or an error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_bit_der ()">
+<a name="asn1-bit-der"></a><h3>asn1_bit_der ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                asn1_bit_der                        (<em class="parameter"><code>unsigned <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> bit_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *der_len</code></em>);</pre>
+<p>
+Creates the DER coding for a BIT STRING type (length and pad
+included).</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>BIT string.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bit_len</code></em> :</span></p></td>
+<td>number of meaningful bits in STR.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der</code></em> :</span></p></td>
+<td>string returned.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der_len</code></em> :</span></p></td>
+<td>number of meaningful bytes of DER
+  (der[0]..der[ans_len-1]).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_get_bit_der ()">
+<a name="asn1-get-bit-der"></a><h3>asn1_get_bit_der ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_get_bit_der                    (<em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> der_len</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *ret_len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> str_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *bit_len</code></em>);</pre>
+<p>
+Extract a BIT SEQUENCE from DER data.</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der</code></em> :</span></p></td>
+<td>DER data to decode containing the BIT SEQUENCE.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der_len</code></em> :</span></p></td>
+<td>Length of DER data to decode.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_len</code></em> :</span></p></td>
+<td>Output variable containing the length of the DER data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>Pre-allocated output buffer to put decoded BIT SEQUENCE in.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str_size</code></em> :</span></p></td>
+<td>Length of pre-allocated output buffer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bit_len</code></em> :</span></p></td>
+<td>Output variable containing the size of the BIT SEQUENCE.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Return ASN1_SUCCESS on success, or an error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_get_length_der ()">
+<a name="asn1-get-length-der"></a><h3>asn1_get_length_der ()</h3>
+<pre class="programlisting">signed <span class="returnvalue">long</span>         asn1_get_length_der                 (<em class="parameter"><code>unsigned <span class="type">char</span> *der</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> der_len</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>);</pre>
+<p>
+Extract a length field from DER data.</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der</code></em> :</span></p></td>
+<td>DER data to decode.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>der_len</code></em> :</span></p></td>
+<td>Length of DER data to decode.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>Output variable containing the length of the DER length field.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Return the decoded length value, or -1 on indefinite
+  length, or -2 when the value was too big.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_get_length_ber ()">
+<a name="asn1-get-length-ber"></a><h3>asn1_get_length_ber ()</h3>
+<pre class="programlisting">signed <span class="returnvalue">long</span>         asn1_get_length_ber                 (<em class="parameter"><code>unsigned <span class="type">char</span> *ber</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> ber_len</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *len</code></em>);</pre>
+<p>
+Extract a length field from BER data.  The difference to
+<a class="link" href="gnutls-libtasn1.html#asn1-get-length-der" title="asn1_get_length_der ()"><code class="function">asn1_get_length_der()</code></a> is that this function will return a length
+even if the value has indefinite encoding.</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ber</code></em> :</span></p></td>
+<td>BER data to decode.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ber_len</code></em> :</span></p></td>
+<td>Length of BER data to decode.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>Output variable containing the length of the BER length field.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Return the decoded length value, or negative value
+  when the value was too big.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.0</p>
+</div>
+<hr>
+<div class="refsect2" title="asn1_length_der ()">
+<a name="asn1-length-der"></a><h3>asn1_length_der ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                asn1_length_der                     (<em class="parameter"><code>unsigned long <a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> len</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">char</span> *ans</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> *ans_len</code></em>);</pre>
+<p>
+Creates the DER coding for the LEN parameter (only the length).
+The <em class="parameter"><code>ans</code></em> buffer is pre-allocated and must have room for the output.</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>value to convert.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ans</code></em> :</span></p></td>
+<td>string returned.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ans_len</code></em> :</span></p></td>
+<td>number of meaningful bytes of ANS (ans[0]..ans[ans_len-1]).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_find_node ()">
+<a name="asn1-find-node"></a><h3>asn1_find_node ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="returnvalue">ASN1_TYPE</span></a>           asn1_find_node                      (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> pointer</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+Searches for an element called NAME starting from POINTER.  The
+name is composed by differents identifiers separated by dots.  When
+*POINTER has a name, the first identifier must be the name of
+*POINTER, otherwise it must be the name of one child of *POINTER.</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pointer</code></em> :</span></p></td>
+<td>NODE_ASN element pointer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>null terminated string with the element's name to find.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the searching result. NULL if not found.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="asn1_copy_node ()">
+<a name="asn1-copy-node"></a><h3>asn1_copy_node ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="returnvalue">asn1_retCode</span></a>        asn1_copy_node                      (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> dst</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dst_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#ASN1-TYPE:CAPS" title="ASN1_TYPE"><span class="type">ASN1_TYPE</span></a> src</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *src_name</code></em>);</pre>
+<p>
+Create a deep copy of a ASN1_TYPE variable.</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td>Destination ASN1_TYPE node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst_name</code></em> :</span></p></td>
+<td>Field name in destination node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>Source ASN1_TYPE node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src_name</code></em> :</span></p></td>
+<td>Field name in source node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Return ASN1_SUCCESS on success.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="LIBTASN1_VERSION">
+<a name="LIBTASN1-VERSION:CAPS"></a><h3>LIBTASN1_VERSION</h3>
+<pre class="programlisting">#define LIBTASN1_VERSION ASN1_VERSION
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">LIBTASN1_VERSION</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="MAX_NAME_SIZE">
+<a name="MAX-NAME-SIZE:CAPS"></a><h3>MAX_NAME_SIZE</h3>
+<pre class="programlisting"># define MAX_NAME_SIZE ASN1_MAX_NAME_SIZE
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">MAX_NAME_SIZE</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="MAX_ERROR_DESCRIPTION_SIZE">
+<a name="MAX-ERROR-DESCRIPTION-SIZE:CAPS"></a><h3>MAX_ERROR_DESCRIPTION_SIZE</h3>
+<pre class="programlisting"># define MAX_ERROR_DESCRIPTION_SIZE ASN1_MAX_ERROR_DESCRIPTION_SIZE
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">MAX_ERROR_DESCRIPTION_SIZE</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="libtasn1_strerror ()">
+<a name="libtasn1-strerror"></a><h3>libtasn1_strerror ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        libtasn1_strerror                   (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="type">asn1_retCode</span></a> error</code></em>);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">libtasn1_strerror</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="libtasn1_perror ()">
+<a name="libtasn1-perror"></a><h3>libtasn1_perror ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                libtasn1_perror                     (<em class="parameter"><code><a class="link" href="gnutls-libtasn1.html#asn1-retCode" title="asn1_retCode"><span class="type">asn1_retCode</span></a> error</code></em>);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">libtasn1_perror</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.14</div>
+</body>
+</html>

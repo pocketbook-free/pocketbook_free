@@ -1,0 +1,440 @@
+# translation of gail.HEAD.pot to Mongolian
+# Mongolian gail translation.
+# Copyright (C) 1998-2003, 2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gail package.
+# Sanlig Badral <Badral@openmn.org>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gail.HEAD.de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-22 19:35+0800\n"
+"PO-Revision-Date: 2004-01-07 00:50+0100\n"
+"Last-Translator: Sanlig Badral <Badral@openmn.org>\n"
+"Language-Team: Mongolian <openmn-core@lists.sf.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.2\n"
+
+#: gail/gailimage.c:55
+msgid "dialog authentication"
+msgstr "үнэмлэх диалог"
+
+#: gail/gailimage.c:56
+msgid "dialog information"
+msgstr "Мэдээллийн диалог"
+
+#: gail/gailimage.c:57
+msgid "dialog warning"
+msgstr "Сануулга диалог"
+
+#: gail/gailimage.c:58
+msgid "dialog error"
+msgstr "Алдааны диалог"
+
+#: gail/gailimage.c:59
+msgid "dialog question"
+msgstr "Асуултын диалог"
+
+#: gail/gailimage.c:60
+msgid "drag and drop"
+msgstr "Чирч тавих"
+
+#: gail/gailimage.c:61
+msgid "multiple drag and drop"
+msgstr "Олон дахин чирч тавих"
+
+#: gail/gailimage.c:62
+msgid "add"
+msgstr "нэмэх"
+
+#: gail/gailimage.c:63
+msgid "apply"
+msgstr "хэрэглэх"
+
+#: gail/gailimage.c:64
+msgid "bold"
+msgstr "бүдүүн"
+
+#: gail/gailimage.c:65
+msgid "cancel"
+msgstr "болих"
+
+#: gail/gailimage.c:66
+msgid "cdrom"
+msgstr "КД-РОМ"
+
+#: gail/gailimage.c:67
+msgid "clear"
+msgstr "устгах"
+
+#: gail/gailimage.c:68
+msgid "close"
+msgstr "хаах"
+
+#: gail/gailimage.c:69
+msgid "color picker"
+msgstr "өнгө сонгогч"
+
+#: gail/gailimage.c:70
+msgid "convert"
+msgstr "хувиргах"
+
+#: gail/gailimage.c:71
+msgid "copy"
+msgstr "хуулах"
+
+#: gail/gailimage.c:72
+msgid "cut"
+msgstr "таслах"
+
+#: gail/gailimage.c:73
+msgid "delete"
+msgstr "устгах"
+
+#: gail/gailimage.c:74
+msgid "execute"
+msgstr "гүйцэтгэх"
+
+#: gail/gailimage.c:75
+msgid "find"
+msgstr "хайх"
+
+#: gail/gailimage.c:76
+msgid "find and replace"
+msgstr "хайх ба орлуулах"
+
+#: gail/gailimage.c:77
+msgid "floppy"
+msgstr "Уян диск"
+
+#: gail/gailimage.c:78
+msgid "go to bottom"
+msgstr "төгсгөл рүү оч"
+
+#: gail/gailimage.c:79
+msgid "go to first"
+msgstr "эхнийх рүү оч"
+
+#: gail/gailimage.c:80
+msgid "go to last"
+msgstr "сүүлчийнх рүү оч"
+
+#: gail/gailimage.c:81
+msgid "go to top"
+msgstr "эхлэл рүү оч"
+
+#: gail/gailimage.c:82
+msgid "go back"
+msgstr "буцаж оч"
+
+#: gail/gailimage.c:83
+msgid "go down"
+msgstr "доош яв"
+
+#: gail/gailimage.c:84
+msgid "go forward"
+msgstr "урагш яв"
+
+#: gail/gailimage.c:85
+msgid "go up"
+msgstr "дээш яв"
+
+#: gail/gailimage.c:86
+msgid "help"
+msgstr "тусламж"
+
+# CHECK - ist das als Bildbeschreibung O.K.? Es bezieht sich ja nicht nur auf
+# den Pers. Ordner
+#: gail/gailimage.c:87
+msgid "home"
+msgstr "гэр"
+
+#: gail/gailimage.c:88
+msgid "index"
+msgstr "товчоон"
+
+#: gail/gailimage.c:89
+msgid "italic"
+msgstr "ташуу"
+
+#: gail/gailimage.c:90
+msgid "jump to"
+msgstr "үсэр"
+
+#: gail/gailimage.c:91
+msgid "justify center"
+msgstr "голлуулж зэрэгцүүл"
+
+# CHECK
+#: gail/gailimage.c:92
+msgid "justify fill"
+msgstr "дүүргэж зэрэгцүүл"
+
+#: gail/gailimage.c:93
+msgid "justify left"
+msgstr "зүүн зэрэгцүүл"
+
+#: gail/gailimage.c:94
+msgid "justify right"
+msgstr "баруун зэрэгцүүл"
+
+#: gail/gailimage.c:95
+msgid "missing image"
+msgstr "зураг алга"
+
+#: gail/gailimage.c:96
+msgid "new"
+msgstr "шинэ"
+
+#: gail/gailimage.c:97
+msgid "no"
+msgstr "үгүй"
+
+#: gail/gailimage.c:98
+msgid "ok"
+msgstr "зүйтэй"
+
+#: gail/gailimage.c:99
+msgid "open"
+msgstr "нээх"
+
+#: gail/gailimage.c:100
+msgid "paste"
+msgstr "буулгах"
+
+#: gail/gailimage.c:101
+msgid "preferences"
+msgstr "Тохируулга"
+
+#: gail/gailimage.c:102
+msgid "print"
+msgstr "хэвлэх"
+
+#: gail/gailimage.c:103
+msgid "print preview"
+msgstr "хэвлэхээр харах"
+
+#: gail/gailimage.c:104
+msgid "properties"
+msgstr "шинж чанарууд"
+
+#: gail/gailimage.c:105
+msgid "quit"
+msgstr "дуусгах"
+
+#: gail/gailimage.c:106
+msgid "redo"
+msgstr "буцаах"
+
+#: gail/gailimage.c:107
+msgid "refresh"
+msgstr "шинэчлэх"
+
+#: gail/gailimage.c:108
+msgid "remove"
+msgstr "устгах"
+
+# CHECK
+#: gail/gailimage.c:109
+msgid "revert to saved"
+msgstr "хадгалагдсан байдал руу буцааж аваачих"
+
+#: gail/gailimage.c:110
+msgid "save"
+msgstr "хадгалах"
+
+#: gail/gailimage.c:111
+msgid "save as"
+msgstr "доош хадгалах"
+
+#: gail/gailimage.c:112
+msgid "select color"
+msgstr "өнгө сонгох"
+
+#: gail/gailimage.c:113
+msgid "select font"
+msgstr "Бичиг сонгох"
+
+#: gail/gailimage.c:114
+msgid "sort ascending"
+msgstr "өсөхөөр эрэмбэлэх"
+
+#: gail/gailimage.c:115
+msgid "sort descending"
+msgstr "буурхаар эрэмбэлэх"
+
+#: gail/gailimage.c:116
+msgid "spell check"
+msgstr "зөв бичлэг шалгалт"
+
+#: gail/gailimage.c:117
+msgid "stop"
+msgstr "зогс"
+
+#: gail/gailimage.c:118
+msgid "strikethrough"
+msgstr "дундуур нь зурах"
+
+#: gail/gailimage.c:119
+msgid "undelete"
+msgstr "устгасаныг буцаах"
+
+#: gail/gailimage.c:120
+msgid "underline"
+msgstr "доогуур зураас"
+
+#: gail/gailimage.c:121
+msgid "yes"
+msgstr "тийм"
+
+#: gail/gailimage.c:122
+msgid "zoom 100 percent"
+msgstr "жинхэнэ хэмжээгээр"
+
+#: gail/gailimage.c:123
+msgid "zoom fit"
+msgstr "зохистойгоор"
+
+#: gail/gailimage.c:124
+msgid "zoom in"
+msgstr "томруулах"
+
+#: gail/gailimage.c:125
+msgid "zoom out"
+msgstr "жижигсгэх"
+
+# CHECK
+#: gail/gailimage.c:127
+msgid "timer"
+msgstr "timer"
+
+# CHECK
+#: gail/gailimage.c:128
+msgid "timer stop"
+msgstr "timer зогсоох"
+
+#: gail/gailimage.c:129
+msgid "trash"
+msgstr "хог"
+
+#: gail/gailimage.c:130
+msgid "trash full"
+msgstr "дүүрэн хог"
+
+#: gail/gailimage.c:131
+msgid "scores"
+msgstr "оноо"
+
+#: gail/gailimage.c:132
+msgid "about"
+msgstr "тухай"
+
+#: gail/gailimage.c:133
+msgid "blank"
+msgstr "хоосон"
+
+#: gail/gailimage.c:134
+msgid "volume"
+msgstr "дууны чанга"
+
+#: gail/gailimage.c:135
+msgid "midi"
+msgstr "MIDI"
+
+#: gail/gailimage.c:136
+msgid "microphone"
+msgstr "микрофон"
+
+#: gail/gailimage.c:137
+msgid "line in"
+msgstr "гадаад"
+
+#: gail/gailimage.c:138
+msgid "mail"
+msgstr "э-захиа"
+
+#: gail/gailimage.c:139
+msgid "mail receive"
+msgstr "э-захиа хүлээн авах"
+
+#: gail/gailimage.c:140
+msgid "mail send"
+msgstr "э-захиа илгээх"
+
+#: gail/gailimage.c:141
+msgid "mail reply"
+msgstr "э-захианд хариулах"
+
+#: gail/gailimage.c:142
+msgid "mail forward"
+msgstr "э-захиа цааш дамжуулах"
+
+#: gail/gailimage.c:143
+msgid "mail new"
+msgstr "шинэ э-захиа"
+
+#: gail/gailimage.c:144
+msgid "attach"
+msgstr "хавсаргах"
+
+#: gail/gailimage.c:145
+msgid "book red"
+msgstr "улаан ном"
+
+#: gail/gailimage.c:146
+msgid "book green"
+msgstr "ногоон ном"
+
+#: gail/gailimage.c:147
+msgid "book blue"
+msgstr "хөх ном"
+
+#: gail/gailimage.c:148
+msgid "book yellow"
+msgstr "шар ном"
+
+#: gail/gailimage.c:149
+msgid "book open"
+msgstr "нээлттэй ном"
+
+# CHECK
+#: gail/gailimage.c:150
+msgid "multiple file"
+msgstr "олон файл"
+
+#: gail/gailimage.c:151
+msgid "not"
+msgstr "үгүй"
+
+#: gail/gailimage.c:152
+msgid "table borders"
+msgstr "хүснэгтийн хүрээ"
+
+# CHECK
+#: gail/gailimage.c:153
+msgid "table fill"
+msgstr "хүснэгт дүүргэх"
+
+#: gail/gailimage.c:154
+msgid "text indent"
+msgstr "текст догол гаргах"
+
+#: gail/gailimage.c:155
+msgid "text unindent"
+msgstr "текст догол мөр багасгах"
+
+# CHECK
+#: gail/gailimage.c:156
+msgid "text bulleted list"
+msgstr "Гишүүнчилсэн текст жагсаалт"
+
+# CHECK
+#: gail/gailimage.c:157
+msgid "text numbered list"
+msgstr "дугаарлагдсан текст жагсаалт"
+
+#: gail/gailimage.c:158
+msgid "authentication"
+msgstr "үнэмлэх"

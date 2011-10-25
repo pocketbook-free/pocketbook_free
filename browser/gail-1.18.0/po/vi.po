@@ -1,0 +1,428 @@
+# Vietnamese translation for Gail.
+# Copyright © 2005 Gnome i18n Project for Vietnamese.
+# PHAN VINH THINH <teppi@vnlinux.org>, 2005.
+# Clytie Siddall <clytie@riverland.net.au>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gail Gnome HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-22 19:35+0800\n"
+"PO-Revision-Date: 2007-02-27 11:21+0700\n"
+"Last-Translator: Pham Thanh Long <lngt@ngonngu.net>\n"
+"Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: gail/gailimage.c:55
+msgid "dialog authentication"
+msgstr "xác thực kiểu đối thoại"
+
+#: gail/gailimage.c:56
+msgid "dialog information"
+msgstr "thông tin đối thoại"
+
+#: gail/gailimage.c:57
+msgid "dialog warning"
+msgstr "cảnh báo đối thoại"
+
+#: gail/gailimage.c:58
+msgid "dialog error"
+msgstr "lỗi đối thoại"
+
+#: gail/gailimage.c:59
+msgid "dialog question"
+msgstr "câu hỏi đối thoại"
+
+#: gail/gailimage.c:60
+msgid "drag and drop"
+msgstr "kéo và thả"
+
+#: gail/gailimage.c:61
+msgid "multiple drag and drop"
+msgstr "kéo và thả nhiều mục"
+
+#: gail/gailimage.c:62
+msgid "add"
+msgstr "thêm"
+
+#: gail/gailimage.c:63
+msgid "apply"
+msgstr "áp dụng"
+
+#: gail/gailimage.c:64
+msgid "bold"
+msgstr "đậm"
+
+#: gail/gailimage.c:65
+msgid "cancel"
+msgstr "huỷ bỏ"
+
+#: gail/gailimage.c:66
+msgid "cdrom"
+msgstr "cdrom"
+
+#: gail/gailimage.c:67
+msgid "clear"
+msgstr "xoá"
+
+#: gail/gailimage.c:68
+msgid "close"
+msgstr "đóng"
+
+#: gail/gailimage.c:69
+msgid "color picker"
+msgstr "bộ chọn màu"
+
+#: gail/gailimage.c:70
+msgid "convert"
+msgstr "chuyển đổi"
+
+#: gail/gailimage.c:71
+msgid "copy"
+msgstr "sao chép"
+
+#: gail/gailimage.c:72
+msgid "cut"
+msgstr "cắt"
+
+#: gail/gailimage.c:73
+msgid "delete"
+msgstr "xoá"
+
+#: gail/gailimage.c:74
+msgid "execute"
+msgstr "thực hiện"
+
+#: gail/gailimage.c:75
+msgid "find"
+msgstr "tìm"
+
+#: gail/gailimage.c:76
+msgid "find and replace"
+msgstr "tìm và thay thế"
+
+#: gail/gailimage.c:77
+msgid "floppy"
+msgstr "đĩa mềm"
+
+#: gail/gailimage.c:78
+msgid "go to bottom"
+msgstr "xuống dưới cùng"
+
+#: gail/gailimage.c:79
+msgid "go to first"
+msgstr "tới dòng đầu tiên"
+
+#: gail/gailimage.c:80
+msgid "go to last"
+msgstr "tới dòng cuối cùng"
+
+#: gail/gailimage.c:81
+msgid "go to top"
+msgstr "lên đầu"
+
+#: gail/gailimage.c:82
+msgid "go back"
+msgstr "quay lại"
+
+#: gail/gailimage.c:83
+msgid "go down"
+msgstr "xuống dưới"
+
+#: gail/gailimage.c:84
+msgid "go forward"
+msgstr "tiến"
+
+#: gail/gailimage.c:85
+msgid "go up"
+msgstr "đi lên"
+
+#: gail/gailimage.c:86
+msgid "help"
+msgstr "trợ giúp"
+
+#: gail/gailimage.c:87
+msgid "home"
+msgstr "nhà"
+
+#: gail/gailimage.c:88
+msgid "index"
+msgstr "chỉ mục"
+
+#: gail/gailimage.c:89
+msgid "italic"
+msgstr "nghiêng"
+
+#: gail/gailimage.c:90
+msgid "jump to"
+msgstr "nhảy tới"
+
+#: gail/gailimage.c:91
+msgid "justify center"
+msgstr "canh giữa"
+
+#: gail/gailimage.c:92
+msgid "justify fill"
+msgstr "canh đều"
+
+#: gail/gailimage.c:93
+msgid "justify left"
+msgstr "canh trái"
+
+#: gail/gailimage.c:94
+msgid "justify right"
+msgstr "canh phải"
+
+#: gail/gailimage.c:95
+msgid "missing image"
+msgstr "ảnh bị mất"
+
+#: gail/gailimage.c:96
+msgid "new"
+msgstr "mới"
+
+#: gail/gailimage.c:97
+msgid "no"
+msgstr "không"
+
+#: gail/gailimage.c:98
+msgid "ok"
+msgstr "có"
+
+#: gail/gailimage.c:99
+msgid "open"
+msgstr "mở"
+
+#: gail/gailimage.c:100
+msgid "paste"
+msgstr "dán"
+
+#: gail/gailimage.c:101
+msgid "preferences"
+msgstr "tuỳ chọn"
+
+#: gail/gailimage.c:102
+msgid "print"
+msgstr "in"
+
+#: gail/gailimage.c:103
+msgid "print preview"
+msgstr "xem trước khi in"
+
+#: gail/gailimage.c:104
+msgid "properties"
+msgstr "thuộc tính"
+
+#: gail/gailimage.c:105
+msgid "quit"
+msgstr "thoát"
+
+#: gail/gailimage.c:106
+msgid "redo"
+msgstr "làm lại"
+
+#: gail/gailimage.c:107
+msgid "refresh"
+msgstr "tải lại"
+
+#: gail/gailimage.c:108
+msgid "remove"
+msgstr "xoá bỏ"
+
+#: gail/gailimage.c:109
+msgid "revert to saved"
+msgstr "trở lại bản đã ghi"
+
+#: gail/gailimage.c:110
+msgid "save"
+msgstr "lưu"
+
+#: gail/gailimage.c:111
+msgid "save as"
+msgstr "lưu thành"
+
+#: gail/gailimage.c:112
+msgid "select color"
+msgstr "chọn màu"
+
+#: gail/gailimage.c:113
+msgid "select font"
+msgstr "chọn phông"
+
+#: gail/gailimage.c:114
+msgid "sort ascending"
+msgstr "sắp xếp tăng dần"
+
+#: gail/gailimage.c:115
+msgid "sort descending"
+msgstr "sắp xếp giảm dần"
+
+#: gail/gailimage.c:116
+msgid "spell check"
+msgstr "kiểm tra chính tả"
+
+#: gail/gailimage.c:117
+msgid "stop"
+msgstr "dừng"
+
+#: gail/gailimage.c:118
+msgid "strikethrough"
+msgstr "gạch đè"
+
+#: gail/gailimage.c:119
+msgid "undelete"
+msgstr "huỷ xoá"
+
+#: gail/gailimage.c:120
+msgid "underline"
+msgstr "gạch chân"
+
+#: gail/gailimage.c:121
+msgid "yes"
+msgstr "có"
+
+#: gail/gailimage.c:122
+msgid "zoom 100 percent"
+msgstr "phóng đại 100%"
+
+#: gail/gailimage.c:123
+msgid "zoom fit"
+msgstr "phóng cho vừa"
+
+#: gail/gailimage.c:124
+msgid "zoom in"
+msgstr "phóng to"
+
+#: gail/gailimage.c:125
+msgid "zoom out"
+msgstr "thu nhỏ"
+
+#: gail/gailimage.c:127
+msgid "timer"
+msgstr "hẹn giờ"
+
+#: gail/gailimage.c:128
+msgid "timer stop"
+msgstr "dừng hẹn giờ"
+
+#: gail/gailimage.c:129
+msgid "trash"
+msgstr "thùng rác"
+
+#: gail/gailimage.c:130
+msgid "trash full"
+msgstr "thùng rác đầy"
+
+#: gail/gailimage.c:131
+msgid "scores"
+msgstr "điểm"
+
+#: gail/gailimage.c:132
+msgid "about"
+msgstr "về"
+
+#: gail/gailimage.c:133
+msgid "blank"
+msgstr "trống"
+
+#: gail/gailimage.c:134
+msgid "volume"
+msgstr "âm lượng"
+
+#: gail/gailimage.c:135
+msgid "midi"
+msgstr "midi"
+
+#: gail/gailimage.c:136
+msgid "microphone"
+msgstr "micrô"
+
+#: gail/gailimage.c:137
+msgid "line in"
+msgstr "đường vào"
+
+#: gail/gailimage.c:138
+msgid "mail"
+msgstr "thư"
+
+#: gail/gailimage.c:139
+msgid "mail receive"
+msgstr "nhận thư"
+
+#: gail/gailimage.c:140
+msgid "mail send"
+msgstr "gửi thư"
+
+#: gail/gailimage.c:141
+msgid "mail reply"
+msgstr "trả lời thư"
+
+#: gail/gailimage.c:142
+msgid "mail forward"
+msgstr "chuyển thư"
+
+#: gail/gailimage.c:143
+msgid "mail new"
+msgstr "thư mới"
+
+#: gail/gailimage.c:144
+msgid "attach"
+msgstr "đính kèm"
+
+#: gail/gailimage.c:145
+msgid "book red"
+msgstr "sách đỏ"
+
+#: gail/gailimage.c:146
+msgid "book green"
+msgstr "sách xanh lá cây"
+
+#: gail/gailimage.c:147
+msgid "book blue"
+msgstr "sách xanh da trời"
+
+#: gail/gailimage.c:148
+msgid "book yellow"
+msgstr "sách vàng"
+
+#: gail/gailimage.c:149
+msgid "book open"
+msgstr "mở sách"
+
+#: gail/gailimage.c:150
+msgid "multiple file"
+msgstr "nhiều tập tin"
+
+#: gail/gailimage.c:151
+msgid "not"
+msgstr "không"
+
+#: gail/gailimage.c:152
+msgid "table borders"
+msgstr "viền bảng"
+
+#: gail/gailimage.c:153
+msgid "table fill"
+msgstr "bảng đầy"
+
+#: gail/gailimage.c:154
+msgid "text indent"
+msgstr "thụt đầu dòng"
+
+#: gail/gailimage.c:155
+msgid "text unindent"
+msgstr "không thụt đầu dòng"
+
+#: gail/gailimage.c:156
+msgid "text bulleted list"
+msgstr "danh sách văn bản đánh nút"
+
+#: gail/gailimage.c:157
+msgid "text numbered list"
+msgstr "danh sách văn bản đánh số"
+
+#: gail/gailimage.c:158
+msgid "authentication"
+msgstr "xác thực"

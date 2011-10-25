@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Multi-head Support Overview</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GDK Reference Manual">
+<link rel="up" href="reference.html" title="API Reference">
+<link rel="prev" href="gdk-General.html" title="General">
+<link rel="next" href="GdkDisplay.html" title="GdkDisplay">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="reference.html" title="API Reference">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gdk-General.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="reference.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK Reference Manual</th>
+<td><a accesskey="n" href="GdkDisplay.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" title="Multi-head Support Overview">
+<a name="multihead"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Multi-head Support Overview</span></h2>
+<p>Multi-head Support Overview — Overview of GdkDisplay and GdkScreen</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1" title="Overview">
+<a name="id450415"></a><h2>Overview</h2>
+<p>
+	Multihead support is based around two main object types:
+	</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>GdkDisplay</p></li>
+<li class="listitem"><p>GdkScreen</p></li>
+</ul></div>
+<p>
+      </p>
+<p>
+	GdkDisplay objects are the GDK
+	representation of the X Display which can be described as <span class="emphasis"><em>a
+	workstation consisting of a keyboard a pointing device (such as a
+	  mouse) and one or more screens</em></span>. 
+	It is used to open and keep track of various GdkScreen objects currently 
+	instanciated by the application. It is also used to grab and release
+	the keyboard and the mouse pointer.
+      </p>
+<p>
+	GdkScreen objects are the GDK
+	representation of a physical screen. It is used throughout GDK and GTK+
+	to specify which screen the top level windows are to be displayed on. 
+	It is also used to query the screen specification and default settings such as 
+	the default colormap (<a class="link" href="GdkScreen.html#gdk-screen-get-default-colormap" title="gdk_screen_get_default_colormap ()">gdk_screen_get_default_colormap</a>()),
+	the screen width (<a class="link" href="GdkScreen.html#gdk-screen-get-width" title="gdk_screen_get_width ()">gdk_screen_get_width</a>()), etc.
+      </p>
+<p> 
+	The following code samples demonstrate common usage of the objects described above.
+      </p>
+<div class="example">
+<a name="id477583"></a><p class="title"><b>Example 2. Testing the number of screen on the current display</b></p>
+<div class="example-contents"><pre class="programlisting">gint num_screen = 0;
+gchar *displayname = NULL;
+GdkScreen **screen_list;
+GdkDisplay *display;
+
+gtk_init (&amp;argc, &amp;argv);
+
+display = gdk_display_get_default ();
+num_screen = gdk_display_get_n_screens (display);
+displayname = gdk_display_get_name (display);
+if (num_screen &lt;= 1)
+  {
+    printf ("This Xserver (%s) manages only one screen. exiting...\n",
+            displayname);
+    exit (1);
+  }
+else
+  {
+    printf ("This Xserver (%s) manages %d screens.\n", displayname,
+            num_screen);
+  }     </pre></div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id455837"></a><p class="title"><b>Example 3. Opening a second display</b></p>
+<div class="example-contents"><pre class="programlisting">gchar *second_screen_name;
+GdkDisplay *second_display;
+GdkScreen *second_screen;
+GtkWidget *window;
+
+gtk_init (&amp;argc, &amp;argv);
+
+/* screen2_name needs to be initialized before calling 
+/* gdk_display_new() */
+second_display = gdk_display_new (&amp;argc, &amp;argv, second_screen_name);
+if (second_display)
+    second_screen = gdk_display_get_default_screen (second_display);
+else 
+  {
+	g_print ("Can't open display :\n\t%s\n\n",
+		  second_screen_name);
+    exit (1);	
+  }
+/* now GdkScreen can be assigned to GtkWindows */
+
+window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+gtk_window_set_screen (window, second_screen);</pre></div>
+</div>
+<br class="example-break">
+</div>
+<div class="refsect1" title="See Also">
+<a name="id469180"></a><h2>See Also</h2>
+<p>
+	</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">GdkDisplay</span></p></td>
+<td><p>the GDK Object used to represent and manipulate display
+		related data</p></td>
+</tr>
+<tr>
+<td><p><span class="term">GdkScreen</span></p></td>
+<td><p>the GDK Object used to represent and query screen related
+		data</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+      </p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

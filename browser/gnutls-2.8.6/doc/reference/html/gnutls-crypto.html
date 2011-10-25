@@ -1,0 +1,1959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>crypto</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GNU TLS API Reference Manual">
+<link rel="up" href="ch01.html" title="GNU TLS API Reference Manual">
+<link rel="prev" href="gnutls-openpgp.html" title="openpgp">
+<link rel="next" href="gnutls-openssl.html" title="openssl">
+<meta name="generator" content="GTK-Doc V1.14 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gnutls-openpgp.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GNU TLS API Reference Manual</th>
+<td><a accesskey="n" href="gnutls-openssl.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gnutls-crypto.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gnutls-crypto.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="crypto">
+<a name="gnutls-crypto"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gnutls-crypto.top_of_page"></a>crypto</span></h2>
+<p>crypto</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="gnutls-crypto.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="gnutls-crypto.html#GNUTLS-CRYPTO-API-VERSION:CAPS" title="GNUTLS_CRYPTO_API_VERSION">GNUTLS_CRYPTO_API_VERSION</a>
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#init" title="init ()">*init</a>)                             (<em class="parameter"><code><span class="type">void</span> **ctx</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#setkey" title="setkey ()">*setkey</a>)                           (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> keysize</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#setiv" title="setiv ()">*setiv</a>)                            (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *iv</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> ivsize</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#encrypt" title="encrypt ()">*encrypt</a>)                          (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *plain</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> plainsize</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *encr</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> encrsize</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#decrypt" title="decrypt ()">*decrypt</a>)                          (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *encr</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> encrsize</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *plain</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> plainsize</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="gnutls-crypto.html#deinit" title="deinit ()">*deinit</a>)                           (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#hash" title="hash ()">*hash</a>)                             (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> textsize</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#copy" title="copy ()">*copy</a>)                             (<em class="parameter"><code><span class="type">void</span> **dst_ctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *src_ctx</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#output" title="output ()">*output</a>)                           (<em class="parameter"><code><span class="type">void</span> *src_ctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *digest</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> digestsize</code></em>);
+typedef             <a class="link" href="gnutls-crypto.html#gnutls-crypto-single-digest-st" title="gnutls_crypto_single_digest_st">gnutls_crypto_single_digest_st</a>;
+typedef             <a class="link" href="gnutls-crypto.html#gnutls-crypto-digest-st" title="gnutls_crypto_digest_st">gnutls_crypto_digest_st</a>;
+enum                <a class="link" href="gnutls-crypto.html#gnutls-rnd-level-t" title="enum gnutls_rnd_level_t">gnutls_rnd_level_t</a>;
+enum                <a class="link" href="gnutls-crypto.html#gnutls-pk-flag-t" title="enum gnutls_pk_flag_t">gnutls_pk_flag_t</a>;
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#rnd" title="rnd ()">*rnd</a>)                              (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>);
+typedef             <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t">bigint_t</a>;
+enum                <a class="link" href="gnutls-crypto.html#gnutls-bigint-format-t" title="enum gnutls_bigint_format_t">gnutls_bigint_format_t</a>;
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-new" title="bigint_new ()">*bigint_new</a>)                       (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> nbits</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="gnutls-crypto.html#bigint-release" title="bigint_release ()">*bigint_release</a>)                   (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> n</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#bigint-cmp" title="bigint_cmp ()">*bigint_cmp</a>)                       (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m1</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m2</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#bigint-cmp-ui" title="bigint_cmp_ui ()">*bigint_cmp_ui</a>)                    (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m1</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> m2</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-mod" title="bigint_mod ()">*bigint_mod</a>)                       (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-set" title="bigint_set ()">*bigint_set</a>)                       (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-set-ui" title="bigint_set_ui ()">*bigint_set_ui</a>)                    (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> b</code></em>);
+<span class="returnvalue">unsigned</span>            <a class="link" href="gnutls-crypto.html#int" title="int ()">int</a>                                 ();
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-powm" title="bigint_powm ()">*bigint_powm</a>)                      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> e</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-addm" title="bigint_addm ()">*bigint_addm</a>)                      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-subm" title="bigint_subm ()">*bigint_subm</a>)                      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-mulm" title="bigint_mulm ()">*bigint_mulm</a>)                      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-mul" title="bigint_mul ()">*bigint_mul</a>)                       (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-add-ui" title="bigint_add_ui ()">*bigint_add_ui</a>)                    (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> b</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-sub-ui" title="bigint_sub_ui ()">*bigint_sub_ui</a>)                    (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> b</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-mul-ui" title="bigint_mul_ui ()">*bigint_mul_ui</a>)                    (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> b</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-div" title="bigint_div ()">*bigint_div</a>)                       (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> q</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#bigint-prime-check" title="bigint_prime_check ()">*bigint_prime_check</a>)               (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> pp</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#bigint-generate-group" title="bigint_generate_group ()">*bigint_generate_group</a>)            (<em class="parameter"><code><span class="type">gnutls_group_st</span> *gg</code></em>,
+                                                         <em class="parameter"><code>unsigned <a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> bits</code></em>);
+<a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (<a class="link" href="gnutls-crypto.html#bigint-scan" title="bigint_scan ()">*bigint_scan</a>)                      (<em class="parameter"><code>const <span class="type">void</span> *buf</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> buf_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-bigint-format-t" title="enum gnutls_bigint_format_t"><span class="type">gnutls_bigint_format_t</span></a> format</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#bigint-print" title="bigint_print ()">*bigint_print</a>)                     (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *buf</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *buf_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-bigint-format-t" title="enum gnutls_bigint_format_t"><span class="type">gnutls_bigint_format_t</span></a> format</code></em>);
+#define             <a class="link" href="gnutls-crypto.html#GNUTLS-MAX-PK-PARAMS:CAPS" title="GNUTLS_MAX_PK_PARAMS">GNUTLS_MAX_PK_PARAMS</a>
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-crypto.html#gnutls-pk-params-release" title="gnutls_pk_params_release ()">gnutls_pk_params_release</a>            (<em class="parameter"><code><span class="type">gnutls_pk_params_st</span> *p</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gnutls-crypto.html#gnutls-pk-params-init" title="gnutls_pk_params_init ()">gnutls_pk_params_init</a>               (<em class="parameter"><code><span class="type">gnutls_pk_params_st</span> *p</code></em>);
+enum                <a class="link" href="gnutls-crypto.html#gnutls-direction-t" title="enum gnutls_direction_t">gnutls_direction_t</a>;
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#sign" title="sign ()">*sign</a>)                             (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_datum_t</span> *signature</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *data</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#verify" title="verify ()">*verify</a>)                           (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> Param1</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *data</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *signature</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#generate" title="generate ()">*generate</a>)                         (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> Param1</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (<a class="link" href="gnutls-crypto.html#pk-fixup-private-params" title="pk_fixup_private_params ()">*pk_fixup_private_params</a>)          (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> Param1</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-direction-t" title="enum gnutls_direction_t"><span class="type">gnutls_direction_t</span></a> Param2</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_pk_params_st</span> *Param3</code></em>);
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-single-cipher-register" title="gnutls_crypto_single_cipher_register()">gnutls_crypto_single_cipher_register</a>(algo,
+                                                         prio,
+                                                         st)
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-single-mac-register" title="gnutls_crypto_single_mac_register()">gnutls_crypto_single_mac_register</a>   (algo,
+                                                         prio,
+                                                         st)
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-single-digest-register" title="gnutls_crypto_single_digest_register()">gnutls_crypto_single_digest_register</a>(algo,
+                                                         prio,
+                                                         st)
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-single-cipher-register2" title="gnutls_crypto_single_cipher_register2 ()">gnutls_crypto_single_cipher_register2</a>
+                                                        (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-cipher-algorithm-t" title="enum gnutls_cipher_algorithm_t"><span class="type">gnutls_cipher_algorithm_t</span></a> algorithm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_single_cipher_st</span> *s</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-single-mac-register2" title="gnutls_crypto_single_mac_register2 ()">gnutls_crypto_single_mac_register2</a>  (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-mac-algorithm-t" title="enum gnutls_mac_algorithm_t"><span class="type">gnutls_mac_algorithm_t</span></a> algorithm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_single_mac_st</span> *s</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-single-digest-register2" title="gnutls_crypto_single_digest_register2 ()">gnutls_crypto_single_digest_register2</a>
+                                                        (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> algorithm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-crypto-single-digest-st" title="gnutls_crypto_single_digest_st"><span class="type">gnutls_crypto_single_digest_st</span></a> *s</code></em>);
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-cipher-register" title="gnutls_crypto_cipher_register()">gnutls_crypto_cipher_register</a>       (prio,
+                                                         st)
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-mac-register" title="gnutls_crypto_mac_register()">gnutls_crypto_mac_register</a>          (prio,
+                                                         st)
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-digest-register" title="gnutls_crypto_digest_register()">gnutls_crypto_digest_register</a>       (prio,
+                                                         st)
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-cipher-register2" title="gnutls_crypto_cipher_register2 ()">gnutls_crypto_cipher_register2</a>      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_cipher_st</span> *s</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-mac-register2" title="gnutls_crypto_mac_register2 ()">gnutls_crypto_mac_register2</a>         (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_mac_st</span> *s</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-digest-register2" title="gnutls_crypto_digest_register2 ()">gnutls_crypto_digest_register2</a>      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-crypto-digest-st" title="gnutls_crypto_digest_st"><span class="type">gnutls_crypto_digest_st</span></a> *s</code></em>);
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-rnd-register" title="gnutls_crypto_rnd_register()">gnutls_crypto_rnd_register</a>          (prio,
+                                                         st)
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-pk-register" title="gnutls_crypto_pk_register()">gnutls_crypto_pk_register</a>           (prio,
+                                                         st)
+#define             <a class="link" href="gnutls-crypto.html#gnutls-crypto-bigint-register" title="gnutls_crypto_bigint_register()">gnutls_crypto_bigint_register</a>       (prio,
+                                                         st)
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-rnd-register2" title="gnutls_crypto_rnd_register2 ()">gnutls_crypto_rnd_register2</a>         (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_rnd_st</span> *s</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-pk-register2" title="gnutls_crypto_pk_register2 ()">gnutls_crypto_pk_register2</a>          (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_pk_st</span> *s</code></em>);
+<a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 <a class="link" href="gnutls-crypto.html#gnutls-crypto-bigint-register2" title="gnutls_crypto_bigint_register2 ()">gnutls_crypto_bigint_register2</a>      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_bigint_st</span> *s</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="gnutls-crypto.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="gnutls-crypto.details"></a><h2>Details</h2>
+<div class="refsect2" title="GNUTLS_CRYPTO_API_VERSION">
+<a name="GNUTLS-CRYPTO-API-VERSION:CAPS"></a><h3>GNUTLS_CRYPTO_API_VERSION</h3>
+<pre class="programlisting"># define GNUTLS_CRYPTO_API_VERSION 0x01
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="init ()">
+<a name="init"></a><h3>init ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*init)                             (<em class="parameter"><code><span class="type">void</span> **ctx</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="setkey ()">
+<a name="setkey"></a><h3>setkey ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*setkey)                           (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> keysize</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keysize</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="setiv ()">
+<a name="setiv"></a><h3>setiv ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*setiv)                            (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *iv</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> ivsize</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iv</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ivsize</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="encrypt ()">
+<a name="encrypt"></a><h3>encrypt ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*encrypt)                          (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *plain</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> plainsize</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *encr</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> encrsize</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plain</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plainsize</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encrsize</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="decrypt ()">
+<a name="decrypt"></a><h3>decrypt ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*decrypt)                          (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *encr</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> encrsize</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *plain</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> plainsize</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encrsize</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plain</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plainsize</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="deinit ()">
+<a name="deinit"></a><h3>deinit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*deinit)                           (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="hash ()">
+<a name="hash"></a><h3>hash ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*hash)                             (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">void</span> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> textsize</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>textsize</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="copy ()">
+<a name="copy"></a><h3>copy ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*copy)                             (<em class="parameter"><code><span class="type">void</span> **dst_ctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *src_ctx</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst_ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src_ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="output ()">
+<a name="output"></a><h3>output ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*output)                           (<em class="parameter"><code><span class="type">void</span> *src_ctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *digest</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> digestsize</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src_ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>digest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>digestsize</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_single_digest_st">
+<a name="gnutls-crypto-single-digest-st"></a><h3>gnutls_crypto_single_digest_st</h3>
+<pre class="programlisting">typedef gnutls_crypto_single_mac_st gnutls_crypto_single_digest_st;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_digest_st">
+<a name="gnutls-crypto-digest-st"></a><h3>gnutls_crypto_digest_st</h3>
+<pre class="programlisting">typedef gnutls_crypto_mac_st gnutls_crypto_digest_st;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum gnutls_rnd_level_t">
+<a name="gnutls-rnd-level-t"></a><h3>enum gnutls_rnd_level_t</h3>
+<pre class="programlisting">typedef enum gnutls_rnd_level
+{
+  /* fatal in parts of session if broken, i.e., vulnerable to
+     statistical analysis */
+  GNUTLS_RND_NONCE = 0,
+  /* fatal in session if broken */
+  GNUTLS_RND_RANDOM = 1,
+  /* fatal in many sessions if broken */
+  GNUTLS_RND_KEY = 2
+} gnutls_rnd_level_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum gnutls_pk_flag_t">
+<a name="gnutls-pk-flag-t"></a><h3>enum gnutls_pk_flag_t</h3>
+<pre class="programlisting">typedef enum
+{
+  GNUTLS_PK_FLAG_NONE = 0
+} gnutls_pk_flag_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="rnd ()">
+<a name="rnd"></a><h3>rnd ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*rnd)                              (<em class="parameter"><code><span class="type">void</span> *ctx</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_t">
+<a name="bigint-t"></a><h3>bigint_t</h3>
+<pre class="programlisting">typedef void *bigint_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum gnutls_bigint_format_t">
+<a name="gnutls-bigint-format-t"></a><h3>enum gnutls_bigint_format_t</h3>
+<pre class="programlisting">typedef enum
+{
+  /* raw unsigned integer format */
+  GNUTLS_MPI_FORMAT_USG = 0,
+  /* raw signed integer format - always a leading zero when positive */
+  GNUTLS_MPI_FORMAT_STD = 1,
+  /* the pgp integer format */
+  GNUTLS_MPI_FORMAT_PGP = 2
+} gnutls_bigint_format_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="bigint_new ()">
+<a name="bigint-new"></a><h3>bigint_new ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_new)                       (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> nbits</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nbits</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_release ()">
+<a name="bigint-release"></a><h3>bigint_release ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*bigint_release)                   (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_cmp ()">
+<a name="bigint-cmp"></a><h3>bigint_cmp ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*bigint_cmp)                       (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m1</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m2</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_cmp_ui ()">
+<a name="bigint-cmp-ui"></a><h3>bigint_cmp_ui ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*bigint_cmp_ui)                    (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m1</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> m2</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_mod ()">
+<a name="bigint-mod"></a><h3>bigint_mod ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_mod)                       (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_set ()">
+<a name="bigint-set"></a><h3>bigint_set ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_set)                       (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_set_ui ()">
+<a name="bigint-set-ui"></a><h3>bigint_set_ui ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_set_ui)                    (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="int ()">
+<a name="int"></a><h3>int ()</h3>
+<pre class="programlisting"><span class="returnvalue">unsigned</span>            int                                 ();</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_powm ()">
+<a name="bigint-powm"></a><h3>bigint_powm ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_powm)                      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> e</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_addm ()">
+<a name="bigint-addm"></a><h3>bigint_addm ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_addm)                      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_subm ()">
+<a name="bigint-subm"></a><h3>bigint_subm ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_subm)                      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_mulm ()">
+<a name="bigint-mulm"></a><h3>bigint_mulm ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_mulm)                      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> m</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_mul ()">
+<a name="bigint-mul"></a><h3>bigint_mul ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_mul)                       (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_add_ui ()">
+<a name="bigint-add-ui"></a><h3>bigint_add_ui ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_add_ui)                    (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_sub_ui ()">
+<a name="bigint-sub-ui"></a><h3>bigint_sub_ui ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_sub_ui)                    (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_mul_ui ()">
+<a name="bigint-mul-ui"></a><h3>bigint_mul_ui ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_mul_ui)                    (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> w</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned long </span> b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_div ()">
+<a name="bigint-div"></a><h3>bigint_div ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_div)                       (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> q</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_prime_check ()">
+<a name="bigint-prime-check"></a><h3>bigint_prime_check ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*bigint_prime_check)               (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> pp</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pp</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_generate_group ()">
+<a name="bigint-generate-group"></a><h3>bigint_generate_group ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*bigint_generate_group)            (<em class="parameter"><code><span class="type">gnutls_group_st</span> *gg</code></em>,
+                                                         <em class="parameter"><code>unsigned <a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> bits</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gg</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bits</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_scan ()">
+<a name="bigint-scan"></a><h3>bigint_scan ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="returnvalue">bigint_t</span></a>            (*bigint_scan)                      (<em class="parameter"><code>const <span class="type">void</span> *buf</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> buf_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-bigint-format-t" title="enum gnutls_bigint_format_t"><span class="type">gnutls_bigint_format_t</span></a> format</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf_size</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bigint_print ()">
+<a name="bigint-print"></a><h3>bigint_print ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*bigint_print)                     (<em class="parameter"><code>const <a class="link" href="gnutls-crypto.html#bigint-t" title="bigint_t"><span class="type">bigint_t</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *buf</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> *buf_size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-bigint-format-t" title="enum gnutls_bigint_format_t"><span class="type">gnutls_bigint_format_t</span></a> format</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf_size</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GNUTLS_MAX_PK_PARAMS">
+<a name="GNUTLS-MAX-PK-PARAMS:CAPS"></a><h3>GNUTLS_MAX_PK_PARAMS</h3>
+<pre class="programlisting">#define GNUTLS_MAX_PK_PARAMS 6
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pk_params_release ()">
+<a name="gnutls-pk-params-release"></a><h3>gnutls_pk_params_release ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gnutls_pk_params_release            (<em class="parameter"><code><span class="type">gnutls_pk_params_st</span> *p</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_pk_params_init ()">
+<a name="gnutls-pk-params-init"></a><h3>gnutls_pk_params_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gnutls_pk_params_init               (<em class="parameter"><code><span class="type">gnutls_pk_params_st</span> *p</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="enum gnutls_direction_t">
+<a name="gnutls-direction-t"></a><h3>enum gnutls_direction_t</h3>
+<pre class="programlisting">typedef enum
+{
+  GNUTLS_IMPORT,
+  GNUTLS_EXPORT
+} gnutls_direction_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="sign ()">
+<a name="sign"></a><h3>sign ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*sign)                             (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_datum_t</span> *signature</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signature</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="verify ()">
+<a name="verify"></a><h3>verify ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*verify)                           (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> Param1</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *data</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gnutls_datum_t</span> *signature</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signature</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="generate ()">
+<a name="generate"></a><h3>generate ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*generate)                         (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> Param1</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="pk_fixup_private_params ()">
+<a name="pk-fixup-private-params"></a><h3>pk_fixup_private_params ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 (*pk_fixup_private_params)          (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> Param1</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-direction-t" title="enum gnutls_direction_t"><span class="type">gnutls_direction_t</span></a> Param2</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_pk_params_st</span> *Param3</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param3</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_single_cipher_register()">
+<a name="gnutls-crypto-single-cipher-register"></a><h3>gnutls_crypto_single_cipher_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_single_cipher_register(algo, prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>algo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_single_mac_register()">
+<a name="gnutls-crypto-single-mac-register"></a><h3>gnutls_crypto_single_mac_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_single_mac_register(algo, prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>algo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_single_digest_register()">
+<a name="gnutls-crypto-single-digest-register"></a><h3>gnutls_crypto_single_digest_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_single_digest_register(algo, prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>algo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_single_cipher_register2 ()">
+<a name="gnutls-crypto-single-cipher-register2"></a><h3>gnutls_crypto_single_cipher_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_single_cipher_register2
+                                                        (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-cipher-algorithm-t" title="enum gnutls_cipher_algorithm_t"><span class="type">gnutls_cipher_algorithm_t</span></a> algorithm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_single_cipher_st</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>algorithm</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_single_mac_register2 ()">
+<a name="gnutls-crypto-single-mac-register2"></a><h3>gnutls_crypto_single_mac_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_single_mac_register2  (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-mac-algorithm-t" title="enum gnutls_mac_algorithm_t"><span class="type">gnutls_mac_algorithm_t</span></a> algorithm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_single_mac_st</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>algorithm</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_single_digest_register2 ()">
+<a name="gnutls-crypto-single-digest-register2"></a><h3>gnutls_crypto_single_digest_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_single_digest_register2
+                                                        (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> algorithm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-crypto-single-digest-st" title="gnutls_crypto_single_digest_st"><span class="type">gnutls_crypto_single_digest_st</span></a> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>algorithm</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_cipher_register()">
+<a name="gnutls-crypto-cipher-register"></a><h3>gnutls_crypto_cipher_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_cipher_register(prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_mac_register()">
+<a name="gnutls-crypto-mac-register"></a><h3>gnutls_crypto_mac_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_mac_register(prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_digest_register()">
+<a name="gnutls-crypto-digest-register"></a><h3>gnutls_crypto_digest_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_digest_register(prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_cipher_register2 ()">
+<a name="gnutls-crypto-cipher-register2"></a><h3>gnutls_crypto_cipher_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_cipher_register2      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_cipher_st</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_mac_register2 ()">
+<a name="gnutls-crypto-mac-register2"></a><h3>gnutls_crypto_mac_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_mac_register2         (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_mac_st</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_digest_register2 ()">
+<a name="gnutls-crypto-digest-register2"></a><h3>gnutls_crypto_digest_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_digest_register2      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#gnutls-crypto-digest-st" title="gnutls_crypto_digest_st"><span class="type">gnutls_crypto_digest_st</span></a> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_rnd_register()">
+<a name="gnutls-crypto-rnd-register"></a><h3>gnutls_crypto_rnd_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_rnd_register(prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_pk_register()">
+<a name="gnutls-crypto-pk-register"></a><h3>gnutls_crypto_pk_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_pk_register(prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_bigint_register()">
+<a name="gnutls-crypto-bigint-register"></a><h3>gnutls_crypto_bigint_register()</h3>
+<pre class="programlisting">#define             gnutls_crypto_bigint_register(prio, st)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prio</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>st</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_rnd_register2 ()">
+<a name="gnutls-crypto-rnd-register2"></a><h3>gnutls_crypto_rnd_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_rnd_register2         (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_rnd_st</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_pk_register2 ()">
+<a name="gnutls-crypto-pk-register2"></a><h3>gnutls_crypto_pk_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_pk_register2          (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_pk_st</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gnutls_crypto_bigint_register2 ()">
+<a name="gnutls-crypto-bigint-register2"></a><h3>gnutls_crypto_bigint_register2 ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="returnvalue">int</span></a>                 gnutls_crypto_bigint_register2      (<em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> priority</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-crypto.html#int" title="int ()"><span class="type">int</span></a> version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gnutls_crypto_bigint_st</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.14</div>
+</body>
+</html>

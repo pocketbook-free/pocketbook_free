@@ -1,0 +1,391 @@
+<!-- ##### SECTION Title ##### -->
+stat
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO GL_LINK_WARNING ##### -->
+<para>
+
+</para>
+
+@message: 
+
+
+<!-- ##### MACRO GL_LINK_WARNING1 ##### -->
+<para>
+
+</para>
+
+@file: 
+@line: 
+@message: 
+
+
+<!-- ##### MACRO GL_LINK_WARNING2 ##### -->
+<para>
+
+</para>
+
+@file: 
+@line: 
+@message: 
+
+
+<!-- ##### MACRO GL_LINK_WARNING3 ##### -->
+<para>
+
+</para>
+
+@message: 
+
+
+<!-- ##### MACRO S_IFMT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_ISBLK ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISCHR ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISDIR ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISDOOR ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISFIFO ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISLNK ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISMPB ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISMPC ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISNAM ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISNWK ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISPORT ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISREG ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISSOCK ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_TYPEISMQ ##### -->
+<para>
+
+</para>
+
+@p: 
+
+
+<!-- ##### MACRO S_TYPEISTMO ##### -->
+<para>
+
+</para>
+
+@p: 
+
+
+<!-- ##### MACRO S_TYPEISSEM ##### -->
+<para>
+
+</para>
+
+@p: 
+
+
+<!-- ##### MACRO S_TYPEISSHM ##### -->
+<para>
+
+</para>
+
+@p: 
+
+
+<!-- ##### MACRO S_ISCTG ##### -->
+<para>
+
+</para>
+
+@p: 
+
+
+<!-- ##### MACRO S_ISOFD ##### -->
+<para>
+
+</para>
+
+@p: 
+
+
+<!-- ##### MACRO S_ISOFL ##### -->
+<para>
+
+</para>
+
+@p: 
+
+
+<!-- ##### MACRO S_ISWHT ##### -->
+<para>
+
+</para>
+
+@m: 
+
+
+<!-- ##### MACRO S_ISUID ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_ISGID ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_ISVTX ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IRUSR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IRGRP ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IROTH ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IWUSR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IWGRP ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IWOTH ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IXUSR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IXGRP ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IXOTH ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IRWXU ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IRWXG ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IRWXO ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IXUGO ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO S_IRWXUGO ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO lstat ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION rpl_lstat ##### -->
+<para>
+
+</para>
+
+@name: 
+@buf: 
+@Returns: 
+
+
+<!-- ##### FUNCTION mkdir ##### -->
+<para>
+
+</para>
+
+@name: 
+@mode: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lchmod ##### -->
+<para>
+
+</para>
+
+@filename: 
+@mode: 
+@Returns: 
+
+

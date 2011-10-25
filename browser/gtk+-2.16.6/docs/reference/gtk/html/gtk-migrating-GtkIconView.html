@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Migrating from GnomeIconList to GtkIconView</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="prev" href="new-features-GtkComboBox.html" title="New features">
+<link rel="next" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="new-features-GtkComboBox.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="migrating.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="gtk-migrating-GtkAboutDialog.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter" title="Migrating from GnomeIconList to GtkIconView">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="gtk-migrating-GtkIconView"></a>Migrating from GnomeIconList to GtkIconView</h2></div></div></div>
+<p>
+    Since version 2.6, GTK+ provides the <a class="link" href="GtkIconView.html" title="GtkIconView"><span class="type">GtkIconView</span></a> widget. It is similar in 
+    functionality to the <span class="structname">GnomeIconList</span> widget in the 
+    libgnomeui library, both widgets provide a way to lay out named icons in 
+    a grid. The distinctive feature of the GTK+ widget is that it follows the 
+    model-view pattern, allowing it to share the actual data (i.e. the names 
+    and images of the icons) with other views.
+  </p>
+<p>
+    <a class="link" href="GtkIconView.html" title="GtkIconView"><span class="type">GtkIconView</span></a> currently doesn't support some features found in 
+    <span class="structname">GnomeIconList</span>. Icons can not be positioned freely, 
+    the spacing is not customizable, and it is not possible to edit the names of 
+    icons. 
+  </p>
+<p>
+    To convert an application that uses <span class="structname">GnomeIconList</span> 
+    to <a class="link" href="GtkIconView.html" title="GtkIconView"><span class="type">GtkIconView</span></a>, the first step is to organize your data in a <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>. 
+    <span class="structname">GnomeIconList</span> lets you directly insert data with 
+    <a
+href="/usr/share/gtk-doc/html/libgnomeui/GnomeIconList.html#gnome-icon-list-insert"
+><code class="function">gnome_icon_list_insert()</code></a> and <a
+href="/usr/share/gtk-doc/html/libgnomeui/GnomeIconList.html#gnome-icon-list-insert-pixbuf"
+><code class="function">gnome_icon_list_insert_pixbuf()</code></a> and their
+    append variants. So, if you previously had a function to fill your icon 
+    list similar to this one:
+    </p>
+<div class="informalexample"><pre class="programlisting">
+      void 
+      fill_icon_list (GnomeIconList *icon_list)
+      {
+        gnome_icon_list_append (icon_list, "file1.png", "Icon 1");
+        gnome_icon_list_append (icon_list, "file2.png", "Icon 2");
+
+        /* more icons ... */ 
+      }
+    </pre></div>
+<p>
+    you will have to create a tree model, attach your icon view to it, and 
+    fill the model:
+    </p>
+<div class="informalexample"><pre class="programlisting">
+      enum { 
+        PIXBUF_COLUMN,
+        TEXT_COLUMN,
+
+        /* you can have more columns here, e.g */ 
+
+        DATA_COLUMN
+      };
+ 
+      void 
+      fill_model (GtkListStore *store)
+      {
+        GtkTreeIter iter;
+        GdkPixbuf *pixbuf;
+
+        gtk_list_store_append (store, &amp;iter);
+        pixbuf = gdk_pixbuf_new_from_file ("file1.png", NULL);
+        gtk_list_store_set (store, &amp;iter, PIXBUF_COLUMN, pixbuf, TEXT_COLUMN, "Icon 1", -1);
+        g_object_unref (pixbuf);
+
+        gtk_list_store_append (store, &amp;iter);
+        pixbuf = gdk_pixbuf_new_from_file ("file2.png", NULL);
+        gtk_list_store_set (store, &amp;iter, PIXBUF_COLUMN, pixbuf, TEXT_COLUMN, "Icon 2", -1);
+        g_object_unref (pixbuf);
+
+        /* more icons ... */ 
+      }
+
+      int 
+      main (int argc, char *argv[])
+      {
+        GtkWidget *icon_view;
+        GtkListStore *store;
+
+        gtk_init (&amp;argc, &amp;argv);
+
+        /* do other initialization... */
+
+        /* construct the GtkIconView */
+        icon_view = gtk_icon_view_new ();
+        store = gtk_list_store_new (3, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_POINTER);
+
+        gtk_icon_view_set_pixbuf_column (GTK_ICON_VIEW (icon_view), PIXBUF_COLUMN);
+        gtk_icon_view_set_text_column (GTK_ICON_VIEW (icon_view), TEXT_COLUMN);
+        gtk_icon_view_set_model (GTK_ICON_VIEW (icon_view), GTK_TREE_MODEL (store));
+
+        fill_model (store);
+
+        /* ... */
+      }
+    </pre></div>
+<p>
+    This example uses a <a class="link" href="GtkListStore.html" title="GtkListStore"><span class="type">GtkListStore</span></a> as model, but part of the elegance of the 
+    model-view pattern is that you can easily use another tree model implementation, 
+    or even write your own custom tree model.
+  </p>
+<p>
+    Your application may make use of extra data attached to the icons in the 
+    <span class="structname">GnomeIconList</span> via <a
+href="/usr/share/gtk-doc/html/libgnomeui/GnomeIconList.html#gnome-icon-list-set-icon-data"
+><code class="function">gnome_icon_list_set_icon_data()</code></a> and 
+    <a
+href="/usr/share/gtk-doc/html/libgnomeui/GnomeIconList.html#gnome-icon-list-get-icon-data"
+><code class="function">gnome_icon_list_get_icon_data()</code></a>. With <a class="link" href="GtkIconView.html" title="GtkIconView"><span class="type">GtkIconView</span></a> such data is most 
+    conveniently stored in an extra column in the tree model, so you would 
+    call a function like
+    </p>
+<div class="informalexample"><pre class="programlisting">
+    void 
+    set_icon_data (GtkIconView *icon_view,
+                   gint         idx,
+                   gpointer     data)
+    {
+       GtkTreeModel *model;
+       GtkTreeIter iter;
+
+       model = gtk_icon_view_get_model (icon_view);
+    
+       if (gtk_tree_model_iter_nth_child (model, &amp;iter, NULL, idx))
+         gtk_list_store_set (GTK_LIST_STORE (model), &amp;iter, 
+                             DATA_COLUMN, data, -1);
+    }
+    </pre></div>
+<p>
+    assuming that your tree model has a <code class="literal">DATA_COLUMN</code> of type 
+    <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-POINTER--CAPS"
+><code class="literal">G_TYPE_POINTER</code></a>.
+  </p>
+<p>
+    There is a number of minor API differences between 
+    <span class="structname">GnomeIconList</span> and 
+    <span class="structname">GtkIconView</span>:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+       <span style="color: red">&lt;typename&gt;GnomeIconListMode&lt;/typename&gt;</span> is replaced by the 
+       <a class="link" href="GtkIconView.html#GtkIconView--orientation" title='The "orientation" property'>orientation</a> 
+       property of <span class="structname">GtkIconView</span>
+     </p></li>
+<li class="listitem"><p>
+       <span class="structname">GtkIconView</span> can not be frozen in the same 
+       way as <span class="structname">GnomeIconList</span> can with 
+       <a
+href="/usr/share/gtk-doc/html/libgnomeui/GnomeIconList.html#gnome-icon-list-freeze"
+><code class="function">gnome_icon_list_freeze()</code></a> and <a
+href="/usr/share/gtk-doc/html/libgnomeui/GnomeIconList.html#gnome-icon-list-thaw"
+><code class="function">gnome_icon_list_thaw()</code></a>. Instead you can 
+       replace the whole model of a <span class="structname">GtkIconView</span>, 
+       instead of doing many small changes to the existing model.
+     </p></li>
+</ul></div>
+<p>
+  </p>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

@@ -1,0 +1,1476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkSpinButton</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="prev" href="GtkVScale.html" title="GtkVScale">
+<link rel="next" href="GtkEditable.html" title="GtkEditable">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GtkVScale.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="NumericEntry.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="GtkEditable.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkSpinButton.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkSpinButton.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkSpinButton.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkSpinButton.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#GtkSpinButton.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#GtkSpinButton.style-properties" class="shortcut">Style Properties</a>
+                 | 
+                <a href="#GtkSpinButton.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GtkSpinButton">
+<a name="GtkSpinButton"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkSpinButton.top_of_page"></a>GtkSpinButton</span></h2>
+<p>GtkSpinButton — Retrieve an integer or floating-point number from the user</p>
+</td>
+<td valign="top" align="right"><img src="spinbutton.png"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GtkSpinButton.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="GtkSpinButton.html#GtkSpinButton-struct" title="GtkSpinButton">GtkSpinButton</a>;
+enum                <a class="link" href="GtkSpinButton.html#GtkSpinButtonUpdatePolicy" title="enum GtkSpinButtonUpdatePolicy">GtkSpinButtonUpdatePolicy</a>;
+enum                <a class="link" href="GtkSpinButton.html#GtkSpinType" title="enum GtkSpinType">GtkSpinType</a>;
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-configure" title="gtk_spin_button_configure ()">gtk_spin_button_configure</a>           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a> *adjustment,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> climb_rate,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> digits);
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkSpinButton.html#gtk-spin-button-new" title="gtk_spin_button_new ()">gtk_spin_button_new</a>                 (<a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a> *adjustment,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> climb_rate,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> digits);
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkSpinButton.html#gtk-spin-button-new-with-range" title="gtk_spin_button_new_with_range ()">gtk_spin_button_new_with_range</a>      (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> min,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> max,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> step);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-adjustment" title="gtk_spin_button_set_adjustment ()">gtk_spin_button_set_adjustment</a>      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a> *adjustment);
+<a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a>*      <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-adjustment" title="gtk_spin_button_get_adjustment ()">gtk_spin_button_get_adjustment</a>      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-digits" title="gtk_spin_button_set_digits ()">gtk_spin_button_set_digits</a>          (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> digits);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-increments" title="gtk_spin_button_set_increments ()">gtk_spin_button_set_increments</a>      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> step,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> page);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-range" title="gtk_spin_button_set_range ()">gtk_spin_button_set_range</a>           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> min,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> max);
+#define             <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-value-as-float" title="gtk_spin_button_get_value_as_float">gtk_spin_button_get_value_as_float</a>
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-value-as-int" title="gtk_spin_button_get_value_as_int ()">gtk_spin_button_get_value_as_int</a>    (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-value" title="gtk_spin_button_set_value ()">gtk_spin_button_set_value</a>           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> value);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-update-policy" title="gtk_spin_button_set_update_policy ()">gtk_spin_button_set_update_policy</a>   (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a class="link" href="GtkSpinButton.html#GtkSpinButtonUpdatePolicy" title="enum GtkSpinButtonUpdatePolicy">GtkSpinButtonUpdatePolicy</a> policy);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-numeric" title="gtk_spin_button_set_numeric ()">gtk_spin_button_set_numeric</a>         (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> numeric);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-spin" title="gtk_spin_button_spin ()">gtk_spin_button_spin</a>                (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a class="link" href="GtkSpinButton.html#GtkSpinType" title="enum GtkSpinType">GtkSpinType</a> direction,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> increment);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-wrap" title="gtk_spin_button_set_wrap ()">gtk_spin_button_set_wrap</a>            (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> wrap);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-snap-to-ticks" title="gtk_spin_button_set_snap_to_ticks ()">gtk_spin_button_set_snap_to_ticks</a>   (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> snap_to_ticks);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-update" title="gtk_spin_button_update ()">gtk_spin_button_update</a>              (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-digits" title="gtk_spin_button_get_digits ()">gtk_spin_button_get_digits</a>          (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-increments" title="gtk_spin_button_get_increments ()">gtk_spin_button_get_increments</a>      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *step,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *page);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-numeric" title="gtk_spin_button_get_numeric ()">gtk_spin_button_get_numeric</a>         (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+void                <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-range" title="gtk_spin_button_get_range ()">gtk_spin_button_get_range</a>           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *min,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *max);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-snap-to-ticks" title="gtk_spin_button_get_snap_to_ticks ()">gtk_spin_button_get_snap_to_ticks</a>   (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+<a class="link" href="GtkSpinButton.html#GtkSpinButtonUpdatePolicy" title="enum GtkSpinButtonUpdatePolicy">GtkSpinButtonUpdatePolicy</a>  <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-update-policy" title="gtk_spin_button_get_update_policy ()">gtk_spin_button_get_update_policy</a>
+                                                        (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>             <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-value" title="gtk_spin_button_get_value ()">gtk_spin_button_get_value</a>           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-wrap" title="gtk_spin_button_get_wrap ()">gtk_spin_button_get_wrap</a>            (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);
+#define             <a class="link" href="GtkSpinButton.html#GTK-INPUT-ERROR--CAPS" title="GTK_INPUT_ERROR">GTK_INPUT_ERROR</a>
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GtkSpinButton.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="GtkObject.html" title="GtkObject">GtkObject</a>
+               +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
+                     +----<a class="link" href="GtkEntry.html" title="GtkEntry">GtkEntry</a>
+                           +----GtkSpinButton
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GtkSpinButton.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GtkSpinButton implements
+ AtkImplementorIface,  <a class="link" href="gtk-gtkbuildable.html#GtkBuildable">GtkBuildable</a>,  <a class="link" href="GtkCellEditable.html" title="GtkCellEditable">GtkCellEditable</a> and  <a class="link" href="GtkEditable.html" title="GtkEditable">GtkEditable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GtkSpinButton.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--adjustment" title='The "adjustment" property'>adjustment</a>"               <a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a>*        : Read / Write
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--climb-rate" title='The "climb-rate" property'>climb-rate</a>"               <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>               : Read / Write
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--digits" title='The "digits" property'>digits</a>"                   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--numeric" title='The "numeric" property'>numeric</a>"                  <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--snap-to-ticks" title='The "snap-to-ticks" property'>snap-to-ticks</a>"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--update-policy" title='The "update-policy" property'>update-policy</a>"            <a class="link" href="GtkSpinButton.html#GtkSpinButtonUpdatePolicy" title="enum GtkSpinButtonUpdatePolicy">GtkSpinButtonUpdatePolicy</a>  : Read / Write
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--value" title='The "value" property'>value</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>               : Read / Write
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--wrap" title='The "wrap" property'>wrap</a>"                     <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Style Properties">
+<a name="GtkSpinButton.style-properties"></a><h2>Style Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton--s-shadow-type" title='The "shadow-type" style property'>shadow-type</a>"              <a class="link" href="gtk-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType">GtkShadowType</a>         : Read
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GtkSpinButton.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton-change-value" title='The "change-value" signal'>change-value</a>"                                   : Run Last / Action
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton-input" title='The "input" signal'>input</a>"                                          : Run Last
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton-output" title='The "output" signal'>output</a>"                                         : Run Last
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton-value-changed" title='The "value-changed" signal'>value-changed</a>"                                  : Run Last
+  "<a class="link" href="GtkSpinButton.html#GtkSpinButton-wrapped" title='The "wrapped" signal'>wrapped</a>"                                        : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GtkSpinButton.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> is an ideal way to allow the user to set the value of some
+attribute. Rather than having to directly type a number into a <a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a>,
+<a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> allows the user to click on one of two arrows to increment or
+decrement the displayed value. A value can still be typed in, with the bonus
+that it can be checked to ensure it is in a given range.
+</p>
+<p>
+The main properties of a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> are through a <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a>. See the
+<a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> section for more details about an adjustment's properties.
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id849816"></a><p class="title"><b>Example 16. Using a <span class="structname">GtkSpinButton</span> to get an integer.</b></p>
+<div class="example-contents"><pre class="programlisting">
+/* Provides a function to retrieve an integer value from a GtkSpinButton
+ * and creates a spin button to model percentage values.
+ */
+gint grab_int_value (GtkSpinButton *a_spinner, gpointer user_data) {
+   return gtk_spin_button_get_value_as_int (a_spinner);
+}
+void create_integer_spin_button (void) {
+   GtkWidget *window, *spinner;
+   GtkAdjustment *spinner_adj;
+   spinner_adj = (GtkAdjustment *) gtk_adjustment_new (50.0, 0.0, 100.0, 1.0, 5.0, 5.0);
+   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+   gtk_container_set_border_width (GTK_CONTAINER (window), 5);
+   /* creates the spinner, with no decimal places */
+   spinner = gtk_spin_button_new (spinner_adj, 1.0, 0);
+   gtk_container_add (GTK_CONTAINER (window), spinner);
+   gtk_widget_show_all (window);
+   return;
+}
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id849844"></a><p class="title"><b>Example 17. Using a <span class="structname">GtkSpinButton</span> to get a floating point value.</b></p>
+<div class="example-contents"><pre class="programlisting">
+/* Provides a function to retrieve a floating point value from a
+ * GtkSpinButton, and creates a high precision spin button.
+ */
+gfloat grab_int_value (GtkSpinButton *a_spinner, gpointer user_data) {
+   return gtk_spin_button_get_value (a_spinner);
+}
+void create_floating_spin_button (void) {
+   GtkWidget *window, *spinner;
+   GtkAdjustment *spinner_adj;
+   spinner_adj = (GtkAdjustment *) gtk_adjustment_new (2.500, 0.0, 5.0, 0.001, 0.1, 0.1);
+   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+   gtk_container_set_border_width (GTK_CONTAINER (window), 5);
+   /* creates the spinner, with three decimal places */
+   spinner = gtk_spin_button_new (spinner_adj, 0.001, 3);
+   gtk_container_add (GTK_CONTAINER (window), spinner);
+   gtk_widget_show_all (window);
+   return;
+}
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GtkSpinButton.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkSpinButton">
+<a name="GtkSpinButton-struct"></a><h3>GtkSpinButton</h3>
+<pre class="programlisting">typedef struct _GtkSpinButton GtkSpinButton;</pre>
+<p>
+<em class="structfield"><code>entry</code></em> is the <a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> part of the <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+widget, and can be used accordingly. All other fields contain private data
+and should only be modified using the functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GtkSpinButtonUpdatePolicy">
+<a name="GtkSpinButtonUpdatePolicy"></a><h3>enum GtkSpinButtonUpdatePolicy</h3>
+<pre class="programlisting">typedef enum
+{
+  GTK_UPDATE_ALWAYS,
+  GTK_UPDATE_IF_VALID
+} GtkSpinButtonUpdatePolicy;
+</pre>
+<p>
+</p>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td>GTK_UPDATE_ALWAYS</td>
+<td>When refreshing your <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>, the value is always displayed.</td>
+</tr>
+<tr>
+<td>GTK_UPDATE_IF_VALID</td>
+<td>When refreshing your <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>, the value is only displayed if it is valid within the bounds of the spin button's <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GtkSpinType">
+<a name="GtkSpinType"></a><h3>enum GtkSpinType</h3>
+<pre class="programlisting">typedef enum
+{
+  GTK_SPIN_STEP_FORWARD,
+  GTK_SPIN_STEP_BACKWARD,
+  GTK_SPIN_PAGE_FORWARD,
+  GTK_SPIN_PAGE_BACKWARD,
+  GTK_SPIN_HOME,
+  GTK_SPIN_END,
+  GTK_SPIN_USER_DEFINED
+} GtkSpinType;
+</pre>
+<p>
+</p>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td>GTK_SPIN_STEP_FORWARD,
+GTK_SPIN_STEP_BACKWARD,
+GTK_SPIN_PAGE_FORWARD,
+GTK_SPIN_PAGE_BACKWARD</td>
+<td>These values spin a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> by the relevant values of the spin button's <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a>.</td>
+</tr>
+<tr>
+<td>GTK_SPIN_HOME,
+GTK_SPIN_END</td>
+<td>These set the spin button's value to the minimum or maxmimum possible values, (set by its <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a>), respectively.</td>
+</tr>
+<tr>
+<td>GTK_SPIN_USER_DEFINED</td>
+<td>The programmer must specify the exact amount to spin the <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_configure ()">
+<a name="gtk-spin-button-configure"></a><h3>gtk_spin_button_configure ()</h3>
+<pre class="programlisting">void                gtk_spin_button_configure           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a> *adjustment,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> climb_rate,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> digits);</pre>
+<p>
+Changes the properties of an existing spin button. The adjustment, climb rate, and number of decimal places are all changed accordingly, after this function call.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>climb_rate</code></em> :</span></p></td>
+<td>the new climb rate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>digits</code></em> :</span></p></td>
+<td>the number of decimal places to display in the spin button.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_new ()">
+<a name="gtk-spin-button-new"></a><h3>gtk_spin_button_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_spin_button_new                 (<a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a> *adjustment,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> climb_rate,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> digits);</pre>
+<p>
+Creates a new <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> object that this spin button should use.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>climb_rate</code></em> :</span></p></td>
+<td>specifies how much the spin button changes when an arrow is clicked on.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>digits</code></em> :</span></p></td>
+<td>the number of decimal places to display.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The new spin button as a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_new_with_range ()">
+<a name="gtk-spin-button-new-with-range"></a><h3>gtk_spin_button_new_with_range ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_spin_button_new_with_range      (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> min,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> max,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> step);</pre>
+<p>
+This is a convenience constructor that allows creation of a numeric 
+<a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> without manually creating an adjustment. The value is 
+initially set to the minimum value and a page increment of 10 * <em class="parameter"><code>step</code></em>
+is the default. The precision of the spin button is equivalent to the 
+precision of <em class="parameter"><code>step</code></em>. 
+</p>
+<p>
+Note that the way in which the precision is derived works best if <em class="parameter"><code>step</code></em> 
+is a power of ten. If the resulting precision is not suitable for your 
+needs, use <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-digits" title="gtk_spin_button_set_digits ()"><code class="function">gtk_spin_button_set_digits()</code></a> to correct it.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td> Minimum allowable value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max</code></em> :</span></p></td>
+<td> Maximum allowable value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>step</code></em> :</span></p></td>
+<td> Increment added or subtracted by spinning the widget
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The new spin button as a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_adjustment ()">
+<a name="gtk-spin-button-set-adjustment"></a><h3>gtk_spin_button_set_adjustment ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_adjustment      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a> *adjustment);</pre>
+<p>
+Replaces the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> associated with <em class="parameter"><code>spin_button</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> to replace the existing adjustment
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_adjustment ()">
+<a name="gtk-spin-button-get-adjustment"></a><h3>gtk_spin_button_get_adjustment ()</h3>
+<pre class="programlisting"><a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a>*      gtk_spin_button_get_adjustment      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Get the adjustment associated with a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a></p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> of <em class="parameter"><code>spin_button</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_digits ()">
+<a name="gtk-spin-button-set-digits"></a><h3>gtk_spin_button_set_digits ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_digits          (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> digits);</pre>
+<p>
+Set the precision to be displayed by <em class="parameter"><code>spin_button</code></em>. Up to 20 digit precision
+is allowed.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>digits</code></em> :</span></p></td>
+<td> the number of digits after the decimal point to be displayed for the spin button's value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_increments ()">
+<a name="gtk-spin-button-set-increments"></a><h3>gtk_spin_button_set_increments ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_increments      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> step,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> page);</pre>
+<p>
+Sets the step and page increments for spin_button.  This affects how 
+quickly the value changes when the spin button's arrows are activated.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>step</code></em> :</span></p></td>
+<td> increment applied for a button 1 press.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page</code></em> :</span></p></td>
+<td> increment applied for a button 2 press.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_range ()">
+<a name="gtk-spin-button-set-range"></a><h3>gtk_spin_button_set_range ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_range           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> min,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> max);</pre>
+<p>
+Sets the minimum and maximum allowable values for <em class="parameter"><code>spin_button</code></em></p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td> minimum allowable value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max</code></em> :</span></p></td>
+<td> maximum allowable value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_value_as_float">
+<a name="gtk-spin-button-get-value-as-float"></a><h3>gtk_spin_button_get_value_as_float</h3>
+<pre class="programlisting">#define gtk_spin_button_get_value_as_float gtk_spin_button_get_value
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_spin_button_get_value_as_float</code> is deprecated and should not be used in newly-written code. Use <a class="link" href="GtkSpinButton.html#gtk-spin-button-get-value" title="gtk_spin_button_get_value ()"><code class="function">gtk_spin_button_get_value()</code></a> instead.</p>
+</div>
+<p>
+Gets the value in the <em class="parameter"><code>spin_button</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of <em class="parameter"><code>spin_button</code></em>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_value_as_int ()">
+<a name="gtk-spin-button-get-value-as-int"></a><h3>gtk_spin_button_get_value_as_int ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                gtk_spin_button_get_value_as_int    (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Get the value <em class="parameter"><code>spin_button</code></em> represented as an integer.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the value of <em class="parameter"><code>spin_button</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_value ()">
+<a name="gtk-spin-button-set-value"></a><h3>gtk_spin_button_set_value ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_value           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> value);</pre>
+<p>
+Set the value of <em class="parameter"><code>spin_button</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> the new value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_update_policy ()">
+<a name="gtk-spin-button-set-update-policy"></a><h3>gtk_spin_button_set_update_policy ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_update_policy   (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a class="link" href="GtkSpinButton.html#GtkSpinButtonUpdatePolicy" title="enum GtkSpinButtonUpdatePolicy">GtkSpinButtonUpdatePolicy</a> policy);</pre>
+<p>
+Sets the update behavior of a spin button. This determines whether the
+spin button is always updated or only when a valid value is set.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>policy</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html#GtkSpinButtonUpdatePolicy" title="enum GtkSpinButtonUpdatePolicy"><span class="type">GtkSpinButtonUpdatePolicy</span></a> value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_numeric ()">
+<a name="gtk-spin-button-set-numeric"></a><h3>gtk_spin_button_set_numeric ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_numeric         (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> numeric);</pre>
+<p>
+Sets the flag that determines if non-numeric text can be typed into
+the spin button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>numeric</code></em> :</span></p></td>
+<td> flag indicating if only numeric entry is allowed. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_spin ()">
+<a name="gtk-spin-button-spin"></a><h3>gtk_spin_button_spin ()</h3>
+<pre class="programlisting">void                gtk_spin_button_spin                (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a class="link" href="GtkSpinButton.html#GtkSpinType" title="enum GtkSpinType">GtkSpinType</a> direction,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> increment);</pre>
+<p>
+Increment or decrement a spin button's value in a specified direction
+by a specified amount.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>direction</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html#GtkSpinType" title="enum GtkSpinType"><span class="type">GtkSpinType</span></a> indicating the direction to spin.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>increment</code></em> :</span></p></td>
+<td> step increment to apply in the specified direction.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_wrap ()">
+<a name="gtk-spin-button-set-wrap"></a><h3>gtk_spin_button_set_wrap ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_wrap            (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> wrap);</pre>
+<p>
+Sets the flag that determines if a spin button value wraps around to the
+opposite limit when the upper or lower limit of the range is exceeded.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wrap</code></em> :</span></p></td>
+<td> a flag indicating if wrapping behavior is performed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_set_snap_to_ticks ()">
+<a name="gtk-spin-button-set-snap-to-ticks"></a><h3>gtk_spin_button_set_snap_to_ticks ()</h3>
+<pre class="programlisting">void                gtk_spin_button_set_snap_to_ticks   (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> snap_to_ticks);</pre>
+<p>
+Sets the policy as to whether values are corrected to the nearest step 
+increment when a spin button is activated after providing an invalid value.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>snap_to_ticks</code></em> :</span></p></td>
+<td> a flag indicating if invalid values should be corrected.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_update ()">
+<a name="gtk-spin-button-update"></a><h3>gtk_spin_button_update ()</h3>
+<pre class="programlisting">void                gtk_spin_button_update              (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Manually force an update of the spin button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> 
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_digits ()">
+<a name="gtk-spin-button-get-digits"></a><h3>gtk_spin_button_get_digits ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               gtk_spin_button_get_digits          (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Fetches the precision of <em class="parameter"><code>spin_button</code></em>. See <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-digits" title="gtk_spin_button_set_digits ()"><code class="function">gtk_spin_button_set_digits()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the current precision
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_increments ()">
+<a name="gtk-spin-button-get-increments"></a><h3>gtk_spin_button_get_increments ()</h3>
+<pre class="programlisting">void                gtk_spin_button_get_increments      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *step,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *page);</pre>
+<p>
+Gets the current step and page the increments used by <em class="parameter"><code>spin_button</code></em>. See
+<a class="link" href="GtkSpinButton.html#gtk-spin-button-set-increments" title="gtk_spin_button_set_increments ()"><code class="function">gtk_spin_button_set_increments()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>step</code></em> :</span></p></td>
+<td> location to store step increment, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page</code></em> :</span></p></td>
+<td> location to store page increment, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_numeric ()">
+<a name="gtk-spin-button-get-numeric"></a><h3>gtk_spin_button_get_numeric ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_spin_button_get_numeric         (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Returns whether non-numeric text can be typed into the spin button.
+See <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-numeric" title="gtk_spin_button_set_numeric ()"><code class="function">gtk_spin_button_set_numeric()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if only numeric text can be entered
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_range ()">
+<a name="gtk-spin-button-get-range"></a><h3>gtk_spin_button_get_range ()</h3>
+<pre class="programlisting">void                gtk_spin_button_get_range           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *min,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *max);</pre>
+<p>
+Gets the range allowed for <em class="parameter"><code>spin_button</code></em>. See
+<a class="link" href="GtkSpinButton.html#gtk-spin-button-set-range" title="gtk_spin_button_set_range ()"><code class="function">gtk_spin_button_set_range()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td> location to store minimum allowed value, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max</code></em> :</span></p></td>
+<td> location to store maximum allowed value, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_snap_to_ticks ()">
+<a name="gtk-spin-button-get-snap-to-ticks"></a><h3>gtk_spin_button_get_snap_to_ticks ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_spin_button_get_snap_to_ticks   (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Returns whether the values are corrected to the nearest step. See
+<a class="link" href="GtkSpinButton.html#gtk-spin-button-set-snap-to-ticks" title="gtk_spin_button_set_snap_to_ticks ()"><code class="function">gtk_spin_button_set_snap_to_ticks()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if values are snapped to the nearest step.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_update_policy ()">
+<a name="gtk-spin-button-get-update-policy"></a><h3>gtk_spin_button_get_update_policy ()</h3>
+<pre class="programlisting"><a class="link" href="GtkSpinButton.html#GtkSpinButtonUpdatePolicy" title="enum GtkSpinButtonUpdatePolicy">GtkSpinButtonUpdatePolicy</a>  gtk_spin_button_get_update_policy
+                                                        (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Gets the update behavior of a spin button. See
+<a class="link" href="GtkSpinButton.html#gtk-spin-button-set-update-policy" title="gtk_spin_button_set_update_policy ()"><code class="function">gtk_spin_button_set_update_policy()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the current update policy
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_value ()">
+<a name="gtk-spin-button-get-value"></a><h3>gtk_spin_button_get_value ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>             gtk_spin_button_get_value           (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Get the value in the <em class="parameter"><code>spin_button</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the value of <em class="parameter"><code>spin_button</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_spin_button_get_wrap ()">
+<a name="gtk-spin-button-get-wrap"></a><h3>gtk_spin_button_get_wrap ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_spin_button_get_wrap            (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button);</pre>
+<p>
+Returns whether the spin button's value wraps around to the
+opposite limit when the upper or lower limit of the range is
+exceeded. See <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-wrap" title="gtk_spin_button_set_wrap ()"><code class="function">gtk_spin_button_set_wrap()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the spin button wraps around
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GTK_INPUT_ERROR">
+<a name="GTK-INPUT-ERROR--CAPS"></a><h3>GTK_INPUT_ERROR</h3>
+<pre class="programlisting">#define GTK_INPUT_ERROR -1
+</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GtkSpinButton.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "adjustment" property'>
+<a name="GtkSpinButton--adjustment"></a><h3>The <code class="literal">"adjustment"</code> property</h3>
+<pre class="programlisting">  "adjustment"               <a class="link" href="GtkAdjustment.html" title="GtkAdjustment">GtkAdjustment</a>*        : Read / Write</pre>
+<p>The adjustment that holds the value of the spinbutton.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "climb-rate" property'>
+<a name="GtkSpinButton--climb-rate"></a><h3>The <code class="literal">"climb-rate"</code> property</h3>
+<pre class="programlisting">  "climb-rate"               <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>               : Read / Write</pre>
+<p>The acceleration rate when you hold down a button.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "digits" property'>
+<a name="GtkSpinButton--digits"></a><h3>The <code class="literal">"digits"</code> property</h3>
+<pre class="programlisting">  "digits"                   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write</pre>
+<p>The number of decimal places to display.</p>
+<p>Allowed values: &lt;= 20</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "numeric" property'>
+<a name="GtkSpinButton--numeric"></a><h3>The <code class="literal">"numeric"</code> property</h3>
+<pre class="programlisting">  "numeric"                  <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether non-numeric characters should be ignored.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "snap-to-ticks" property'>
+<a name="GtkSpinButton--snap-to-ticks"></a><h3>The <code class="literal">"snap-to-ticks"</code> property</h3>
+<pre class="programlisting">  "snap-to-ticks"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether erroneous values are automatically changed to a spin button's nearest step increment.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "update-policy" property'>
+<a name="GtkSpinButton--update-policy"></a><h3>The <code class="literal">"update-policy"</code> property</h3>
+<pre class="programlisting">  "update-policy"            <a class="link" href="GtkSpinButton.html#GtkSpinButtonUpdatePolicy" title="enum GtkSpinButtonUpdatePolicy">GtkSpinButtonUpdatePolicy</a>  : Read / Write</pre>
+<p>Whether the spin button should update always, or only when the value is legal.</p>
+<p>Default value: GTK_UPDATE_ALWAYS</p>
+</div>
+<hr>
+<div class="refsect2" title='The "value" property'>
+<a name="GtkSpinButton--value"></a><h3>The <code class="literal">"value"</code> property</h3>
+<pre class="programlisting">  "value"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>               : Read / Write</pre>
+<p>Reads the current value, or sets a new value.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "wrap" property'>
+<a name="GtkSpinButton--wrap"></a><h3>The <code class="literal">"wrap"</code> property</h3>
+<pre class="programlisting">  "wrap"                     <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether a spin button should wrap upon reaching its limits.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1" title="Style Property Details">
+<a name="GtkSpinButton.style-property-details"></a><h2>Style Property Details</h2>
+<div class="refsect2" title='The "shadow-type" style property'>
+<a name="GtkSpinButton--s-shadow-type"></a><h3>The <code class="literal">"shadow-type"</code> style property</h3>
+<pre class="programlisting">  "shadow-type"              <a class="link" href="gtk-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType">GtkShadowType</a>         : Read</pre>
+<p>
+the type of border that surrounds the arrows of a spin button.
+</p>
+<p>Default value: GTK_SHADOW_IN</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GtkSpinButton.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "change-value" signal'>
+<a name="GtkSpinButton-change-value"></a><h3>The <code class="literal">"change-value"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spinbutton,
+                                                        <a class="link" href="gtk-Standard-Enumerations.html#GtkScrollType" title="enum GtkScrollType">GtkScrollType</a>  arg1,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>       user_data)       : Run Last / Action</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spinbutton</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "input" signal'>
+<a name="GtkSpinButton-input"></a><h3>The <code class="literal">"input"</code> signal</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                user_function                      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spinbutton,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>       arg1,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>       user_data)       : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spinbutton</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "output" signal'>
+<a name="GtkSpinButton-output"></a><h3>The <code class="literal">"output"</code> signal</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spin_button,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>       user_data)        : Run Last</pre>
+<p>
+The ::output signal can be used to change to formatting
+of the value that is displayed in the spin buttons entry.
+</p>
+<div class="informalexample"><pre class="programlisting">
+/* show leading zeros */
+static gboolean
+on_output (GtkSpinButton *spin,
+           gpointer       data)
+{
+   GtkAdjustment *adj;
+   gchar *text;
+   int value;
+   adj = gtk_spin_button_get_adjustment (spin);
+   value = (int)gtk_adjustment_get_value (adj);
+   text = g_strdup_printf ("%02d", value);
+   gtk_entry_set_text (GTK_ENTRY (spin), text);
+   g_free (text);
+   
+   return TRUE;
+}
+</pre></div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spin_button</code></em> :</span></p></td>
+<td> the object which received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the value has been displayed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "value-changed" signal'>
+<a name="GtkSpinButton-value-changed"></a><h3>The <code class="literal">"value-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spinbutton,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>       user_data)       : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spinbutton</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "wrapped" signal'>
+<a name="GtkSpinButton-wrapped"></a><h3>The <code class="literal">"wrapped"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkSpinButton.html" title="GtkSpinButton">GtkSpinButton</a> *spinbutton,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>       user_data)       : Run Last</pre>
+<p>
+The wrapped signal is emitted right after the spinbutton wraps
+from its maximum to minimum value or vice-versa.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spinbutton</code></em> :</span></p></td>
+<td> the object which received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Since 2.10</p>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="GtkSpinButton.see-also"></a><h2>See Also</h2>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a></span></p></td>
+<td><p>retrieve text rather than numbers.</p></td>
+</tr></tbody>
+</table></div>
+<p>
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

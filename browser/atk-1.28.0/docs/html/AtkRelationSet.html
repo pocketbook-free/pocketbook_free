@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AtkRelationSet</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.69.1">
+<link rel="start" href="index.html" title="ATK - Accessibility Toolkit">
+<link rel="up" href="atk.html" title="ATK Library">
+<link rel="prev" href="AtkRelation.html" title="AtkRelation">
+<link rel="next" href="AtkSelection.html" title="AtkSelection">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="atk.html" title="ATK Library">
+<link rel="index" href="ix01.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+<link rel="index" href="ix03.html" title="Index of new symbols in ATK 1.3">
+<link rel="index" href="ix04.html" title="Index of new symbols in ATK 1.4">
+<link rel="index" href="ix05.html" title="Index of new symbols in ATK 1.6">
+<link rel="index" href="ix06.html" title="Index of new symbols in ATK 1.9">
+<link rel="index" href="ix07.html" title="Index of new symbols in ATK 1.12">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AtkRelation.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">ATK - Accessibility Toolkit</th>
+<td><a accesskey="n" href="AtkSelection.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AtkRelationSet.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AtkRelationSet.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AtkRelationSet.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="AtkRelationSet"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AtkRelationSet.top_of_page"></a>AtkRelationSet</span></h2>
+<p>AtkRelationSet — A set of AtkRelations, normally the set of AtkRelations which an AtkObject has.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="AtkRelationSet.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a href="AtkRelationSet.html#AtkRelationSet-struct" title="AtkRelationSet">AtkRelationSet</a>;
+<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a>*     <a href="AtkRelationSet.html#atk-relation-set-new" title="atk_relation_set_new ()">atk_relation_set_new</a>                (void);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a href="AtkRelationSet.html#atk-relation-set-contains" title="atk_relation_set_contains ()">atk_relation_set_contains</a>           (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType">AtkRelationType</a> relationship);
+void                <a href="AtkRelationSet.html#atk-relation-set-remove" title="atk_relation_set_remove ()">atk_relation_set_remove</a>             (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html" title="AtkRelation">AtkRelation</a> *relation);
+void                <a href="AtkRelationSet.html#atk-relation-set-add" title="atk_relation_set_add ()">atk_relation_set_add</a>                (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html" title="AtkRelation">AtkRelation</a> *relation);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a href="AtkRelationSet.html#atk-relation-set-get-n-relations" title="atk_relation_set_get_n_relations ()">atk_relation_set_get_n_relations</a>    (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set);
+<a href="AtkRelation.html" title="AtkRelation">AtkRelation</a>*        <a href="AtkRelationSet.html#atk-relation-set-get-relation" title="atk_relation_set_get_relation ()">atk_relation_set_get_relation</a>       (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> i);
+<a href="AtkRelation.html" title="AtkRelation">AtkRelation</a>*        <a href="AtkRelationSet.html#atk-relation-set-get-relation-by-type" title="atk_relation_set_get_relation_by_type ()">atk_relation_set_get_relation_by_type</a>
+                                                        (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType">AtkRelationType</a> relationship);
+void                <a href="AtkRelationSet.html#atk-relation-set-add-relation-by-type" title="atk_relation_set_add_relation_by_type ()">atk_relation_set_add_relation_by_type</a>
+                                                        (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType">AtkRelationType</a> relationship,
+                                                         <a href="AtkObject.html" title="AtkObject">AtkObject</a> *target);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkRelationSet.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----AtkRelationSet
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkRelationSet.description"></a><h2>Description</h2>
+<p>
+The AtkRelationSet held by an object establishes its relationships with
+objects beyond the normal "parent/child" hierarchical relationships that all
+user interface objects have.  AtkRelationSets establish whether objects are
+labelled or controlled by other components, share group membership with other
+components (for instance within a radio-button group), or share content which
+"flows" between them, among other types of possible relationships.
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkRelationSet.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AtkRelationSet-struct"></a><h3>AtkRelationSet</h3>
+<pre class="programlisting">typedef struct _AtkRelationSet AtkRelationSet;</pre>
+<p>
+The AtkRelationSet structure should not be accessed directly.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-relation-set-new"></a><h3>atk_relation_set_new ()</h3>
+<pre class="programlisting"><a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a>*     atk_relation_set_new                (void);</pre>
+<p>
+Creates a new empty relation set.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a new <a href="AtkRelationSet.html" title="AtkRelationSet"><span class="type">AtkRelationSet</span></a> 
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-relation-set-contains"></a><h3>atk_relation_set_contains ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            atk_relation_set_contains           (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType">AtkRelationType</a> relationship);</pre>
+<p>
+Determines whether the relation set contains a relation that matches the
+specified type.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>set</code></em> :</span></td>
+<td> an <a href="AtkRelationSet.html" title="AtkRelationSet"><span class="type">AtkRelationSet</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>relationship</code></em> :</span></td>
+<td> an <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType"><span class="type">AtkRelationType</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if <em class="parameter"><code>relationship</code></em> is the relationship type of a relation
+in <em class="parameter"><code>set</code></em>, <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> otherwise
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-relation-set-remove"></a><h3>atk_relation_set_remove ()</h3>
+<pre class="programlisting">void                atk_relation_set_remove             (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html" title="AtkRelation">AtkRelation</a> *relation);</pre>
+<p>
+Removes a relation from the relation set.
+This function unref's the <a href="AtkRelation.html" title="AtkRelation"><span class="type">AtkRelation</span></a> so it will be deleted unless there
+is another reference to it.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>set</code></em> :</span></td>
+<td> an <a href="AtkRelationSet.html" title="AtkRelationSet"><span class="type">AtkRelationSet</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>relation</code></em> :</span></td>
+<td> an <a href="AtkRelation.html" title="AtkRelation"><span class="type">AtkRelation</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-relation-set-add"></a><h3>atk_relation_set_add ()</h3>
+<pre class="programlisting">void                atk_relation_set_add                (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html" title="AtkRelation">AtkRelation</a> *relation);</pre>
+<p>
+Add a new relation to the current relation set if it is not already
+present.
+This function ref's the AtkRelation so the caller of this function
+should unref it to ensure that it will be destroyed when the AtkRelationSet
+is destroyed.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>set</code></em> :</span></td>
+<td> an <a href="AtkRelationSet.html" title="AtkRelationSet"><span class="type">AtkRelationSet</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>relation</code></em> :</span></td>
+<td> an <a href="AtkRelation.html" title="AtkRelation"><span class="type">AtkRelation</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-relation-set-get-n-relations"></a><h3>atk_relation_set_get_n_relations ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                atk_relation_set_get_n_relations    (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set);</pre>
+<p>
+Determines the number of relations in a relation set.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>set</code></em> :</span></td>
+<td> an <a href="AtkRelationSet.html" title="AtkRelationSet"><span class="type">AtkRelationSet</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> an integer representing the number of relations in the set.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-relation-set-get-relation"></a><h3>atk_relation_set_get_relation ()</h3>
+<pre class="programlisting"><a href="AtkRelation.html" title="AtkRelation">AtkRelation</a>*        atk_relation_set_get_relation       (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> i);</pre>
+<p>
+Determines the relation at the specified position in the relation set.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>set</code></em> :</span></td>
+<td> an <a href="AtkRelationSet.html" title="AtkRelationSet"><span class="type">AtkRelationSet</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>i</code></em> :</span></td>
+<td> a gint representing a position in the set, starting from 0.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a <a href="AtkRelation.html" title="AtkRelation"><span class="type">AtkRelation</span></a>, which is the relation at position i in the set.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-relation-set-get-relation-by-type"></a><h3>atk_relation_set_get_relation_by_type ()</h3>
+<pre class="programlisting"><a href="AtkRelation.html" title="AtkRelation">AtkRelation</a>*        atk_relation_set_get_relation_by_type
+                                                        (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType">AtkRelationType</a> relationship);</pre>
+<p>
+Finds a relation that matches the specified type.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>set</code></em> :</span></td>
+<td> an <a href="AtkRelationSet.html" title="AtkRelationSet"><span class="type">AtkRelationSet</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>relationship</code></em> :</span></td>
+<td> an <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType"><span class="type">AtkRelationType</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> an <a href="AtkRelation.html" title="AtkRelation"><span class="type">AtkRelation</span></a>, which is a relation matching the specified type.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-relation-set-add-relation-by-type"></a><h3>atk_relation_set_add_relation_by_type ()</h3>
+<pre class="programlisting">void                atk_relation_set_add_relation_by_type
+                                                        (<a href="AtkRelationSet.html" title="AtkRelationSet">AtkRelationSet</a> *set,
+                                                         <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType">AtkRelationType</a> relationship,
+                                                         <a href="AtkObject.html" title="AtkObject">AtkObject</a> *target);</pre>
+<p>
+Add a new relation of the specified type with the specified target to 
+the current relation set if the relation set does not contain a relation
+of that type. If it is does contain a relation of that typea the target
+is added to the relation.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>set</code></em> :</span></td>
+<td> an <a href="AtkRelationSet.html" title="AtkRelationSet"><span class="type">AtkRelationSet</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>relationship</code></em> :</span></td>
+<td> an <a href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType"><span class="type">AtkRelationType</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>target</code></em> :</span></td>
+<td> an <a href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.9</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

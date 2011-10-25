@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Differences between Imlib and gdk-pixbuf</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GDK-PixBuf Reference Manual">
+<link rel="up" href="apa.html" title="Appendix A. Porting applications from Imlib to gdk-pixbuf">
+<link rel="prev" href="apa.html" title="Appendix A. Porting applications from Imlib to gdk-pixbuf">
+<link rel="next" href="apas03.html" title="Converting Applications to gdk-pixbuf">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="rn01.html" title="API Reference">
+<link rel="reference" href="rn02.html" title="Tools Reference">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="appendix" href="apa.html" title="Appendix A. Porting applications from Imlib to gdk-pixbuf">
+<link rel="appendix" href="license.html" title="Appendix B. License">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="apa.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="apa.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK-PixBuf Reference Manual</th>
+<td><a accesskey="n" href="apas03.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="sect1" title="Differences between Imlib and gdk-pixbuf">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id393894"></a>Differences between <span class="application">Imlib</span> and <span class="application">gdk-pixbuf</span>
+</h2></div></div></div>
+<p>
+	Generally, applications that use <span class="application">Imlib</span> do not have to be
+	changed extensively to use <span class="application">gdk-pixbuf</span>; its simple and
+	flexible API makes things easy.  This section describes the
+	differences between <span class="application">Imlib</span> and <span class="application">gdk-pixbuf</span>; you should take
+	these into account when modifying your applications to use
+	<span class="application">gdk-pixbuf</span>.
+      </p>
+<div class="sect2" title="Initialization">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id347197"></a>Initialization</h3></div></div></div>
+<p>
+	  The <span class="application">gdk-pixbuf</span> library does not need to be initialized.
+	</p>
+<div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+	    In GNOME applications you normally don't need to
+	    initialize <span class="application">Imlib</span>, as <code class="function">gnome_init()</code>
+	    calls <code class="function">gdk_imlib_init()</code> automatically.
+	  </p>
+</div>
+</div>
+<div class="sect2" title="Memory management">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id356096"></a>Memory management</h3></div></div></div>
+<p>
+	  The <span class="application">gdk-pixbuf</span> library provides a simple, well-defined
+	  memory management mechanism for images in the form of
+	  reference counting.  This makes it very convenient to use
+	  for large-scale applications that need to share images
+	  between different parts of the program.  In stark contrast,
+	  <span class="application">Imlib</span> has a terribly complex mechanism of an image and
+	  pixmap cache which makes it very hard for applications to
+	  share image structures between different parts of the
+	  program.  Unfortunately this mechanism makes things very
+	  prone to memory leaks and tricky bugs.
+	</p>
+<p>
+	  The basic principle in <span class="application">gdk-pixbuf</span> is that when you obtain
+	  a new <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf">GdkPixbuf</a> structure,
+	  it is created with an initial reference count of 1.  When
+	  another part of the program wants to keep a reference to the
+	  pixbuf, it should call <code class="function">g_object_ref()</code>;
+	  this will increase the reference count by 1.  When some part
+	  of the program does not need to keep a reference to a pixbuf
+	  anymore and wants to release the pixbuf, it should call
+	  <code class="function">g_object_unref()</code>; this will decrease
+	  the reference count by 1.  When the reference count drops to
+	  zero, the pixbuf gets destroyed or
+	  <span class="emphasis"><em>finalized</em></span> and its memory is freed.
+	</p>
+<p>
+	  For applications that need to implement a cache of loaded
+	  images, <span class="application">gdk-pixbuf</span> provides a way to hook to the last
+	  unreference operation of a pixbuf; instead of finalizing the
+	  pixbuf, the user-installed hook can decide to keep it around
+	  in a cache instead.
+	</p>
+<p>
+	  Finally, <span class="application">gdk-pixbuf</span> does not provide a cache of rendered
+	  pixmaps.  This is unnecessary for most applications, since
+	  the scaling and rendering functions are quite fast and
+	  applications may need to use subtly different values each
+	  time they call these functions, for example, to take into
+	  account dithering and zooming offsets.
+	</p>
+<p>
+	  Most applications will simply need to call
+	  <code class="function">g_object_ref()</code> when they want to keep
+	  an extra reference to a pixbuf, and then
+	  <code class="function">g_object_unref()</code> when they are done
+	  with it.
+	</p>
+</div>
+<div class="sect2" title="The Rendering Process">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id418295"></a>The Rendering Process</h3></div></div></div>
+<p>
+	  The <span class="application">gdk-pixbuf</span> library has the policy of always rendering
+	  pixbufs to GDK drawables you provide; it will not create
+	  them for you.  This is in general more flexible than
+	  <span class="application">Imlib</span>'s policy of always creating a pixmap and making you
+	  use that instead.
+	</p>
+<p>
+	  The disadvantage of always having a pixmap created for you
+	  is that it wastes memory in the X server if you intend to
+	  copy that rendered data onto another drawable, for example,
+	  the final destination window or a temporary pixmap for
+	  drawing.  This is the most common case, unfortunately, so
+	  the <span class="application">Imlib</span> policy introduces unnecessary copying.
+	</p>
+<p>
+	  Also, <span class="application">Imlib</span> can only render pixmaps that are the whole
+	  size of the source image; you cannot render just a subset
+	  region of the image.  This is inconvenient for applications
+	  that need to render small portions at a time, such as
+	  applications that do scrolling.  Since the whole image must
+	  be rendered at a time, this can lead to performance and
+	  memory usage problems.
+	</p>
+<p>
+	  The <span class="application">gdk-pixbuf</span> library lets you render any rectangular
+	  region from an image onto any drawable that you provide.
+	  This lets the application have fine control the way images
+	  are rendered.
+	</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

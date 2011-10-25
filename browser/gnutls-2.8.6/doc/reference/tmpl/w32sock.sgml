@@ -1,0 +1,40 @@
+<!-- ##### SECTION Title ##### -->
+w32sock
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO FD_TO_SOCKET ##### -->
+<para>
+
+</para>
+
+@fd: 
+
+
+<!-- ##### MACRO SOCKET_TO_FD ##### -->
+<para>
+
+</para>
+
+@fh: 
+
+

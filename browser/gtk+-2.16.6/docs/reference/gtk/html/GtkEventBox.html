@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkEventBox</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="MiscObjects.html" title="Miscellaneous">
+<link rel="prev" href="GtkDrawingArea.html" title="GtkDrawingArea">
+<link rel="next" href="GtkHandleBox.html" title="GtkHandleBox">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GtkDrawingArea.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="MiscObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="GtkHandleBox.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkEventBox.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkEventBox.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkEventBox.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkEventBox.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#GtkEventBox.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="GtkEventBox">
+<a name="GtkEventBox"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkEventBox.top_of_page"></a>GtkEventBox</span></h2>
+<p>GtkEventBox — A widget used to catch events for widgets which do not have their own window</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GtkEventBox.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="GtkEventBox.html#GtkEventBox-struct" title="GtkEventBox">GtkEventBox</a>;
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkEventBox.html#gtk-event-box-new" title="gtk_event_box_new ()">gtk_event_box_new</a>                   (void);
+void                <a class="link" href="GtkEventBox.html#gtk-event-box-set-above-child" title="gtk_event_box_set_above_child ()">gtk_event_box_set_above_child</a>       (<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a> *event_box,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> above_child);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkEventBox.html#gtk-event-box-get-above-child" title="gtk_event_box_get_above_child ()">gtk_event_box_get_above_child</a>       (<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a> *event_box);
+void                <a class="link" href="GtkEventBox.html#gtk-event-box-set-visible-window" title="gtk_event_box_set_visible_window ()">gtk_event_box_set_visible_window</a>    (<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a> *event_box,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> visible_window);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkEventBox.html#gtk-event-box-get-visible-window" title="gtk_event_box_get_visible_window ()">gtk_event_box_get_visible_window</a>    (<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a> *event_box);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GtkEventBox.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="GtkObject.html" title="GtkObject">GtkObject</a>
+               +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
+                     +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
+                           +----<a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
+                                 +----GtkEventBox
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GtkEventBox.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GtkEventBox implements
+ AtkImplementorIface and  <a class="link" href="gtk-gtkbuildable.html#GtkBuildable">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GtkEventBox.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkEventBox.html#GtkEventBox--above-child" title='The "above-child" property'>above-child</a>"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="GtkEventBox.html#GtkEventBox--visible-window" title='The "visible-window" property'>visible-window</a>"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GtkEventBox.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="GtkEventBox.html" title="GtkEventBox"><span class="type">GtkEventBox</span></a> widget is a subclass of <a class="link" href="GtkBin.html" title="GtkBin"><span class="type">GtkBin</span></a> which also has its own window.
+It is useful since it allows you to catch events for widgets which do not
+have their own window.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GtkEventBox.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkEventBox">
+<a name="GtkEventBox-struct"></a><h3>GtkEventBox</h3>
+<pre class="programlisting">typedef struct _GtkEventBox GtkEventBox;</pre>
+<p>
+The <a class="link" href="GtkEventBox.html#GtkEventBox-struct" title="GtkEventBox"><span class="type">GtkEventBox</span></a> struct contains private data only, and
+should be accessed using the functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_event_box_new ()">
+<a name="gtk-event-box-new"></a><h3>gtk_event_box_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_event_box_new                   (void);</pre>
+<p>
+Creates a new <a class="link" href="GtkEventBox.html" title="GtkEventBox"><span class="type">GtkEventBox</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="GtkEventBox.html" title="GtkEventBox"><span class="type">GtkEventBox</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_event_box_set_above_child ()">
+<a name="gtk-event-box-set-above-child"></a><h3>gtk_event_box_set_above_child ()</h3>
+<pre class="programlisting">void                gtk_event_box_set_above_child       (<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a> *event_box,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> above_child);</pre>
+<p>
+Set whether the event box window is positioned above the windows of its child,
+as opposed to below it. If the window is above, all events inside the
+event box will go to the event box. If the window is below, events
+in windows of child widgets will first got to that widget, and then
+to its parents.
+</p>
+<p>
+The default is to keep the window below the child.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_box</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkEventBox.html" title="GtkEventBox"><span class="type">GtkEventBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>above_child</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the event box window is above the windows of its child
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_event_box_get_above_child ()">
+<a name="gtk-event-box-get-above-child"></a><h3>gtk_event_box_get_above_child ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_event_box_get_above_child       (<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a> *event_box);</pre>
+<p>
+Returns whether the event box window is above or below the
+windows of its child. See <a class="link" href="GtkEventBox.html#gtk-event-box-set-above-child" title="gtk_event_box_set_above_child ()"><code class="function">gtk_event_box_set_above_child()</code></a> for
+details.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_box</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkEventBox.html" title="GtkEventBox"><span class="type">GtkEventBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the event box window is above the window
+of its child.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_event_box_set_visible_window ()">
+<a name="gtk-event-box-set-visible-window"></a><h3>gtk_event_box_set_visible_window ()</h3>
+<pre class="programlisting">void                gtk_event_box_set_visible_window    (<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a> *event_box,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> visible_window);</pre>
+<p>
+Set whether the event box uses a visible or invisible child
+window. The default is to use visible windows.
+</p>
+<p>
+In an invisible window event box, the window that the
+event box creates is a <code class="literal">GDK_INPUT_ONLY</code> window, which 
+means that it is invisible and only serves to receive
+events.
+</p>
+<p>
+A visible window event box creates a visible (<code class="literal">GDK_INPUT_OUTPUT</code>)
+window that acts as the parent window for all the widgets  
+contained in the event box.
+</p>
+<p>
+You should generally make your event box invisible if
+you just want to trap events. Creating a visible window
+may cause artifacts that are visible to the user, especially
+if the user is using a theme with gradients or pixmaps.
+</p>
+<p>
+The main reason to create a non input-only event box is if
+you want to set the background to a different color or
+draw on it.
+</p>
+<p>
+</p>
+<div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+There is one unexpected issue for an invisible event box that has its
+window below the child. (See <a class="link" href="GtkEventBox.html#gtk-event-box-set-above-child" title="gtk_event_box_set_above_child ()"><code class="function">gtk_event_box_set_above_child()</code></a>.)
+Since the input-only window is not an ancestor window of any windows
+that descendent widgets of the event box create, events on these 
+windows aren't propagated up by the windowing system, but only by GTK+.
+The practical effect of this is if an event isn't in the event
+mask for the descendant window (see <a class="link" href="GtkWidget.html#gtk-widget-add-events" title="gtk_widget_add_events ()"><code class="function">gtk_widget_add_events()</code></a>),  
+it won't be received by the event box. 
+</p>
+<p>
+This problem doesn't occur for visible event boxes, because in
+that case, the event box window is actually the ancestor of the
+descendant windows, not just at the same place on the screen.
+</p>
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_box</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkEventBox.html" title="GtkEventBox"><span class="type">GtkEventBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>visible_window</code></em> :</span></p></td>
+<td> boolean value
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_event_box_get_visible_window ()">
+<a name="gtk-event-box-get-visible-window"></a><h3>gtk_event_box_get_visible_window ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_event_box_get_visible_window    (<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a> *event_box);</pre>
+<p>
+Returns whether the event box has a visible window.
+See <a class="link" href="GtkEventBox.html#gtk-event-box-set-visible-window" title="gtk_event_box_set_visible_window ()"><code class="function">gtk_event_box_set_visible_window()</code></a> for details.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_box</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkEventBox.html" title="GtkEventBox"><span class="type">GtkEventBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the event box window is visible
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GtkEventBox.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "above-child" property'>
+<a name="GtkEventBox--above-child"></a><h3>The <code class="literal">"above-child"</code> property</h3>
+<pre class="programlisting">  "above-child"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether the event-trapping window of the eventbox is above the window of the child widget as opposed to below it.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "visible-window" property'>
+<a name="GtkEventBox--visible-window"></a><h3>The <code class="literal">"visible-window"</code> property</h3>
+<pre class="programlisting">  "visible-window"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether the event box is visible, as opposed to invisible and only used to trap events.</p>
+<p>Default value: TRUE</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

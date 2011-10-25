@@ -1,0 +1,1283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkButton</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="prev" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="next" href="GtkCheckButton.html" title="GtkCheckButton">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ButtonWidgets.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ButtonWidgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="GtkCheckButton.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkButton.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkButton.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkButton.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkButton.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#GtkButton.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#GtkButton.style-properties" class="shortcut">Style Properties</a>
+                 | 
+                <a href="#GtkButton.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GtkButton">
+<a name="GtkButton"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkButton.top_of_page"></a>GtkButton</span></h2>
+<p>GtkButton — A widget that creates a signal when clicked on</p>
+</td>
+<td valign="top" align="right"><img src="button.png"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GtkButton.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="GtkButton.html#GtkButton-struct" title="GtkButton">GtkButton</a>;
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkButton.html#gtk-button-new" title="gtk_button_new ()">gtk_button_new</a>                      (void);
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkButton.html#gtk-button-new-with-label" title="gtk_button_new_with_label ()">gtk_button_new_with_label</a>           (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkButton.html#gtk-button-new-with-mnemonic" title="gtk_button_new_with_mnemonic ()">gtk_button_new_with_mnemonic</a>        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkButton.html#gtk-button-new-from-stock" title="gtk_button_new_from_stock ()">gtk_button_new_from_stock</a>           (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *stock_id);
+void                <a class="link" href="GtkButton.html#gtk-button-pressed" title="gtk_button_pressed ()">gtk_button_pressed</a>                  (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-released" title="gtk_button_released ()">gtk_button_released</a>                 (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-clicked" title="gtk_button_clicked ()">gtk_button_clicked</a>                  (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-enter" title="gtk_button_enter ()">gtk_button_enter</a>                    (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-leave" title="gtk_button_leave ()">gtk_button_leave</a>                    (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-set-relief" title="gtk_button_set_relief ()">gtk_button_set_relief</a>               (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkReliefStyle" title="enum GtkReliefStyle">GtkReliefStyle</a> newstyle);
+<a class="link" href="gtk-Standard-Enumerations.html#GtkReliefStyle" title="enum GtkReliefStyle">GtkReliefStyle</a>      <a class="link" href="GtkButton.html#gtk-button-get-relief" title="gtk_button_get_relief ()">gtk_button_get_relief</a>               (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       <a class="link" href="GtkButton.html#gtk-button-get-label" title="gtk_button_get_label ()">gtk_button_get_label</a>                (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-set-label" title="gtk_button_set_label ()">gtk_button_set_label</a>                (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkButton.html#gtk-button-get-use-stock" title="gtk_button_get_use_stock ()">gtk_button_get_use_stock</a>            (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-set-use-stock" title="gtk_button_set_use_stock ()">gtk_button_set_use_stock</a>            (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> use_stock);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkButton.html#gtk-button-get-use-underline" title="gtk_button_get_use_underline ()">gtk_button_get_use_underline</a>        (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-set-use-underline" title="gtk_button_set_use_underline ()">gtk_button_set_use_underline</a>        (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> use_underline);
+void                <a class="link" href="GtkButton.html#gtk-button-set-focus-on-click" title="gtk_button_set_focus_on_click ()">gtk_button_set_focus_on_click</a>       (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> focus_on_click);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkButton.html#gtk-button-get-focus-on-click" title="gtk_button_get_focus_on_click ()">gtk_button_get_focus_on_click</a>       (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-set-alignment" title="gtk_button_set_alignment ()">gtk_button_set_alignment</a>            (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> xalign,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> yalign);
+void                <a class="link" href="GtkButton.html#gtk-button-get-alignment" title="gtk_button_get_alignment ()">gtk_button_get_alignment</a>            (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> *xalign,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> *yalign);
+void                <a class="link" href="GtkButton.html#gtk-button-set-image" title="gtk_button_set_image ()">gtk_button_set_image</a>                (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *image);
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkButton.html#gtk-button-get-image" title="gtk_button_get_image ()">gtk_button_get_image</a>                (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+void                <a class="link" href="GtkButton.html#gtk-button-set-image-position" title="gtk_button_set_image_position ()">gtk_button_set_image_position</a>       (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType">GtkPositionType</a> position);
+<a class="link" href="gtk-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType">GtkPositionType</a>     <a class="link" href="GtkButton.html#gtk-button-get-image-position" title="gtk_button_get_image_position ()">gtk_button_get_image_position</a>       (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GtkButton.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="GtkObject.html" title="GtkObject">GtkObject</a>
+               +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
+                     +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
+                           +----<a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
+                                 +----GtkButton
+                                       +----<a class="link" href="GtkToggleButton.html" title="GtkToggleButton">GtkToggleButton</a>
+                                       +----<a class="link" href="GtkColorButton.html" title="GtkColorButton">GtkColorButton</a>
+                                       +----<a class="link" href="GtkFontButton.html" title="GtkFontButton">GtkFontButton</a>
+                                       +----<a class="link" href="GtkLinkButton.html" title="GtkLinkButton">GtkLinkButton</a>
+                                       +----<a class="link" href="GtkOptionMenu.html" title="GtkOptionMenu">GtkOptionMenu</a>
+                                       +----<a class="link" href="GtkScaleButton.html" title="GtkScaleButton">GtkScaleButton</a>
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GtkButton.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GtkButton implements
+ <a class="link" href="GtkActivatable.html" title="GtkActivatable">GtkActivatable</a>,  AtkImplementorIface and  <a class="link" href="gtk-gtkbuildable.html#GtkBuildable">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GtkButton.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkButton.html#GtkButton--focus-on-click" title='The "focus-on-click" property'>focus-on-click</a>"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="GtkButton.html#GtkButton--image" title='The "image" property'>image</a>"                    <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*            : Read / Write
+  "<a class="link" href="GtkButton.html#GtkButton--image-position" title='The "image-position" property'>image-position</a>"           <a class="link" href="gtk-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType">GtkPositionType</a>       : Read / Write
+  "<a class="link" href="GtkButton.html#GtkButton--label" title='The "label" property'>label</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct
+  "<a class="link" href="GtkButton.html#GtkButton--relief" title='The "relief" property'>relief</a>"                   <a class="link" href="gtk-Standard-Enumerations.html#GtkReliefStyle" title="enum GtkReliefStyle">GtkReliefStyle</a>        : Read / Write
+  "<a class="link" href="GtkButton.html#GtkButton--use-stock" title='The "use-stock" property'>use-stock</a>"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+  "<a class="link" href="GtkButton.html#GtkButton--use-underline" title='The "use-underline" property'>use-underline</a>"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct
+  "<a class="link" href="GtkButton.html#GtkButton--xalign" title='The "xalign" property'>xalign</a>"                   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write
+  "<a class="link" href="GtkButton.html#GtkButton--yalign" title='The "yalign" property'>yalign</a>"                   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Style Properties">
+<a name="GtkButton.style-properties"></a><h2>Style Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkButton.html#GtkButton--s-child-displacement-x" title='The "child-displacement-x" style property'>child-displacement-x</a>"     <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read
+  "<a class="link" href="GtkButton.html#GtkButton--s-child-displacement-y" title='The "child-displacement-y" style property'>child-displacement-y</a>"     <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read
+  "<a class="link" href="GtkButton.html#GtkButton--s-default-border" title='The "default-border" style property'>default-border</a>"           <a class="link" href="GtkStyle.html#GtkBorder" title="GtkBorder">GtkBorder</a>*            : Read
+  "<a class="link" href="GtkButton.html#GtkButton--s-default-outside-border" title='The "default-outside-border" style property'>default-outside-border</a>"   <a class="link" href="GtkStyle.html#GtkBorder" title="GtkBorder">GtkBorder</a>*            : Read
+  "<a class="link" href="GtkButton.html#GtkButton--s-displace-focus" title='The "displace-focus" style property'>displace-focus</a>"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read
+  "<a class="link" href="GtkButton.html#GtkButton--s-image-spacing" title='The "image-spacing" style property'>image-spacing</a>"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read
+  "<a class="link" href="GtkButton.html#GtkButton--s-inner-border" title='The "inner-border" style property'>inner-border</a>"             <a class="link" href="GtkStyle.html#GtkBorder" title="GtkBorder">GtkBorder</a>*            : Read
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GtkButton.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkButton.html#GtkButton-activate" title='The "activate" signal'>activate</a>"                                       : Run First / Action
+  "<a class="link" href="GtkButton.html#GtkButton-clicked" title='The "clicked" signal'>clicked</a>"                                        : Run First / Action
+  "<a class="link" href="GtkButton.html#GtkButton-enter" title='The "enter" signal'>enter</a>"                                          : Run First
+  "<a class="link" href="GtkButton.html#GtkButton-leave" title='The "leave" signal'>leave</a>"                                          : Run First
+  "<a class="link" href="GtkButton.html#GtkButton-pressed" title='The "pressed" signal'>pressed</a>"                                        : Run First
+  "<a class="link" href="GtkButton.html#GtkButton-released" title='The "released" signal'>released</a>"                                       : Run First
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GtkButton.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> widget is generally used to attach a function to that
+is called when the button is pressed.  The various signals and how to use
+them are outlined below.
+</p>
+<p>
+The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> widget can hold any valid child widget.  That is it can
+hold most any other standard <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>.  The most commonly used child is
+the <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a>.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GtkButton.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkButton">
+<a name="GtkButton-struct"></a><h3>GtkButton</h3>
+<pre class="programlisting">typedef struct _GtkButton GtkButton;</pre>
+<p>
+This should not be accessed directly.  Use the accessor functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_new ()">
+<a name="gtk-button-new"></a><h3>gtk_button_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_button_new                      (void);</pre>
+<p>
+Creates a new <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> widget. To add a child widget to the button,
+use <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The newly created <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> widget.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_new_with_label ()">
+<a name="gtk-button-new-with-label"></a><h3>gtk_button_new_with_label ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_button_new_with_label           (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);</pre>
+<p>
+Creates a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> widget with a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a> child containing the given
+text.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>The text you want the <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a> to hold.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The newly created <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> widget.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_new_with_mnemonic ()">
+<a name="gtk-button-new-with-mnemonic"></a><h3>gtk_button_new_with_mnemonic ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_button_new_with_mnemonic        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);</pre>
+<p>
+Creates a new <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> containing a label.
+If characters in <em class="parameter"><code>label</code></em> are preceded by an underscore, they are underlined.
+If you need a literal underscore character in a label, use '__' (two 
+underscores). The first underlined character represents a keyboard 
+accelerator called a mnemonic.
+Pressing Alt and that key activates the button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td> The text of the button, with an underscore in front of the
+        mnemonic character
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_new_from_stock ()">
+<a name="gtk-button-new-from-stock"></a><h3>gtk_button_new_from_stock ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_button_new_from_stock           (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *stock_id);</pre>
+<p>
+Creates a new <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> containing the image and text from a stock item.
+Some stock ids have preprocessor macros like <a class="link" href="gtk-Stock-Items.html#GTK-STOCK-OK--CAPS" title="GTK_STOCK_OK"><span class="type">GTK_STOCK_OK</span></a> and
+<a class="link" href="gtk-Stock-Items.html#GTK-STOCK-APPLY--CAPS" title="GTK_STOCK_APPLY"><span class="type">GTK_STOCK_APPLY</span></a>.
+</p>
+<p>
+If <em class="parameter"><code>stock_id</code></em> is unknown, then it will be treated as a mnemonic
+label (as for <a class="link" href="GtkButton.html#gtk-button-new-with-mnemonic" title="gtk_button_new_with_mnemonic ()"><code class="function">gtk_button_new_with_mnemonic()</code></a>).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stock_id</code></em> :</span></p></td>
+<td> the name of the stock item 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_pressed ()">
+<a name="gtk-button-pressed"></a><h3>gtk_button_pressed ()</h3>
+<pre class="programlisting">void                gtk_button_pressed                  (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Emits a <a class="link" href="GtkButton.html#GtkButton-pressed" title='The "pressed" signal'><span class="type">"pressed"</span></a> signal to the given <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> you want to send the signal to.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_released ()">
+<a name="gtk-button-released"></a><h3>gtk_button_released ()</h3>
+<pre class="programlisting">void                gtk_button_released                 (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Emits a <a class="link" href="GtkButton.html#GtkButton-released" title='The "released" signal'><span class="type">"released"</span></a> signal to the given <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> you want to send the signal to.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_clicked ()">
+<a name="gtk-button-clicked"></a><h3>gtk_button_clicked ()</h3>
+<pre class="programlisting">void                gtk_button_clicked                  (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Emits a <a class="link" href="GtkButton.html#GtkButton-clicked" title='The "clicked" signal'><span class="type">"clicked"</span></a> signal to the given <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> you want to send the signal to.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_enter ()">
+<a name="gtk-button-enter"></a><h3>gtk_button_enter ()</h3>
+<pre class="programlisting">void                gtk_button_enter                    (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Emits a <a class="link" href="GtkButton.html#GtkButton-enter" title='The "enter" signal'><span class="type">"enter"</span></a> signal to the given <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> you want to send the signal to.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_leave ()">
+<a name="gtk-button-leave"></a><h3>gtk_button_leave ()</h3>
+<pre class="programlisting">void                gtk_button_leave                    (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Emits a <a class="link" href="GtkButton.html#GtkButton-leave" title='The "leave" signal'><span class="type">"leave"</span></a> signal to the given <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> you want to send the signal to.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_set_relief ()">
+<a name="gtk-button-set-relief"></a><h3>gtk_button_set_relief ()</h3>
+<pre class="programlisting">void                gtk_button_set_relief               (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkReliefStyle" title="enum GtkReliefStyle">GtkReliefStyle</a> newstyle);</pre>
+<p>
+Sets the relief style of the edges of the given <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> widget.
+Three styles exist, GTK_RELIEF_NORMAL, GTK_RELIEF_HALF, GTK_RELIEF_NONE.
+The default style is, as one can guess, GTK_RELIEF_NORMAL.
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> you want to set relief styles of.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>newstyle</code></em> :</span></p></td>
+<td>The GtkReliefStyle as described above.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_get_relief ()">
+<a name="gtk-button-get-relief"></a><h3>gtk_button_get_relief ()</h3>
+<pre class="programlisting"><a class="link" href="gtk-Standard-Enumerations.html#GtkReliefStyle" title="enum GtkReliefStyle">GtkReliefStyle</a>      gtk_button_get_relief               (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Returns the current relief style of the given <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>The <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> you want the <a class="link" href="gtk-Standard-Enumerations.html#GtkReliefStyle" title="enum GtkReliefStyle"><span class="type">GtkReliefStyle</span></a> from.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current <a class="link" href="gtk-Standard-Enumerations.html#GtkReliefStyle" title="enum GtkReliefStyle"><span class="type">GtkReliefStyle</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_get_label ()">
+<a name="gtk-button-get-label"></a><h3>gtk_button_get_label ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       gtk_button_get_label                (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Fetches the text from the label of the button, as set by
+<a class="link" href="GtkButton.html#gtk-button-set-label" title="gtk_button_set_label ()"><code class="function">gtk_button_set_label()</code></a>. If the label text has not 
+been set the return value will be <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>. This will be the 
+case if you create an empty button with <a class="link" href="GtkButton.html#gtk-button-new" title="gtk_button_new ()"><code class="function">gtk_button_new()</code></a> to 
+use as a container.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The text of the label widget. This string is owned
+by the widget and must not be modified or freed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_set_label ()">
+<a name="gtk-button-set-label"></a><h3>gtk_button_set_label ()</h3>
+<pre class="programlisting">void                gtk_button_set_label                (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);</pre>
+<p>
+Sets the text of the label of the button to <em class="parameter"><code>str</code></em>. This text is
+also used to select the stock item if <a class="link" href="GtkButton.html#gtk-button-set-use-stock" title="gtk_button_set_use_stock ()"><code class="function">gtk_button_set_use_stock()</code></a>
+is used.
+</p>
+<p>
+This will also clear any previously set labels.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td> a string
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_get_use_stock ()">
+<a name="gtk-button-get-use-stock"></a><h3>gtk_button_get_use_stock ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_button_get_use_stock            (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Returns whether the button label is a stock item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the button label is used to
+              select a stock item instead of being
+              used directly as the label text.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_set_use_stock ()">
+<a name="gtk-button-set-use-stock"></a><h3>gtk_button_set_use_stock ()</h3>
+<pre class="programlisting">void                gtk_button_set_use_stock            (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> use_stock);</pre>
+<p>
+If <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a>, the label set on the button is used as a
+stock id to select the stock item for the button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_stock</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the button should use a stock item
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_get_use_underline ()">
+<a name="gtk-button-get-use-underline"></a><h3>gtk_button_get_use_underline ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_button_get_use_underline        (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Returns whether an embedded underline in the button label indicates a
+mnemonic. See <a class="link" href="GtkButton.html#gtk-button-set-use-underline" title="gtk_button_set_use_underline ()"><code class="function">gtk_button_set_use_underline()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if an embedded underline in the button label
+              indicates the mnemonic accelerator keys.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_set_use_underline ()">
+<a name="gtk-button-set-use-underline"></a><h3>gtk_button_set_use_underline ()</h3>
+<pre class="programlisting">void                gtk_button_set_use_underline        (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> use_underline);</pre>
+<p>
+If true, an underline in the text of the button label indicates
+the next character should be used for the mnemonic accelerator key.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_underline</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if underlines in the text indicate mnemonics
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_set_focus_on_click ()">
+<a name="gtk-button-set-focus-on-click"></a><h3>gtk_button_set_focus_on_click ()</h3>
+<pre class="programlisting">void                gtk_button_set_focus_on_click       (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> focus_on_click);</pre>
+<p>
+Sets whether the button will grab focus when it is clicked with the mouse.
+Making mouse clicks not grab focus is useful in places like toolbars where
+you don't want the keyboard focus removed from the main area of the
+application.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>focus_on_click</code></em> :</span></p></td>
+<td> whether the button grabs focus when clicked with the mouse
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_get_focus_on_click ()">
+<a name="gtk-button-get-focus-on-click"></a><h3>gtk_button_get_focus_on_click ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_button_get_focus_on_click       (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Returns whether the button grabs focus when it is clicked with the mouse.
+See <a class="link" href="GtkButton.html#gtk-button-set-focus-on-click" title="gtk_button_set_focus_on_click ()"><code class="function">gtk_button_set_focus_on_click()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the button grabs focus when it is clicked with
+              the mouse.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_set_alignment ()">
+<a name="gtk-button-set-alignment"></a><h3>gtk_button_set_alignment ()</h3>
+<pre class="programlisting">void                gtk_button_set_alignment            (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> xalign,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> yalign);</pre>
+<p>
+Sets the alignment of the child. This property has no effect unless 
+the child is a <a class="link" href="GtkMisc.html" title="GtkMisc"><span class="type">GtkMisc</span></a> or a <span class="type">GtkAligment</span>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xalign</code></em> :</span></p></td>
+<td> the horizontal position of the child, 0.0 is left aligned, 
+  1.0 is right aligned
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yalign</code></em> :</span></p></td>
+<td> the vertical position of the child, 0.0 is top aligned, 
+  1.0 is bottom aligned
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_get_alignment ()">
+<a name="gtk-button-get-alignment"></a><h3>gtk_button_get_alignment ()</h3>
+<pre class="programlisting">void                gtk_button_get_alignment            (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> *xalign,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a> *yalign);</pre>
+<p>
+Gets the alignment of the child in the button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xalign</code></em> :</span></p></td>
+<td> return location for horizontal alignment
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yalign</code></em> :</span></p></td>
+<td> return location for vertical alignment
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_set_image ()">
+<a name="gtk-button-set-image"></a><h3>gtk_button_set_image ()</h3>
+<pre class="programlisting">void                gtk_button_set_image                (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *image);</pre>
+<p>
+Set the image of <em class="parameter"><code>button</code></em> to the given widget. Note that
+it depends on the <a class="link" href="GtkSettings.html#GtkSettings--gtk-button-images" title='The "gtk-button-images" property'><span class="type">"gtk-button-images"</span></a> setting whether the
+image will be displayed or not, you don't have to call
+<a class="link" href="GtkWidget.html#gtk-widget-show" title="gtk_widget_show ()"><code class="function">gtk_widget_show()</code></a> on <em class="parameter"><code>image</code></em> yourself.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>image</code></em> :</span></p></td>
+<td> a widget to set as the image for the button
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.6</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_get_image ()">
+<a name="gtk-button-get-image"></a><h3>gtk_button_get_image ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_button_get_image                (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Gets the widget that is currenty set as the image of <em class="parameter"><code>button</code></em>.
+This may have been explicitly set by <a class="link" href="GtkButton.html#gtk-button-set-image" title="gtk_button_set_image ()"><code class="function">gtk_button_set_image()</code></a>
+or constructed by <a class="link" href="GtkButton.html#gtk-button-new-from-stock" title="gtk_button_new_from_stock ()"><code class="function">gtk_button_new_from_stock()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> in case there is no image
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.6</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_set_image_position ()">
+<a name="gtk-button-set-image-position"></a><h3>gtk_button_set_image_position ()</h3>
+<pre class="programlisting">void                gtk_button_set_image_position       (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType">GtkPositionType</a> position);</pre>
+<p>
+Sets the position of the image relative to the text 
+inside the button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td> the position
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_button_get_image_position ()">
+<a name="gtk-button-get-image-position"></a><h3>gtk_button_get_image_position ()</h3>
+<pre class="programlisting"><a class="link" href="gtk-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType">GtkPositionType</a>     gtk_button_get_image_position       (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button);</pre>
+<p>
+Gets the position of the image relative to the text 
+inside the button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the position
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GtkButton.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "focus-on-click" property'>
+<a name="GtkButton--focus-on-click"></a><h3>The <code class="literal">"focus-on-click"</code> property</h3>
+<pre class="programlisting">  "focus-on-click"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether the button grabs focus when it is clicked with the mouse.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "image" property'>
+<a name="GtkButton--image"></a><h3>The <code class="literal">"image"</code> property</h3>
+<pre class="programlisting">  "image"                    <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*            : Read / Write</pre>
+<p>Child widget to appear next to the button text.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "image-position" property'>
+<a name="GtkButton--image-position"></a><h3>The <code class="literal">"image-position"</code> property</h3>
+<pre class="programlisting">  "image-position"           <a class="link" href="gtk-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType">GtkPositionType</a>       : Read / Write</pre>
+<p>
+The position of the image relative to the text inside the button.</p>
+<p>
+</p>
+<p>Default value: GTK_POS_LEFT</p>
+<p>Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2" title='The "label" property'>
+<a name="GtkButton--label"></a><h3>The <code class="literal">"label"</code> property</h3>
+<pre class="programlisting">  "label"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct</pre>
+<p>Text of the label widget inside the button, if the button contains a label widget.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" title='The "relief" property'>
+<a name="GtkButton--relief"></a><h3>The <code class="literal">"relief"</code> property</h3>
+<pre class="programlisting">  "relief"                   <a class="link" href="gtk-Standard-Enumerations.html#GtkReliefStyle" title="enum GtkReliefStyle">GtkReliefStyle</a>        : Read / Write</pre>
+<p>The border relief style.</p>
+<p>Default value: GTK_RELIEF_NORMAL</p>
+</div>
+<hr>
+<div class="refsect2" title='The "use-stock" property'>
+<a name="GtkButton--use-stock"></a><h3>The <code class="literal">"use-stock"</code> property</h3>
+<pre class="programlisting">  "use-stock"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>If set, the label is used to pick a stock item instead of being displayed.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "use-underline" property'>
+<a name="GtkButton--use-underline"></a><h3>The <code class="literal">"use-underline"</code> property</h3>
+<pre class="programlisting">  "use-underline"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write / Construct</pre>
+<p>If set, an underline in the text indicates the next character should be used for the mnemonic accelerator key.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "xalign" property'>
+<a name="GtkButton--xalign"></a><h3>The <code class="literal">"xalign"</code> property</h3>
+<pre class="programlisting">  "xalign"                   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write</pre>
+<p>
+If the child of the button is a <a class="link" href="GtkMisc.html" title="GtkMisc"><span class="type">GtkMisc</span></a> or <a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a>, this property
+can be used to control it's horizontal alignment. 0.0 is left aligned, 
+1.0 is right aligned.</p>
+<p>
+</p>
+<p>Allowed values: [0,1]</p>
+<p>Default value: 0.5</p>
+<p>Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title='The "yalign" property'>
+<a name="GtkButton--yalign"></a><h3>The <code class="literal">"yalign"</code> property</h3>
+<pre class="programlisting">  "yalign"                   <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>                : Read / Write</pre>
+<p>
+If the child of the button is a <a class="link" href="GtkMisc.html" title="GtkMisc"><span class="type">GtkMisc</span></a> or <a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a>, this property 
+can be used to control it's vertical alignment. 0.0 is top aligned, 
+1.0 is bottom aligned.</p>
+<p>
+</p>
+<p>Allowed values: [0,1]</p>
+<p>Default value: 0.5</p>
+<p>Since 2.4</p>
+</div>
+</div>
+<div class="refsect1" title="Style Property Details">
+<a name="GtkButton.style-property-details"></a><h2>Style Property Details</h2>
+<div class="refsect2" title='The "child-displacement-x" style property'>
+<a name="GtkButton--s-child-displacement-x"></a><h3>The <code class="literal">"child-displacement-x"</code> style property</h3>
+<pre class="programlisting">  "child-displacement-x"     <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read</pre>
+<p>How far in the x direction to move the child when the button is depressed.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "child-displacement-y" style property'>
+<a name="GtkButton--s-child-displacement-y"></a><h3>The <code class="literal">"child-displacement-y"</code> style property</h3>
+<pre class="programlisting">  "child-displacement-y"     <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read</pre>
+<p>How far in the y direction to move the child when the button is depressed.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "default-border" style property'>
+<a name="GtkButton--s-default-border"></a><h3>The <code class="literal">"default-border"</code> style property</h3>
+<pre class="programlisting">  "default-border"           <a class="link" href="GtkStyle.html#GtkBorder" title="GtkBorder">GtkBorder</a>*            : Read</pre>
+<p>Extra space to add for CAN_DEFAULT buttons.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "default-outside-border" style property'>
+<a name="GtkButton--s-default-outside-border"></a><h3>The <code class="literal">"default-outside-border"</code> style property</h3>
+<pre class="programlisting">  "default-outside-border"   <a class="link" href="GtkStyle.html#GtkBorder" title="GtkBorder">GtkBorder</a>*            : Read</pre>
+<p>Extra space to add for CAN_DEFAULT buttons that is always drawn outside the border.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "displace-focus" style property'>
+<a name="GtkButton--s-displace-focus"></a><h3>The <code class="literal">"displace-focus"</code> style property</h3>
+<pre class="programlisting">  "displace-focus"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read</pre>
+<p>
+Whether the child_displacement_x/child_displacement_y properties
+should also affect the focus rectangle.</p>
+<p>
+</p>
+<p>Default value: FALSE</p>
+<p>Since 2.6</p>
+</div>
+<hr>
+<div class="refsect2" title='The "image-spacing" style property'>
+<a name="GtkButton--s-image-spacing"></a><h3>The <code class="literal">"image-spacing"</code> style property</h3>
+<pre class="programlisting">  "image-spacing"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read</pre>
+<p>Spacing in pixels between the image and label.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 2</p>
+</div>
+<hr>
+<div class="refsect2" title='The "inner-border" style property'>
+<a name="GtkButton--s-inner-border"></a><h3>The <code class="literal">"inner-border"</code> style property</h3>
+<pre class="programlisting">  "inner-border"             <a class="link" href="GtkStyle.html#GtkBorder" title="GtkBorder">GtkBorder</a>*            : Read</pre>
+<p>
+Sets the border between the button edges and child.</p>
+<p>
+</p>
+<p>Since 2.10</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GtkButton.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "activate" signal'>
+<a name="GtkButton-activate"></a><h3>The <code class="literal">"activate"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *widget,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First / Action</pre>
+<p>
+The ::activate signal on GtkButton is an action signal and
+emitting it causes the button to animate press then release.
+Applications should never connect to this signal, but use the
+<a class="link" href="GtkButton.html#GtkButton-clicked" title='The "clicked" signal'><span class="type">"clicked"</span></a> signal.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "clicked" signal'>
+<a name="GtkButton-clicked"></a><h3>The <code class="literal">"clicked"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First / Action</pre>
+<p>
+Emitted when the button has been activated (pressed and released).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> the object that received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "enter" signal'>
+<a name="GtkButton-enter"></a><h3>The <code class="literal">"enter"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+Emitted when the pointer enters the button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> the object that received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "leave" signal'>
+<a name="GtkButton-leave"></a><h3>The <code class="literal">"leave"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+Emitted when the pointer leaves the button.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> the object that received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "pressed" signal'>
+<a name="GtkButton-pressed"></a><h3>The <code class="literal">"pressed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+Emitted when the button is pressed.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> the object that received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "released" signal'>
+<a name="GtkButton-released"></a><h3>The <code class="literal">"released"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkButton.html" title="GtkButton">GtkButton</a> *button,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+Emitted when the button is released.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> the object that received the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

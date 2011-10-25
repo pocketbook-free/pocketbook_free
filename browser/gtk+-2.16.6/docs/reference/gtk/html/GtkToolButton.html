@@ -1,0 +1,868 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkToolButton</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="prev" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem">
+<link rel="next" href="GtkMenuToolButton.html" title="GtkMenuToolButton">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GtkSeparatorToolItem.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="MenusAndCombos.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="GtkMenuToolButton.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkToolButton.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkToolButton.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkToolButton.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkToolButton.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#GtkToolButton.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#GtkToolButton.style-properties" class="shortcut">Style Properties</a>
+                 | 
+                <a href="#GtkToolButton.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GtkToolButton">
+<a name="GtkToolButton"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkToolButton.top_of_page"></a>GtkToolButton</span></h2>
+<p>GtkToolButton — A GtkToolItem subclass that displays buttons</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GtkToolButton.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="GtkToolButton.html#GtkToolButton-struct" title="GtkToolButton">GtkToolButton</a>;
+<a class="link" href="GtkToolItem.html" title="GtkToolItem">GtkToolItem</a> *       <a class="link" href="GtkToolButton.html#gtk-tool-button-new" title="gtk_tool_button_new ()">gtk_tool_button_new</a>                 (<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *icon_widget,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);
+<a class="link" href="GtkToolItem.html" title="GtkToolItem">GtkToolItem</a> *       <a class="link" href="GtkToolButton.html#gtk-tool-button-new-from-stock" title="gtk_tool_button_new_from_stock ()">gtk_tool_button_new_from_stock</a>      (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *stock_id);
+void                <a class="link" href="GtkToolButton.html#gtk-tool-button-set-label" title="gtk_tool_button_set_label ()">gtk_tool_button_set_label</a>           (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       <a class="link" href="GtkToolButton.html#gtk-tool-button-get-label" title="gtk_tool_button_get_label ()">gtk_tool_button_get_label</a>           (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);
+void                <a class="link" href="GtkToolButton.html#gtk-tool-button-set-use-underline" title="gtk_tool_button_set_use_underline ()">gtk_tool_button_set_use_underline</a>   (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> use_underline);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkToolButton.html#gtk-tool-button-get-use-underline" title="gtk_tool_button_get_use_underline ()">gtk_tool_button_get_use_underline</a>   (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);
+void                <a class="link" href="GtkToolButton.html#gtk-tool-button-set-stock-id" title="gtk_tool_button_set_stock_id ()">gtk_tool_button_set_stock_id</a>        (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *stock_id);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       <a class="link" href="GtkToolButton.html#gtk-tool-button-get-stock-id" title="gtk_tool_button_get_stock_id ()">gtk_tool_button_get_stock_id</a>        (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);
+void                <a class="link" href="GtkToolButton.html#gtk-tool-button-set-icon-name" title="gtk_tool_button_set_icon_name ()">gtk_tool_button_set_icon_name</a>       (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *icon_name);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       <a class="link" href="GtkToolButton.html#gtk-tool-button-get-icon-name" title="gtk_tool_button_get_icon_name ()">gtk_tool_button_get_icon_name</a>       (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);
+void                <a class="link" href="GtkToolButton.html#gtk-tool-button-set-icon-widget" title="gtk_tool_button_set_icon_widget ()">gtk_tool_button_set_icon_widget</a>     (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *icon_widget);
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *         <a class="link" href="GtkToolButton.html#gtk-tool-button-get-icon-widget" title="gtk_tool_button_get_icon_widget ()">gtk_tool_button_get_icon_widget</a>     (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);
+void                <a class="link" href="GtkToolButton.html#gtk-tool-button-set-label-widget" title="gtk_tool_button_set_label_widget ()">gtk_tool_button_set_label_widget</a>    (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *label_widget);
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *         <a class="link" href="GtkToolButton.html#gtk-tool-button-get-label-widget" title="gtk_tool_button_get_label_widget ()">gtk_tool_button_get_label_widget</a>    (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GtkToolButton.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="GtkObject.html" title="GtkObject">GtkObject</a>
+               +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
+                     +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
+                           +----<a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
+                                 +----<a class="link" href="GtkToolItem.html" title="GtkToolItem">GtkToolItem</a>
+                                       +----GtkToolButton
+                                             +----<a class="link" href="GtkMenuToolButton.html" title="GtkMenuToolButton">GtkMenuToolButton</a>
+                                             +----<a class="link" href="GtkToggleToolButton.html" title="GtkToggleToolButton">GtkToggleToolButton</a>
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GtkToolButton.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GtkToolButton implements
+ <a class="link" href="GtkActivatable.html" title="GtkActivatable">GtkActivatable</a>,  AtkImplementorIface and  <a class="link" href="gtk-gtkbuildable.html#GtkBuildable">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GtkToolButton.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkToolButton.html#GtkToolButton--icon-name" title='The "icon-name" property'>icon-name</a>"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write
+  "<a class="link" href="GtkToolButton.html#GtkToolButton--icon-widget" title='The "icon-widget" property'>icon-widget</a>"              <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*            : Read / Write
+  "<a class="link" href="GtkToolButton.html#GtkToolButton--label" title='The "label" property'>label</a>"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write
+  "<a class="link" href="GtkToolButton.html#GtkToolButton--label-widget" title='The "label-widget" property'>label-widget</a>"             <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*            : Read / Write
+  "<a class="link" href="GtkToolButton.html#GtkToolButton--stock-id" title='The "stock-id" property'>stock-id</a>"                 <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write
+  "<a class="link" href="GtkToolButton.html#GtkToolButton--use-underline" title='The "use-underline" property'>use-underline</a>"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Style Properties">
+<a name="GtkToolButton.style-properties"></a><h2>Style Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkToolButton.html#GtkToolButton--s-icon-spacing" title='The "icon-spacing" style property'>icon-spacing</a>"             <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GtkToolButton.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkToolButton.html#GtkToolButton-clicked" title='The "clicked" signal'>clicked</a>"                                        : Run First / Action
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GtkToolButton.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>s are <span class="type">GtkToolItems</span> containing buttons.
+</p>
+<p>
+Use <a class="link" href="GtkToolButton.html#gtk-tool-button-new" title="gtk_tool_button_new ()"><code class="function">gtk_tool_button_new()</code></a> to create a new <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>. Use
+<code class="function">gtk_tool_button_new_with_stock()</code> to create a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+containing a stock item.
+</p>
+<p>
+The label of a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a> is determined by the properties
+"label-widget", "label", and "stock-id". If "label-widget" is
+non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, then that widget is used as the label. Otherwise, if
+"label" is non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, that string is used as the label. Otherwise, if
+"stock-id" is non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, the label is determined by the stock
+item. Otherwise, the button does not have a label.
+</p>
+<p>
+The icon of a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a> is determined by the properties
+"icon-widget" and "stock-id". If "icon-widget" is non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, then
+that widget is used as the icon. Otherwise, if "stock-id" is
+non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, the icon is determined by the stock item. Otherwise,
+the button does not have a icon.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GtkToolButton.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkToolButton">
+<a name="GtkToolButton-struct"></a><h3>GtkToolButton</h3>
+<pre class="programlisting">typedef struct _GtkToolButton GtkToolButton;</pre>
+<p>
+The <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a> struct contains only private. It should only be
+accessed with the function described below.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_new ()">
+<a name="gtk-tool-button-new"></a><h3>gtk_tool_button_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtkToolItem.html" title="GtkToolItem">GtkToolItem</a> *       gtk_tool_button_new                 (<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *icon_widget,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);</pre>
+<p>
+Creates a new <a class="link" href="GtkToolButton.html" title="GtkToolButton"><code class="literal">GtkToolButton</code></a> using <em class="parameter"><code>icon_widget</code></em> as icon and <em class="parameter"><code>label</code></em> as
+label.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_widget</code></em> :</span></p></td>
+<td> a widget that will be used as icon widget, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td> a string that will be used as label, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A new <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_new_from_stock ()">
+<a name="gtk-tool-button-new-from-stock"></a><h3>gtk_tool_button_new_from_stock ()</h3>
+<pre class="programlisting"><a class="link" href="GtkToolItem.html" title="GtkToolItem">GtkToolItem</a> *       gtk_tool_button_new_from_stock      (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *stock_id);</pre>
+<p>
+Creates a new <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a> containing the image and text from a
+stock item. Some stock ids have preprocessor macros like <a class="link" href="gtk-Stock-Items.html#GTK-STOCK-OK--CAPS" title="GTK_STOCK_OK"><span class="type">GTK_STOCK_OK</span></a>
+and <a class="link" href="gtk-Stock-Items.html#GTK-STOCK-APPLY--CAPS" title="GTK_STOCK_APPLY"><span class="type">GTK_STOCK_APPLY</span></a>.
+</p>
+<p>
+It is an error if <em class="parameter"><code>stock_id</code></em> is not a name of a stock item.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stock_id</code></em> :</span></p></td>
+<td> the name of the stock item 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A new <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_set_label ()">
+<a name="gtk-tool-button-set-label"></a><h3>gtk_tool_button_set_label ()</h3>
+<pre class="programlisting">void                gtk_tool_button_set_label           (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *label);</pre>
+<p>
+Sets <em class="parameter"><code>label</code></em> as the label used for the tool button. The "label" property
+only has an effect if not overridden by a non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> "label_widget" property.
+If both the "label_widget" and "label" properties are <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, the label
+is determined by the "stock_id" property. If the "stock_id" property is also
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, <em class="parameter"><code>button</code></em> will not have a label.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td> a string that will be used as label, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_get_label ()">
+<a name="gtk-tool-button-get-label"></a><h3>gtk_tool_button_get_label ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       gtk_tool_button_get_label           (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);</pre>
+<p>
+Returns the label used by the tool button, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> if the tool button
+doesn't have a label. or uses a the label from a stock item. The returned
+string is owned by GTK+, and must not be modified or freed.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The label, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_set_use_underline ()">
+<a name="gtk-tool-button-set-use-underline"></a><h3>gtk_tool_button_set_use_underline ()</h3>
+<pre class="programlisting">void                gtk_tool_button_set_use_underline   (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> use_underline);</pre>
+<p>
+If set, an underline in the label property indicates that the next character
+should be used for the mnemonic accelerator key in the overflow menu. For
+example, if the label property is "_Open" and <em class="parameter"><code>use_underline</code></em> is <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a>,
+the label on the tool button will be "Open" and the item on the overflow
+menu will have an underlined 'O'.
+</p>
+<p>
+Labels shown on tool buttons never have mnemonics on them; this property
+only affects the menu item on the overflow menu.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_underline</code></em> :</span></p></td>
+<td> whether the button label has the form "_Open"
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_get_use_underline ()">
+<a name="gtk-tool-button-get-use-underline"></a><h3>gtk_tool_button_get_use_underline ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_tool_button_get_use_underline   (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);</pre>
+<p>
+Returns whether underscores in the label property are used as mnemonics
+on menu items on the overflow menu. See <a class="link" href="GtkToolButton.html#gtk-tool-button-set-use-underline" title="gtk_tool_button_set_use_underline ()"><code class="function">gtk_tool_button_set_use_underline()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if underscores in the label property are used as
+mnemonics on menu items on the overflow menu.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_set_stock_id ()">
+<a name="gtk-tool-button-set-stock-id"></a><h3>gtk_tool_button_set_stock_id ()</h3>
+<pre class="programlisting">void                gtk_tool_button_set_stock_id        (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *stock_id);</pre>
+<p>
+Sets the name of the stock item. See <a class="link" href="GtkToolButton.html#gtk-tool-button-new-from-stock" title="gtk_tool_button_new_from_stock ()"><code class="function">gtk_tool_button_new_from_stock()</code></a>.
+The stock_id property only has an effect if not
+overridden by non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> "label" and "icon_widget" properties.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stock_id</code></em> :</span></p></td>
+<td> a name of a stock item, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_get_stock_id ()">
+<a name="gtk-tool-button-get-stock-id"></a><h3>gtk_tool_button_get_stock_id ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       gtk_tool_button_get_stock_id        (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);</pre>
+<p>
+Returns the name of the stock item. See <a class="link" href="GtkToolButton.html#gtk-tool-button-set-stock-id" title="gtk_tool_button_set_stock_id ()"><code class="function">gtk_tool_button_set_stock_id()</code></a>.
+The returned string is owned by GTK+ and must not be freed or modifed.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the name of the stock item for <em class="parameter"><code>button</code></em>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_set_icon_name ()">
+<a name="gtk-tool-button-set-icon-name"></a><h3>gtk_tool_button_set_icon_name ()</h3>
+<pre class="programlisting">void                gtk_tool_button_set_icon_name       (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *icon_name);</pre>
+<p>
+Sets the icon for the tool button from a named themed icon.
+See the docs for <a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> for more details.
+The "icon_name" property only has an effect if not
+overridden by non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> "label", "icon_widget" and "stock_id"
+properties.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_name</code></em> :</span></p></td>
+<td> the name of the themed icon
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.8</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_get_icon_name ()">
+<a name="gtk-tool-button-get-icon-name"></a><h3>gtk_tool_button_get_icon_name ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       gtk_tool_button_get_icon_name       (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);</pre>
+<p>
+Returns the name of the themed icon for the tool button,
+see <a class="link" href="GtkToolButton.html#gtk-tool-button-set-icon-name" title="gtk_tool_button_set_icon_name ()"><code class="function">gtk_tool_button_set_icon_name()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the icon name or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> if the tool button has
+no themed icon
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.8</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_set_icon_widget ()">
+<a name="gtk-tool-button-set-icon-widget"></a><h3>gtk_tool_button_set_icon_widget ()</h3>
+<pre class="programlisting">void                gtk_tool_button_set_icon_widget     (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *icon_widget);</pre>
+<p>
+Sets <em class="parameter"><code>icon</code></em> as the widget used as icon on <em class="parameter"><code>button</code></em>. If <em class="parameter"><code>icon_widget</code></em> is
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> the icon is determined by the "stock_id" property. If the
+"stock_id" property is also <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, <em class="parameter"><code>button</code></em> will not have an icon.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_widget</code></em> :</span></p></td>
+<td> the widget used as icon, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_get_icon_widget ()">
+<a name="gtk-tool-button-get-icon-widget"></a><h3>gtk_tool_button_get_icon_widget ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *         gtk_tool_button_get_icon_widget     (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);</pre>
+<p>
+Return the widget used as icon widget on <em class="parameter"><code>button</code></em>. See
+<a class="link" href="GtkToolButton.html#gtk-tool-button-set-icon-widget" title="gtk_tool_button_set_icon_widget ()"><code class="function">gtk_tool_button_set_icon_widget()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The widget used as icon on <em class="parameter"><code>button</code></em>, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_set_label_widget ()">
+<a name="gtk-tool-button-set-label-widget"></a><h3>gtk_tool_button_set_label_widget ()</h3>
+<pre class="programlisting">void                gtk_tool_button_set_label_widget    (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *label_widget);</pre>
+<p>
+Sets <em class="parameter"><code>label_widget</code></em> as the widget that will be used as the label
+for <em class="parameter"><code>button</code></em>. If <em class="parameter"><code>label_widget</code></em> is <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> the "label" property is used
+as label. If "label" is also <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, the label in the stock item
+determined by the "stock_id" property is used as label. If
+"stock_id" is also <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, <em class="parameter"><code>button</code></em> does not have a label.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label_widget</code></em> :</span></p></td>
+<td> the widget used as label, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tool_button_get_label_widget ()">
+<a name="gtk-tool-button-get-label-widget"></a><h3>gtk_tool_button_get_label_widget ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *         gtk_tool_button_get_label_widget    (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *button);</pre>
+<p>
+Returns the widget used as label on <em class="parameter"><code>button</code></em>. See
+<a class="link" href="GtkToolButton.html#gtk-tool-button-set-label-widget" title="gtk_tool_button_set_label_widget ()"><code class="function">gtk_tool_button_set_label_widget()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The widget used as label on <em class="parameter"><code>button</code></em>, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GtkToolButton.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "icon-name" property'>
+<a name="GtkToolButton--icon-name"></a><h3>The <code class="literal">"icon-name"</code> property</h3>
+<pre class="programlisting">  "icon-name"                <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write</pre>
+<p>
+The name of the themed icon displayed on the item.
+This property only has an effect if not overridden by "label",
+"icon_widget" or "stock_id" properties.</p>
+<p>
+</p>
+<p>Default value: NULL</p>
+<p>Since 2.8</p>
+</div>
+<hr>
+<div class="refsect2" title='The "icon-widget" property'>
+<a name="GtkToolButton--icon-widget"></a><h3>The <code class="literal">"icon-widget"</code> property</h3>
+<pre class="programlisting">  "icon-widget"              <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*            : Read / Write</pre>
+<p>Icon widget to display in the item.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "label" property'>
+<a name="GtkToolButton--label"></a><h3>The <code class="literal">"label"</code> property</h3>
+<pre class="programlisting">  "label"                    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write</pre>
+<p>Text to show in the item.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" title='The "label-widget" property'>
+<a name="GtkToolButton--label-widget"></a><h3>The <code class="literal">"label-widget"</code> property</h3>
+<pre class="programlisting">  "label-widget"             <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*            : Read / Write</pre>
+<p>Widget to use as the item label.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "stock-id" property'>
+<a name="GtkToolButton--stock-id"></a><h3>The <code class="literal">"stock-id"</code> property</h3>
+<pre class="programlisting">  "stock-id"                 <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write</pre>
+<p>The stock icon displayed on the item.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" title='The "use-underline" property'>
+<a name="GtkToolButton--use-underline"></a><h3>The <code class="literal">"use-underline"</code> property</h3>
+<pre class="programlisting">  "use-underline"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>If set, an underline in the label property indicates that the next character should be used for the mnemonic accelerator key in the overflow menu.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1" title="Style Property Details">
+<a name="GtkToolButton.style-property-details"></a><h2>Style Property Details</h2>
+<div class="refsect2" title='The "icon-spacing" style property'>
+<a name="GtkToolButton--s-icon-spacing"></a><h3>The <code class="literal">"icon-spacing"</code> style property</h3>
+<pre class="programlisting">  "icon-spacing"             <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write</pre>
+<p>Spacing in pixels between the icon and label.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GtkToolButton.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "clicked" signal'>
+<a name="GtkToolButton-clicked"></a><h3>The <code class="literal">"clicked"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkToolButton.html" title="GtkToolButton">GtkToolButton</a> *toolbutton,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>       user_data)       : Run First / Action</pre>
+<p>
+This signal is emitted when the tool button is clicked with the mouse
+or activated with the keyboard.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>toolbutton</code></em> :</span></p></td>
+<td> the object that emitted the signal
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="GtkToolButton.see-also"></a><h2>See Also</h2>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="GtkToolbar.html" title="GtkToolbar"><span class="type">GtkToolbar</span></a></span></p></td>
+<td><p>The toolbar widget</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="GtkMenuToolButton.html" title="GtkMenuToolButton"><span class="type">GtkMenuToolButton</span></a></span></p></td>
+<td><p>A subclass of <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a> that displays on
+    the toolbar a button with an additional dropdown
+    menu</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="GtkToggleToolButton.html" title="GtkToggleToolButton"><span class="type">GtkToggleToolButton</span></a></span></p></td>
+<td><p>A subclass of <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a> that displays toggle
+    buttons on the toolbar</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="GtkRadioToolButton.html" title="GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a></span></p></td>
+<td><p>A subclass of <a class="link" href="GtkToolButton.html" title="GtkToolButton"><span class="type">GtkToolButton</span></a> that displays radio
+    buttons on the toolbar</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem"><span class="type">GtkSeparatorToolItem</span></a></span></p></td>
+<td><p>A subclass of <a class="link" href="GtkToolItem.html" title="GtkToolItem"><span class="type">GtkToolItem</span></a> that separates groups of
+    items on a toolbar</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

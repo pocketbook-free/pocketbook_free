@@ -1,0 +1,96 @@
+<!-- ##### SECTION Title ##### -->
+intprops
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO TYPE_TWOS_COMPLEMENT ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO TYPE_ONES_COMPLEMENT ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO TYPE_SIGNED_MAGNITUDE ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO TYPE_SIGNED ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO TYPE_MINIMUM ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO TYPE_MAXIMUM ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO signed_type_or_expr__ ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO INT_STRLEN_BOUND ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO INT_BUFSIZE_BOUND ##### -->
+<para>
+
+</para>
+
+@t: 
+
+

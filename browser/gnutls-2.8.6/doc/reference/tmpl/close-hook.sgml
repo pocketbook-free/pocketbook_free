@@ -1,0 +1,80 @@
+<!-- ##### SECTION Title ##### -->
+close-hook
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### USER_FUNCTION private_fn ##### -->
+<para>
+
+</para>
+
+@fd: 
+@remaining_list: 
+@Returns: 
+
+
+<!-- ##### USER_FUNCTION close_hook_fn ##### -->
+<para>
+
+</para>
+
+@fd: 
+@remaining_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION execute_close_hooks ##### -->
+<para>
+
+</para>
+
+@fd: 
+@remaining_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION execute_all_close_hooks ##### -->
+<para>
+
+</para>
+
+@fd: 
+@Returns: 
+
+
+<!-- ##### FUNCTION register_close_hook ##### -->
+<para>
+
+</para>
+
+@hook: 
+@link: 
+
+
+<!-- ##### FUNCTION unregister_close_hook ##### -->
+<para>
+
+</para>
+
+@link: 
+
+

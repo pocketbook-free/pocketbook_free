@@ -1,0 +1,644 @@
+# translation of gail to Kinyarwanda.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gail package.
+# Steve Murphy <murf@e-tools.com>, 2005
+# Steve performed initial rough translation from compendium built from translations provided by the following translators:
+# Philibert Ndandali  <ndandali@yahoo.fr>, 2005.
+# Viateur MUGENZI <muvia1@yahoo.fr>, 2005.
+# Noëlla Mupole <s24211045@tuks.co.za>, 2005.
+# Carole Karema <karemacarole@hotmail.com>, 2005.
+# JEAN BAPTISTE NGENDAHAYO <ngenda_denis@yahoo.co.uk>, 2005.
+# Augustin KIBERWA  <akiberwa@yahoo.co.uk>, 2005.
+# Donatien NSENGIYUMVA <ndonatienuk@yahoo.co.uk>, 2005..
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gail 2.12\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-22 19:35+0800\n"
+"PO-Revision-Date: 2005-03-28 19:34-0700\n"
+"Last-Translator: Steve Murphy <murf@e-tools.com>\n"
+"Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: gail/gailimage.c:55
+#, fuzzy
+msgid "dialog authentication"
+msgstr "Ikiganiro"
+
+#: gail/gailimage.c:56
+#, fuzzy
+msgid "dialog information"
+msgstr "Ikiganiro Ibisobanuro"
+
+#: gail/gailimage.c:57
+#, fuzzy
+msgid "dialog warning"
+msgstr "Ikiganiro Iburira"
+
+#: gail/gailimage.c:58
+#, fuzzy
+msgid "dialog error"
+msgstr "Ikiganiro Ikosa"
+
+#: gail/gailimage.c:59
+#, fuzzy
+msgid "dialog question"
+msgstr "Ikiganiro"
+
+# sch/source\ui\app\strings.src:STR_UNDO_DRAGDROP.text
+#: gail/gailimage.c:60
+#, fuzzy
+msgid "drag and drop"
+msgstr "Gukurura no Kurekura"
+
+#: gail/gailimage.c:61
+#, fuzzy
+msgid "multiple drag and drop"
+msgstr "Igikubo Kurura Na"
+
+#: gail/gailimage.c:62
+#, fuzzy
+msgid "add"
+msgstr "Kongeramo"
+
+# offmgr/source\offapp\dialog\fontsubs.src:RID_SVX_FONT_SUBSTITUTION.TBX_SUBSTNEWDEL.BT_SUBSTAPPLY.text
+#: gail/gailimage.c:63
+#, fuzzy
+msgid "apply"
+msgstr "Gukurikiza"
+
+# officecfg/registry\schema\org\openoffice\Office\Math.xcs:....FontFormat.Weight..8.text
+#: gail/gailimage.c:64
+msgid "bold"
+msgstr "bitsindagiye"
+
+# sfx2/source\statbar\statbar.src:RID_NAVIGATION_COMMANDS.1.text
+#: gail/gailimage.c:65
+msgid "cancel"
+msgstr "kwirengagiza"
+
+# offmgr/source\offapp\dialog\optgdlg.src:OFA_TP_VIEW.FT_POINTLIMIT_LABEL.text
+#: gail/gailimage.c:66
+#, fuzzy
+msgid "cdrom"
+msgstr "Bivuye"
+
+#: gail/gailimage.c:67
+#, fuzzy
+msgid "clear"
+msgstr "Gusiba"
+
+# #-#-#-#-#  basctl.pot (Gnome 2.12)  #-#-#-#-#
+# basctl/source\basicide\macrodlg.src:RID_MACROCHOOSER.RID_PB_CLOSE.text
+# #-#-#-#-#  basctl.pot (Gnome 2.12)  #-#-#-#-#
+# basctl/source\basicide\macrodlg.src:RID_STR_CLOSE.text
+# #-#-#-#-#  basctl.pot (Gnome 2.12)  #-#-#-#-#
+# basctl/source\basicide\moduldlg.src:RID_TP_MODULS.RID_PB_CLOSE.text
+# #-#-#-#-#  basctl.pot (Gnome 2.12)  #-#-#-#-#
+# basctl/source\basicide\moduldlg.src:RID_TP_LIBS.RID_PB_CLOSE.text
+#: gail/gailimage.c:68
+#, fuzzy
+msgid "close"
+msgstr "Gufunga"
+
+#: gail/gailimage.c:69
+#, fuzzy
+msgid "color picker"
+msgstr "Ibara"
+
+# scaddins/source\analysis\analysis_funcnames.src:RID_ANALYSIS_FUNCTION_NAMES.ANALYSIS_FUNCNAME_Convert.text
+#: gail/gailimage.c:70
+#, fuzzy
+msgid "convert"
+msgstr "GUHINDURA"
+
+# dbaccess/source/ui/inc/toolbox.hrc:MID_SBA_QRY_COPY.text
+#: gail/gailimage.c:71
+#, fuzzy
+msgid "copy"
+msgstr "Gukoporora"
+
+# dbaccess/source/ui/inc/toolbox.hrc:MID_SBA_QRY_CUT.text
+#: gail/gailimage.c:72
+#, fuzzy
+msgid "cut"
+msgstr "Gukata"
+
+# sfx2/source\statbar\statbar.src:RID_DICTATION_COMMANDS.17.text
+#: gail/gailimage.c:73
+msgid "delete"
+msgstr "gusiba"
+
+#: gail/gailimage.c:74
+#, fuzzy
+msgid "execute"
+msgstr "Gukora"
+
+# offmgr/source\offapp\dialog\hyprlink.src:RID_SVXDLG_HYPERLINK.BTN_INET_SEARCH.text
+#: gail/gailimage.c:75
+#, fuzzy
+msgid "find"
+msgstr "Gushaka"
+
+# ***** BEGIN LICENSE BLOCK *****
+# - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+# -
+# - The contents of this file are subject to the Mozilla Public License Version
+# - 1.1 (the "License"); you may not use this file except in compliance with
+# - the License. You may obtain a copy of the License at
+# - http://www.mozilla.org/MPL/
+# -
+# - Software distributed under the License is distributed on an "AS IS" basis,
+# - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+# - for the specific language governing rights and limitations under the
+# - License.
+# -
+# - The Original Code is Mozilla Communicator client code, released
+# - March 31, 1998.
+# -
+# - The Initial Developer of the Original Code is
+# - Netscape Communications Corporation.
+# - Portions created by the Initial Developer are Copyright (C) 1998-1999
+# - the Initial Developer. All Rights Reserved.
+# -
+# - Contributor(s):
+# -   Akkana Peck
+# -
+# - Alternatively, the contents of this file may be used under the terms of
+# - either of the GNU General Public License Version 2 or later (the "GPL"),
+# - or the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+# - in which case the provisions of the GPL or the LGPL are applicable instead
+# - of those above. If you wish to allow use of your version of this file only
+# - under the terms of either the GPL or the LGPL, and not to allow others to
+# - use your version of this file under the terms of the MPL, indicate your
+# - decision by deleting the provisions above and replace them with the notice
+# - and other provisions required by the GPL or the LGPL. If you do not delete
+# - the provisions above, a recipient may use your version of this file under
+# - the terms of any one of the MPL, the GPL or the LGPL.
+# -
+# - ***** END LICENSE BLOCK *****
+# extracted from EdReplace.xul
+#: gail/gailimage.c:76
+#, fuzzy
+msgid "find and replace"
+msgstr "Gushaka no Gusimbura"
+
+# dbaccess/source/ui/inc/toolbox.hrc:MID_SBA_QRY_COPY.text
+#: gail/gailimage.c:77
+#, fuzzy
+msgid "floppy"
+msgstr "Gukoporora"
+
+#: gail/gailimage.c:78
+#, fuzzy
+msgid "go to bottom"
+msgstr "Gyayo Kuri Hasi:"
+
+#: gail/gailimage.c:79
+#, fuzzy
+msgid "go to first"
+msgstr "Gyayo Kuri Itangira"
+
+#: gail/gailimage.c:80
+#, fuzzy
+msgid "go to last"
+msgstr "Gyayo Kuri Iheruka"
+
+#: gail/gailimage.c:81
+#, fuzzy
+msgid "go to top"
+msgstr "Gyayo Kuri Hejuru:"
+
+#: gail/gailimage.c:82
+#, fuzzy
+msgid "go back"
+msgstr "Gyayo Inyuma"
+
+#: gail/gailimage.c:83
+#, fuzzy
+msgid "go down"
+msgstr "Gyayo Hasi"
+
+#: gail/gailimage.c:84
+#, fuzzy
+msgid "go forward"
+msgstr "Gyayo Imbere"
+
+#: gail/gailimage.c:85
+#, fuzzy
+msgid "go up"
+msgstr "Gyayo Hejuru"
+
+#: gail/gailimage.c:86
+#, fuzzy
+msgid "help"
+msgstr "Ifashayobora"
+
+# sfx2/source\dialog\dialog.src:BTN_STANDARD.text
+#: gail/gailimage.c:87
+#, fuzzy
+msgid "home"
+msgstr "Ku Ntangiriro"
+
+#: gail/gailimage.c:88
+msgid "index"
+msgstr "Umubarendanga"
+
+# officecfg/registry\schema\org\openoffice\Office\Common.xcs:....Font.Slant..2.text
+#: gail/gailimage.c:89
+#, fuzzy
+msgid "italic"
+msgstr "IBERAMYE"
+
+#: gail/gailimage.c:90
+#, fuzzy
+msgid "jump to"
+msgstr "Simbuka Kuri"
+
+#: gail/gailimage.c:91
+#, fuzzy
+msgid "justify center"
+msgstr "Gukwiza umurongo wose hagati"
+
+#: gail/gailimage.c:92
+#, fuzzy
+msgid "justify fill"
+msgstr "Gukwiza umurongo wose Kuzuza"
+
+#: gail/gailimage.c:93
+#, fuzzy
+msgid "justify left"
+msgstr "Gukwiza umurongo wose Ibumoso:"
+
+#: gail/gailimage.c:94
+#, fuzzy
+msgid "justify right"
+msgstr "Gukwiza umurongo wose Iburyo:"
+
+#: gail/gailimage.c:95
+#, fuzzy
+msgid "missing image"
+msgstr "Ibuze Ishusho"
+
+# basctl/source\basicide\brkdlg.src:RID_BASICIDE_BREAKPOINTDLG.RID_PB_NEW.text
+#: gail/gailimage.c:96
+#, fuzzy
+msgid "new"
+msgstr "Gishya"
+
+#: gail/gailimage.c:97
+#, fuzzy
+msgid "no"
+msgstr "Oya"
+
+# crashrep/source\all\crashrep.lng:%OK_BUTTON%.text
+#: gail/gailimage.c:98
+#, fuzzy
+msgid "ok"
+msgstr "YEGO"
+
+# #-#-#-#-#  sfx2.pot (Gnome 2.12)  #-#-#-#-#
+# sfx2/source\accel\accel.src:STR_OPEN.text
+# #-#-#-#-#  sfx2.pot (Gnome 2.12)  #-#-#-#-#
+# sfx2/source\dialog\cfg.src:STR_OPEN.text
+# #-#-#-#-#  sfx2.pot (Gnome 2.12)  #-#-#-#-#
+# sfx2/source\dialog\versdlg.src:DLG_VERSIONS.PB_OPEN.text
+#: gail/gailimage.c:99
+#, fuzzy
+msgid "open"
+msgstr "Gufungura"
+
+# dbaccess/source/ui/inc/toolbox.hrc:MID_SBA_QRY_PASTE.text
+#: gail/gailimage.c:100
+#, fuzzy
+msgid "paste"
+msgstr "Komeka"
+
+#: gail/gailimage.c:101
+#, fuzzy
+msgid "preferences"
+msgstr "Ibyahiswemo"
+
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+#: gail/gailimage.c:102
+#, fuzzy
+msgid "print"
+msgstr "Gucapa"
+
+# sc/source\ui\src\scstring.src:SCSTR_PREVIEWSHELL.text
+#: gail/gailimage.c:103
+#, fuzzy
+msgid "print preview"
+msgstr "Igaragazambere ryo Gucapa"
+
+# #-#-#-#-#  basctl.pot (Gnome 2.12)  #-#-#-#-#
+# basctl/source\basicide\basidesh.src:RID_POPUP_BRKPROPS.text
+# #-#-#-#-#  basctl.pot (Gnome 2.12)  #-#-#-#-#
+# basctl/source\basicide\tbxctl.src:RID_TOOLBOX.SID_SHOW_PROPERTYBROWSER.text
+#: gail/gailimage.c:104
+#, fuzzy
+msgid "properties"
+msgstr "indangakintu"
+
+#: gail/gailimage.c:105
+#, fuzzy
+msgid "quit"
+msgstr "Kuvamo"
+
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# dbaccess/source/ui/inc/toolbox.hrc:MID_REDO.text
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+#: gail/gailimage.c:106
+#, fuzzy
+msgid "redo"
+msgstr "Isubiramo"
+
+# dbaccess/source/ui/inc/toolbox.hrc:MID_SBA_QRY_REFRESH.text
+#: gail/gailimage.c:107
+#, fuzzy
+msgid "refresh"
+msgstr "Kugira gishya"
+
+# sfx2/source\statbar\statbar.src:RID_NAVIGATION_COMMANDS.6.text
+#: gail/gailimage.c:108
+msgid "remove"
+msgstr "gukuraho"
+
+#: gail/gailimage.c:109
+#, fuzzy
+msgid "revert to saved"
+msgstr "Kugaruza Kuri"
+
+# basctl/source\basicide\basidesh.src:RID_STR_SAVE.text
+#: gail/gailimage.c:110
+#, fuzzy
+msgid "save"
+msgstr "Kubika"
+
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+#: gail/gailimage.c:111
+#, fuzzy
+msgid "save as"
+msgstr "Kubika nka"
+
+#: gail/gailimage.c:112
+#, fuzzy
+msgid "select color"
+msgstr "Guhitamo Ibara"
+
+#: gail/gailimage.c:113
+#, fuzzy
+msgid "select font"
+msgstr "Guhitamo Intego- nyuguti"
+
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# dbaccess/source/ui/inc/toolbox.hrc:MID_SBA_QRY_SORTUP.text
+#: gail/gailimage.c:114
+#, fuzzy
+msgid "sort ascending"
+msgstr "Gushungura ubujyejuru"
+
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# #-#-#-#-#  dbaccess.pot (Gnome 2.12)  #-#-#-#-#
+# dbaccess/source/ui/inc/toolbox.hrc:MID_SBA_QRY_SORTDOWN.text
+#: gail/gailimage.c:115
+#, fuzzy
+msgid "sort descending"
+msgstr "Gushungura ubujyesi"
+
+#: gail/gailimage.c:116
+#, fuzzy
+msgid "spell check"
+msgstr "Genzuranyuguti Kugenzura..."
+
+# basctl/source\basicide\basidesh.src:RID_BASICIDE_OBJECTBAR.SID_BASICSTOP.text
+#: gail/gailimage.c:117
+#, fuzzy
+msgid "stop"
+msgstr "Guhagarara"
+
+#: gail/gailimage.c:118
+#, fuzzy
+msgid "strikethrough"
+msgstr "Icishamokarongo"
+
+# sfx2/source\statbar\statbar.src:RID_DICTATION_COMMANDS.17.text
+#: gail/gailimage.c:119
+#, fuzzy
+msgid "undelete"
+msgstr "gusiba"
+
+# #-#-#-#-#  officecfg.pot (Gnome 2.12)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Revision.TextDisplay.Insert.Attribute..3.text
+# #-#-#-#-#  officecfg.pot (Gnome 2.12)  #-#-#-#-#
+# officecfg/registry\schema\org\openoffice\Office\Writer.xcs:....Revision.TextDisplay.ChangedAttribute.Attribute..3.text
+#: gail/gailimage.c:120
+#, fuzzy
+msgid "underline"
+msgstr "Gucaho umurongo"
+
+# svx/source\svdraw\svdstr.src:STR_ItemValYES.text
+#: gail/gailimage.c:121
+msgid "yes"
+msgstr "Yego"
+
+#: gail/gailimage.c:122
+#, fuzzy
+msgid "zoom 100 percent"
+msgstr "Ihindurangano 100 Ku ijana"
+
+#: gail/gailimage.c:123
+#, fuzzy
+msgid "zoom fit"
+msgstr "Ihindurangano"
+
+# sc/sdi\scslots.src:SID_PREVIEW_ZOOMIN.text
+#: gail/gailimage.c:124
+#, fuzzy
+msgid "zoom in"
+msgstr "Ihindurangano wongera"
+
+# sc/sdi\scslots.src:SID_PREVIEW_ZOOMOUT.text
+#: gail/gailimage.c:125
+#, fuzzy
+msgid "zoom out"
+msgstr "Ihindurangano ugabanya"
+
+#: gail/gailimage.c:127
+#, fuzzy
+msgid "timer"
+msgstr "Gutitira"
+
+#: gail/gailimage.c:128
+#, fuzzy
+msgid "timer stop"
+msgstr "Guhagarara"
+
+# #-#-#-#-#  sc.pot (PACKAGE VERSION)  #-#-#-#-#
+# sc/source\ui\src\scfuncs.src:RID_SC_FUNCTION_DESCRIPTIONS2.SC_OPCODE_B.2.text
+# #-#-#-#-#  sc.pot (PACKAGE VERSION)  #-#-#-#-#
+# sc/source\ui\src\scfuncs.src:RID_SC_FUNCTION_DESCRIPTIONS2.SC_OPCODE_BINOM_DIST.4.text
+# #-#-#-#-#  sc.pot (PACKAGE VERSION)  #-#-#-#-#
+# sc/source\ui\src\scfuncs.src:RID_SC_FUNCTION_DESCRIPTIONS2.SC_OPCODE_KRIT_BINOM.2.text
+#: gail/gailimage.c:129
+#, fuzzy
+msgid "trash"
+msgstr "Amagerageza"
+
+#: gail/gailimage.c:130
+#, fuzzy
+msgid "trash full"
+msgstr "Itara Murabyo"
+
+#: gail/gailimage.c:131
+#, fuzzy
+msgid "scores"
+msgstr "Ishyamba"
+
+#: gail/gailimage.c:132
+#, fuzzy
+msgid "about"
+msgstr "Bigyanye"
+
+# svx/source\dialog\sdstring.src:RID_SVXSTR_BMP0.text
+#: gail/gailimage.c:133
+#, fuzzy
+msgid "blank"
+msgstr "Ahatanditseho"
+
+#: gail/gailimage.c:134
+#, fuzzy
+msgid "volume"
+msgstr "Igice"
+
+#: gail/gailimage.c:135
+#, fuzzy
+msgid "midi"
+msgstr "MIDI"
+
+# starmath/source\symbol.src:RID_LOCALIZED_NAMES.RID_UI_SYMBOL_NAMES.29.text
+#: gail/gailimage.c:136
+#, fuzzy
+msgid "microphone"
+msgstr "omikoroni"
+
+#: gail/gailimage.c:137
+#, fuzzy
+msgid "line in"
+msgstr "Umurongo in"
+
+# sfx2/source\appl\app.src:STR_MAIL.text
+#: gail/gailimage.c:138
+#, fuzzy
+msgid "mail"
+msgstr "Ubutumwa"
+
+#: gail/gailimage.c:139
+#, fuzzy
+msgid "mail receive"
+msgstr "Ubutumwa Akira"
+
+#: gail/gailimage.c:140
+#, fuzzy
+msgid "mail send"
+msgstr "Ubutumwa Kohereza"
+
+#: gail/gailimage.c:141
+#, fuzzy
+msgid "mail reply"
+msgstr "Ubutumwa Subiza"
+
+#: gail/gailimage.c:142
+#, fuzzy
+msgid "mail forward"
+msgstr "Ubutumwa Imbere"
+
+#: gail/gailimage.c:143
+#, fuzzy
+msgid "mail new"
+msgstr "Ubutumwa Gishya"
+
+# 357
+#: gail/gailimage.c:144
+#, fuzzy
+msgid "attach"
+msgstr "gereka"
+
+#: gail/gailimage.c:145
+#, fuzzy
+msgid "book red"
+msgstr "Igitabo Umutuku"
+
+#: gail/gailimage.c:146
+#, fuzzy
+msgid "book green"
+msgstr "Igitabo Icyatsi"
+
+#: gail/gailimage.c:147
+#, fuzzy
+msgid "book blue"
+msgstr "Igitabo Ubururu"
+
+#: gail/gailimage.c:148
+#, fuzzy
+msgid "book yellow"
+msgstr "Igitabo Umuhondo"
+
+#: gail/gailimage.c:149
+#, fuzzy
+msgid "book open"
+msgstr "Igitabo Gufungura"
+
+#: gail/gailimage.c:150
+#, fuzzy
+msgid "multiple file"
+msgstr "Igikubo IDOSIYE"
+
+# sc/source\core\src\compiler.src:RID_SC_FUNCTION_NAMES.SC_OPCODE_NOT.text
+#: gail/gailimage.c:151
+#, fuzzy
+msgid "not"
+msgstr "OYA"
+
+#: gail/gailimage.c:152
+#, fuzzy
+msgid "table borders"
+msgstr "imbonerahamwe# Impera"
+
+#: gail/gailimage.c:153
+#, fuzzy
+msgid "table fill"
+msgstr "imbonerahamwe# Kuzuza"
+
+#: gail/gailimage.c:154
+#, fuzzy
+msgid "text indent"
+msgstr "Umwandiko Ikurura"
+
+#: gail/gailimage.c:155
+#, fuzzy
+msgid "text unindent"
+msgstr "Umwandiko"
+
+#: gail/gailimage.c:156
+#, fuzzy
+msgid "text bulleted list"
+msgstr "Umwandiko Iriho utudomo Urutonde"
+
+#: gail/gailimage.c:157
+#, fuzzy
+msgid "text numbered list"
+msgstr "Umwandiko Iriho Imibare Urutonde"
+
+#: gail/gailimage.c:158
+#, fuzzy
+msgid "authentication"
+msgstr "Kwemeza ukoresha"

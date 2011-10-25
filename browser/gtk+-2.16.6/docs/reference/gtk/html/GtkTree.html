@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkTree</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="prev" href="GtkTipsQuery.html" title="GtkTipsQuery">
+<link rel="next" href="GtkTreeItem.html" title="GtkTreeItem">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GtkTipsQuery.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="DeprecatedObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="GtkTreeItem.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkTree.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkTree.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkTree.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkTree.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#GtkTree.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GtkTree">
+<a name="GtkTree"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkTree.top_of_page"></a>GtkTree</span></h2>
+<p>GtkTree — A tree widget</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GtkTree.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="GtkTree.html#GtkTree-struct" title="GtkTree">GtkTree</a>;
+#define             <a class="link" href="GtkTree.html#GTK-IS-ROOT-TREE--CAPS" title="GTK_IS_ROOT_TREE()">GTK_IS_ROOT_TREE</a>                    (obj)
+#define             <a class="link" href="GtkTree.html#GTK-TREE-ROOT-TREE--CAPS" title="GTK_TREE_ROOT_TREE()">GTK_TREE_ROOT_TREE</a>                  (obj)
+#define             <a class="link" href="GtkTree.html#GTK-TREE-SELECTION-OLD--CAPS" title="GTK_TREE_SELECTION_OLD()">GTK_TREE_SELECTION_OLD</a>              (obj)
+enum                <a class="link" href="GtkTree.html#GtkTreeViewMode" title="enum GtkTreeViewMode">GtkTreeViewMode</a>;
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          <a class="link" href="GtkTree.html#gtk-tree-new" title="gtk_tree_new ()">gtk_tree_new</a>                        (void);
+void                <a class="link" href="GtkTree.html#gtk-tree-append" title="gtk_tree_append ()">gtk_tree_append</a>                     (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item);
+void                <a class="link" href="GtkTree.html#gtk-tree-prepend" title="gtk_tree_prepend ()">gtk_tree_prepend</a>                    (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item);
+void                <a class="link" href="GtkTree.html#gtk-tree-insert" title="gtk_tree_insert ()">gtk_tree_insert</a>                     (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> position);
+void                <a class="link" href="GtkTree.html#gtk-tree-remove-items" title="gtk_tree_remove_items ()">gtk_tree_remove_items</a>               (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *items);
+void                <a class="link" href="GtkTree.html#gtk-tree-clear-items" title="gtk_tree_clear_items ()">gtk_tree_clear_items</a>                (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> start,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> end);
+void                <a class="link" href="GtkTree.html#gtk-tree-select-item" title="gtk_tree_select_item ()">gtk_tree_select_item</a>                (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> item);
+void                <a class="link" href="GtkTree.html#gtk-tree-unselect-item" title="gtk_tree_unselect_item ()">gtk_tree_unselect_item</a>              (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> item);
+void                <a class="link" href="GtkTree.html#gtk-tree-select-child" title="gtk_tree_select_child ()">gtk_tree_select_child</a>               (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item);
+void                <a class="link" href="GtkTree.html#gtk-tree-unselect-child" title="gtk_tree_unselect_child ()">gtk_tree_unselect_child</a>             (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="GtkTree.html#gtk-tree-child-position" title="gtk_tree_child_position ()">gtk_tree_child_position</a>             (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *child);
+void                <a class="link" href="GtkTree.html#gtk-tree-set-selection-mode" title="gtk_tree_set_selection_mode ()">gtk_tree_set_selection_mode</a>         (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkSelectionMode" title="enum GtkSelectionMode">GtkSelectionMode</a> mode);
+void                <a class="link" href="GtkTree.html#gtk-tree-set-view-mode" title="gtk_tree_set_view_mode ()">gtk_tree_set_view_mode</a>              (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkTree.html#GtkTreeViewMode" title="enum GtkTreeViewMode">GtkTreeViewMode</a> mode);
+void                <a class="link" href="GtkTree.html#gtk-tree-set-view-lines" title="gtk_tree_set_view_lines ()">gtk_tree_set_view_lines</a>             (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> flag);
+void                <a class="link" href="GtkTree.html#gtk-tree-remove-item" title="gtk_tree_remove_item ()">gtk_tree_remove_item</a>                (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *child);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GtkTree.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="GtkObject.html" title="GtkObject">GtkObject</a>
+               +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
+                     +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
+                           +----GtkTree
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GtkTree.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GtkTree implements
+ AtkImplementorIface and  <a class="link" href="gtk-gtkbuildable.html#GtkBuildable">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GtkTree.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkTree.html#GtkTree-select-child" title='The "select-child" signal'>select-child</a>"                                   : Run First
+  "<a class="link" href="GtkTree.html#GtkTree-selection-changed" title='The "selection-changed" signal'>selection-changed</a>"                              : Run First
+  "<a class="link" href="GtkTree.html#GtkTree-unselect-child" title='The "unselect-child" signal'>unselect-child</a>"                                 : Run First
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GtkTree.description"></a><h2>Description</h2>
+<p>
+</p>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p>
+<a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> is deprecated and unsupported. It is known to be
+buggy. To use it, you must define the symbol <code class="literal">GTK_ENABLE_BROKEN</code>
+prior to including the GTK+ header files. Use <a class="link" href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a> instead.
+</p>
+</div>
+<p>
+The <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> widget is a container that shows users a list of items, in a tree format complete with branches and leafnodes. Branches can be expanded to show their child items, or collapsed to hide them.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GtkTree.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkTree">
+<a name="GtkTree-struct"></a><h3>GtkTree</h3>
+<pre class="programlisting">typedef struct _GtkTree GtkTree;</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GtkTree</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+</p>
+<pre class="programlisting">
+struct _GtkTree
+{
+  GtkContainer container;
+  GList *children;
+  GtkTree* root_tree; /* owner of selection list */
+  GtkWidget* tree_owner;
+  GList *selection;
+  guint level;
+  guint indent_value;
+  guint current_indent;
+  guint selection_mode : 2;
+  guint view_mode : 1;
+  guint view_line : 1;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GTK_IS_ROOT_TREE()">
+<a name="GTK-IS-ROOT-TREE--CAPS"></a><h3>GTK_IS_ROOT_TREE()</h3>
+<pre class="programlisting">#define GTK_IS_ROOT_TREE(obj)   ((GtkObject*) GTK_TREE(obj)-&gt;root_tree == (GtkObject*)obj)
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GTK_IS_ROOT_TREE</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+A macro that returns a boolean value which indicates if <em class="parameter"><code>obj</code></em> is a root tree or not.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>A pointer to the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>. <em class="parameter"><code>obj</code></em> will accept any pointer, but if the pointer does not point to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>, the results are undefined.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GTK_TREE_ROOT_TREE()">
+<a name="GTK-TREE-ROOT-TREE--CAPS"></a><h3>GTK_TREE_ROOT_TREE()</h3>
+<pre class="programlisting">#define GTK_TREE_ROOT_TREE(obj) (GTK_TREE(obj)-&gt;root_tree ? GTK_TREE(obj)-&gt;root_tree : GTK_TREE(obj))
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GTK_TREE_ROOT_TREE</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+A macro that returns the root tree of <em class="parameter"><code>obj</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>obj</code></em> is already a root tree, <em class="parameter"><code>obj</code></em> is cast to <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> and returned.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>A pointer to the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>. <em class="parameter"><code>obj</code></em> will accept any pointer, but if the pointer does not point to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>, the results are undefined.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GTK_TREE_SELECTION_OLD()">
+<a name="GTK-TREE-SELECTION-OLD--CAPS"></a><h3>GTK_TREE_SELECTION_OLD()</h3>
+<pre class="programlisting">#define GTK_TREE_SELECTION_OLD(obj) (GTK_TREE_ROOT_TREE(obj)-&gt;selection)
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GTK_TREE_SELECTION_OLD</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="enum GtkTreeViewMode">
+<a name="GtkTreeViewMode"></a><h3>enum GtkTreeViewMode</h3>
+<pre class="programlisting">typedef enum 
+{
+  GTK_TREE_VIEW_LINE,  /* default view mode */
+  GTK_TREE_VIEW_ITEM
+} GtkTreeViewMode;
+</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GtkTreeViewMode</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_new ()">
+<a name="gtk-tree-new"></a><h3>gtk_tree_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*          gtk_tree_new                        (void);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_new</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Creates a new <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A pointer to the newly allocated widget.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_append ()">
+<a name="gtk-tree-append"></a><h3>gtk_tree_append ()</h3>
+<pre class="programlisting">void                gtk_tree_append                     (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_append</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Adds the <a class="link" href="GtkTreeItem.html" title="GtkTreeItem"><span class="type">GtkTreeItem</span></a> in <em class="parameter"><code>tree_item</code></em> to the end of the items in <em class="parameter"><code>tree</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_item</code></em> :</span></p></td>
+<td>A pointer to the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that is to be appended to the tree.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_prepend ()">
+<a name="gtk-tree-prepend"></a><h3>gtk_tree_prepend ()</h3>
+<pre class="programlisting">void                gtk_tree_prepend                    (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_prepend</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Adds the <a class="link" href="GtkTreeItem.html" title="GtkTreeItem"><span class="type">GtkTreeItem</span></a> in <em class="parameter"><code>tree_item</code></em> to the start of the items in <em class="parameter"><code>tree</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_item</code></em> :</span></p></td>
+<td>A pointer to the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that is to be prepended to the tree.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_insert ()">
+<a name="gtk-tree-insert"></a><h3>gtk_tree_insert ()</h3>
+<pre class="programlisting">void                gtk_tree_insert                     (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> position);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_insert</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Adds the <a class="link" href="GtkTreeItem.html" title="GtkTreeItem"><span class="type">GtkTreeItem</span></a> in <em class="parameter"><code>tree_item</code></em> to the list of items in <em class="parameter"><code>tree</code></em> at the position indicated by <em class="parameter"><code>position</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_item</code></em> :</span></p></td>
+<td>A pointer to the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that is to be added to the tree.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>A <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> that indicates the position in the tree, that the <em class="parameter"><code>tree_item</code></em> is to be added at.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_remove_items ()">
+<a name="gtk-tree-remove-items"></a><h3>gtk_tree_remove_items ()</h3>
+<pre class="programlisting">void                gtk_tree_remove_items               (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *items);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_remove_items</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Removes a list of items from the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> in <em class="parameter"><code>tree</code></em>.
+</p>
+<p>
+If only one item is to be removed from the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>, <a class="link" href="GtkContainer.html#gtk-container-remove" title="gtk_container_remove ()"><code class="function">gtk_container_remove()</code></a> can be used instead.
+</p>
+<p>
+Removing an item from a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> dereferences the item, and thus usually destroys the item and any subtrees it may contain. If the item is not to be destroyed, use <a
+href="/usr/share/gtk-doc/html/libmissioncontrol-server/libmissioncontrol-server-mcd-debug.html#g-object-ref"
+><code class="function">g_object_ref()</code></a> before removing it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>items</code></em> :</span></p></td>
+<td>A pointer to a <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+><span class="type">GList</span></a> that contains the items to be removed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_clear_items ()">
+<a name="gtk-tree-clear-items"></a><h3>gtk_tree_clear_items ()</h3>
+<pre class="programlisting">void                gtk_tree_clear_items                (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> start,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> end);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_clear_items</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Removes the items at positions between <em class="parameter"><code>start</code></em> and <em class="parameter"><code>end</code></em> from the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> <em class="parameter"><code>tree</code></em>.
+</p>
+<p>
+Removing an item from a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> dereferences the item, and thus usually destroys the item and any subtrees it may contain. If the item is not to be destroyed, use <a
+href="/usr/share/gtk-doc/html/libmissioncontrol-server/libmissioncontrol-server-mcd-debug.html#g-object-ref"
+><code class="function">g_object_ref()</code></a> before removing it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>A <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
+<td>A <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_select_item ()">
+<a name="gtk-tree-select-item"></a><h3>gtk_tree_select_item ()</h3>
+<pre class="programlisting">void                gtk_tree_select_item                (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> item);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_select_item</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Emits the <span class="type">select_item</span> signal for the child at position <em class="parameter"><code>item</code></em>, and thus selects it (unless it is unselected in a signal handler).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>A <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_unselect_item ()">
+<a name="gtk-tree-unselect-item"></a><h3>gtk_tree_unselect_item ()</h3>
+<pre class="programlisting">void                gtk_tree_unselect_item              (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> item);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_unselect_item</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Emits the <span class="type">unselect_item</span> for the child at position <em class="parameter"><code>item</code></em>, and thus unselects it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>A <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_select_child ()">
+<a name="gtk-tree-select-child"></a><h3>gtk_tree_select_child ()</h3>
+<pre class="programlisting">void                gtk_tree_select_child               (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_select_child</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Emits the <span class="type">select_item</span> signal for the child <em class="parameter"><code>tree_item</code></em>, and thus selects it (unless it is unselected in a signal handler).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_item</code></em> :</span></p></td>
+<td>A pointer to the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that is to be selected.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_unselect_child ()">
+<a name="gtk-tree-unselect-child"></a><h3>gtk_tree_unselect_child ()</h3>
+<pre class="programlisting">void                gtk_tree_unselect_child             (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *tree_item);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_unselect_child</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Emits the <span class="type">unselect_item</span> signal for the child <em class="parameter"><code>tree_item</code></em>, and thus unselects it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_item</code></em> :</span></p></td>
+<td>A pointer to the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that is to be selected.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_child_position ()">
+<a name="gtk-tree-child-position"></a><h3>gtk_tree_child_position ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                gtk_tree_child_position             (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *child);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_child_position</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Returns the position of <em class="parameter"><code>child</code></em> in the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> <em class="parameter"><code>tree</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>child</code></em> is not a child of <em class="parameter"><code>tree</code></em>, then -1 is returned.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_set_selection_mode ()">
+<a name="gtk-tree-set-selection-mode"></a><h3>gtk_tree_set_selection_mode ()</h3>
+<pre class="programlisting">void                gtk_tree_set_selection_mode         (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkSelectionMode" title="enum GtkSelectionMode">GtkSelectionMode</a> mode);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_set_selection_mode</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Sets the selection mode for the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> <em class="parameter"><code>tree</code></em>.
+</p>
+<p>
+<em class="parameter"><code>mode</code></em> can be one of
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+<a class="link" href="gtk-Standard-Enumerations.html#GTK-SELECTION-SINGLE--CAPS"><code class="literal">GTK_SELECTION_SINGLE</code></a> for when only one item can be selected at a time.
+</p></li>
+<li class="listitem"><p>
+<a class="link" href="gtk-Standard-Enumerations.html#GTK-SELECTION-BROWSE--CAPS"><code class="literal">GTK_SELECTION_BROWSE</code></a> for when one item must be selected.
+</p></li>
+<li class="listitem"><p>
+<a class="link" href="gtk-Standard-Enumerations.html#GTK-SELECTION-MULTIPLE--CAPS"><code class="literal">GTK_SELECTION_MULTIPLE</code></a> for when many items can be selected at once.
+</p></li>
+<li class="listitem"><p>
+<a class="link" href="gtk-Standard-Enumerations.html#GTK-SELECTION-EXTENDED--CAPS"><code class="literal">GTK_SELECTION_EXTENDED</code></a> Reserved for later use.
+</p></li>
+</ul></div>
+<p>
+The selection mode is only defined for a root tree, as the root tree "owns" the selection.
+</p>
+<p>
+The default mode is <a class="link" href="gtk-Standard-Enumerations.html#GTK-SELECTION-SINGLE--CAPS"><code class="literal">GTK_SELECTION_SINGLE</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>A <a class="link" href="gtk-Standard-Enumerations.html#GtkSelectionMode" title="enum GtkSelectionMode"><span class="type">GtkSelectionMode</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_set_view_mode ()">
+<a name="gtk-tree-set-view-mode"></a><h3>gtk_tree_set_view_mode ()</h3>
+<pre class="programlisting">void                gtk_tree_set_view_mode              (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkTree.html#GtkTreeViewMode" title="enum GtkTreeViewMode">GtkTreeViewMode</a> mode);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_set_view_mode</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Sets the 'viewmode' for the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> in <em class="parameter"><code>tree</code></em>. The 'viewmode' defines how the tree looks when an item is selected.
+</p>
+<p>
+<em class="parameter"><code>mode</code></em> can be one of:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+<code class="literal">GTK_TREE_VIEW_LINE</code> : When an item is selected the entire <a class="link" href="GtkTreeItem.html" title="GtkTreeItem"><span class="type">GtkTreeItem</span></a> is highlighted.
+</p></li>
+<li class="listitem"><p>
+<code class="literal">GTK_TREE_VIEW_ITEM</code> : When an item is selected only the selected item's child widget is highlighted.
+</p></li>
+</ul></div>
+<p>
+The default mode is <code class="literal">GTK_TREE_VIEW_LINE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>A <a class="link" href="GtkTree.html#GtkTreeViewMode" title="enum GtkTreeViewMode"><span class="type">GtkTreeViewMode</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_set_view_lines ()">
+<a name="gtk-tree-set-view-lines"></a><h3>gtk_tree_set_view_lines ()</h3>
+<pre class="programlisting">void                gtk_tree_set_view_lines             (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> flag);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_set_view_lines</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Sets whether or not the connecting lines between branches and children are drawn.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flag</code></em> :</span></p></td>
+<td>A <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+><span class="type">guint</span></a>, indicating <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a>, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_tree_remove_item ()">
+<a name="gtk-tree-remove-item"></a><h3>gtk_tree_remove_item ()</h3>
+<pre class="programlisting">void                gtk_tree_remove_item                (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                         <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *child);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tree_remove_item</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Removes the item <em class="parameter"><code>child</code></em> from the <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a> <em class="parameter"><code>tree</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>A pointer to a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>A pointer to the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that is to be removed from the tree.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GtkTree.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "select-child" signal'>
+<a name="GtkTree-select-child"></a><h3>The <code class="literal">"select-child"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a>   *tree,
+                                                        <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *widget,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+This signal is emitted by <em class="parameter"><code>tree</code></em> whenever <em class="parameter"><code>widget</code></em> is about to be selected.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>The child that is about to be selected.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "selection-changed" signal'>
+<a name="GtkTree-selection-changed"></a><h3>The <code class="literal">"selection-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a> *tree,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data)      : Run First</pre>
+<p>
+This signal is emitted by the root tree whenever the selection changes.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "unselect-child" signal'>
+<a name="GtkTree-unselect-child"></a><h3>The <code class="literal">"unselect-child"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkTree.html" title="GtkTree">GtkTree</a>   *tree,
+                                                        <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *widget,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>   user_data)      : Run First</pre>
+<p>
+This signal is emitted by <em class="parameter"><code>tree</code></em> whenever <em class="parameter"><code>widget</code></em> is about to be unselected.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>The child that is about to be unselected.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="GtkTree.see-also"></a><h2>See Also</h2>
+<p>
+<span class="type">GtkTreeList</span> for the items to put into a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</p>
+<p>
+<a class="link" href="GtkScrolledWindow.html" title="GtkScrolledWindow"><span class="type">GtkScrolledWindow</span></a> for details on how to scroll around a <a class="link" href="GtkTree.html" title="GtkTree"><span class="type">GtkTree</span></a>.
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

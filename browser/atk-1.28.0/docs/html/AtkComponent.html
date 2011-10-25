@@ -1,0 +1,899 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AtkComponent</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.69.1">
+<link rel="start" href="index.html" title="ATK - Accessibility Toolkit">
+<link rel="up" href="atk.html" title="ATK Library">
+<link rel="prev" href="AtkAction.html" title="AtkAction">
+<link rel="next" href="AtkDocument.html" title="AtkDocument">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="atk.html" title="ATK Library">
+<link rel="index" href="ix01.html" title="Index">
+<link rel="index" href="ix02.html" title="Index of deprecated symbols">
+<link rel="index" href="ix03.html" title="Index of new symbols in ATK 1.3">
+<link rel="index" href="ix04.html" title="Index of new symbols in ATK 1.4">
+<link rel="index" href="ix05.html" title="Index of new symbols in ATK 1.6">
+<link rel="index" href="ix06.html" title="Index of new symbols in ATK 1.9">
+<link rel="index" href="ix07.html" title="Index of new symbols in ATK 1.12">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="AtkAction.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">ATK - Accessibility Toolkit</th>
+<td><a accesskey="n" href="AtkDocument.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AtkComponent.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#AtkComponent.description" class="shortcut">Description</a>
+                 | 
+                <a href="#AtkComponent.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#AtkComponent.implementations" class="shortcut">Known Implementations</a>
+                 | 
+                <a href="#AtkComponent.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="AtkComponent"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AtkComponent.top_of_page"></a>AtkComponent</span></h2>
+<p>AtkComponent — The ATK interface provided by UI components which occupy a physical area on
+the screen.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="AtkComponent.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a href="AtkComponent.html#AtkComponent-struct" title="AtkComponent">AtkComponent</a>;
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               <a href="AtkComponent.html#atk-component-add-focus-handler" title="atk_component_add_focus_handler ()">atk_component_add_focus_handler</a>     (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         AtkFocusHandler handler);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a href="AtkComponent.html#atk-component-contains" title="atk_component_contains ()">atk_component_contains</a>              (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> y,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);
+void                <a href="AtkComponent.html#atk-component-get-extents" title="atk_component_get_extents ()">atk_component_get_extents</a>           (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *y,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *height,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);
+<a href="AtkObject.html#AtkLayer" title="enum AtkLayer">AtkLayer</a>            <a href="AtkComponent.html#atk-component-get-layer" title="atk_component_get_layer ()">atk_component_get_layer</a>             (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a href="AtkComponent.html#atk-component-get-mdi-zorder" title="atk_component_get_mdi_zorder ()">atk_component_get_mdi_zorder</a>        (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component);
+void                <a href="AtkComponent.html#atk-component-get-position" title="atk_component_get_position ()">atk_component_get_position</a>          (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *y,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);
+void                <a href="AtkComponent.html#atk-component-get-size" title="atk_component_get_size ()">atk_component_get_size</a>              (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *height);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a href="AtkComponent.html#atk-component-grab-focus" title="atk_component_grab_focus ()">atk_component_grab_focus</a>            (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component);
+<a href="AtkObject.html" title="AtkObject">AtkObject</a>*          <a href="AtkComponent.html#atk-component-ref-accessible-at-point" title="atk_component_ref_accessible_at_point ()">atk_component_ref_accessible_at_point</a>
+                                                        (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> y,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);
+void                <a href="AtkComponent.html#atk-component-remove-focus-handler" title="atk_component_remove_focus_handler ()">atk_component_remove_focus_handler</a>  (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> handler_id);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a href="AtkComponent.html#atk-component-set-extents" title="atk_component_set_extents ()">atk_component_set_extents</a>           (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> y,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> height,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a href="AtkComponent.html#atk-component-set-position" title="atk_component_set_position ()">atk_component_set_position</a>          (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> y,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a href="AtkComponent.html#atk-component-set-size" title="atk_component_set_size ()">atk_component_set_size</a>              (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> height);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>             <a href="AtkComponent.html#atk-component-get-alpha" title="atk_component_get_alpha ()">atk_component_get_alpha</a>             (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkComponent.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----AtkComponent
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkComponent.implementations"></a><h2>Known Implementations</h2>
+<p>
+AtkComponent is implemented by
+ <a href="AtkNoOpObject.html" title="AtkNoOpObject">AtkNoOpObject</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkComponent.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a href="AtkComponent.html#AtkComponent-bounds-changed" title='The "bounds-changed" signal'>bounds-changed</a>"                                 : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkComponent.description"></a><h2>Description</h2>
+<p>
+<a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> should be implemented by most if not all UI elements with
+an actual on-screen presence, i.e. components which can be said to have
+a screen-coordinate bounding box.  Virtually all widgets will need to
+have <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> implementations provided for their corresponding
+<a href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> class.  In short, only UI elements which are *not* GUI
+elements will omit this ATK interface.
+</p>
+<p>
+A possible exception might be textual information with a transparent
+background, in which case text glyph bounding box information is
+provided by <a href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a>.
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkComponent.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="AtkComponent-struct"></a><h3>AtkComponent</h3>
+<pre class="programlisting">typedef struct _AtkComponent AtkComponent;</pre>
+<p>
+The AtkComponent structure does not contain any fields.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-add-focus-handler"></a><h3>atk_component_add_focus_handler ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               atk_component_add_focus_handler     (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         AtkFocusHandler handler);</pre>
+<p>
+Add the specified handler to the set of functions to be called 
+when this object receives focus events (in or out). If the handler is
+already added it is not added again</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> The <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> to attach the <em class="parameter"><code>handler</code></em> to
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>handler</code></em> :</span></td>
+<td> The <span class="type">AtkFocusHandler</span> to be attached to <em class="parameter"><code>component</code></em>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a handler id which can be used in atk_component_remove_focus_handler
+or zero if the handler was already added.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-contains"></a><h3>atk_component_contains ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            atk_component_contains              (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> y,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);</pre>
+<p>
+Checks whether the specified point is within the extent of the <em class="parameter"><code>component</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> the <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em> :</span></td>
+<td> x coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em> :</span></td>
+<td> y coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>coord_type</code></em> :</span></td>
+<td> specifies whether the coordinates are relative to the screen
+or to the components top level window
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> indicating whether the specified point is within
+the extent of the <em class="parameter"><code>component</code></em> or not
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-get-extents"></a><h3>atk_component_get_extents ()</h3>
+<pre class="programlisting">void                atk_component_get_extents           (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *y,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *height,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);</pre>
+<p>
+Gets the rectangle which gives the extent of the <em class="parameter"><code>component</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em> :</span></td>
+<td> address of <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> to put x coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em> :</span></td>
+<td> address of <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> to put y coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em> :</span></td>
+<td> address of <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> to put width
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em> :</span></td>
+<td> address of <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> to put height
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>coord_type</code></em> :</span></td>
+<td> specifies whether the coordinates are relative to the screen
+or to the components top level window
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-get-layer"></a><h3>atk_component_get_layer ()</h3>
+<pre class="programlisting"><a href="AtkObject.html#AtkLayer" title="enum AtkLayer">AtkLayer</a>            atk_component_get_layer             (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component);</pre>
+<p>
+Gets the layer of the component.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> an <a href="AtkObject.html#AtkLayer" title="enum AtkLayer"><span class="type">AtkLayer</span></a> which is the layer of the component
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-get-mdi-zorder"></a><h3>atk_component_get_mdi_zorder ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                atk_component_get_mdi_zorder        (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component);</pre>
+<p>
+Gets the zorder of the component. The value G_MININT will be returned 
+if the layer of the component is not ATK_LAYER_MDI or ATK_LAYER_WINDOW.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a gint which is the zorder of the component, i.e. the depth at 
+which the component is shown in relation to other components in the same 
+container.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-get-position"></a><h3>atk_component_get_position ()</h3>
+<pre class="programlisting">void                atk_component_get_position          (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *y,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);</pre>
+<p>
+Gets the position of <em class="parameter"><code>component</code></em> in the form of 
+a point specifying <em class="parameter"><code>component</code></em>'s top-left corner.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em> :</span></td>
+<td> address of <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> to put x coordinate position
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em> :</span></td>
+<td> address of <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> to put y coordinate position
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>coord_type</code></em> :</span></td>
+<td> specifies whether the coordinates are relative to the screen
+or to the components top level window
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-get-size"></a><h3>atk_component_get_size ()</h3>
+<pre class="programlisting">void                atk_component_get_size              (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *height);</pre>
+<p>
+Gets the size of the <em class="parameter"><code>component</code></em> in terms of width and height.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em> :</span></td>
+<td> address of <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> to put width of <em class="parameter"><code>component</code></em>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em> :</span></td>
+<td> address of <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+><span class="type">gint</span></a> to put height of <em class="parameter"><code>component</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-grab-focus"></a><h3>atk_component_grab_focus ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            atk_component_grab_focus            (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component);</pre>
+<p>
+Grabs focus for this <em class="parameter"><code>component</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if successful, <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-ref-accessible-at-point"></a><h3>atk_component_ref_accessible_at_point ()</h3>
+<pre class="programlisting"><a href="AtkObject.html" title="AtkObject">AtkObject</a>*          atk_component_ref_accessible_at_point
+                                                        (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> y,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);</pre>
+<p>
+Gets a reference to the accessible child, if one exists, at the
+coordinate point specified by <em class="parameter"><code>x</code></em> and <em class="parameter"><code>y</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> the <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em> :</span></td>
+<td> x coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em> :</span></td>
+<td> y coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>coord_type</code></em> :</span></td>
+<td> specifies whether the coordinates are relative to the screen
+or to the components top level window
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> a reference to the accessible child, if one exists
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-remove-focus-handler"></a><h3>atk_component_remove_focus_handler ()</h3>
+<pre class="programlisting">void                atk_component_remove_focus_handler  (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> handler_id);</pre>
+<p>
+Remove the handler specified by <em class="parameter"><code>handler_id</code></em> from the list of
+functions to be executed when this object receives focus events 
+(in or out).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> the <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> to remove the focus handler from
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>handler_id</code></em> :</span></td>
+<td> the handler id of the focus handler to be removed
+from <em class="parameter"><code>component</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-set-extents"></a><h3>atk_component_set_extents ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            atk_component_set_extents           (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> y,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> height,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);</pre>
+<p>
+Sets the extents of <em class="parameter"><code>component</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em> :</span></td>
+<td> x coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em> :</span></td>
+<td> y coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em> :</span></td>
+<td> width to set for <em class="parameter"><code>component</code></em>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em> :</span></td>
+<td> height to set for <em class="parameter"><code>component</code></em>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>coord_type</code></em> :</span></td>
+<td> specifies whether the coordinates are relative to the screen
+or to the components top level window
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> whether the extents were set or not
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-set-position"></a><h3>atk_component_set_position ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            atk_component_set_position          (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> x,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> y,
+                                                         <a href="AtkUtil.html#AtkCoordType" title="enum AtkCoordType">AtkCoordType</a> coord_type);</pre>
+<p>
+Sets the postition of <em class="parameter"><code>component</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em> :</span></td>
+<td> x coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em> :</span></td>
+<td> y coordinate
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>coord_type</code></em> :</span></td>
+<td> specifies whether the coordinates are relative to the screen
+or to the components top level window
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> whether or not the position was set or not
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-set-size"></a><h3>atk_component_set_size ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            atk_component_set_size              (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> height);</pre>
+<p>
+Set the size of the <em class="parameter"><code>component</code></em> in terms of width and height.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em> :</span></td>
+<td> width to set for <em class="parameter"><code>component</code></em>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em> :</span></td>
+<td> height to set for <em class="parameter"><code>component</code></em>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> whether the size was set or not
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atk-component-get-alpha"></a><h3>atk_component_get_alpha ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a>             atk_component_get_alpha             (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *component);</pre>
+<p>
+Returns the alpha value (i.e. the opacity) for this
+<em class="parameter"><code>component</code></em>, on a scale from 0 (fully transparent) to 1.0
+(fully opaque).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>component</code></em> :</span></td>
+<td> an <a href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span> :</span></td>
+<td> An alpha value from 0 to 1.0, inclusive.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.12</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="AtkComponent.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="AtkComponent-bounds-changed"></a><h3>The <code class="literal">"bounds-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a href="AtkComponent.html" title="AtkComponent">AtkComponent</a> *atkcomponent,
+                                                        AtkRectangle *arg1,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>      user_data)         : Run Last</pre>
+<p>
+The 'bounds-changed" signal is emitted when the bposition or size of the
+a component changes.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>atkcomponent</code></em> :</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>arg1</code></em> :</span></td>
+<td>The AtkRectangle giving the new position and size.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>user_data</code></em> :</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

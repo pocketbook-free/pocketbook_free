@@ -1,0 +1,48 @@
+This directory contains the GAIL library.
+
+GAIL provides accessibility support for gtk+ and libgnomecanvas by
+implementing AtkObjects for widgets in gtk+ and libgnomecanvas. The
+GAIL library is a GTK+ module. For example, if the module is loaded in
+a program which calls gtk_widget_get_accessible() for a GtkEntry an 
+instance of GailEntry is returned. This module is normally used with the
+atk-bridge GTK+ module from at-spi to allow an assistive technology, 
+e.g a screenreader, to query or drive the program.
+
+For more information about GAIL and accessibility in GNOME, see:
+ http://developer.gnome.org/projects/gap
+
+If you find any bugs in GAIL, please report them to http://bugzilla.gnome.org/.
+GAIL bugs are part of the 'atk' product in Bugzilla.
+
+Dependencies
+============
+
+In order to get CVS gail installed on your system, you need to have
+the most recent CVS versions of gtk+ and libgnomecanvas installed as well.
+Note that  gtk+ requires glib/pango/atk and libgnomecanvas also requires
+libart, pangoft2 and gnome-common. 
+
+Building
+========
+
+To compile a CVS version of gail on your system, you will need to take
+several steps to setup the tree for compilation.  You can do all these
+steps at once by running:
+
+        cvsroot/gail# ./autogen.sh
+
+Basically this does the following for you:
+
+        cvsroot/gail# aclocal; automake; autoconf
+
+        The above commands create the "configure" script.  Now you
+        can run the configure script in cvsroot/gail to create all
+        the Makefiles.
+
+Before running autogen.sh or configure, make sure you have libtool
+in your path.
+
+Note that autogen.sh runs configure for you.  If you wish to pass
+options like --prefix=/usr to configure you can give those options
+to autogen.sh and they will be passed on to configure.
+

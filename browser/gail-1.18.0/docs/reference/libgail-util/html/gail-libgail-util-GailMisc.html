@@ -1,0 +1,626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>GailMisc</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.71.0">
+<link rel="start" href="index.html" title="GAIL Reference Manual">
+<link rel="up" href="libgail-util-main.html" title="GAIL libgail-util Library">
+<link rel="prev" href="gail-libgail-util-GailTextUtil.html" title="GailTextUtil">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="libgail-util-main.html" title="GAIL libgail-util Library">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gail-libgail-util-GailTextUtil.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgail-util-main.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GAIL Reference Manual</th>
+<td>&#160;</td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2549435" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2549891" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="gail-libgail-util-GailMisc"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2549435"></a><span class="refentrytitle">GailMisc</span>
+</h2>
+<p>GailMisc &#8212; GailMisc is a set of utility functions which may be useful to implementors of
+Atk interfaces for custom widgets.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* <a href="gail-libgail-util-GailMisc.html#gail-misc-add-attribute">gail_misc_add_attribute</a>    (<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a> *attrib_set,
+                                             <a
+href="../atk/AtkText.html#AtkTextAttribute"
+>AtkTextAttribute</a> attr,
+                                             gchar *value);
+<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* <a href="gail-libgail-util-GailMisc.html#gail-misc-layout-get-run-attributes">gail_misc_layout_get_run_attributes</a>
+                                            (<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a> *attrib_set,
+                                             PangoLayout *layout,
+                                             gchar *text,
+                                             gint offset,
+                                             gint *start_offset,
+                                             gint *end_offset);
+<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* <a href="gail-libgail-util-GailMisc.html#gail-misc-get-default-attributes">gail_misc_get_default_attributes</a>
+                                            (<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a> *attrib_set,
+                                             PangoLayout *layout,
+                                             <a
+href="../gtk/GtkWidget.html"
+>GtkWidget</a> *widget);
+void        <a href="gail-libgail-util-GailMisc.html#gail-misc-get-extents-from-pango-rectangle">gail_misc_get_extents_from_pango_rectangle</a>
+                                            (<a
+href="../gtk/GtkWidget.html"
+>GtkWidget</a> *widget,
+                                             PangoRectangle *char_rect,
+                                             gint x_layout,
+                                             gint y_layout,
+                                             gint *x,
+                                             gint *y,
+                                             gint *width,
+                                             gint *height,
+                                             <a
+href="../atk/AtkUtil.html#AtkCoordType"
+>AtkCoordType</a> coords);
+gint        <a href="gail-libgail-util-GailMisc.html#gail-misc-get-index-at-point-in-layout">gail_misc_get_index_at_point_in_layout</a>
+                                            (<a
+href="../gtk/GtkWidget.html"
+>GtkWidget</a> *widget,
+                                             PangoLayout *layout,
+                                             gint x_layout,
+                                             gint y_layout,
+                                             gint x,
+                                             gint y,
+                                             <a
+href="../atk/AtkUtil.html#AtkCoordType"
+>AtkCoordType</a> coords);
+void        <a href="gail-libgail-util-GailMisc.html#gail-misc-get-origins">gail_misc_get_origins</a>           (<a
+href="../gtk/GtkWidget.html"
+>GtkWidget</a> *widget,
+                                             gint *x_window,
+                                             gint *y_window,
+                                             gint *x_toplevel,
+                                             gint *y_toplevel);
+<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* <a href="gail-libgail-util-GailMisc.html#gail-misc-add-to-attr-set">gail_misc_add_to_attr_set</a>  (<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a> *attrib_set,
+                                             <a
+href="../gtk/GtkTextTag.html#GtkTextAttributes"
+>GtkTextAttributes</a> *attrs,
+                                             <a
+href="../atk/AtkText.html#AtkTextAttribute"
+>AtkTextAttribute</a> attr);
+<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* <a href="gail-libgail-util-GailMisc.html#gail-misc-buffer-get-run-attributes">gail_misc_buffer_get_run_attributes</a>
+                                            (<a
+href="../gtk/GtkTextBuffer.html"
+>GtkTextBuffer</a> *buffer,
+                                             gint offset,
+                                             gint *start_offset,
+                                             gint *end_offset);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2549891"></a><h2>Description</h2>
+<p>
+GailMisc is a set of utility function which are used in the implemementation
+of Atk interfaces for Gtk widgets. They may be useful to implementors of 
+Atk interfaces for custom widgets.
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2549909"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2549919"></a><h3>
+<a name="gail-misc-add-attribute"></a>gail_misc_add_attribute ()</h3>
+<a class="indexterm" name="id2549932"></a><pre class="programlisting"><a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* gail_misc_add_attribute    (<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a> *attrib_set,
+                                             <a
+href="../atk/AtkText.html#AtkTextAttribute"
+>AtkTextAttribute</a> attr,
+                                             gchar *value);</pre>
+<p>
+Creates an <a
+href="../atk/AtkText.html#AtkAttribute"
+><span class="type">AtkAttribute</span></a> from <em class="parameter"><code>attr</code></em> and <em class="parameter"><code>value</code></em>, and adds it
+to <em class="parameter"><code>attrib_set</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>attrib_set</code></em>&#160;:</span></td>
+<td> The <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a> to add the attribute to
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>attr</code></em>&#160;:</span></td>
+<td> The AtkTextAttrribute which identifies the attribute to be added
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td> The attribute value
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> A pointer to the new <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2550081"></a><h3>
+<a name="gail-misc-layout-get-run-attributes"></a>gail_misc_layout_get_run_attributes ()</h3>
+<a class="indexterm" name="id2550095"></a><pre class="programlisting"><a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* gail_misc_layout_get_run_attributes
+                                            (<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a> *attrib_set,
+                                             PangoLayout *layout,
+                                             gchar *text,
+                                             gint offset,
+                                             gint *start_offset,
+                                             gint *end_offset);</pre>
+<p>
+Adds the attributes for the run starting at offset to the specified
+attribute set.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>attrib_set</code></em>&#160;:</span></td>
+<td> The <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a> to add the attribute to
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>layout</code></em>&#160;:</span></td>
+<td> The PangoLayout from which the attributes will be obtained
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>text</code></em>&#160;:</span></td>
+<td> The text 
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>offset</code></em>&#160;:</span></td>
+<td> The offset at which the attributes are required
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>start_offset</code></em>&#160;:</span></td>
+<td> The start offset of the current run
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>end_offset</code></em>&#160;:</span></td>
+<td> The end offset of the current run
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> A pointer to the <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2550284"></a><h3>
+<a name="gail-misc-get-default-attributes"></a>gail_misc_get_default_attributes ()</h3>
+<a class="indexterm" name="id2550298"></a><pre class="programlisting"><a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* gail_misc_get_default_attributes
+                                            (<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a> *attrib_set,
+                                             PangoLayout *layout,
+                                             <a
+href="../gtk/GtkWidget.html"
+>GtkWidget</a> *widget);</pre>
+<p>
+Adds the default attributes to the specified attribute set.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>attrib_set</code></em>&#160;:</span></td>
+<td> The <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a> to add the attribute to
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>layout</code></em>&#160;:</span></td>
+<td> The PangoLayout from which the attributes will be obtained
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>widget</code></em>&#160;:</span></td>
+<td> The GtkWidget for which the default attributes are required.
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> A pointer to the <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2550422"></a><h3>
+<a name="gail-misc-get-extents-from-pango-rectangle"></a>gail_misc_get_extents_from_pango_rectangle ()</h3>
+<a class="indexterm" name="id2550437"></a><pre class="programlisting">void        gail_misc_get_extents_from_pango_rectangle
+                                            (<a
+href="../gtk/GtkWidget.html"
+>GtkWidget</a> *widget,
+                                             PangoRectangle *char_rect,
+                                             gint x_layout,
+                                             gint y_layout,
+                                             gint *x,
+                                             gint *y,
+                                             gint *width,
+                                             gint *height,
+                                             <a
+href="../atk/AtkUtil.html#AtkCoordType"
+>AtkCoordType</a> coords);</pre>
+<p>
+Gets the extents of <em class="parameter"><code>char_rect</code></em> in device coordinates,
+relative to either top-level window or screen coordinates as
+specified by <em class="parameter"><code>coords</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>widget</code></em>&#160;:</span></td>
+<td> The widget that contains the PangoLayout, that contains
+  the PangoRectangle
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>char_rect</code></em>&#160;:</span></td>
+<td> The <span class="type">PangoRectangle</span> from which to calculate extents
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>x_layout</code></em>&#160;:</span></td>
+<td> The x-offset at which the widget displays the
+  PangoLayout that contains the PangoRectangle, relative to <em class="parameter"><code>widget</code></em>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>y_layout</code></em>&#160;:</span></td>
+<td> The y-offset at which the widget displays the
+  PangoLayout that contains the PangoRectangle, relative to <em class="parameter"><code>widget</code></em>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>x</code></em>&#160;:</span></td>
+<td> The x-position of the <span class="type">PangoRectangle</span> relative to <em class="parameter"><code>coords</code></em>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>y</code></em>&#160;:</span></td>
+<td> The y-position of the <span class="type">PangoRectangle</span> relative to <em class="parameter"><code>coords</code></em>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>width</code></em>&#160;:</span></td>
+<td> The width of the <span class="type">PangoRectangle</span>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>height</code></em>&#160;:</span></td>
+<td> The  height of the <span class="type">PangoRectangle</span>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>coords</code></em>&#160;:</span></td>
+<td> An <a
+href="../atk/AtkUtil.html#AtkCoordType"
+><span class="type">AtkCoordType</span></a> enumeration
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2550751"></a><h3>
+<a name="gail-misc-get-index-at-point-in-layout"></a>gail_misc_get_index_at_point_in_layout ()</h3>
+<a class="indexterm" name="id2550764"></a><pre class="programlisting">gint        gail_misc_get_index_at_point_in_layout
+                                            (<a
+href="../gtk/GtkWidget.html"
+>GtkWidget</a> *widget,
+                                             PangoLayout *layout,
+                                             gint x_layout,
+                                             gint y_layout,
+                                             gint x,
+                                             gint y,
+                                             <a
+href="../atk/AtkUtil.html#AtkCoordType"
+>AtkCoordType</a> coords);</pre>
+<p>
+Gets the byte offset at the specified <em class="parameter"><code>x</code></em> and <em class="parameter"><code>y</code></em> in a <span class="type">PangoLayout</span>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>widget</code></em>&#160;:</span></td>
+<td> A <a
+href="../gtk/GtkWidget.html"
+><span class="type">GtkWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>layout</code></em>&#160;:</span></td>
+<td> The <span class="type">PangoLayout</span> from which to get the index at the
+  specified point.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>x_layout</code></em>&#160;:</span></td>
+<td> The x-offset at which the widget displays the
+  <span class="type">PangoLayout</span>, relative to <em class="parameter"><code>widget</code></em>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>y_layout</code></em>&#160;:</span></td>
+<td> The y-offset at which the widget displays the
+  <span class="type">PangoLayout</span>, relative to <em class="parameter"><code>widget</code></em>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>x</code></em>&#160;:</span></td>
+<td> The x-coordinate relative to <em class="parameter"><code>coords</code></em> at which to
+  calculate the index
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>y</code></em>&#160;:</span></td>
+<td> The y-coordinate relative to <em class="parameter"><code>coords</code></em> at which to
+  calculate the index
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>coords</code></em>&#160;:</span></td>
+<td> An <a
+href="../atk/AtkUtil.html#AtkCoordType"
+><span class="type">AtkCoordType</span></a> enumeration
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the byte offset at the specified <em class="parameter"><code>x</code></em> and <em class="parameter"><code>y</code></em> in a
+  <span class="type">PangoLayout</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2551061"></a><h3>
+<a name="gail-misc-get-origins"></a>gail_misc_get_origins ()</h3>
+<a class="indexterm" name="id2551074"></a><pre class="programlisting">void        gail_misc_get_origins           (<a
+href="../gtk/GtkWidget.html"
+>GtkWidget</a> *widget,
+                                             gint *x_window,
+                                             gint *y_window,
+                                             gint *x_toplevel,
+                                             gint *y_toplevel);</pre>
+<p>
+Gets the origin of the widget window, and the origin of the
+widgets top-level window.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>widget</code></em>&#160;:</span></td>
+<td> a <a
+href="../gtk/GtkWidget.html"
+><span class="type">GtkWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>x_window</code></em>&#160;:</span></td>
+<td> the x-origin of the widget-&gt;window
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>y_window</code></em>&#160;:</span></td>
+<td> the y-origin of the widget-&gt;window
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>x_toplevel</code></em>&#160;:</span></td>
+<td> the x-origin of the toplevel window for widget-&gt;window
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>y_toplevel</code></em>&#160;:</span></td>
+<td> the y-origin of the toplevel window for widget-&gt;window
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2551223"></a><h3>
+<a name="gail-misc-add-to-attr-set"></a>gail_misc_add_to_attr_set ()</h3>
+<a class="indexterm" name="id2551236"></a><pre class="programlisting"><a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* gail_misc_add_to_attr_set  (<a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a> *attrib_set,
+                                             <a
+href="../gtk/GtkTextTag.html#GtkTextAttributes"
+>GtkTextAttributes</a> *attrs,
+                                             <a
+href="../atk/AtkText.html#AtkTextAttribute"
+>AtkTextAttribute</a> attr);</pre>
+<p>
+Gets the value for the AtkTextAttribute from the GtkTextAttributes
+and adds it to the AttributeSet.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>attrib_set</code></em>&#160;:</span></td>
+<td> An <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>attrs</code></em>&#160;:</span></td>
+<td> The <a
+href="../gtk/GtkTextTag.html#GtkTextAttributes"
+><span class="type">GtkTextAttributes</span></a> containing the attribute value
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>attr</code></em>&#160;:</span></td>
+<td> The <a
+href="../atk/AtkText.html#AtkTextAttribute"
+><span class="type">AtkTextAttribute</span></a> to be added
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> A pointer to the updated <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2551376"></a><h3>
+<a name="gail-misc-buffer-get-run-attributes"></a>gail_misc_buffer_get_run_attributes ()</h3>
+<a class="indexterm" name="id2551390"></a><pre class="programlisting"><a
+href="../atk/AtkText.html#AtkAttributeSet"
+>AtkAttributeSet</a>* gail_misc_buffer_get_run_attributes
+                                            (<a
+href="../gtk/GtkTextBuffer.html"
+>GtkTextBuffer</a> *buffer,
+                                             gint offset,
+                                             gint *start_offset,
+                                             gint *end_offset);</pre>
+<p>
+Creates an AtkAttributeSet which contains the attributes for the 
+run starting at offset.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>buffer</code></em>&#160;:</span></td>
+<td> The <a
+href="../gtk/GtkTextBuffer.html"
+><span class="type">GtkTextBuffer</span></a> for which the attributes will be obtained
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>offset</code></em>&#160;:</span></td>
+<td> The offset at which the attributes are required
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>start_offset</code></em>&#160;:</span></td>
+<td> The start offset of the current run
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>end_offset</code></em>&#160;:</span></td>
+<td> The end offset of the current run
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> A pointer to the <a
+href="../atk/AtkText.html#AtkAttributeSet"
+><span class="type">AtkAttributeSet</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

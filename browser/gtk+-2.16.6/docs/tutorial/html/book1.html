@@ -1,0 +1,1255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>GTK+ 2.0 Tutorial</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="NEXT"
+TITLE="Tutorial Availability"
+HREF="c17.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="GTK-TUT"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>GTK+ 2.0 Tutorial</A
+></H1
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN6"
+></A
+>Tony Gale</H3
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN9"
+></A
+>Ian Main</H3
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN12"
+></A
+>&#38; the GTK team</H3
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="c17.html"
+>Tutorial Availability</A
+></DT
+><DT
+><A
+HREF="c24.html"
+>Introduction</A
+></DT
+><DT
+><A
+HREF="c39.html"
+>Getting Started</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c39.html#SEC-HELLOWORLD"
+>Hello World in GTK</A
+></DT
+><DT
+><A
+HREF="x111.html"
+>Compiling Hello World</A
+></DT
+><DT
+><A
+HREF="x159.html"
+>Theory of Signals and Callbacks</A
+></DT
+><DT
+><A
+HREF="x182.html"
+>Events</A
+></DT
+><DT
+><A
+HREF="x281.html"
+>Stepping Through Hello World</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c326.html"
+>Moving On</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c326.html#SEC-DATATYPES"
+>Data Types</A
+></DT
+><DT
+><A
+HREF="x335.html"
+>More on Signal Handlers</A
+></DT
+><DT
+><A
+HREF="x345.html"
+>An Upgraded Hello World</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c355.html"
+>Packing Widgets</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c355.html#SEC-THEORYOFPACKINGBOXES"
+>Theory of Packing Boxes</A
+></DT
+><DT
+><A
+HREF="x364.html"
+>Details of Boxes</A
+></DT
+><DT
+><A
+HREF="x387.html"
+>Packing Demonstration Program</A
+></DT
+><DT
+><A
+HREF="x390.html"
+>Packing Using Tables</A
+></DT
+><DT
+><A
+HREF="x442.html"
+>Table Packing Example</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c451.html"
+>Widget Overview</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c451.html#SEC-CASTING"
+>Casting</A
+></DT
+><DT
+><A
+HREF="x479.html"
+>Widget Hierarchy</A
+></DT
+><DT
+><A
+HREF="x483.html"
+>Widgets Without Windows</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c491.html"
+>The Button Widget</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c491.html#SEC-NORMALBUTTONS"
+>Normal Buttons</A
+></DT
+><DT
+><A
+HREF="x520.html"
+>Toggle Buttons</A
+></DT
+><DT
+><A
+HREF="x537.html"
+>Check Buttons</A
+></DT
+><DT
+><A
+HREF="x544.html"
+>Radio Buttons</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c565.html"
+>Adjustments</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c565.html#SEC-CREATINGANADJUSTMENT"
+>Creating an Adjustment</A
+></DT
+><DT
+><A
+HREF="x589.html"
+>Using Adjustments the Easy Way</A
+></DT
+><DT
+><A
+HREF="x604.html"
+>Adjustment Internals</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c635.html"
+>Range Widgets</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c635.html#SEC-SCROLLBARWIDGETS"
+>Scrollbar Widgets</A
+></DT
+><DT
+><A
+HREF="x647.html"
+>Scale Widgets</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x647.html#AEN650"
+>Creating a Scale Widget</A
+></DT
+><DT
+><A
+HREF="x647.html#AEN662"
+>Functions and Signals (well, functions, at least)</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x686.html"
+>Common Range Functions</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x686.html#AEN690"
+>Setting the Update Policy</A
+></DT
+><DT
+><A
+HREF="x686.html#AEN715"
+>Getting and Setting Adjustments</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x727.html"
+>Key and Mouse bindings</A
+></DT
+><DT
+><A
+HREF="x745.html"
+>Example</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c755.html"
+>Miscellaneous Widgets</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c755.html#SEC-LABELS"
+>Labels</A
+></DT
+><DT
+><A
+HREF="x795.html"
+>Arrows</A
+></DT
+><DT
+><A
+HREF="x812.html"
+>The Tooltips Object</A
+></DT
+><DT
+><A
+HREF="x831.html"
+>Progress Bars</A
+></DT
+><DT
+><A
+HREF="x863.html"
+>Dialogs</A
+></DT
+><DT
+><A
+HREF="x893.html"
+>Rulers</A
+></DT
+><DT
+><A
+HREF="x921.html"
+>Statusbars</A
+></DT
+><DT
+><A
+HREF="x941.html"
+>Text Entries</A
+></DT
+><DT
+><A
+HREF="x969.html"
+>Spin Buttons</A
+></DT
+><DT
+><A
+HREF="x1065.html"
+>Combo Box</A
+></DT
+><DT
+><A
+HREF="x1102.html"
+>Calendar</A
+></DT
+><DT
+><A
+HREF="x1186.html"
+>Color Selection</A
+></DT
+><DT
+><A
+HREF="x1209.html"
+>File Selections</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c1228.html"
+>Container Widgets</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c1228.html#SEC-EVENTBOX"
+>The EventBox</A
+></DT
+><DT
+><A
+HREF="x1245.html"
+>The Alignment widget</A
+></DT
+><DT
+><A
+HREF="x1260.html"
+>Fixed Container</A
+></DT
+><DT
+><A
+HREF="x1281.html"
+>Layout Container</A
+></DT
+><DT
+><A
+HREF="x1293.html"
+>Frames</A
+></DT
+><DT
+><A
+HREF="x1319.html"
+>Aspect Frames</A
+></DT
+><DT
+><A
+HREF="x1337.html"
+>Paned Window Widgets</A
+></DT
+><DT
+><A
+HREF="x1354.html"
+>Viewports</A
+></DT
+><DT
+><A
+HREF="x1370.html"
+>Scrolled Windows</A
+></DT
+><DT
+><A
+HREF="x1392.html"
+>Button Boxes</A
+></DT
+><DT
+><A
+HREF="x1404.html"
+>Toolbar</A
+></DT
+><DT
+><A
+HREF="x1452.html"
+>Notebooks</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c1501.html"
+>Menu Widget</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c1501.html#SEC-MANUALMENUCREATION"
+>Manual Menu Creation</A
+></DT
+><DT
+><A
+HREF="x1579.html"
+>Manual Menu Example</A
+></DT
+><DT
+><A
+HREF="x1588.html"
+>Using ItemFactory</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x1588.html#SEC-ITEMFACTORYENTRIES"
+>ItemFactory entries</A
+></DT
+><DT
+><A
+HREF="x1588.html#SEC-ITEMFACTORYCREATION"
+>Creating an ItemFactory</A
+></DT
+><DT
+><A
+HREF="x1588.html#SEC-USINGMENUANDITEMS"
+>Making use of the menu and its menu items</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x1699.html"
+>Item Factory Example</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c1703.html"
+>Undocumented Widgets</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c1703.html#SEC-ACCELLABEL"
+>Accel Label</A
+></DT
+><DT
+><A
+HREF="x1711.html"
+>Option Menu</A
+></DT
+><DT
+><A
+HREF="x1714.html"
+>Menu Items</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x1714.html#SEC-CHECKMENUITEM"
+>Check Menu Item</A
+></DT
+><DT
+><A
+HREF="x1714.html#SEC-RADIOMENUITEM"
+>Radio Menu Item</A
+></DT
+><DT
+><A
+HREF="x1714.html#SEC-SEPARATORMENUITEM"
+>Separator Menu Item</A
+></DT
+><DT
+><A
+HREF="x1714.html#SEC-TEAROFFMENUITEM"
+>Tearoff Menu Item</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x1729.html"
+>Curves</A
+></DT
+><DT
+><A
+HREF="x1732.html"
+>Drawing Area</A
+></DT
+><DT
+><A
+HREF="x1735.html"
+>Font Selection Dialog</A
+></DT
+><DT
+><A
+HREF="x1738.html"
+>Message Dialog</A
+></DT
+><DT
+><A
+HREF="x1741.html"
+>Gamma Curve</A
+></DT
+><DT
+><A
+HREF="x1744.html"
+>Image</A
+></DT
+><DT
+><A
+HREF="x1747.html"
+>Plugs and Sockets</A
+></DT
+><DT
+><A
+HREF="x1750.html"
+>Tree View</A
+></DT
+><DT
+><A
+HREF="x1753.html"
+>Text View</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c1756.html"
+>Setting Widget Attributes</A
+></DT
+><DT
+><A
+HREF="c1761.html"
+>Timeouts, IO and Idle Functions</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c1761.html#SEC-TIMEOUTS"
+>Timeouts</A
+></DT
+><DT
+><A
+HREF="x1772.html"
+>Monitoring IO</A
+></DT
+><DT
+><A
+HREF="x1792.html"
+>Idle Functions</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c1799.html"
+>Advanced Event and Signal Handling</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c1799.html#SEC-SIGNALFUNCTIONS"
+>Signal Functions</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c1799.html#AEN1803"
+>Connecting and Disconnecting Signal Handlers</A
+></DT
+><DT
+><A
+HREF="c1799.html#AEN1806"
+>Blocking and Unblocking Signal Handlers</A
+></DT
+><DT
+><A
+HREF="c1799.html#AEN1809"
+>Emitting and Stopping Signals</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x1812.html"
+>Signal Emission and Propagation</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c1836.html"
+>Managing Selections</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c1836.html#SEC-SELECTIONSOVERVIEW"
+>Overview</A
+></DT
+><DT
+><A
+HREF="x1852.html"
+>Retrieving the selection</A
+></DT
+><DT
+><A
+HREF="x1875.html"
+>Supplying the selection</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c1901.html"
+>Drag-and-drop (DND)</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c1901.html#SEC-DRAGANDDROPOVERVIEW"
+>Overview</A
+></DT
+><DT
+><A
+HREF="x1923.html"
+>Properties</A
+></DT
+><DT
+><A
+HREF="x1941.html"
+>Functions</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x1941.html#SEC-DNDSOURCEWIDGETS"
+>Setting up the source widget</A
+></DT
+><DT
+><A
+HREF="x1941.html#SEC-SIGNALSONSOURCEWIDGETS"
+>Signals on the source widget:</A
+></DT
+><DT
+><A
+HREF="x1941.html#SEC-DNDDESTWIDGETS"
+>Setting up a destination widget:</A
+></DT
+><DT
+><A
+HREF="x1941.html#SEC-SIGNALSONDESTWIDGETS"
+>Signals on the destination widget:</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+><A
+HREF="c2025.html"
+>GLib</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c2025.html#SEC-DEFINITIONS"
+>Definitions</A
+></DT
+><DT
+><A
+HREF="x2037.html"
+>Doubly Linked Lists</A
+></DT
+><DT
+><A
+HREF="x2057.html"
+>Singly Linked Lists</A
+></DT
+><DT
+><A
+HREF="x2061.html"
+>Memory Management</A
+></DT
+><DT
+><A
+HREF="x2078.html"
+>Timers</A
+></DT
+><DT
+><A
+HREF="x2082.html"
+>String Handling</A
+></DT
+><DT
+><A
+HREF="x2097.html"
+>Utility and Error Functions</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c2118.html"
+>GTK's rc Files</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c2118.html#SEC-FUNCTIONSFORRCFILES"
+>Functions For rc Files</A
+></DT
+><DT
+><A
+HREF="x2138.html"
+>GTK's rc File Format</A
+></DT
+><DT
+><A
+HREF="x2179.html"
+>Example rc file</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c2182.html"
+>Writing Your Own Widgets</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c2182.html#SEC-WIDGETSOVERVIEW"
+>Overview</A
+></DT
+><DT
+><A
+HREF="x2191.html"
+>The Anatomy Of A Widget</A
+></DT
+><DT
+><A
+HREF="x2202.html"
+>Creating a Composite widget</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x2202.html#AEN2204"
+>Introduction</A
+></DT
+><DT
+><A
+HREF="x2202.html#AEN2215"
+>Choosing a parent class</A
+></DT
+><DT
+><A
+HREF="x2202.html#AEN2218"
+>The header file</A
+></DT
+><DT
+><A
+HREF="x2202.html#AEN2230"
+>The <TT
+CLASS="LITERAL"
+>_get_type()</TT
+> function</A
+></DT
+><DT
+><A
+HREF="x2202.html#AEN2242"
+>The <TT
+CLASS="LITERAL"
+>_class_init()</TT
+> function</A
+></DT
+><DT
+><A
+HREF="x2202.html#AEN2295"
+>The <TT
+CLASS="LITERAL"
+>_init()</TT
+> function</A
+></DT
+><DT
+><A
+HREF="x2202.html#AEN2300"
+>And the rest...</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x2312.html"
+>Creating a widget from scratch</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x2312.html#AEN2314"
+>Introduction</A
+></DT
+><DT
+><A
+HREF="x2312.html#AEN2321"
+>Displaying a widget on the screen</A
+></DT
+><DT
+><A
+HREF="x2312.html#AEN2354"
+>The origins of the Dial Widget</A
+></DT
+><DT
+><A
+HREF="x2312.html#AEN2358"
+>The Basics</A
+></DT
+><DT
+><A
+HREF="x2312.html#AEN2370"
+><TT
+CLASS="LITERAL"
+>gtk_dial_realize()</TT
+></A
+></DT
+><DT
+><A
+HREF="x2312.html#AEN2379"
+>Size negotiation</A
+></DT
+><DT
+><A
+HREF="x2312.html#AEN2387"
+><TT
+CLASS="LITERAL"
+>gtk_dial_expose()</TT
+></A
+></DT
+><DT
+><A
+HREF="x2312.html#AEN2393"
+>Event handling</A
+></DT
+><DT
+><A
+HREF="x2312.html#AEN2409"
+>Possible Enhancements</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x2421.html"
+>Learning More</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c2424.html"
+>Scribble, A Simple Example Drawing Program</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c2424.html#SEC-SCRIBBLEOVERVIEW"
+>Overview</A
+></DT
+><DT
+><A
+HREF="x2433.html"
+>Event Handling</A
+></DT
+><DT
+><A
+HREF="x2472.html"
+>The DrawingArea Widget, And Drawing</A
+></DT
+><DT
+><A
+HREF="x2531.html"
+>Adding XInput support</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x2531.html#AEN2559"
+>Enabling extended device information</A
+></DT
+><DT
+><A
+HREF="x2531.html#AEN2572"
+>Using extended device information</A
+></DT
+><DT
+><A
+HREF="x2531.html#AEN2590"
+>Finding out more about a device</A
+></DT
+><DT
+><A
+HREF="x2531.html#SEC-FURTHERSOPHISTICATIONS"
+>Further sophistications</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+><A
+HREF="c2617.html"
+>Tips For Writing GTK Applications</A
+></DT
+><DT
+><A
+HREF="c2622.html"
+>Contributing</A
+></DT
+><DT
+><A
+HREF="c2629.html"
+>Credits</A
+></DT
+><DT
+><A
+HREF="c2691.html"
+>Tutorial Copyright and Permissions Notice</A
+></DT
+><DT
+><A
+HREF="a2700.html"
+>GTK Signals</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="a2700.html#SEC-GTKOBJECT"
+>GtkObject</A
+></DT
+><DT
+><A
+HREF="x2706.html"
+>GtkWidget</A
+></DT
+><DT
+><A
+HREF="x2709.html"
+>GtkData</A
+></DT
+><DT
+><A
+HREF="x2712.html"
+>GtkContainer</A
+></DT
+><DT
+><A
+HREF="x2715.html"
+>GtkCalendar</A
+></DT
+><DT
+><A
+HREF="x2718.html"
+>GtkEditable</A
+></DT
+><DT
+><A
+HREF="x2721.html"
+>GtkNotebook</A
+></DT
+><DT
+><A
+HREF="x2724.html"
+>GtkList</A
+></DT
+><DT
+><A
+HREF="x2727.html"
+>GtkMenuShell</A
+></DT
+><DT
+><A
+HREF="x2730.html"
+>GtkToolbar</A
+></DT
+><DT
+><A
+HREF="x2733.html"
+>GtkButton</A
+></DT
+><DT
+><A
+HREF="x2736.html"
+>GtkItem</A
+></DT
+><DT
+><A
+HREF="x2739.html"
+>GtkWindow</A
+></DT
+><DT
+><A
+HREF="x2742.html"
+>GtkHandleBox</A
+></DT
+><DT
+><A
+HREF="x2745.html"
+>GtkToggleButton</A
+></DT
+><DT
+><A
+HREF="x2748.html"
+>GtkMenuItem</A
+></DT
+><DT
+><A
+HREF="x2751.html"
+>GtkCheckMenuItem</A
+></DT
+><DT
+><A
+HREF="x2754.html"
+>GtkInputDialog</A
+></DT
+><DT
+><A
+HREF="x2757.html"
+>GtkColorSelection</A
+></DT
+><DT
+><A
+HREF="x2760.html"
+>GtkStatusBar</A
+></DT
+><DT
+><A
+HREF="x2763.html"
+>GtkCurve</A
+></DT
+><DT
+><A
+HREF="x2766.html"
+>GtkAdjustment</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="a2769.html"
+>GDK Event Types</A
+></DT
+><DT
+><A
+HREF="a2903.html"
+>Code Examples</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="a2903.html#SEC-TICTACTOE"
+>Tictactoe</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="a2903.html#AEN2908"
+>tictactoe.h</A
+></DT
+><DT
+><A
+HREF="a2903.html#AEN2911"
+>tictactoe.c</A
+></DT
+><DT
+><A
+HREF="a2903.html#AEN2914"
+>ttt_test.c</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x2917.html"
+>GtkDial</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x2917.html#AEN2919"
+>gtkdial.h</A
+></DT
+><DT
+><A
+HREF="x2917.html#AEN2922"
+>gtkdial.c</A
+></DT
+><DT
+><A
+HREF="x2917.html#AEN2925"
+>dial_test.c</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="x2928.html"
+>Scribble</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="x2928.html#AEN2930"
+>scribble-simple.c</A
+></DT
+><DT
+><A
+HREF="x2928.html#AEN2933"
+>scribble-xinput.c</A
+></DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="c17.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Tutorial Availability</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

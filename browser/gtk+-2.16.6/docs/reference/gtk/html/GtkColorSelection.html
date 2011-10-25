@@ -1,0 +1,1094 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkColorSelection</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="GTK+ Reference Manual">
+<link rel="up" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="prev" href="GtkColorSelectionDialog.html" title="GtkColorSelectionDialog">
+<link rel="next" href="GtkHSV.html" title="GtkHSV">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="part" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="part" href="gtkobjects.html" title="Part III. GTK+ Widgets and Objects">
+<link rel="chapter" href="ch01.html" title="Object Hierarchy">
+<link rel="chapter" href="ch02.html" title="Widget Gallery">
+<link rel="chapter" href="WindowWidgets.html" title="Windows">
+<link rel="chapter" href="DisplayWidgets.html" title="Display Widgets">
+<link rel="chapter" href="ButtonWidgets.html" title="Buttons and Toggles">
+<link rel="chapter" href="NumericEntry.html" title="Numeric/Text Data Entry">
+<link rel="chapter" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="chapter" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="chapter" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
+<link rel="chapter" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="chapter" href="SelectorWidgets.html" title="Selectors (File/Font/Color/Input Devices)">
+<link rel="chapter" href="LayoutContainers.html" title="Layout Containers">
+<link rel="chapter" href="Ornaments.html" title="Ornaments">
+<link rel="chapter" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="chapter" href="Printing.html" title="Printing">
+<link rel="chapter" href="MiscObjects.html" title="Miscellaneous">
+<link rel="chapter" href="AbstractObjects.html" title="Abstract Base Classes">
+<link rel="chapter" href="PlugSocket.html" title="Cross-process Embedding">
+<link rel="chapter" href="SpecialObjects.html" title="Special-purpose features">
+<link rel="chapter" href="RecentDocuments.html" title="Recently Used Documents">
+<link rel="chapter" href="Builder.html" title="Interface builder">
+<link rel="chapter" href="DeprecatedObjects.html" title="Deprecated">
+<link rel="part" href="migrating.html" title="Part IV. Migrating from Previous Versions of GTK+">
+<link rel="chapter" href="gtk-migrating-checklist.html" title="Migration Checklist">
+<link rel="chapter" href="gtk-migrating-GtkFileChooser.html" title="Migrating from GtkFileSelection to GtkFileChooser">
+<link rel="chapter" href="gtk-migrating-GtkAction.html" title="Migrating from old menu and toolbar systems to GtkAction">
+<link rel="chapter" href="gtk-migrating-GtkComboBox.html" title="Migrating from GtkOptionMenu and GtkCombo to GtkComboBox and GtkComboBoxEntry">
+<link rel="chapter" href="gtk-migrating-GtkIconView.html" title="Migrating from GnomeIconList to GtkIconView">
+<link rel="chapter" href="gtk-migrating-GtkAboutDialog.html" title="Migrating from GnomeAbout to GtkAboutDialog">
+<link rel="chapter" href="gtk-migrating-GtkColorButton.html" title="Migrating from GnomeColorPicker to GtkColorButton">
+<link rel="chapter" href="gtk-migrating-GtkAssistant.html" title="Migrating from GnomeDruid to GtkAssistant">
+<link rel="chapter" href="gtk-migrating-GtkRecentChooser.html" title="Migrating from EggRecent to GtkRecentChooser">
+<link rel="chapter" href="gtk-migrating-GtkLinkButton.html" title="Migrating from GnomeHRef to GtkLinkButton">
+<link rel="chapter" href="gtk-migrating-GtkBuilder.html" title="Migrating from libglade to GtkBuilder">
+<link rel="chapter" href="gtk-migrating-tooltips.html" title="Migrating from GtkTooltips to GtkTooltip">
+<link rel="chapter" href="gtk-migrating-entry-icons.html" title="Migrating from SexyIconEntry to GtkEntry">
+<link rel="part" href="pt05.html" title="Part V. GTK+ Tools">
+<link rel="glossary" href="glossary.html" title="Glossary">
+<link rel="index" href="api-index-full.html" title="Index of all symbols">
+<link rel="index" href="api-index-deprecated.html" title="Index of deprecated symbols">
+<link rel="index" href="api-index-2-2.html" title="Index of new symbols in 2.2">
+<link rel="index" href="api-index-2-4.html" title="Index of new symbols in 2.4">
+<link rel="index" href="api-index-2-6.html" title="Index of new symbols in 2.6">
+<link rel="index" href="api-index-2-8.html" title="Index of new symbols in 2.8">
+<link rel="index" href="api-index-2-10.html" title="Index of new symbols in 2.10">
+<link rel="index" href="api-index-2-12.html" title="Index of new symbols in 2.12">
+<link rel="index" href="api-index-2-14.html" title="Index of new symbols in 2.14">
+<link rel="index" href="api-index-2-16.html" title="Index of new symbols in 2.16">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GtkColorSelectionDialog.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="SelectorWidgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ Reference Manual</th>
+<td><a accesskey="n" href="GtkHSV.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GtkColorSelection.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#GtkColorSelection.description" class="shortcut">Description</a>
+                 | 
+                <a href="#GtkColorSelection.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#GtkColorSelection.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                 | 
+                <a href="#GtkColorSelection.properties" class="shortcut">Properties</a>
+                 | 
+                <a href="#GtkColorSelection.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GtkColorSelection">
+<a name="GtkColorSelection"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkColorSelection.top_of_page"></a>GtkColorSelection</span></h2>
+<p>GtkColorSelection — A widget used to select a color</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GtkColorSelection.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="GtkColorSelection.html#GtkColorSelection-struct" title="GtkColorSelection">GtkColorSelection</a>;
+<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *         <a class="link" href="GtkColorSelection.html#gtk-color-selection-new" title="gtk_color_selection_new ()">gtk_color_selection_new</a>             (void);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-update-policy" title="gtk_color_selection_set_update_policy ()">gtk_color_selection_set_update_policy</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkUpdateType" title="enum GtkUpdateType">GtkUpdateType</a> policy);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-has-opacity-control" title="gtk_color_selection_set_has_opacity_control ()">gtk_color_selection_set_has_opacity_control</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> has_opacity);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-has-opacity-control" title="gtk_color_selection_get_has_opacity_control ()">gtk_color_selection_get_has_opacity_control</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-has-palette" title="gtk_color_selection_set_has_palette ()">gtk_color_selection_set_has_palette</a> (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> has_palette);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-has-palette" title="gtk_color_selection_get_has_palette ()">gtk_color_selection_get_has_palette</a> (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"
+>guint16</a>             <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-current-alpha" title="gtk_color_selection_get_current_alpha ()">gtk_color_selection_get_current_alpha</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-current-alpha" title="gtk_color_selection_set_current_alpha ()">gtk_color_selection_set_current_alpha</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"
+>guint16</a> alpha);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-current-color" title="gtk_color_selection_get_current_color ()">gtk_color_selection_get_current_color</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *color);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-current-color" title="gtk_color_selection_set_current_color ()">gtk_color_selection_set_current_color</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *color);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"
+>guint16</a>             <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-previous-alpha" title="gtk_color_selection_get_previous_alpha ()">gtk_color_selection_get_previous_alpha</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-previous-alpha" title="gtk_color_selection_set_previous_alpha ()">gtk_color_selection_set_previous_alpha</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"
+>guint16</a> alpha);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-previous-color" title="gtk_color_selection_get_previous_color ()">gtk_color_selection_get_previous_color</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *color);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-previous-color" title="gtk_color_selection_set_previous_color ()">gtk_color_selection_set_previous_color</a>
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *color);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkColorSelection.html#gtk-color-selection-is-adjusting" title="gtk_color_selection_is_adjusting ()">gtk_color_selection_is_adjusting</a>    (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GtkColorSelection.html#gtk-color-selection-palette-from-string" title="gtk_color_selection_palette_from_string ()">gtk_color_selection_palette_from_string</a>
+                                                        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *str,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> **colors,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *n_colors);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="GtkColorSelection.html#gtk-color-selection-palette-to-string" title="gtk_color_selection_palette_to_string ()">gtk_color_selection_palette_to_string</a>
+                                                        (const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *colors,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> n_colors);
+<a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteFunc" title="GtkColorSelectionChangePaletteFunc ()">GtkColorSelectionChangePaletteFunc</a>  <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-change-palette-hook" title="gtk_color_selection_set_change_palette_hook ()">gtk_color_selection_set_change_palette_hook</a>
+                                                        (<a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteFunc" title="GtkColorSelectionChangePaletteFunc ()">GtkColorSelectionChangePaletteFunc</a> func);
+void                (<a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteFunc" title="GtkColorSelectionChangePaletteFunc ()">*GtkColorSelectionChangePaletteFunc</a>)
+                                                        (const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *colors,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> n_colors);
+<a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteWithScreenFunc" title="GtkColorSelectionChangePaletteWithScreenFunc ()">GtkColorSelectionChangePaletteWithScreenFunc</a>  <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-change-palette-with-screen-hook" title="gtk_color_selection_set_change_palette_with_screen_hook ()">gtk_color_selection_set_change_palette_with_screen_hook</a>
+                                                        (<a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteWithScreenFunc" title="GtkColorSelectionChangePaletteWithScreenFunc ()">GtkColorSelectionChangePaletteWithScreenFunc</a> func);
+void                (<a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteWithScreenFunc" title="GtkColorSelectionChangePaletteWithScreenFunc ()">*GtkColorSelectionChangePaletteWithScreenFunc</a>)
+                                                        (<a
+href="http://library.gnome.org/devel/gdk/unstable/GdkScreen.html"
+>GdkScreen</a> *screen,
+                                                         const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *colors,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> n_colors);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-color" title="gtk_color_selection_set_color ()">gtk_color_selection_set_color</a>       (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *color);
+void                <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-color" title="gtk_color_selection_get_color ()">gtk_color_selection_get_color</a>       (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *color);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GtkColorSelection.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a class="link" href="GtkObject.html" title="GtkObject">GtkObject</a>
+               +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
+                     +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
+                           +----<a class="link" href="GtkBox.html" title="GtkBox">GtkBox</a>
+                                 +----<a class="link" href="GtkVBox.html" title="GtkVBox">GtkVBox</a>
+                                       +----GtkColorSelection
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GtkColorSelection.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GtkColorSelection implements
+ AtkImplementorIface,  <a class="link" href="gtk-gtkbuildable.html#GtkBuildable">GtkBuildable</a> and  <a class="link" href="gtk-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GtkColorSelection.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkColorSelection.html#GtkColorSelection--current-alpha" title='The "current-alpha" property'>current-alpha</a>"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write
+  "<a class="link" href="GtkColorSelection.html#GtkColorSelection--current-color" title='The "current-color" property'>current-color</a>"            <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a>*             : Read / Write
+  "<a class="link" href="GtkColorSelection.html#GtkColorSelection--has-opacity-control" title='The "has-opacity-control" property'>has-opacity-control</a>"      <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="GtkColorSelection.html#GtkColorSelection--has-palette" title='The "has-palette" property'>has-palette</a>"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GtkColorSelection.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GtkColorSelection.html#GtkColorSelection-color-changed" title='The "color-changed" signal'>color-changed</a>"                                  : Run First
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GtkColorSelection.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> is a widget that is used to select
+a color.  It consists of a color wheel and number of sliders
+and entry boxes for color parameters such as hue, saturation,
+value, red, green, blue, and opacity.  It is found on the standard
+color selection dialog box <a class="link" href="GtkColorSelectionDialog.html" title="GtkColorSelectionDialog"><span class="type">GtkColorSelectionDialog</span></a>.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GtkColorSelection.details"></a><h2>Details</h2>
+<div class="refsect2" title="GtkColorSelection">
+<a name="GtkColorSelection-struct"></a><h3>GtkColorSelection</h3>
+<pre class="programlisting">typedef struct _GtkColorSelection GtkColorSelection;</pre>
+<p>
+The <a class="link" href="GtkColorSelection.html#GtkColorSelection-struct" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> struct contains private data only,
+and should be accessed using the functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_new ()">
+<a name="gtk-color-selection-new"></a><h3>gtk_color_selection_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *         gtk_color_selection_new             (void);</pre>
+<p>
+Creates a new GtkColorSelection.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_update_policy ()">
+<a name="gtk-color-selection-set-update-policy"></a><h3>gtk_color_selection_set_update_policy ()</h3>
+<pre class="programlisting">void                gtk_color_selection_set_update_policy
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a class="link" href="gtk-Standard-Enumerations.html#GtkUpdateType" title="enum GtkUpdateType">GtkUpdateType</a> policy);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_color_selection_set_update_policy</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Sets the policy controlling when the color_changed signals are emitted.
+The available policies are:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+<code class="literal">GTK_UPDATE_CONTINUOUS</code> - signals are sent continuously as the color
+selection changes.
+</p></li>
+<li class="listitem"><p>
+<code class="literal">GTK_UPDATE_DISCONTINUOUS</code> - signals are sent only when the mouse
+button is released.
+</p></li>
+<li class="listitem"><p>
+<code class="literal">GTK_UPDATE_DELAYED</code> - signals are sent when the mouse button is
+released or when the mouse has been motionless for a period of
+time.
+</p></li>
+</ul></div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>policy</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk-Standard-Enumerations.html#GtkUpdateType" title="enum GtkUpdateType"><span class="type">GtkUpdateType</span></a> value indicating the desired policy.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_has_opacity_control ()">
+<a name="gtk-color-selection-set-has-opacity-control"></a><h3>gtk_color_selection_set_has_opacity_control ()</h3>
+<pre class="programlisting">void                gtk_color_selection_set_has_opacity_control
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> has_opacity);</pre>
+<p>
+Sets the <em class="parameter"><code>colorsel</code></em> to use or not use opacity.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>has_opacity</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if <em class="parameter"><code>colorsel</code></em> can set the opacity, <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_get_has_opacity_control ()">
+<a name="gtk-color-selection-get-has-opacity-control"></a><h3>gtk_color_selection_get_has_opacity_control ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_color_selection_get_has_opacity_control
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);</pre>
+<p>
+Determines whether the colorsel has an opacity control.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the <em class="parameter"><code>colorsel</code></em> has an opacity control.  <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> if it does't.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_has_palette ()">
+<a name="gtk-color-selection-set-has-palette"></a><h3>gtk_color_selection_set_has_palette ()</h3>
+<pre class="programlisting">void                gtk_color_selection_set_has_palette (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> has_palette);</pre>
+<p>
+Shows and hides the palette based upon the value of <em class="parameter"><code>has_palette</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>has_palette</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if palette is to be visible, <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_get_has_palette ()">
+<a name="gtk-color-selection-get-has-palette"></a><h3>gtk_color_selection_get_has_palette ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_color_selection_get_has_palette (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);</pre>
+<p>
+Determines whether the color selector has a color palette.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the selector has a palette.  <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a> if it hasn't.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_get_current_alpha ()">
+<a name="gtk-color-selection-get-current-alpha"></a><h3>gtk_color_selection_get_current_alpha ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"
+>guint16</a>             gtk_color_selection_get_current_alpha
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);</pre>
+<p>
+Returns the current alpha value.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an integer between 0 and 65535.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_current_alpha ()">
+<a name="gtk-color-selection-set-current-alpha"></a><h3>gtk_color_selection_set_current_alpha ()</h3>
+<pre class="programlisting">void                gtk_color_selection_set_current_alpha
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"
+>guint16</a> alpha);</pre>
+<p>
+Sets the current opacity to be <em class="parameter"><code>alpha</code></em>.  The first time this is called, it will
+also set the original opacity to be <em class="parameter"><code>alpha</code></em> too.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alpha</code></em> :</span></p></td>
+<td> an integer between 0 and 65535.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_get_current_color ()">
+<a name="gtk-color-selection-get-current-color"></a><h3>gtk_color_selection_get_current_color ()</h3>
+<pre class="programlisting">void                gtk_color_selection_get_current_color
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *color);</pre>
+<p>
+Sets <em class="parameter"><code>color</code></em> to be the current color in the GtkColorSelection widget.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td> a <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+><span class="type">GdkColor</span></a> to fill in with the current color.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_current_color ()">
+<a name="gtk-color-selection-set-current-color"></a><h3>gtk_color_selection_set_current_color ()</h3>
+<pre class="programlisting">void                gtk_color_selection_set_current_color
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *color);</pre>
+<p>
+Sets the current color to be <em class="parameter"><code>color</code></em>.  The first time this is called, it will
+also set the original color to be <em class="parameter"><code>color</code></em> too.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td> A <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+><span class="type">GdkColor</span></a> to set the current color with.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_get_previous_alpha ()">
+<a name="gtk-color-selection-get-previous-alpha"></a><h3>gtk_color_selection_get_previous_alpha ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"
+>guint16</a>             gtk_color_selection_get_previous_alpha
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);</pre>
+<p>
+Returns the previous alpha value.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an integer between 0 and 65535.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_previous_alpha ()">
+<a name="gtk-color-selection-set-previous-alpha"></a><h3>gtk_color_selection_set_previous_alpha ()</h3>
+<pre class="programlisting">void                gtk_color_selection_set_previous_alpha
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"
+>guint16</a> alpha);</pre>
+<p>
+Sets the 'previous' alpha to be <em class="parameter"><code>alpha</code></em>.  This function should be called with
+some hesitations, as it might seem confusing to have that alpha change.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alpha</code></em> :</span></p></td>
+<td> an integer between 0 and 65535.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_get_previous_color ()">
+<a name="gtk-color-selection-get-previous-color"></a><h3>gtk_color_selection_get_previous_color ()</h3>
+<pre class="programlisting">void                gtk_color_selection_get_previous_color
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *color);</pre>
+<p>
+Fills <em class="parameter"><code>color</code></em> in with the original color value.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td> a <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+><span class="type">GdkColor</span></a> to fill in with the original color value.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_previous_color ()">
+<a name="gtk-color-selection-set-previous-color"></a><h3>gtk_color_selection_set_previous_color ()</h3>
+<pre class="programlisting">void                gtk_color_selection_set_previous_color
+                                                        (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *color);</pre>
+<p>
+Sets the 'previous' color to be <em class="parameter"><code>color</code></em>.  This function should be called with
+some hesitations, as it might seem confusing to have that color change.
+Calling <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-current-color" title="gtk_color_selection_set_current_color ()"><code class="function">gtk_color_selection_set_current_color()</code></a> will also set this color the first
+time it is called.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td> a <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+><span class="type">GdkColor</span></a> to set the previous color with.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_is_adjusting ()">
+<a name="gtk-color-selection-is-adjusting"></a><h3>gtk_color_selection_is_adjusting ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_color_selection_is_adjusting    (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel);</pre>
+<p>
+Gets the current state of the <em class="parameter"><code>colorsel</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if the user is currently dragging a color around, and <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE--CAPS"
+><code class="literal">FALSE</code></a>
+if the selection has stopped.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_palette_from_string ()">
+<a name="gtk-color-selection-palette-from-string"></a><h3>gtk_color_selection_palette_from_string ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gtk_color_selection_palette_from_string
+                                                        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *str,
+                                                         <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> **colors,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *n_colors);</pre>
+<p>
+Parses a color palette string; the string is a colon-separated
+list of color names readable by <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#gdk-color-parse"
+><code class="function">gdk_color_parse()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td> a string encoding a color palette.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colors</code></em> :</span></p></td>
+<td> return location for allocated array of <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+><span class="type">GdkColor</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_colors</code></em> :</span></p></td>
+<td> return location for length of array.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a> if a palette was successfully parsed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_palette_to_string ()">
+<a name="gtk-color-selection-palette-to-string"></a><h3>gtk_color_selection_palette_to_string ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*              gtk_color_selection_palette_to_string
+                                                        (const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *colors,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> n_colors);</pre>
+<p>
+Encodes a palette as a string, useful for persistent storage.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colors</code></em> :</span></p></td>
+<td> an array of colors.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_colors</code></em> :</span></p></td>
+<td> length of the array.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> allocated string encoding the palette.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_change_palette_hook ()">
+<a name="gtk-color-selection-set-change-palette-hook"></a><h3>gtk_color_selection_set_change_palette_hook ()</h3>
+<pre class="programlisting"><a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteFunc" title="GtkColorSelectionChangePaletteFunc ()">GtkColorSelectionChangePaletteFunc</a>  gtk_color_selection_set_change_palette_hook
+                                                        (<a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteFunc" title="GtkColorSelectionChangePaletteFunc ()">GtkColorSelectionChangePaletteFunc</a> func);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_color_selection_set_change_palette_hook</code> has been deprecated since version 2.4 and should not be used in newly-written code. This function does not work in multihead environments.
+    Use <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-change-palette-with-screen-hook" title="gtk_color_selection_set_change_palette_with_screen_hook ()"><code class="function">gtk_color_selection_set_change_palette_with_screen_hook()</code></a> instead.</p>
+</div>
+<p>
+Installs a global function to be called whenever the user tries to
+modify the palette in a color selection. This function should save
+the new palette contents, and update the GtkSettings property
+"gtk-color-palette" so all GtkColorSelection widgets will be modified.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> a function to call when the custom palette needs saving.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the previous change palette hook (that was replaced).
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GtkColorSelectionChangePaletteFunc ()">
+<a name="GtkColorSelectionChangePaletteFunc"></a><h3>GtkColorSelectionChangePaletteFunc ()</h3>
+<pre class="programlisting">void                (*GtkColorSelectionChangePaletteFunc)
+                                                        (const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *colors,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> n_colors);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colors</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_colors</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_change_palette_with_screen_hook ()">
+<a name="gtk-color-selection-set-change-palette-with-screen-hook"></a><h3>gtk_color_selection_set_change_palette_with_screen_hook ()</h3>
+<pre class="programlisting"><a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteWithScreenFunc" title="GtkColorSelectionChangePaletteWithScreenFunc ()">GtkColorSelectionChangePaletteWithScreenFunc</a>  gtk_color_selection_set_change_palette_with_screen_hook
+                                                        (<a class="link" href="GtkColorSelection.html#GtkColorSelectionChangePaletteWithScreenFunc" title="GtkColorSelectionChangePaletteWithScreenFunc ()">GtkColorSelectionChangePaletteWithScreenFunc</a> func);</pre>
+<p>
+Installs a global function to be called whenever the user tries to
+modify the palette in a color selection. This function should save
+the new palette contents, and update the GtkSettings property
+"gtk-color-palette" so all GtkColorSelection widgets will be modified.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> a function to call when the custom palette needs saving.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the previous change palette hook (that was replaced).
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.2</p>
+</div>
+<hr>
+<div class="refsect2" title="GtkColorSelectionChangePaletteWithScreenFunc ()">
+<a name="GtkColorSelectionChangePaletteWithScreenFunc"></a><h3>GtkColorSelectionChangePaletteWithScreenFunc ()</h3>
+<pre class="programlisting">void                (*GtkColorSelectionChangePaletteWithScreenFunc)
+                                                        (<a
+href="http://library.gnome.org/devel/gdk/unstable/GdkScreen.html"
+>GdkScreen</a> *screen,
+                                                         const <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a> *colors,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> n_colors);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colors</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_colors</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.2</p>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_set_color ()">
+<a name="gtk-color-selection-set-color"></a><h3>gtk_color_selection_set_color ()</h3>
+<pre class="programlisting">void                gtk_color_selection_set_color       (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *color);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_color_selection_set_color</code> has been deprecated since version 2.0 and should not be used in newly-written code. Use <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-current-color" title="gtk_color_selection_set_current_color ()"><code class="function">gtk_color_selection_set_current_color()</code></a> instead.</p>
+</div>
+<p>
+Sets the current color to be <em class="parameter"><code>color</code></em>.  The first time this is called, it will
+also set the original color to be <em class="parameter"><code>color</code></em> too.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td> an array of 4 doubles specifying the red, green, blue and opacity 
+  to set the current color to.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gtk_color_selection_get_color ()">
+<a name="gtk-color-selection-get-color"></a><h3>gtk_color_selection_get_color ()</h3>
+<pre class="programlisting">void                gtk_color_selection_get_color       (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorsel,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+>gdouble</a> *color);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_color_selection_get_color</code> is deprecated and should not be used in newly-written code. Use <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-current-color" title="gtk_color_selection_get_current_color ()"><code class="function">gtk_color_selection_get_current_color()</code></a> instead.</p>
+</div>
+<p>
+Sets <em class="parameter"><code>color</code></em> to be the current color in the GtkColorSelection widget.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorsel</code></em> :</span></p></td>
+<td> a <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td> an array of 4 <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"
+><span class="type">gdouble</span></a> to fill in with the current color.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GtkColorSelection.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "current-alpha" property'>
+<a name="GtkColorSelection--current-alpha"></a><h3>The <code class="literal">"current-alpha"</code> property</h3>
+<pre class="programlisting">  "current-alpha"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write</pre>
+<p>The current opacity value (0 fully transparent, 65535 fully opaque).</p>
+<p>Allowed values: &lt;= 65535</p>
+<p>Default value: 65535</p>
+</div>
+<hr>
+<div class="refsect2" title='The "current-color" property'>
+<a name="GtkColorSelection--current-color"></a><h3>The <code class="literal">"current-color"</code> property</h3>
+<pre class="programlisting">  "current-color"            <a
+href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"
+>GdkColor</a>*             : Read / Write</pre>
+<p>The current color.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "has-opacity-control" property'>
+<a name="GtkColorSelection--has-opacity-control"></a><h3>The <code class="literal">"has-opacity-control"</code> property</h3>
+<pre class="programlisting">  "has-opacity-control"      <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether the color selector should allow setting opacity.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "has-palette" property'>
+<a name="GtkColorSelection--has-palette"></a><h3>The <code class="literal">"has-palette"</code> property</h3>
+<pre class="programlisting">  "has-palette"              <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether a palette should be used.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GtkColorSelection.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "color-changed" signal'>
+<a name="GtkColorSelection-color-changed"></a><h3>The <code class="literal">"color-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GtkColorSelection.html" title="GtkColorSelection">GtkColorSelection</a> *colorselection,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>           user_data)           : Run First</pre>
+<p>
+This signal is emitted when the color changes in the <a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a>
+according to its update policy.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>colorselection</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>
