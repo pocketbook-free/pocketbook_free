@@ -1,0 +1,84 @@
+ver 1.5:
+	Revert USB changes that broke the ABI.
+	Add more documentation and update manual pages.
+	Add missing files to distribution.
+	Fix obex_object_resume for server side role.
+	Fix security issue when creating file.
+
+ver 1.4:
+	Add OBEX_ObjectGetSpace function.
+	Add OBEX_ObjectGetCommand function.
+	Add Bluetooth support for FreeBSD and NetBSD.
+	Add support for using OBEX over IPv6.
+	Add support for Win32 platform.
+	Fix support for document generation.
+	Fix public visible symbols of the libraries.
+	Fix handling of unexpected data from the server.
+	Fix return value interpretation of obex_object_send.
+	Fix obex_object_resume handling if sending fails.
+	Allow suspending before the first packet has been sent.
+
+ver 1.3:
+	Add support for setting the creation-ID.
+	Updated constants to match IrOBEX 1.3.
+	Replace netbuf implementation with databuffer.
+	Fix segmentation fault when receiving invalid OBEX packets.
+
+ver 1.2:
+	Add OBEX_EV_REQCHECK support.
+	Add support for suspend after sending a header.
+	Add support for empty headers for buggy OBEX servers.
+	Fix memory leak in obex_object_send().
+
+ver 1.1:
+	Fix list of exported functions (Bug 644690).
+	Fix duplicate string from basename() result (Bug 668977).
+	Fix wrong order of sanity checks (Bug 703452).
+	Fix memory leak in send_stream() function.
+	ISO C99 says that inttypes.h includes stdint.h header.
+	Add proper client side ABORT support.
+	Add support for OBEX_SuspendRequest() and OBEX_ResumeRequest().
+	Add USB transport support.
+	Increase the allowed maximum MTU to 64kB-1.
+	Disconnect when an ABORT fails.
+	Make it possible to include headers from C++ source code.
+	Advertise OBEX Protocol Version 1.0.
+
+ver 1.0.1:
+	Make OBEX_TRANS_BLUETOOTH working on Big-endian platform.
+	Add COPYING.LIB for LGPL stuff.
+	Don't auto generate openobex.spec file.
+
+ver 1.0.0:
+	Make 1.0.0-pre5 the final release.
+
+ver 1.0.0-pre5:
+	Add Bluetooth server support.
+	Add OBEX_SetCustomData() and OBEX_GetCustomData().
+	Replace OBEX_GetResponseMessage() with OBEX_ResponseToString().
+
+ver 1.0.0-pre4:
+	Add Bluetooth client support.
+	Change Bluetooth MTU to OBEX_DEFAULT_MTU.
+	Change type of RFCOMM channel to uint8_t.
+	Return static strings from obex_get_response_message().
+	Add OBEX_TRANS_FD support.
+
+ver 1.0.0-pre3:
+	Fix workaround for Bluetooth support, again.
+	Implement correct handling of OBEX_EV_REQDONE.
+	Replace OBEX_TRANS_CUST with OBEX_TRANS_CUSTOM.
+	Remove default prefix statement.
+	Remove GLib dependencies.
+	Change g_htons() into htons().
+
+ver 1.0.0-pre2:
+	Add support for DEBUG and DUMP.
+	Add streaming support and push command.
+	Disable IrDA discovery if a valid IrDA address is supplied.
+	Fix workaround for compilation without Bluetooth support.
+
+ver 1.0.0-pre1:
+	Support for Bluetooth transport layer.
+	Handle unexpected data in continue.
+	Allow higher MTUs.

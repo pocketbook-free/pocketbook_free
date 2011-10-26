@@ -1,0 +1,34 @@
+AC_PREREQ(2.50)
+AC_INIT()
+
+AM_INIT_AUTOMAKE(openobex, 1.5)
+AM_CONFIG_HEADER(config.h)
+
+AM_MAINTAINER_MODE
+
+AC_INIT_OPENOBEX
+
+AC_LANG_C
+
+AC_PROG_CC
+AC_PROG_CC_PIE
+AC_PROG_INSTALL
+
+m4_define([_LT_AC_TAGCONFIG], [])
+m4_ifdef([AC_LIBTOOL_TAGS], [AC_LIBTOOL_TAGS([])])
+
+AC_LIBTOOL_WIN32_DLL
+
+AC_PROG_LIBTOOL
+
+AC_VISIBILITY
+AC_CANONICAL_HOST
+
+AC_PATH_WIN32
+AC_PATH_IRDA
+AC_PATH_BLUETOOTH
+AC_PATH_USB
+
+AC_ARG_OPENOBEX
+
+AC_OUTPUT(Makefile include/Makefile include/openobex/Makefile lib/Makefile glib/Makefile apps/Makefile ircp/Makefile doc/Makefile openobex.pc openobex-glib.pc)

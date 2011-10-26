@@ -1,0 +1,32 @@
+OpenOBEX - Free implementation of the Object Exchange protocol
+**************************************************************
+
+Copyright (C) 1998-2000  Dag Brattli <dagb@cs.uit.no>
+Copyright (C) 1999-2000  Pontus Fuchs <pontus.fuchs@tactel.se>
+Copyright (C) 2001-2002  Jean Tourrilhes <jt@hpl.hp.com>
+Copyright (C) 2002-2008  Marcel Holtmann <marcel@holtmann.org>
+
+
+Compilation and installation
+============================
+
+In order to compile OpenOBEX you need following software packages:
+	- GCC compiler
+
+To configure run:
+	./configure --prefix=/usr
+ 
+Configure automatically searches for all required components and packages. 
+
+To compile and install run:
+	make && make install
+
+
+Information
+===========
+
+Mailing lists:
+	openobex-users@lists.sf.net - OpenOBEX discussions
+
+For additional information about the project visit OpenOBEX web site:
+	http://www.openobex.org

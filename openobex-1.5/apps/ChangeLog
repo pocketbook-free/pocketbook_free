@@ -1,0 +1,56 @@
+2005-08-30  Alex Kanavin  <ak@sensi.org>
+
+	* Add client-side USB support and interface discovery
+
+2002-11-15  Marcel Holtmann  <marcel@holtmann.org>
+
+	* Add Bluetooth server support
+
+2002-11-01  Marcel Holtmann  <marcel@holtmann.org>
+
+	* Add Bluetooth check
+	* Add Bluetooth client support
+
+2002-10-28  Marcel Holtmann  <marcel@holtmann.org>
+
+	* Remove GLib dependencies.
+	* Remove default prefix statement.
+	* Replace OBEX_TRANS_CUST with OBEX_TRANS_CUSTOM.
+
+2002-10-25  Marcel Holtmann  <marcel@holtmann.org>
+
+	* Implement correct handling of OBEX_EV_REQDONE
+
+2002-10-23  Marcel Holtmann  <marcel@holtmann.org>
+
+	* Add streaming support and push command.
+
+2002-10-16  Marcel Holtmann  <marcel@holtmann.org>
+
+	* Cleanup of autoconf/automake stuff.
+	* Fixes for the new API.
+	* Bump version number to 1.0.0
+
+2000-11-21  Pontus Fuchs  <pontus.fuchs@tactel.se>
+
+	* Make sure that win32 makefiles in in archive!
+	* Bumped version to 0.9.7
+
+2000-08-21  Pontus Fuchs  <pontus.fuchs@tactel.se>
+
+	* Fixes to win32 makefiles
+
+2000-08-20  Pontus Fuchs  <pontus.fuchs@tactel.se>
+
+	* Added openobex-check in configure.
+
+2000-08-14  Pontus Fuchs  <pontus.fuchs@tactel.se>
+
+	* Small win32 build changes.
+
+2000-08-13  Pontus Fuchs  <pontus.fuchs@tactel.se>
+
+	* Remade this directory to use autoconf!
+	* Lots of small changes especially to obex_test*
+	* All programs are now using sync mode.
+ 

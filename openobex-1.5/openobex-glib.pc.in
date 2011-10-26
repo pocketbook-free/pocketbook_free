@@ -1,0 +1,12 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+ 
+Name: OpenOBEX
+Description: GLib integration of the Object Exchange protocol
+Version: @VERSION@
+Requires: glib-2.0
+Requires.private: openobex
+Libs: -L${libdir} -lopenobex-glib
+Cflags: -I${includedir}
