@@ -1,0 +1,26 @@
+area-height=12
+area-width=10
+line-00=b \ 0 #   
+line-01=#"# = # \ 
+line-02=\ \  ####^
+line-03=#"# ! <   
+line-04=    _^####
+line-05=#"# /     
+line-06=\   _^    
+line-07=#"#       
+line-08=    _^    
+line-09=#"# \  #"#
+line-10=    _^    
+line-11=xa\!   /\/
+switch-00-00=01-04
+switch-00-02=01-04
+switch-01-08=07-01
+switch-02-00=09-08
+switch-02-02=11-03|00-07
+switch-05-04=01-01
+switch-06-00=11-03|00-07
+switch-09-04=03-01
+switch-11-02=02-09
+switch-11-07=05-01
+switch-11-08=03-04|08-08
+switch-11-09=09-01
