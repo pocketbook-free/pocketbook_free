@@ -1,0 +1,13 @@
+Use this folder to crosscompile libraryes.
+Note: You must modify pkgconfig files in toolchain folder for your environment
+
+To cross compile lib just create a file such as:
+
+#!/bin/sh
+
+. ../setup_fxn.sh
+
+$CC --version
+$CXX --version
+
+./configure --prefix=${INSTALL_PATH} --build=i686-linux --host=arm-none-linux-gnueabi --with-random=/dev/urandom --without-ca-bundle --with-ca-path=/ebrmain/share/ssl/certs && make && make install
