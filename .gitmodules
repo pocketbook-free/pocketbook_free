@@ -35,3 +35,6 @@
 [submodule "obexutil"]
 	path = obexutil
 	url = git://github.com/pocketbook-free/obexutil.git
+[submodule "openobex-1.5"]
+	path = openobex-1.5
+	url = git://github.com/pocketbook-free/openobex-1.5.git
