@@ -29,3 +29,6 @@
 [submodule "libmad-0.15.1b"]
 	path = libmad-0.15.1b
 	url = git://github.com/pocketbook-free/libmad-0.15.1b.git
+[submodule "mpd"]
+	path = mpd
+	url = git://github.com/pocketbook-free/mpd.git
