@@ -23,3 +23,6 @@
 [submodule "fbreader12"]
 	path = fbreader12
 	url = git://github.com/pocketbook-free/fbreader12.git
+[submodule "kernel_070611"]
+	path = kernel_070611
+	url = git://github.com/pocketbook-free/kernel_070611.git
