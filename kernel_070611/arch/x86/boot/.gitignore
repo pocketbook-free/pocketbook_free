@@ -1,8 +1,0 @@
-bootsect
-bzImage
-cpustr.h
-mkcpustr
-offsets.h
-setup
-setup.bin
-setup.elf

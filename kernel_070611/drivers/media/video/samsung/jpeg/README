@@ -1,3 +1,0 @@
-This device driver support both kernel-2-6-16 and kernel-2-6-21.
-You need to modify Makefile to change supporting kernel version.
-Jiun Yu<jiun.yu@samsung.com>

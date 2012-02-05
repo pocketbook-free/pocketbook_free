@@ -1,7 +1,0 @@
-TODO:
-	- checkpatch.pl cleanups
-	- sparse warnings
-	- Lindent cleanups
-	- move to use the in-kernel wireless stack
-
-Please send all patches to Greg Kroah-Hartman <greg@kroah.com>
