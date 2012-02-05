@@ -22,4 +22,4 @@
 	url = git://github.com/pocketbook-free/djviewer.git
 [submodule "fbreader12"]
 	path = fbreader12
-	url = git://github.com/pocketbook-free/smfbreader12.git
+	url = git://github.com/pocketbook-free/fbreader12.git
