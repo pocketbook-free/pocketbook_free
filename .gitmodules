@@ -5,3 +5,6 @@
 [submodule "antiword"]
 	path = antiword
 	url = git://github.com/pocketbook-free/antiword.git
+[submodule "bluez-4.62"]
+	path = bluez-4.62
+	url = git://github.com/pocketbook-free/bluez-4.62.git
