@@ -32,3 +32,6 @@
 [submodule "mpd"]
 	path = mpd
 	url = git://github.com/pocketbook-free/mpd.git
+[submodule "obexutil"]
+	path = obexutil
+	url = git://github.com/pocketbook-free/obexutil.git
