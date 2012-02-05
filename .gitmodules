@@ -11,3 +11,6 @@
 [submodule "browser"]
 	path = browser
 	url = git://github.com/pocketbook-free/browser.git
+[submodule "btauth"]
+	path = btauth
+	url = git://github.com/pocketbook-free/btauth.git
