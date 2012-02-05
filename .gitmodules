@@ -26,3 +26,6 @@
 [submodule "kernel_070611"]
 	path = kernel_070611
 	url = git://github.com/pocketbook-free/kernel_070611.git
+[submodule "libmad-0.15.1b"]
+	path = libmad-0.15.1b
+	url = git://github.com/pocketbook-free/libmad-0.15.1b.git
