@@ -20,3 +20,6 @@
 [submodule "djviewer"]
 	path = djviewer
 	url = git://github.com/pocketbook-free/djviewer.git
+[submodule "fbreader12"]
+	path = fbreader12
+	url = git://github.com/pocketbook-free/smfbreader12.git
