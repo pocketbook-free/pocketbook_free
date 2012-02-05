@@ -1,4 +1,0 @@
-#include <gtk/gtk.h>
-#include <glade/glade.h>
-glade_xml_get_type
-
