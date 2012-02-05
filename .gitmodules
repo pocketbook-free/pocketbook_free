@@ -41,3 +41,6 @@
 [submodule "pdfviewer"]
 	path = pdfviewer
 	url = git://github.com/pocketbook-free/pdfviewer.git
+[submodule "sudoku"]
+	path = sudoku
+	url = git://github.com/pocketbook-free/sudoku.git
