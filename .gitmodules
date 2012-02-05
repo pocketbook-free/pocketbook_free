@@ -17,3 +17,6 @@
 [submodule "chess"]
 	path = chess
 	url = git://github.com/pocketbook-free/chess.git
+[submodule "djviewer"]
+	path = djviewer
+	url = git://github.com/pocketbook-free/djviewer.git
