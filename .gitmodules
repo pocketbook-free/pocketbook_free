@@ -47,3 +47,6 @@
 [submodule "u-boot"]
 	path = u-boot
 	url = git://github.com/pocketbook-free/u-boot.git
+[submodule "FBRearderJ"]
+	path = FBRearderJ
+	url = git://github.com/pocketbook-free/FBRearderJ.git
