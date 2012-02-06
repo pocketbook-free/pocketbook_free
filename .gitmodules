@@ -44,3 +44,6 @@
 [submodule "sudoku"]
 	path = sudoku
 	url = git://github.com/pocketbook-free/sudoku.git
+[submodule "u-boot"]
+	path = u-boot
+	url = git://github.com/pocketbook-free/u-boot.git
