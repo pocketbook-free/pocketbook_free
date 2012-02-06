@@ -50,3 +50,6 @@
 [submodule "FBRearderJ"]
 	path = FBRearderJ
 	url = git://github.com/pocketbook-free/FBRearderJ.git
+[submodule "sdkrelease_1_1a"]
+	path = sdkrelease_1_1a
+	url = git://github.com/pocketbook-free/sdkrelease_1_1a.git
