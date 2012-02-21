@@ -1,7 +1,7 @@
 
 [submodule "alsa-lib-1.0.23"]
 	path = alsa-lib-1.0.23
-	url = git://github.com/pocketbook-free/alsa-lib-1.0.23
+	url = git://github.com/pocketbook-free/alsa-lib-1.0.23.git
 [submodule "antiword"]
 	path = antiword
 	url = git://github.com/pocketbook-free/antiword.git
@@ -53,3 +53,6 @@
 [submodule "sdkrelease_1_1a"]
 	path = sdkrelease_1_1a
 	url = git://github.com/pocketbook-free/sdkrelease_1_1a.git
+[submodule "InkViewDoc"]
+	path = InkViewDoc
+	url = git://github.com/pocketbook-free/InkViewDoc.git
