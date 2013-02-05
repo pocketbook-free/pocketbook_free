@@ -56,3 +56,6 @@
 [submodule "InkViewDoc"]
 	path = InkViewDoc
 	url = git://github.com/pocketbook-free/InkViewDoc.git
+[submodule "kernel_622"]
+	path = kernel_622
+	url = git://github.com/pocketbook-free/kernel_622.git
