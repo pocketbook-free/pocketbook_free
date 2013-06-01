@@ -71,3 +71,6 @@
 [submodule "kernel_623"]
 	path = kernel_623
 	url = git://github.com/pocketbook-free/kernel_623.git
+[submodule "uboot_623"]
+	path = uboot_623
+	url = git://github.com/pocketbook-free/uboot_623.git
