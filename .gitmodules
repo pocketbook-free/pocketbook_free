@@ -74,3 +74,6 @@
 [submodule "uboot_623"]
 	path = uboot_623
 	url = git://github.com/pocketbook-free/uboot_623.git
+[submodule "SDK_481"]
+	path = SDK_481
+	url = git://github.com/pocketbook-free/SDK_481.git
